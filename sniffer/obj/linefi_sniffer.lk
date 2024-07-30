@@ -1,6 +1,7 @@
 -muwx
 -i obj/linefi_sniffer.ihx
 -M
+-Y
 -I 0x0100
 -X 0x0300
 -C 0x4800

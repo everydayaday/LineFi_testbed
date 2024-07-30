@@ -77,7 +77,7 @@ all: $(TARGET).hex
 
 $(HEXDIR)/%.hex: $(OBJDIR)/%.ihx
 	$(S) packihx $^ > $@
-	cp hex/*.hex ~/
+	cp hex/*.hex ~/kjh
 
 $(OBJDIR)/%.ihx: $(OBJ)
 	$(S) $(CC) -o $@ $(LFLAGS) $^

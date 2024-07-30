@@ -1,6 +1,6 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
-; Version 4.2.0 #13081 (Linux)
+; Version 4.0.0 #11528 (Linux)
 ;--------------------------------------------------------
 	.module linefi_packet
 	.optsdcc -mmcs51 --model-small
@@ -515,22 +515,22 @@ _MOSI	=	0x0080
 	.area DSEG    (DATA)
 _gu16Cnt::
 	.ds 2
-_send_linefi_packet_i_65537_54:
+_send_linefi_packet_i_65538_55:
 	.ds 1
 _cp_buf2linefipacket_PARM_2:
 	.ds 3
 _cp_buf2linefipacket_PARM_3:
 	.ds 3
-_cp_buf2linefipacket_i_65538_61:
+_cp_buf2linefipacket_i_65538_62:
 	.ds 1
 _cp_buf2linefipacket_sloc0_1_0:
 	.ds 3
-_print_linefipacket_i_65537_67:
+_print_linefipacket_i_65537_68:
 	.ds 1
 _print_raw_packet_PARM_2:
 	.ds 3
 ;--------------------------------------------------------
-; overlayable items in internal ram
+; overlayable items in internal ram 
 ;--------------------------------------------------------
 	.area	OSEG    (OVR,DATA)
 	.area	OSEG    (OVR,DATA)
@@ -1063,16 +1063,16 @@ _send_octet_to_linefi:
 ;Allocation info for local variables in function 'send_linefi_packet'
 ;------------------------------------------------------------
 ;apstLineFiPkt             Allocated to registers r5 r6 r7 
-;u8CRC                     Allocated to registers r4 
-;pu8Buf                    Allocated to registers r1 r2 r3 
-;i                         Allocated with name '_send_linefi_packet_i_65537_54'
+;u8CRC1                    Allocated to registers r4 
+;pu8Buf                    Allocated to registers r2 r3 r4 
+;i                         Allocated with name '_send_linefi_packet_i_65538_55'
 ;------------------------------------------------------------
 ;	../lib/linefi_packet.c:88: void send_linefi_packet(linefi_packet_t * apstLineFiPkt)
 ;	-----------------------------------------
 ;	 function send_linefi_packet
 ;	-----------------------------------------
 _send_linefi_packet:
-;	../lib/linefi_packet.c:90: uint8 u8CRC = calc_crc_linefi_packet_packet(apstLineFiPkt);
+;	../lib/linefi_packet.c:90: uint8 u8CRC1 = calc_crc_linefi_packet_packet(apstLineFiPkt);
 	mov	r5,dpl
 	mov	r6,dph
 	mov	r7,b
@@ -1084,19 +1084,32 @@ _send_linefi_packet:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	../lib/linefi_packet.c:92: uint8 * pu8Buf = (uint8 *) apstLineFiPkt;
-	mov	ar1,r5
-	mov	ar2,r6
+;	../lib/linefi_packet.c:91: apstLineFiPkt->u8CRC = u8CRC1;
+	mov	a,#0x04
+	add	a,r5
+	mov	r1,a
+	clr	a
+	addc	a,r6
+	mov	r2,a
 	mov	ar3,r7
-;	../lib/linefi_packet.c:93: send_octet_to_linefi(*pu8Buf++);
 	mov	dpl,r1
 	mov	dph,r2
 	mov	b,r3
+	mov	a,r4
+	lcall	__gptrput
+;	../lib/linefi_packet.c:92: uint8 * pu8Buf = (uint8 *) apstLineFiPkt;
+	mov	ar2,r5
+	mov	ar3,r6
+	mov	ar4,r7
+;	../lib/linefi_packet.c:93: send_octet_to_linefi(*pu8Buf++);
+	mov	dpl,r2
+	mov	dph,r3
+	mov	b,r4
 	lcall	__gptrget
 	mov	dpl,a
-	inc	r1
-	cjne	r1,#0x00,00118$
 	inc	r2
+	cjne	r2,#0x00,00118$
+	inc	r3
 00118$:
 	push	ar7
 	push	ar6
@@ -1104,9 +1117,7 @@ _send_linefi_packet:
 	push	ar4
 	push	ar3
 	push	ar2
-	push	ar1
 	lcall	_send_octet_to_linefi
-	pop	ar1
 	pop	ar2
 	pop	ar3
 	pop	ar4
@@ -1114,14 +1125,14 @@ _send_linefi_packet:
 	pop	ar6
 	pop	ar7
 ;	../lib/linefi_packet.c:94: send_octet_to_linefi(*pu8Buf++);
-	mov	dpl,r1
-	mov	dph,r2
-	mov	b,r3
+	mov	dpl,r2
+	mov	dph,r3
+	mov	b,r4
 	lcall	__gptrget
 	mov	dpl,a
-	inc	r1
-	cjne	r1,#0x00,00119$
 	inc	r2
+	cjne	r2,#0x00,00119$
+	inc	r3
 00119$:
 	push	ar7
 	push	ar6
@@ -1129,9 +1140,7 @@ _send_linefi_packet:
 	push	ar4
 	push	ar3
 	push	ar2
-	push	ar1
 	lcall	_send_octet_to_linefi
-	pop	ar1
 	pop	ar2
 	pop	ar3
 	pop	ar4
@@ -1139,37 +1148,55 @@ _send_linefi_packet:
 	pop	ar6
 	pop	ar7
 ;	../lib/linefi_packet.c:95: send_octet_to_linefi(*pu8Buf++);
-	mov	dpl,r1
-	mov	dph,r2
-	mov	b,r3
+	mov	dpl,r2
+	mov	dph,r3
+	mov	b,r4
 	lcall	__gptrget
-	mov	r0,a
-	inc	r1
-	cjne	r1,#0x00,00120$
+	mov	r1,a
 	inc	r2
+	cjne	r2,#0x00,00120$
+	inc	r3
 00120$:
-	mov	dpl,r0
+	mov	dpl,r1
 	push	ar7
 	push	ar6
 	push	ar5
 	push	ar4
 	push	ar3
 	push	ar2
-	push	ar1
 	lcall	_send_octet_to_linefi
-	pop	ar1
 	pop	ar2
 	pop	ar3
+	pop	ar4
+	pop	ar5
+	pop	ar6
+	pop	ar7
 ;	../lib/linefi_packet.c:96: send_octet_to_linefi(*pu8Buf++);
-	mov	dpl,r1
-	mov	dph,r2
-	mov	b,r3
+	mov	dpl,r2
+	mov	dph,r3
+	mov	b,r4
 	lcall	__gptrget
 	mov	dpl,a
+	inc	r2
+	cjne	r2,#0x00,00121$
+	inc	r3
+00121$:
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar4
+	push	ar3
+	push	ar2
 	lcall	_send_octet_to_linefi
+	pop	ar2
+	pop	ar3
 	pop	ar4
-;	../lib/linefi_packet.c:98: send_octet_to_linefi(u8CRC); //CRC
-	mov	dpl,r4
+;	../lib/linefi_packet.c:97: send_octet_to_linefi(*pu8Buf++); //CRC
+	mov	dpl,r2
+	mov	dph,r3
+	mov	b,r4
+	lcall	__gptrget
+	mov	dpl,a
 	lcall	_send_octet_to_linefi
 	pop	ar5
 	pop	ar6
@@ -1188,7 +1215,7 @@ _send_linefi_packet:
 	clr	a
 	addc	a,r6
 	mov	r6,a
-	mov	_send_linefi_packet_i_65537_54,#0x00
+	mov	_send_linefi_packet_i_65538_55,#0x00
 00103$:
 	mov	dpl,r5
 	mov	dph,r6
@@ -1196,7 +1223,7 @@ _send_linefi_packet:
 	lcall	__gptrget
 	mov	r0,a
 	clr	c
-	mov	a,_send_linefi_packet_i_65537_54
+	mov	a,_send_linefi_packet_i_65538_55
 	subb	a,r0
 	jnc	00105$
 ;	../lib/linefi_packet.c:101: send_octet_to_linefi(*(apstLineFiPkt->pu8Data+i));
@@ -1214,7 +1241,7 @@ _send_linefi_packet:
 	inc	dptr
 	lcall	__gptrget
 	mov	r7,a
-	mov	a,_send_linefi_packet_i_65537_54
+	mov	a,_send_linefi_packet_i_65538_55
 	add	a,r0
 	mov	r0,a
 	clr	a
@@ -1239,7 +1266,7 @@ _send_linefi_packet:
 	pop	ar6
 	pop	ar7
 ;	../lib/linefi_packet.c:100: for (i=0;i<apstLineFiPkt->u8Size;i++) {
-	inc	_send_linefi_packet_i_65537_54
+	inc	_send_linefi_packet_i_65538_55
 	pop	ar7
 	pop	ar6
 	pop	ar5
@@ -1254,7 +1281,7 @@ _send_linefi_packet:
 ;apstLineFiPkt             Allocated with name '_cp_buf2linefipacket_PARM_3'
 ;au8Size                   Allocated to registers r7 
 ;pu8Buf                    Allocated to registers r5 r6 r7 
-;i                         Allocated with name '_cp_buf2linefipacket_i_65538_61'
+;i                         Allocated with name '_cp_buf2linefipacket_i_65538_62'
 ;sloc0                     Allocated with name '_cp_buf2linefipacket_sloc0_1_0'
 ;------------------------------------------------------------
 ;	../lib/linefi_packet.c:105: uint8 cp_buf2linefipacket(uint8 au8Size, uint8 * apu8RxBuf, linefi_packet_t * apstLineFiPkt)
@@ -1410,7 +1437,7 @@ _cp_buf2linefipacket:
 	mov	_cp_buf2linefipacket_sloc0_1_0,_cp_buf2linefipacket_PARM_2
 	mov	(_cp_buf2linefipacket_sloc0_1_0 + 1),(_cp_buf2linefipacket_PARM_2 + 1)
 	mov	(_cp_buf2linefipacket_sloc0_1_0 + 2),(_cp_buf2linefipacket_PARM_2 + 2)
-	mov	_cp_buf2linefipacket_i_65538_61,#0x00
+	mov	_cp_buf2linefipacket_i_65538_62,#0x00
 00107$:
 	mov	dpl,r2
 	mov	dph,r3
@@ -1418,7 +1445,7 @@ _cp_buf2linefipacket:
 	lcall	__gptrget
 	mov	r0,a
 	clr	c
-	mov	a,_cp_buf2linefipacket_i_65538_61
+	mov	a,_cp_buf2linefipacket_i_65538_62
 	subb	a,r0
 	jnc	00103$
 ;	../lib/linefi_packet.c:119: apstLineFiPkt->pu8Data[i] = *apu8RxBuf++;
@@ -1443,7 +1470,7 @@ _cp_buf2linefipacket:
 	inc	dptr
 	lcall	__gptrget
 	mov	r4,a
-	mov	a,_cp_buf2linefipacket_i_65538_61
+	mov	a,_cp_buf2linefipacket_i_65538_62
 	add	a,r0
 	mov	r0,a
 	clr	a
@@ -1463,7 +1490,7 @@ _cp_buf2linefipacket:
 	mov	a,r3
 	lcall	__gptrput
 ;	../lib/linefi_packet.c:118: for (i=0;i<apstLineFiPkt->u8Size;i++) {
-	inc	_cp_buf2linefipacket_i_65538_61
+	inc	_cp_buf2linefipacket_i_65538_62
 	pop	ar4
 	pop	ar3
 	pop	ar2
@@ -1488,7 +1515,7 @@ _cp_buf2linefipacket:
 ;Allocation info for local variables in function 'print_linefipacket'
 ;------------------------------------------------------------
 ;apstLineFiPkt             Allocated to registers r5 r6 r7 
-;i                         Allocated with name '_print_linefipacket_i_65537_67'
+;i                         Allocated with name '_print_linefipacket_i_65537_68'
 ;------------------------------------------------------------
 ;	../lib/linefi_packet.c:128: void print_linefipacket(linefi_packet_t * apstLineFiPkt)
 ;	-----------------------------------------
@@ -1710,7 +1737,7 @@ _print_linefipacket:
 	clr	a
 	addc	a,r6
 	mov	r6,a
-	mov	_print_linefipacket_i_65537_67,#0x00
+	mov	_print_linefipacket_i_65537_68,#0x00
 00103$:
 	mov	dpl,r5
 	mov	dph,r6
@@ -1718,7 +1745,7 @@ _print_linefipacket:
 	lcall	__gptrget
 	mov	r0,a
 	clr	c
-	mov	a,_print_linefipacket_i_65537_67
+	mov	a,_print_linefipacket_i_65537_68
 	subb	a,r0
 	jnc	00101$
 ;	../lib/linefi_packet.c:141: printf_fast_f("0x%x ", apstLineFiPkt->pu8Data[i]);
@@ -1736,7 +1763,7 @@ _print_linefipacket:
 	inc	dptr
 	lcall	__gptrget
 	mov	r7,a
-	mov	a,_print_linefipacket_i_65537_67
+	mov	a,_print_linefipacket_i_65537_68
 	add	a,r0
 	mov	r0,a
 	clr	a
@@ -1771,7 +1798,7 @@ _print_linefipacket:
 	pop	ar6
 	pop	ar7
 ;	../lib/linefi_packet.c:140: for (i=0;i<apstLineFiPkt->u8Size;i++) {
-	inc	_print_linefipacket_i_65537_67
+	inc	_print_linefipacket_i_65537_68
 	pop	ar7
 	pop	ar6
 	pop	ar5

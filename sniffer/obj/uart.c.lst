@@ -1,6 +1,6 @@
                                       1 ;--------------------------------------------------------
                                       2 ; File Created by SDCC : free open source ANSI-C Compiler
-                                      3 ; Version 4.2.0 #13081 (Linux)
+                                      3 ; Version 4.0.0 #11528 (Linux)
                                       4 ;--------------------------------------------------------
                                       5 	.module uart
                                       6 	.optsdcc -mmcs51 --model-small
@@ -502,7 +502,7 @@
                                     502 ;--------------------------------------------------------
                                     503 	.area DSEG    (DATA)
                                     504 ;--------------------------------------------------------
-                                    505 ; overlayable items in internal ram
+                                    505 ; overlayable items in internal ram 
                                     506 ;--------------------------------------------------------
                                     507 	.area	OSEG    (OVR,DATA)
                                     508 	.area	OSEG    (OVR,DATA)

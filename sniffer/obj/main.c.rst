@@ -1,6 +1,6 @@
                                       1 ;--------------------------------------------------------
                                       2 ; File Created by SDCC : free open source ANSI-C Compiler
-                                      3 ; Version 4.2.0 #13081 (Linux)
+                                      3 ; Version 4.0.0 #11528 (Linux)
                                       4 ;--------------------------------------------------------
                                       5 	.module main
                                       6 	.optsdcc -mmcs51 --model-small
@@ -35,3801 +35,3789 @@
                                      35 	.globl _Write_APROM_BYTE
                                      36 	.globl _Erase_APROM_Page
                                      37 	.globl _print_raw_packet
-                                     38 	.globl _print_linefipacket
-                                     39 	.globl _cp_buf2linefipacket
-                                     40 	.globl _uart_setup
-                                     41 	.globl _Receive_Data_From_UART1_nb
-                                     42 	.globl _Receive_Data_From_UART0_nb
-                                     43 	.globl _InitialUART1_Timer3
-                                     44 	.globl _printf_fast_f
-                                     45 	.globl _MOSI
-                                     46 	.globl _P00
-                                     47 	.globl _MISO
-                                     48 	.globl _P01
-                                     49 	.globl _RXD_1
-                                     50 	.globl _P02
-                                     51 	.globl _P03
-                                     52 	.globl _STADC
-                                     53 	.globl _P04
-                                     54 	.globl _P05
-                                     55 	.globl _TXD
-                                     56 	.globl _P06
-                                     57 	.globl _RXD
-                                     58 	.globl _P07
-                                     59 	.globl _IT0
-                                     60 	.globl _IE0
-                                     61 	.globl _IT1
-                                     62 	.globl _IE1
-                                     63 	.globl _TR0
-                                     64 	.globl _TF0
-                                     65 	.globl _TR1
-                                     66 	.globl _TF1
-                                     67 	.globl _P10
-                                     68 	.globl _P11
-                                     69 	.globl _P12
-                                     70 	.globl _SCL
-                                     71 	.globl _P13
-                                     72 	.globl _SDA
-                                     73 	.globl _P14
-                                     74 	.globl _P15
-                                     75 	.globl _TXD_1
-                                     76 	.globl _P16
-                                     77 	.globl _P17
-                                     78 	.globl _RI
-                                     79 	.globl _TI
-                                     80 	.globl _RB8
-                                     81 	.globl _TB8
-                                     82 	.globl _REN
-                                     83 	.globl _SM2
-                                     84 	.globl _SM1
-                                     85 	.globl _FE
-                                     86 	.globl _SM0
-                                     87 	.globl _P20
-                                     88 	.globl _EX0
-                                     89 	.globl _ET0
-                                     90 	.globl _EX1
-                                     91 	.globl _ET1
-                                     92 	.globl _ES
-                                     93 	.globl _EBOD
-                                     94 	.globl _EADC
-                                     95 	.globl _EA
-                                     96 	.globl _P30
-                                     97 	.globl _PX0
-                                     98 	.globl _PT0
-                                     99 	.globl _PX1
-                                    100 	.globl _PT1
-                                    101 	.globl _PS
-                                    102 	.globl _PBOD
-                                    103 	.globl _PADC
-                                    104 	.globl _I2CPX
-                                    105 	.globl _AA
-                                    106 	.globl _SI
-                                    107 	.globl _STO
-                                    108 	.globl _STA
-                                    109 	.globl _I2CEN
-                                    110 	.globl _CM_RL2
-                                    111 	.globl _TR2
-                                    112 	.globl _TF2
-                                    113 	.globl _P
-                                    114 	.globl _OV
-                                    115 	.globl _RS0
-                                    116 	.globl _RS1
-                                    117 	.globl _F0
-                                    118 	.globl _AC
-                                    119 	.globl _CY
-                                    120 	.globl _CLRPWM
-                                    121 	.globl _PWMF
-                                    122 	.globl _LOAD
-                                    123 	.globl _PWMRUN
-                                    124 	.globl _ADCHS0
-                                    125 	.globl _ADCHS1
-                                    126 	.globl _ADCHS2
-                                    127 	.globl _ADCHS3
-                                    128 	.globl _ETGSEL0
-                                    129 	.globl _ETGSEL1
-                                    130 	.globl _ADCS
-                                    131 	.globl _ADCF
-                                    132 	.globl _RI_1
-                                    133 	.globl _TI_1
-                                    134 	.globl _RB8_1
-                                    135 	.globl _TB8_1
-                                    136 	.globl _REN_1
-                                    137 	.globl _SM2_1
-                                    138 	.globl _SM1_1
-                                    139 	.globl _FE_1
-                                    140 	.globl _SM0_1
-                                    141 	.globl _EIPH1
-                                    142 	.globl _EIP1
-                                    143 	.globl _PMD
-                                    144 	.globl _PMEN
-                                    145 	.globl _PDTCNT
-                                    146 	.globl _PDTEN
-                                    147 	.globl _SCON_1
-                                    148 	.globl _EIPH
-                                    149 	.globl _AINDIDS
-                                    150 	.globl _SPDR
-                                    151 	.globl _SPSR
-                                    152 	.globl _SPCR2
-                                    153 	.globl _SPCR
-                                    154 	.globl _CAPCON4
-                                    155 	.globl _CAPCON3
-                                    156 	.globl _B
-                                    157 	.globl _EIP
-                                    158 	.globl _C2H
-                                    159 	.globl _C2L
-                                    160 	.globl _PIF
-                                    161 	.globl _PIPEN
-                                    162 	.globl _PINEN
-                                    163 	.globl _PICON
-                                    164 	.globl _ADCCON0
-                                    165 	.globl _C1H
-                                    166 	.globl _C1L
-                                    167 	.globl _C0H
-                                    168 	.globl _C0L
-                                    169 	.globl _ADCDLY
-                                    170 	.globl _ADCCON2
-                                    171 	.globl _ADCCON1
-                                    172 	.globl _ACC
-                                    173 	.globl _PWMCON1
-                                    174 	.globl _PIOCON0
-                                    175 	.globl _PWM3L
-                                    176 	.globl _PWM2L
-                                    177 	.globl _PWM1L
-                                    178 	.globl _PWM0L
-                                    179 	.globl _PWMPL
-                                    180 	.globl _PWMCON0
-                                    181 	.globl _FBD
-                                    182 	.globl _PNP
-                                    183 	.globl _PWM3H
-                                    184 	.globl _PWM2H
-                                    185 	.globl _PWM1H
-                                    186 	.globl _PWM0H
-                                    187 	.globl _PWMPH
-                                    188 	.globl _PSW
-                                    189 	.globl _ADCMPH
-                                    190 	.globl _ADCMPL
-                                    191 	.globl _PWM5L
-                                    192 	.globl _TH2
-                                    193 	.globl _PWM4L
-                                    194 	.globl _TL2
-                                    195 	.globl _RCMP2H
-                                    196 	.globl _RCMP2L
-                                    197 	.globl _T2MOD
-                                    198 	.globl _T2CON
-                                    199 	.globl _TA
-                                    200 	.globl _PIOCON1
-                                    201 	.globl _RH3
-                                    202 	.globl _PWM5H
-                                    203 	.globl _RL3
-                                    204 	.globl _PWM4H
-                                    205 	.globl _T3CON
-                                    206 	.globl _ADCRH
-                                    207 	.globl _ADCRL
-                                    208 	.globl _I2ADDR
-                                    209 	.globl _I2CON
-                                    210 	.globl _I2TOC
-                                    211 	.globl _I2CLK
-                                    212 	.globl _I2STAT
-                                    213 	.globl _I2DAT
-                                    214 	.globl _SADDR_1
-                                    215 	.globl _SADEN_1
-                                    216 	.globl _SADEN
-                                    217 	.globl _IP
-                                    218 	.globl _PWMINTC
-                                    219 	.globl _IPH
-                                    220 	.globl _P2S
-                                    221 	.globl _P1SR
-                                    222 	.globl _P1M2
-                                    223 	.globl _P1S
-                                    224 	.globl _P1M1
-                                    225 	.globl _P0SR
-                                    226 	.globl _P0M2
-                                    227 	.globl _P0S
-                                    228 	.globl _P0M1
-                                    229 	.globl _P3
-                                    230 	.globl _IAPCN
-                                    231 	.globl _IAPFD
-                                    232 	.globl _P3SR
-                                    233 	.globl _P3M2
-                                    234 	.globl _P3S
-                                    235 	.globl _P3M1
-                                    236 	.globl _BODCON1
-                                    237 	.globl _WDCON
-                                    238 	.globl _SADDR
-                                    239 	.globl _IE
-                                    240 	.globl _IAPAH
-                                    241 	.globl _IAPAL
-                                    242 	.globl _IAPUEN
-                                    243 	.globl _IAPTRG
-                                    244 	.globl _BODCON0
-                                    245 	.globl _AUXR1
-                                    246 	.globl _P2
-                                    247 	.globl _CHPCON
-                                    248 	.globl _EIE1
-                                    249 	.globl _EIE
-                                    250 	.globl _SBUF_1
-                                    251 	.globl _SBUF
-                                    252 	.globl _SCON
-                                    253 	.globl _CKEN
-                                    254 	.globl _CKSWT
-                                    255 	.globl _CKDIV
-                                    256 	.globl _CAPCON2
-                                    257 	.globl _CAPCON1
-                                    258 	.globl _CAPCON0
-                                    259 	.globl _SFRS
-                                    260 	.globl _P1
-                                    261 	.globl _WKCON
-                                    262 	.globl _CKCON
-                                    263 	.globl _TH1
-                                    264 	.globl _TH0
-                                    265 	.globl _TL1
-                                    266 	.globl _TL0
-                                    267 	.globl _TMOD
-                                    268 	.globl _TCON
-                                    269 	.globl _PCON
-                                    270 	.globl _RWK
-                                    271 	.globl _RCTRIM1
-                                    272 	.globl _RCTRIM0
-                                    273 	.globl _DPH
-                                    274 	.globl _DPL
-                                    275 	.globl _SP
-                                    276 	.globl _P0
-                                    277 	.globl _gpu32UartSpeed
-                                    278 	.globl _gpu8Data
-                                    279 	.globl _state_machine_PARM_4
-                                    280 	.globl _state_machine_PARM_3
-                                    281 	.globl _state_machine_PARM_2
-                                    282 	.globl _gu16TimeCnt
-                                    283 	.globl _gu8UART
-                                    284 	.globl _gu8MyAddr
-                                    285 	.globl _putchar
-                                    286 ;--------------------------------------------------------
-                                    287 ; special function registers
-                                    288 ;--------------------------------------------------------
-                                    289 	.area RSEG    (ABS,DATA)
-      000000                        290 	.org 0x0000
-                           000080   291 _P0	=	0x0080
-                           000081   292 _SP	=	0x0081
-                           000082   293 _DPL	=	0x0082
-                           000083   294 _DPH	=	0x0083
-                           000084   295 _RCTRIM0	=	0x0084
-                           000085   296 _RCTRIM1	=	0x0085
-                           000086   297 _RWK	=	0x0086
-                           000087   298 _PCON	=	0x0087
-                           000088   299 _TCON	=	0x0088
-                           000089   300 _TMOD	=	0x0089
-                           00008A   301 _TL0	=	0x008a
-                           00008B   302 _TL1	=	0x008b
-                           00008C   303 _TH0	=	0x008c
-                           00008D   304 _TH1	=	0x008d
-                           00008E   305 _CKCON	=	0x008e
-                           00008F   306 _WKCON	=	0x008f
-                           000090   307 _P1	=	0x0090
-                           000091   308 _SFRS	=	0x0091
-                           000092   309 _CAPCON0	=	0x0092
-                           000093   310 _CAPCON1	=	0x0093
-                           000094   311 _CAPCON2	=	0x0094
-                           000095   312 _CKDIV	=	0x0095
-                           000096   313 _CKSWT	=	0x0096
-                           000097   314 _CKEN	=	0x0097
-                           000098   315 _SCON	=	0x0098
-                           000099   316 _SBUF	=	0x0099
-                           00009A   317 _SBUF_1	=	0x009a
-                           00009B   318 _EIE	=	0x009b
-                           00009C   319 _EIE1	=	0x009c
-                           00009F   320 _CHPCON	=	0x009f
-                           0000A0   321 _P2	=	0x00a0
-                           0000A2   322 _AUXR1	=	0x00a2
-                           0000A3   323 _BODCON0	=	0x00a3
-                           0000A4   324 _IAPTRG	=	0x00a4
-                           0000A5   325 _IAPUEN	=	0x00a5
-                           0000A6   326 _IAPAL	=	0x00a6
-                           0000A7   327 _IAPAH	=	0x00a7
-                           0000A8   328 _IE	=	0x00a8
-                           0000A9   329 _SADDR	=	0x00a9
-                           0000AA   330 _WDCON	=	0x00aa
-                           0000AB   331 _BODCON1	=	0x00ab
-                           0000AC   332 _P3M1	=	0x00ac
-                           0000AC   333 _P3S	=	0x00ac
-                           0000AD   334 _P3M2	=	0x00ad
-                           0000AD   335 _P3SR	=	0x00ad
-                           0000AE   336 _IAPFD	=	0x00ae
-                           0000AF   337 _IAPCN	=	0x00af
-                           0000B0   338 _P3	=	0x00b0
-                           0000B1   339 _P0M1	=	0x00b1
-                           0000B1   340 _P0S	=	0x00b1
-                           0000B2   341 _P0M2	=	0x00b2
-                           0000B2   342 _P0SR	=	0x00b2
-                           0000B3   343 _P1M1	=	0x00b3
-                           0000B3   344 _P1S	=	0x00b3
-                           0000B4   345 _P1M2	=	0x00b4
-                           0000B4   346 _P1SR	=	0x00b4
-                           0000B5   347 _P2S	=	0x00b5
-                           0000B7   348 _IPH	=	0x00b7
-                           0000B7   349 _PWMINTC	=	0x00b7
-                           0000B8   350 _IP	=	0x00b8
-                           0000B9   351 _SADEN	=	0x00b9
-                           0000BA   352 _SADEN_1	=	0x00ba
-                           0000BB   353 _SADDR_1	=	0x00bb
-                           0000BC   354 _I2DAT	=	0x00bc
-                           0000BD   355 _I2STAT	=	0x00bd
-                           0000BE   356 _I2CLK	=	0x00be
-                           0000BF   357 _I2TOC	=	0x00bf
-                           0000C0   358 _I2CON	=	0x00c0
-                           0000C1   359 _I2ADDR	=	0x00c1
-                           0000C2   360 _ADCRL	=	0x00c2
-                           0000C3   361 _ADCRH	=	0x00c3
-                           0000C4   362 _T3CON	=	0x00c4
-                           0000C4   363 _PWM4H	=	0x00c4
-                           0000C5   364 _RL3	=	0x00c5
-                           0000C5   365 _PWM5H	=	0x00c5
-                           0000C6   366 _RH3	=	0x00c6
-                           0000C6   367 _PIOCON1	=	0x00c6
-                           0000C7   368 _TA	=	0x00c7
-                           0000C8   369 _T2CON	=	0x00c8
-                           0000C9   370 _T2MOD	=	0x00c9
-                           0000CA   371 _RCMP2L	=	0x00ca
-                           0000CB   372 _RCMP2H	=	0x00cb
-                           0000CC   373 _TL2	=	0x00cc
-                           0000CC   374 _PWM4L	=	0x00cc
-                           0000CD   375 _TH2	=	0x00cd
-                           0000CD   376 _PWM5L	=	0x00cd
-                           0000CE   377 _ADCMPL	=	0x00ce
-                           0000CF   378 _ADCMPH	=	0x00cf
-                           0000D0   379 _PSW	=	0x00d0
-                           0000D1   380 _PWMPH	=	0x00d1
-                           0000D2   381 _PWM0H	=	0x00d2
-                           0000D3   382 _PWM1H	=	0x00d3
-                           0000D4   383 _PWM2H	=	0x00d4
-                           0000D5   384 _PWM3H	=	0x00d5
-                           0000D6   385 _PNP	=	0x00d6
-                           0000D7   386 _FBD	=	0x00d7
-                           0000D8   387 _PWMCON0	=	0x00d8
-                           0000D9   388 _PWMPL	=	0x00d9
-                           0000DA   389 _PWM0L	=	0x00da
-                           0000DB   390 _PWM1L	=	0x00db
-                           0000DC   391 _PWM2L	=	0x00dc
-                           0000DD   392 _PWM3L	=	0x00dd
-                           0000DE   393 _PIOCON0	=	0x00de
-                           0000DF   394 _PWMCON1	=	0x00df
-                           0000E0   395 _ACC	=	0x00e0
-                           0000E1   396 _ADCCON1	=	0x00e1
-                           0000E2   397 _ADCCON2	=	0x00e2
-                           0000E3   398 _ADCDLY	=	0x00e3
-                           0000E4   399 _C0L	=	0x00e4
-                           0000E5   400 _C0H	=	0x00e5
-                           0000E6   401 _C1L	=	0x00e6
-                           0000E7   402 _C1H	=	0x00e7
-                           0000E8   403 _ADCCON0	=	0x00e8
-                           0000E9   404 _PICON	=	0x00e9
-                           0000EA   405 _PINEN	=	0x00ea
-                           0000EB   406 _PIPEN	=	0x00eb
-                           0000EC   407 _PIF	=	0x00ec
-                           0000ED   408 _C2L	=	0x00ed
-                           0000EE   409 _C2H	=	0x00ee
-                           0000EF   410 _EIP	=	0x00ef
-                           0000F0   411 _B	=	0x00f0
-                           0000F1   412 _CAPCON3	=	0x00f1
-                           0000F2   413 _CAPCON4	=	0x00f2
-                           0000F3   414 _SPCR	=	0x00f3
-                           0000F3   415 _SPCR2	=	0x00f3
-                           0000F4   416 _SPSR	=	0x00f4
-                           0000F5   417 _SPDR	=	0x00f5
-                           0000F6   418 _AINDIDS	=	0x00f6
-                           0000F7   419 _EIPH	=	0x00f7
-                           0000F8   420 _SCON_1	=	0x00f8
-                           0000F9   421 _PDTEN	=	0x00f9
-                           0000FA   422 _PDTCNT	=	0x00fa
-                           0000FB   423 _PMEN	=	0x00fb
-                           0000FC   424 _PMD	=	0x00fc
-                           0000FE   425 _EIP1	=	0x00fe
-                           0000FF   426 _EIPH1	=	0x00ff
-                                    427 ;--------------------------------------------------------
-                                    428 ; special function bits
-                                    429 ;--------------------------------------------------------
-                                    430 	.area RSEG    (ABS,DATA)
-      000000                        431 	.org 0x0000
-                           0000FF   432 _SM0_1	=	0x00ff
-                           0000FF   433 _FE_1	=	0x00ff
-                           0000FE   434 _SM1_1	=	0x00fe
-                           0000FD   435 _SM2_1	=	0x00fd
-                           0000FC   436 _REN_1	=	0x00fc
-                           0000FB   437 _TB8_1	=	0x00fb
-                           0000FA   438 _RB8_1	=	0x00fa
-                           0000F9   439 _TI_1	=	0x00f9
-                           0000F8   440 _RI_1	=	0x00f8
-                           0000EF   441 _ADCF	=	0x00ef
-                           0000EE   442 _ADCS	=	0x00ee
-                           0000ED   443 _ETGSEL1	=	0x00ed
-                           0000EC   444 _ETGSEL0	=	0x00ec
-                           0000EB   445 _ADCHS3	=	0x00eb
-                           0000EA   446 _ADCHS2	=	0x00ea
-                           0000E9   447 _ADCHS1	=	0x00e9
-                           0000E8   448 _ADCHS0	=	0x00e8
-                           0000DF   449 _PWMRUN	=	0x00df
-                           0000DE   450 _LOAD	=	0x00de
-                           0000DD   451 _PWMF	=	0x00dd
-                           0000DC   452 _CLRPWM	=	0x00dc
-                           0000D7   453 _CY	=	0x00d7
-                           0000D6   454 _AC	=	0x00d6
-                           0000D5   455 _F0	=	0x00d5
-                           0000D4   456 _RS1	=	0x00d4
-                           0000D3   457 _RS0	=	0x00d3
-                           0000D2   458 _OV	=	0x00d2
-                           0000D0   459 _P	=	0x00d0
-                           0000CF   460 _TF2	=	0x00cf
-                           0000CA   461 _TR2	=	0x00ca
-                           0000C8   462 _CM_RL2	=	0x00c8
-                           0000C6   463 _I2CEN	=	0x00c6
-                           0000C5   464 _STA	=	0x00c5
-                           0000C4   465 _STO	=	0x00c4
-                           0000C3   466 _SI	=	0x00c3
-                           0000C2   467 _AA	=	0x00c2
-                           0000C0   468 _I2CPX	=	0x00c0
-                           0000BE   469 _PADC	=	0x00be
-                           0000BD   470 _PBOD	=	0x00bd
-                           0000BC   471 _PS	=	0x00bc
-                           0000BB   472 _PT1	=	0x00bb
-                           0000BA   473 _PX1	=	0x00ba
-                           0000B9   474 _PT0	=	0x00b9
-                           0000B8   475 _PX0	=	0x00b8
-                           0000B0   476 _P30	=	0x00b0
-                           0000AF   477 _EA	=	0x00af
-                           0000AE   478 _EADC	=	0x00ae
-                           0000AD   479 _EBOD	=	0x00ad
-                           0000AC   480 _ES	=	0x00ac
-                           0000AB   481 _ET1	=	0x00ab
-                           0000AA   482 _EX1	=	0x00aa
-                           0000A9   483 _ET0	=	0x00a9
-                           0000A8   484 _EX0	=	0x00a8
-                           0000A0   485 _P20	=	0x00a0
-                           00009F   486 _SM0	=	0x009f
-                           00009F   487 _FE	=	0x009f
-                           00009E   488 _SM1	=	0x009e
-                           00009D   489 _SM2	=	0x009d
-                           00009C   490 _REN	=	0x009c
-                           00009B   491 _TB8	=	0x009b
-                           00009A   492 _RB8	=	0x009a
-                           000099   493 _TI	=	0x0099
-                           000098   494 _RI	=	0x0098
-                           000097   495 _P17	=	0x0097
-                           000096   496 _P16	=	0x0096
-                           000096   497 _TXD_1	=	0x0096
-                           000095   498 _P15	=	0x0095
-                           000094   499 _P14	=	0x0094
-                           000094   500 _SDA	=	0x0094
-                           000093   501 _P13	=	0x0093
-                           000093   502 _SCL	=	0x0093
-                           000092   503 _P12	=	0x0092
-                           000091   504 _P11	=	0x0091
-                           000090   505 _P10	=	0x0090
-                           00008F   506 _TF1	=	0x008f
-                           00008E   507 _TR1	=	0x008e
-                           00008D   508 _TF0	=	0x008d
-                           00008C   509 _TR0	=	0x008c
-                           00008B   510 _IE1	=	0x008b
-                           00008A   511 _IT1	=	0x008a
-                           000089   512 _IE0	=	0x0089
-                           000088   513 _IT0	=	0x0088
-                           000087   514 _P07	=	0x0087
-                           000087   515 _RXD	=	0x0087
-                           000086   516 _P06	=	0x0086
-                           000086   517 _TXD	=	0x0086
-                           000085   518 _P05	=	0x0085
-                           000084   519 _P04	=	0x0084
-                           000084   520 _STADC	=	0x0084
-                           000083   521 _P03	=	0x0083
-                           000082   522 _P02	=	0x0082
-                           000082   523 _RXD_1	=	0x0082
-                           000081   524 _P01	=	0x0081
-                           000081   525 _MISO	=	0x0081
-                           000080   526 _P00	=	0x0080
-                           000080   527 _MOSI	=	0x0080
-                                    528 ;--------------------------------------------------------
-                                    529 ; overlayable register banks
-                                    530 ;--------------------------------------------------------
-                                    531 	.area REG_BANK_0	(REL,OVR,DATA)
-      000000                        532 	.ds 8
-                                    533 	.area REG_BANK_1	(REL,OVR,DATA)
-      000008                        534 	.ds 8
-                                    535 ;--------------------------------------------------------
-                                    536 ; internal ram data
-                                    537 ;--------------------------------------------------------
-                                    538 	.area DSEG    (DATA)
-      000021                        539 _gu8MyAddr::
-      000021                        540 	.ds 1
-      000022                        541 _gu8UART::
-      000022                        542 	.ds 1
-      000023                        543 _gu16TimeCnt::
-      000023                        544 	.ds 2
-      000025                        545 _state_machine_PARM_2:
-      000025                        546 	.ds 1
-      000026                        547 _state_machine_PARM_3:
-      000026                        548 	.ds 1
-      000027                        549 _state_machine_PARM_4:
-      000027                        550 	.ds 1
-      000028                        551 _state_switches_su8PrevSW_65536_96:
-      000028                        552 	.ds 1
-      000029                        553 _process_my_packet_sloc0_1_0:
-      000029                        554 	.ds 3
-      00002C                        555 _main_su8Cnt_262145_138:
-      00002C                        556 	.ds 1
-      00002D                        557 _main_u8RxUART_65536_128:
-      00002D                        558 	.ds 1
-      00002E                        559 _main_stLineFiPkt_65536_128:
-      00002E                        560 	.ds 8
-      000036                        561 _main_pu8LineFiRx_65536_128:
-      000036                        562 	.ds 10
-                                    563 ;--------------------------------------------------------
-                                    564 ; overlayable items in internal ram
-                                    565 ;--------------------------------------------------------
+                                     38 	.globl _cp_buf2linefipacket
+                                     39 	.globl _uart_setup
+                                     40 	.globl _Receive_Data_From_UART1_nb
+                                     41 	.globl _Receive_Data_From_UART0_nb
+                                     42 	.globl _InitialUART1_Timer3
+                                     43 	.globl _printf_fast_f
+                                     44 	.globl _MOSI
+                                     45 	.globl _P00
+                                     46 	.globl _MISO
+                                     47 	.globl _P01
+                                     48 	.globl _RXD_1
+                                     49 	.globl _P02
+                                     50 	.globl _P03
+                                     51 	.globl _STADC
+                                     52 	.globl _P04
+                                     53 	.globl _P05
+                                     54 	.globl _TXD
+                                     55 	.globl _P06
+                                     56 	.globl _RXD
+                                     57 	.globl _P07
+                                     58 	.globl _IT0
+                                     59 	.globl _IE0
+                                     60 	.globl _IT1
+                                     61 	.globl _IE1
+                                     62 	.globl _TR0
+                                     63 	.globl _TF0
+                                     64 	.globl _TR1
+                                     65 	.globl _TF1
+                                     66 	.globl _P10
+                                     67 	.globl _P11
+                                     68 	.globl _P12
+                                     69 	.globl _SCL
+                                     70 	.globl _P13
+                                     71 	.globl _SDA
+                                     72 	.globl _P14
+                                     73 	.globl _P15
+                                     74 	.globl _TXD_1
+                                     75 	.globl _P16
+                                     76 	.globl _P17
+                                     77 	.globl _RI
+                                     78 	.globl _TI
+                                     79 	.globl _RB8
+                                     80 	.globl _TB8
+                                     81 	.globl _REN
+                                     82 	.globl _SM2
+                                     83 	.globl _SM1
+                                     84 	.globl _FE
+                                     85 	.globl _SM0
+                                     86 	.globl _P20
+                                     87 	.globl _EX0
+                                     88 	.globl _ET0
+                                     89 	.globl _EX1
+                                     90 	.globl _ET1
+                                     91 	.globl _ES
+                                     92 	.globl _EBOD
+                                     93 	.globl _EADC
+                                     94 	.globl _EA
+                                     95 	.globl _P30
+                                     96 	.globl _PX0
+                                     97 	.globl _PT0
+                                     98 	.globl _PX1
+                                     99 	.globl _PT1
+                                    100 	.globl _PS
+                                    101 	.globl _PBOD
+                                    102 	.globl _PADC
+                                    103 	.globl _I2CPX
+                                    104 	.globl _AA
+                                    105 	.globl _SI
+                                    106 	.globl _STO
+                                    107 	.globl _STA
+                                    108 	.globl _I2CEN
+                                    109 	.globl _CM_RL2
+                                    110 	.globl _TR2
+                                    111 	.globl _TF2
+                                    112 	.globl _P
+                                    113 	.globl _OV
+                                    114 	.globl _RS0
+                                    115 	.globl _RS1
+                                    116 	.globl _F0
+                                    117 	.globl _AC
+                                    118 	.globl _CY
+                                    119 	.globl _CLRPWM
+                                    120 	.globl _PWMF
+                                    121 	.globl _LOAD
+                                    122 	.globl _PWMRUN
+                                    123 	.globl _ADCHS0
+                                    124 	.globl _ADCHS1
+                                    125 	.globl _ADCHS2
+                                    126 	.globl _ADCHS3
+                                    127 	.globl _ETGSEL0
+                                    128 	.globl _ETGSEL1
+                                    129 	.globl _ADCS
+                                    130 	.globl _ADCF
+                                    131 	.globl _RI_1
+                                    132 	.globl _TI_1
+                                    133 	.globl _RB8_1
+                                    134 	.globl _TB8_1
+                                    135 	.globl _REN_1
+                                    136 	.globl _SM2_1
+                                    137 	.globl _SM1_1
+                                    138 	.globl _FE_1
+                                    139 	.globl _SM0_1
+                                    140 	.globl _EIPH1
+                                    141 	.globl _EIP1
+                                    142 	.globl _PMD
+                                    143 	.globl _PMEN
+                                    144 	.globl _PDTCNT
+                                    145 	.globl _PDTEN
+                                    146 	.globl _SCON_1
+                                    147 	.globl _EIPH
+                                    148 	.globl _AINDIDS
+                                    149 	.globl _SPDR
+                                    150 	.globl _SPSR
+                                    151 	.globl _SPCR2
+                                    152 	.globl _SPCR
+                                    153 	.globl _CAPCON4
+                                    154 	.globl _CAPCON3
+                                    155 	.globl _B
+                                    156 	.globl _EIP
+                                    157 	.globl _C2H
+                                    158 	.globl _C2L
+                                    159 	.globl _PIF
+                                    160 	.globl _PIPEN
+                                    161 	.globl _PINEN
+                                    162 	.globl _PICON
+                                    163 	.globl _ADCCON0
+                                    164 	.globl _C1H
+                                    165 	.globl _C1L
+                                    166 	.globl _C0H
+                                    167 	.globl _C0L
+                                    168 	.globl _ADCDLY
+                                    169 	.globl _ADCCON2
+                                    170 	.globl _ADCCON1
+                                    171 	.globl _ACC
+                                    172 	.globl _PWMCON1
+                                    173 	.globl _PIOCON0
+                                    174 	.globl _PWM3L
+                                    175 	.globl _PWM2L
+                                    176 	.globl _PWM1L
+                                    177 	.globl _PWM0L
+                                    178 	.globl _PWMPL
+                                    179 	.globl _PWMCON0
+                                    180 	.globl _FBD
+                                    181 	.globl _PNP
+                                    182 	.globl _PWM3H
+                                    183 	.globl _PWM2H
+                                    184 	.globl _PWM1H
+                                    185 	.globl _PWM0H
+                                    186 	.globl _PWMPH
+                                    187 	.globl _PSW
+                                    188 	.globl _ADCMPH
+                                    189 	.globl _ADCMPL
+                                    190 	.globl _PWM5L
+                                    191 	.globl _TH2
+                                    192 	.globl _PWM4L
+                                    193 	.globl _TL2
+                                    194 	.globl _RCMP2H
+                                    195 	.globl _RCMP2L
+                                    196 	.globl _T2MOD
+                                    197 	.globl _T2CON
+                                    198 	.globl _TA
+                                    199 	.globl _PIOCON1
+                                    200 	.globl _RH3
+                                    201 	.globl _PWM5H
+                                    202 	.globl _RL3
+                                    203 	.globl _PWM4H
+                                    204 	.globl _T3CON
+                                    205 	.globl _ADCRH
+                                    206 	.globl _ADCRL
+                                    207 	.globl _I2ADDR
+                                    208 	.globl _I2CON
+                                    209 	.globl _I2TOC
+                                    210 	.globl _I2CLK
+                                    211 	.globl _I2STAT
+                                    212 	.globl _I2DAT
+                                    213 	.globl _SADDR_1
+                                    214 	.globl _SADEN_1
+                                    215 	.globl _SADEN
+                                    216 	.globl _IP
+                                    217 	.globl _PWMINTC
+                                    218 	.globl _IPH
+                                    219 	.globl _P2S
+                                    220 	.globl _P1SR
+                                    221 	.globl _P1M2
+                                    222 	.globl _P1S
+                                    223 	.globl _P1M1
+                                    224 	.globl _P0SR
+                                    225 	.globl _P0M2
+                                    226 	.globl _P0S
+                                    227 	.globl _P0M1
+                                    228 	.globl _P3
+                                    229 	.globl _IAPCN
+                                    230 	.globl _IAPFD
+                                    231 	.globl _P3SR
+                                    232 	.globl _P3M2
+                                    233 	.globl _P3S
+                                    234 	.globl _P3M1
+                                    235 	.globl _BODCON1
+                                    236 	.globl _WDCON
+                                    237 	.globl _SADDR
+                                    238 	.globl _IE
+                                    239 	.globl _IAPAH
+                                    240 	.globl _IAPAL
+                                    241 	.globl _IAPUEN
+                                    242 	.globl _IAPTRG
+                                    243 	.globl _BODCON0
+                                    244 	.globl _AUXR1
+                                    245 	.globl _P2
+                                    246 	.globl _CHPCON
+                                    247 	.globl _EIE1
+                                    248 	.globl _EIE
+                                    249 	.globl _SBUF_1
+                                    250 	.globl _SBUF
+                                    251 	.globl _SCON
+                                    252 	.globl _CKEN
+                                    253 	.globl _CKSWT
+                                    254 	.globl _CKDIV
+                                    255 	.globl _CAPCON2
+                                    256 	.globl _CAPCON1
+                                    257 	.globl _CAPCON0
+                                    258 	.globl _SFRS
+                                    259 	.globl _P1
+                                    260 	.globl _WKCON
+                                    261 	.globl _CKCON
+                                    262 	.globl _TH1
+                                    263 	.globl _TH0
+                                    264 	.globl _TL1
+                                    265 	.globl _TL0
+                                    266 	.globl _TMOD
+                                    267 	.globl _TCON
+                                    268 	.globl _PCON
+                                    269 	.globl _RWK
+                                    270 	.globl _RCTRIM1
+                                    271 	.globl _RCTRIM0
+                                    272 	.globl _DPH
+                                    273 	.globl _DPL
+                                    274 	.globl _SP
+                                    275 	.globl _P0
+                                    276 	.globl _gpu32UartSpeed
+                                    277 	.globl _gpu8Data
+                                    278 	.globl _state_machine_PARM_4
+                                    279 	.globl _state_machine_PARM_3
+                                    280 	.globl _state_machine_PARM_2
+                                    281 	.globl _gu16TimeCnt
+                                    282 	.globl _gu8UART
+                                    283 	.globl _gu8MyAddr
+                                    284 	.globl _putchar
+                                    285 ;--------------------------------------------------------
+                                    286 ; special function registers
+                                    287 ;--------------------------------------------------------
+                                    288 	.area RSEG    (ABS,DATA)
+      000000                        289 	.org 0x0000
+                           000080   290 _P0	=	0x0080
+                           000081   291 _SP	=	0x0081
+                           000082   292 _DPL	=	0x0082
+                           000083   293 _DPH	=	0x0083
+                           000084   294 _RCTRIM0	=	0x0084
+                           000085   295 _RCTRIM1	=	0x0085
+                           000086   296 _RWK	=	0x0086
+                           000087   297 _PCON	=	0x0087
+                           000088   298 _TCON	=	0x0088
+                           000089   299 _TMOD	=	0x0089
+                           00008A   300 _TL0	=	0x008a
+                           00008B   301 _TL1	=	0x008b
+                           00008C   302 _TH0	=	0x008c
+                           00008D   303 _TH1	=	0x008d
+                           00008E   304 _CKCON	=	0x008e
+                           00008F   305 _WKCON	=	0x008f
+                           000090   306 _P1	=	0x0090
+                           000091   307 _SFRS	=	0x0091
+                           000092   308 _CAPCON0	=	0x0092
+                           000093   309 _CAPCON1	=	0x0093
+                           000094   310 _CAPCON2	=	0x0094
+                           000095   311 _CKDIV	=	0x0095
+                           000096   312 _CKSWT	=	0x0096
+                           000097   313 _CKEN	=	0x0097
+                           000098   314 _SCON	=	0x0098
+                           000099   315 _SBUF	=	0x0099
+                           00009A   316 _SBUF_1	=	0x009a
+                           00009B   317 _EIE	=	0x009b
+                           00009C   318 _EIE1	=	0x009c
+                           00009F   319 _CHPCON	=	0x009f
+                           0000A0   320 _P2	=	0x00a0
+                           0000A2   321 _AUXR1	=	0x00a2
+                           0000A3   322 _BODCON0	=	0x00a3
+                           0000A4   323 _IAPTRG	=	0x00a4
+                           0000A5   324 _IAPUEN	=	0x00a5
+                           0000A6   325 _IAPAL	=	0x00a6
+                           0000A7   326 _IAPAH	=	0x00a7
+                           0000A8   327 _IE	=	0x00a8
+                           0000A9   328 _SADDR	=	0x00a9
+                           0000AA   329 _WDCON	=	0x00aa
+                           0000AB   330 _BODCON1	=	0x00ab
+                           0000AC   331 _P3M1	=	0x00ac
+                           0000AC   332 _P3S	=	0x00ac
+                           0000AD   333 _P3M2	=	0x00ad
+                           0000AD   334 _P3SR	=	0x00ad
+                           0000AE   335 _IAPFD	=	0x00ae
+                           0000AF   336 _IAPCN	=	0x00af
+                           0000B0   337 _P3	=	0x00b0
+                           0000B1   338 _P0M1	=	0x00b1
+                           0000B1   339 _P0S	=	0x00b1
+                           0000B2   340 _P0M2	=	0x00b2
+                           0000B2   341 _P0SR	=	0x00b2
+                           0000B3   342 _P1M1	=	0x00b3
+                           0000B3   343 _P1S	=	0x00b3
+                           0000B4   344 _P1M2	=	0x00b4
+                           0000B4   345 _P1SR	=	0x00b4
+                           0000B5   346 _P2S	=	0x00b5
+                           0000B7   347 _IPH	=	0x00b7
+                           0000B7   348 _PWMINTC	=	0x00b7
+                           0000B8   349 _IP	=	0x00b8
+                           0000B9   350 _SADEN	=	0x00b9
+                           0000BA   351 _SADEN_1	=	0x00ba
+                           0000BB   352 _SADDR_1	=	0x00bb
+                           0000BC   353 _I2DAT	=	0x00bc
+                           0000BD   354 _I2STAT	=	0x00bd
+                           0000BE   355 _I2CLK	=	0x00be
+                           0000BF   356 _I2TOC	=	0x00bf
+                           0000C0   357 _I2CON	=	0x00c0
+                           0000C1   358 _I2ADDR	=	0x00c1
+                           0000C2   359 _ADCRL	=	0x00c2
+                           0000C3   360 _ADCRH	=	0x00c3
+                           0000C4   361 _T3CON	=	0x00c4
+                           0000C4   362 _PWM4H	=	0x00c4
+                           0000C5   363 _RL3	=	0x00c5
+                           0000C5   364 _PWM5H	=	0x00c5
+                           0000C6   365 _RH3	=	0x00c6
+                           0000C6   366 _PIOCON1	=	0x00c6
+                           0000C7   367 _TA	=	0x00c7
+                           0000C8   368 _T2CON	=	0x00c8
+                           0000C9   369 _T2MOD	=	0x00c9
+                           0000CA   370 _RCMP2L	=	0x00ca
+                           0000CB   371 _RCMP2H	=	0x00cb
+                           0000CC   372 _TL2	=	0x00cc
+                           0000CC   373 _PWM4L	=	0x00cc
+                           0000CD   374 _TH2	=	0x00cd
+                           0000CD   375 _PWM5L	=	0x00cd
+                           0000CE   376 _ADCMPL	=	0x00ce
+                           0000CF   377 _ADCMPH	=	0x00cf
+                           0000D0   378 _PSW	=	0x00d0
+                           0000D1   379 _PWMPH	=	0x00d1
+                           0000D2   380 _PWM0H	=	0x00d2
+                           0000D3   381 _PWM1H	=	0x00d3
+                           0000D4   382 _PWM2H	=	0x00d4
+                           0000D5   383 _PWM3H	=	0x00d5
+                           0000D6   384 _PNP	=	0x00d6
+                           0000D7   385 _FBD	=	0x00d7
+                           0000D8   386 _PWMCON0	=	0x00d8
+                           0000D9   387 _PWMPL	=	0x00d9
+                           0000DA   388 _PWM0L	=	0x00da
+                           0000DB   389 _PWM1L	=	0x00db
+                           0000DC   390 _PWM2L	=	0x00dc
+                           0000DD   391 _PWM3L	=	0x00dd
+                           0000DE   392 _PIOCON0	=	0x00de
+                           0000DF   393 _PWMCON1	=	0x00df
+                           0000E0   394 _ACC	=	0x00e0
+                           0000E1   395 _ADCCON1	=	0x00e1
+                           0000E2   396 _ADCCON2	=	0x00e2
+                           0000E3   397 _ADCDLY	=	0x00e3
+                           0000E4   398 _C0L	=	0x00e4
+                           0000E5   399 _C0H	=	0x00e5
+                           0000E6   400 _C1L	=	0x00e6
+                           0000E7   401 _C1H	=	0x00e7
+                           0000E8   402 _ADCCON0	=	0x00e8
+                           0000E9   403 _PICON	=	0x00e9
+                           0000EA   404 _PINEN	=	0x00ea
+                           0000EB   405 _PIPEN	=	0x00eb
+                           0000EC   406 _PIF	=	0x00ec
+                           0000ED   407 _C2L	=	0x00ed
+                           0000EE   408 _C2H	=	0x00ee
+                           0000EF   409 _EIP	=	0x00ef
+                           0000F0   410 _B	=	0x00f0
+                           0000F1   411 _CAPCON3	=	0x00f1
+                           0000F2   412 _CAPCON4	=	0x00f2
+                           0000F3   413 _SPCR	=	0x00f3
+                           0000F3   414 _SPCR2	=	0x00f3
+                           0000F4   415 _SPSR	=	0x00f4
+                           0000F5   416 _SPDR	=	0x00f5
+                           0000F6   417 _AINDIDS	=	0x00f6
+                           0000F7   418 _EIPH	=	0x00f7
+                           0000F8   419 _SCON_1	=	0x00f8
+                           0000F9   420 _PDTEN	=	0x00f9
+                           0000FA   421 _PDTCNT	=	0x00fa
+                           0000FB   422 _PMEN	=	0x00fb
+                           0000FC   423 _PMD	=	0x00fc
+                           0000FE   424 _EIP1	=	0x00fe
+                           0000FF   425 _EIPH1	=	0x00ff
+                                    426 ;--------------------------------------------------------
+                                    427 ; special function bits
+                                    428 ;--------------------------------------------------------
+                                    429 	.area RSEG    (ABS,DATA)
+      000000                        430 	.org 0x0000
+                           0000FF   431 _SM0_1	=	0x00ff
+                           0000FF   432 _FE_1	=	0x00ff
+                           0000FE   433 _SM1_1	=	0x00fe
+                           0000FD   434 _SM2_1	=	0x00fd
+                           0000FC   435 _REN_1	=	0x00fc
+                           0000FB   436 _TB8_1	=	0x00fb
+                           0000FA   437 _RB8_1	=	0x00fa
+                           0000F9   438 _TI_1	=	0x00f9
+                           0000F8   439 _RI_1	=	0x00f8
+                           0000EF   440 _ADCF	=	0x00ef
+                           0000EE   441 _ADCS	=	0x00ee
+                           0000ED   442 _ETGSEL1	=	0x00ed
+                           0000EC   443 _ETGSEL0	=	0x00ec
+                           0000EB   444 _ADCHS3	=	0x00eb
+                           0000EA   445 _ADCHS2	=	0x00ea
+                           0000E9   446 _ADCHS1	=	0x00e9
+                           0000E8   447 _ADCHS0	=	0x00e8
+                           0000DF   448 _PWMRUN	=	0x00df
+                           0000DE   449 _LOAD	=	0x00de
+                           0000DD   450 _PWMF	=	0x00dd
+                           0000DC   451 _CLRPWM	=	0x00dc
+                           0000D7   452 _CY	=	0x00d7
+                           0000D6   453 _AC	=	0x00d6
+                           0000D5   454 _F0	=	0x00d5
+                           0000D4   455 _RS1	=	0x00d4
+                           0000D3   456 _RS0	=	0x00d3
+                           0000D2   457 _OV	=	0x00d2
+                           0000D0   458 _P	=	0x00d0
+                           0000CF   459 _TF2	=	0x00cf
+                           0000CA   460 _TR2	=	0x00ca
+                           0000C8   461 _CM_RL2	=	0x00c8
+                           0000C6   462 _I2CEN	=	0x00c6
+                           0000C5   463 _STA	=	0x00c5
+                           0000C4   464 _STO	=	0x00c4
+                           0000C3   465 _SI	=	0x00c3
+                           0000C2   466 _AA	=	0x00c2
+                           0000C0   467 _I2CPX	=	0x00c0
+                           0000BE   468 _PADC	=	0x00be
+                           0000BD   469 _PBOD	=	0x00bd
+                           0000BC   470 _PS	=	0x00bc
+                           0000BB   471 _PT1	=	0x00bb
+                           0000BA   472 _PX1	=	0x00ba
+                           0000B9   473 _PT0	=	0x00b9
+                           0000B8   474 _PX0	=	0x00b8
+                           0000B0   475 _P30	=	0x00b0
+                           0000AF   476 _EA	=	0x00af
+                           0000AE   477 _EADC	=	0x00ae
+                           0000AD   478 _EBOD	=	0x00ad
+                           0000AC   479 _ES	=	0x00ac
+                           0000AB   480 _ET1	=	0x00ab
+                           0000AA   481 _EX1	=	0x00aa
+                           0000A9   482 _ET0	=	0x00a9
+                           0000A8   483 _EX0	=	0x00a8
+                           0000A0   484 _P20	=	0x00a0
+                           00009F   485 _SM0	=	0x009f
+                           00009F   486 _FE	=	0x009f
+                           00009E   487 _SM1	=	0x009e
+                           00009D   488 _SM2	=	0x009d
+                           00009C   489 _REN	=	0x009c
+                           00009B   490 _TB8	=	0x009b
+                           00009A   491 _RB8	=	0x009a
+                           000099   492 _TI	=	0x0099
+                           000098   493 _RI	=	0x0098
+                           000097   494 _P17	=	0x0097
+                           000096   495 _P16	=	0x0096
+                           000096   496 _TXD_1	=	0x0096
+                           000095   497 _P15	=	0x0095
+                           000094   498 _P14	=	0x0094
+                           000094   499 _SDA	=	0x0094
+                           000093   500 _P13	=	0x0093
+                           000093   501 _SCL	=	0x0093
+                           000092   502 _P12	=	0x0092
+                           000091   503 _P11	=	0x0091
+                           000090   504 _P10	=	0x0090
+                           00008F   505 _TF1	=	0x008f
+                           00008E   506 _TR1	=	0x008e
+                           00008D   507 _TF0	=	0x008d
+                           00008C   508 _TR0	=	0x008c
+                           00008B   509 _IE1	=	0x008b
+                           00008A   510 _IT1	=	0x008a
+                           000089   511 _IE0	=	0x0089
+                           000088   512 _IT0	=	0x0088
+                           000087   513 _P07	=	0x0087
+                           000087   514 _RXD	=	0x0087
+                           000086   515 _P06	=	0x0086
+                           000086   516 _TXD	=	0x0086
+                           000085   517 _P05	=	0x0085
+                           000084   518 _P04	=	0x0084
+                           000084   519 _STADC	=	0x0084
+                           000083   520 _P03	=	0x0083
+                           000082   521 _P02	=	0x0082
+                           000082   522 _RXD_1	=	0x0082
+                           000081   523 _P01	=	0x0081
+                           000081   524 _MISO	=	0x0081
+                           000080   525 _P00	=	0x0080
+                           000080   526 _MOSI	=	0x0080
+                                    527 ;--------------------------------------------------------
+                                    528 ; overlayable register banks
+                                    529 ;--------------------------------------------------------
+                                    530 	.area REG_BANK_0	(REL,OVR,DATA)
+      000000                        531 	.ds 8
+                                    532 	.area REG_BANK_1	(REL,OVR,DATA)
+      000008                        533 	.ds 8
+                                    534 ;--------------------------------------------------------
+                                    535 ; internal ram data
+                                    536 ;--------------------------------------------------------
+                                    537 	.area DSEG    (DATA)
+      000021                        538 _gu8MyAddr::
+      000021                        539 	.ds 1
+      000022                        540 _gu8UART::
+      000022                        541 	.ds 1
+      000023                        542 _gu16TimeCnt::
+      000023                        543 	.ds 2
+      000025                        544 _state_machine_PARM_2:
+      000025                        545 	.ds 1
+      000026                        546 _state_machine_PARM_3:
+      000026                        547 	.ds 1
+      000027                        548 _state_machine_PARM_4:
+      000027                        549 	.ds 1
+      000028                        550 _state_switches_su8PrevSW_65536_96:
+      000028                        551 	.ds 1
+      000029                        552 _process_my_packet_sloc0_1_0:
+      000029                        553 	.ds 3
+      00002C                        554 _main_su8Cnt_262145_138:
+      00002C                        555 	.ds 1
+      00002D                        556 _main_u8RxUART_65536_128:
+      00002D                        557 	.ds 1
+      00002E                        558 _main_stLineFiPkt_65536_128:
+      00002E                        559 	.ds 8
+      000036                        560 _main_pu8LineFiRx_65536_128:
+      000036                        561 	.ds 10
+                                    562 ;--------------------------------------------------------
+                                    563 ; overlayable items in internal ram 
+                                    564 ;--------------------------------------------------------
+                                    565 	.area	OSEG    (OVR,DATA)
                                     566 	.area	OSEG    (OVR,DATA)
                                     567 	.area	OSEG    (OVR,DATA)
                                     568 	.area	OSEG    (OVR,DATA)
                                     569 	.area	OSEG    (OVR,DATA)
                                     570 	.area	OSEG    (OVR,DATA)
                                     571 	.area	OSEG    (OVR,DATA)
-                                    572 	.area	OSEG    (OVR,DATA)
-      000018                        573 _state_switches_PARM_2:
-      000018                        574 	.ds 3
+      000018                        572 _state_switches_PARM_2:
+      000018                        573 	.ds 3
+                                    574 	.area	OSEG    (OVR,DATA)
                                     575 	.area	OSEG    (OVR,DATA)
-                                    576 	.area	OSEG    (OVR,DATA)
-      000018                        577 _chk_my_addr_PARM_2:
-      000018                        578 	.ds 1
-                                    579 ;--------------------------------------------------------
-                                    580 ; Stack segment in internal ram
-                                    581 ;--------------------------------------------------------
-                                    582 	.area	SSEG
-      000051                        583 __start__stack:
-      000051                        584 	.ds	1
-                                    585 
-                                    586 ;--------------------------------------------------------
-                                    587 ; indirectly addressable internal ram data
-                                    588 ;--------------------------------------------------------
-                                    589 	.area ISEG    (DATA)
-                                    590 ;--------------------------------------------------------
-                                    591 ; absolute internal ram data
-                                    592 ;--------------------------------------------------------
+      000018                        576 _chk_my_addr_PARM_2:
+      000018                        577 	.ds 1
+                                    578 ;--------------------------------------------------------
+                                    579 ; Stack segment in internal ram 
+                                    580 ;--------------------------------------------------------
+                                    581 	.area	SSEG
+      000051                        582 __start__stack:
+      000051                        583 	.ds	1
+                                    584 
+                                    585 ;--------------------------------------------------------
+                                    586 ; indirectly addressable internal ram data
+                                    587 ;--------------------------------------------------------
+                                    588 	.area ISEG    (DATA)
+                                    589 ;--------------------------------------------------------
+                                    590 ; absolute internal ram data
+                                    591 ;--------------------------------------------------------
+                                    592 	.area IABS    (ABS,DATA)
                                     593 	.area IABS    (ABS,DATA)
-                                    594 	.area IABS    (ABS,DATA)
-                                    595 ;--------------------------------------------------------
-                                    596 ; bit data
-                                    597 ;--------------------------------------------------------
-                                    598 	.area BSEG    (BIT)
-                                    599 ;--------------------------------------------------------
-                                    600 ; paged external ram data
-                                    601 ;--------------------------------------------------------
-                                    602 	.area PSEG    (PAG,XDATA)
-                                    603 ;--------------------------------------------------------
-                                    604 ; external ram data
-                                    605 ;--------------------------------------------------------
-                                    606 	.area XSEG    (XDATA)
-      000001                        607 _gpu8Data::
-      000001                        608 	.ds 20
-      000015                        609 _gpu32UartSpeed::
-      000015                        610 	.ds 56
-      00004D                        611 _main_pu8RxUART_65536_128:
-      00004D                        612 	.ds 30
-                                    613 ;--------------------------------------------------------
-                                    614 ; absolute external ram data
-                                    615 ;--------------------------------------------------------
-                                    616 	.area XABS    (ABS,XDATA)
-                                    617 ;--------------------------------------------------------
-                                    618 ; external initialized ram data
-                                    619 ;--------------------------------------------------------
-                                    620 	.area HOME    (CODE)
-                                    621 	.area GSINIT0 (CODE)
-                                    622 	.area GSINIT1 (CODE)
-                                    623 	.area GSINIT2 (CODE)
-                                    624 	.area GSINIT3 (CODE)
-                                    625 	.area GSINIT4 (CODE)
-                                    626 	.area GSINIT5 (CODE)
-                                    627 	.area GSINIT  (CODE)
-                                    628 	.area GSFINAL (CODE)
-                                    629 	.area CSEG    (CODE)
-                                    630 ;--------------------------------------------------------
-                                    631 ; interrupt vector
-                                    632 ;--------------------------------------------------------
-                                    633 	.area HOME    (CODE)
-      000000                        634 __interrupt_vect:
-      000000 02 00 41         [24]  635 	ljmp	__sdcc_gsinit_startup
-      000003 32               [24]  636 	reti
-      000004                        637 	.ds	7
-      00000B 02 04 A9         [24]  638 	ljmp	_Timer0_ISR
-      00000E                        639 	.ds	5
-      000013 32               [24]  640 	reti
-      000014                        641 	.ds	7
-      00001B 32               [24]  642 	reti
-      00001C                        643 	.ds	7
-      000023 32               [24]  644 	reti
-      000024                        645 	.ds	7
-      00002B 32               [24]  646 	reti
-      00002C                        647 	.ds	7
-      000033 32               [24]  648 	reti
-      000034                        649 	.ds	7
-      00003B 02 04 C0         [24]  650 	ljmp	_pin_interrupt_isr
-                                    651 ;--------------------------------------------------------
-                                    652 ; global & static initialisations
-                                    653 ;--------------------------------------------------------
-                                    654 	.area HOME    (CODE)
-                                    655 	.area GSINIT  (CODE)
-                                    656 	.area GSFINAL (CODE)
-                                    657 	.area GSINIT  (CODE)
-                                    658 	.globl __sdcc_gsinit_startup
-                                    659 	.globl __sdcc_program_startup
-                                    660 	.globl __start__stack
-                                    661 	.globl __mcs51_genRAMCLEAR
-                                    662 ;------------------------------------------------------------
-                                    663 ;Allocation info for local variables in function 'state_switches'
-                                    664 ;------------------------------------------------------------
-                                    665 ;su8PrevSW                 Allocated with name '_state_switches_su8PrevSW_65536_96'
-                                    666 ;apu8SwNum                 Allocated with name '_state_switches_PARM_2'
-                                    667 ;au8SW                     Allocated to registers r7 
-                                    668 ;i                         Allocated to registers r2 
-                                    669 ;u8Result                  Allocated to registers r6 
-                                    670 ;------------------------------------------------------------
-                                    671 ;	src/main.c:463: static UINT8 su8PrevSW = 0;
-      000054 75 28 00         [24]  672 	mov	_state_switches_su8PrevSW_65536_96,#0x00
-                                    673 ;------------------------------------------------------------
-                                    674 ;Allocation info for local variables in function 'main'
-                                    675 ;------------------------------------------------------------
-                                    676 ;su8Cnt                    Allocated with name '_main_su8Cnt_262145_138'
-                                    677 ;u8PrevSwitch              Allocated to registers r5 
-                                    678 ;u8UartRx                  Allocated to registers 
-                                    679 ;u8RotSense                Allocated to registers 
-                                    680 ;u8RxUART                  Allocated with name '_main_u8RxUART_65536_128'
-                                    681 ;u16Cnt                    Allocated to registers r4 r5 
-                                    682 ;u8OutputState             Allocated to registers 
-                                    683 ;u8LineFiAddr              Allocated to registers 
-                                    684 ;u8LineFiSpeed             Allocated to registers 
-                                    685 ;u8Data                    Allocated to registers 
-                                    686 ;u8LineFiCmd               Allocated to registers 
-                                    687 ;u8PwrOnFirstFlag          Allocated to registers 
-                                    688 ;u8StateRxLFP              Allocated to registers r7 
-                                    689 ;stLineFiPkt               Allocated with name '_main_stLineFiPkt_65536_128'
-                                    690 ;u8MotorState              Allocated to registers 
-                                    691 ;u8RxIdx                   Allocated to registers r6 
-                                    692 ;pu8LineFiRx               Allocated with name '_main_pu8LineFiRx_65536_128'
-                                    693 ;u8LineFiRxIdx             Allocated to registers 
-                                    694 ;u8Count2                  Allocated to registers 
-                                    695 ;u8RxPktCnt                Allocated to registers 
-                                    696 ;u8PreambleCnt             Allocated to registers 
-                                    697 ;pu8RxUART                 Allocated with name '_main_pu8RxUART_65536_128'
-                                    698 ;------------------------------------------------------------
-                                    699 ;	src/main.c:844: static uint8 su8Cnt = 0;
-      000057 75 2C 00         [24]  700 	mov	_main_su8Cnt_262145_138,#0x00
-                                    701 ;	src/main.c:107: UINT8 gu8UART = 0;
-      00005A 75 22 00         [24]  702 	mov	_gu8UART,#0x00
-                                    703 ;	src/main.c:108: UINT16 gu16TimeCnt = 0;
-      00005D E4               [12]  704 	clr	a
-      00005E F5 23            [12]  705 	mov	_gu16TimeCnt,a
-      000060 F5 24            [12]  706 	mov	(_gu16TimeCnt + 1),a
-                                    707 ;	src/main.c:90: UINT32 __xdata gpu32UartSpeed[] = {
-      000062 90 00 15         [24]  708 	mov	dptr,#_gpu32UartSpeed
-      000065 74 60            [12]  709 	mov	a,#0x60
-      000067 F0               [24]  710 	movx	@dptr,a
-      000068 74 09            [12]  711 	mov	a,#0x09
-      00006A A3               [24]  712 	inc	dptr
-      00006B F0               [24]  713 	movx	@dptr,a
-      00006C E4               [12]  714 	clr	a
-      00006D A3               [24]  715 	inc	dptr
-      00006E F0               [24]  716 	movx	@dptr,a
-      00006F A3               [24]  717 	inc	dptr
-      000070 F0               [24]  718 	movx	@dptr,a
-      000071 90 00 19         [24]  719 	mov	dptr,#(_gpu32UartSpeed + 0x0004)
-      000074 74 80            [12]  720 	mov	a,#0x80
-      000076 F0               [24]  721 	movx	@dptr,a
-      000077 74 70            [12]  722 	mov	a,#0x70
-      000079 A3               [24]  723 	inc	dptr
-      00007A F0               [24]  724 	movx	@dptr,a
-      00007B E4               [12]  725 	clr	a
-      00007C A3               [24]  726 	inc	dptr
-      00007D F0               [24]  727 	movx	@dptr,a
-      00007E A3               [24]  728 	inc	dptr
-      00007F F0               [24]  729 	movx	@dptr,a
-      000080 90 00 1D         [24]  730 	mov	dptr,#(_gpu32UartSpeed + 0x0008)
-      000083 F0               [24]  731 	movx	@dptr,a
-      000084 74 96            [12]  732 	mov	a,#0x96
-      000086 A3               [24]  733 	inc	dptr
-      000087 F0               [24]  734 	movx	@dptr,a
-      000088 E4               [12]  735 	clr	a
-      000089 A3               [24]  736 	inc	dptr
-      00008A F0               [24]  737 	movx	@dptr,a
-      00008B A3               [24]  738 	inc	dptr
-      00008C F0               [24]  739 	movx	@dptr,a
-      00008D 90 00 21         [24]  740 	mov	dptr,#(_gpu32UartSpeed + 0x000c)
-      000090 F0               [24]  741 	movx	@dptr,a
-      000091 74 E1            [12]  742 	mov	a,#0xe1
-      000093 A3               [24]  743 	inc	dptr
-      000094 F0               [24]  744 	movx	@dptr,a
-      000095 E4               [12]  745 	clr	a
-      000096 A3               [24]  746 	inc	dptr
-      000097 F0               [24]  747 	movx	@dptr,a
-      000098 A3               [24]  748 	inc	dptr
-      000099 F0               [24]  749 	movx	@dptr,a
-      00009A 90 00 25         [24]  750 	mov	dptr,#(_gpu32UartSpeed + 0x0010)
-      00009D F0               [24]  751 	movx	@dptr,a
-      00009E 74 C2            [12]  752 	mov	a,#0xc2
-      0000A0 A3               [24]  753 	inc	dptr
-      0000A1 F0               [24]  754 	movx	@dptr,a
-      0000A2 74 01            [12]  755 	mov	a,#0x01
-      0000A4 A3               [24]  756 	inc	dptr
-      0000A5 F0               [24]  757 	movx	@dptr,a
-      0000A6 E4               [12]  758 	clr	a
-      0000A7 A3               [24]  759 	inc	dptr
-      0000A8 F0               [24]  760 	movx	@dptr,a
-      0000A9 90 00 29         [24]  761 	mov	dptr,#(_gpu32UartSpeed + 0x0014)
-      0000AC F0               [24]  762 	movx	@dptr,a
-      0000AD 74 84            [12]  763 	mov	a,#0x84
-      0000AF A3               [24]  764 	inc	dptr
-      0000B0 F0               [24]  765 	movx	@dptr,a
-      0000B1 74 03            [12]  766 	mov	a,#0x03
-      0000B3 A3               [24]  767 	inc	dptr
-      0000B4 F0               [24]  768 	movx	@dptr,a
-      0000B5 E4               [12]  769 	clr	a
-      0000B6 A3               [24]  770 	inc	dptr
-      0000B7 F0               [24]  771 	movx	@dptr,a
-      0000B8 90 00 2D         [24]  772 	mov	dptr,#(_gpu32UartSpeed + 0x0018)
-      0000BB 74 E0            [12]  773 	mov	a,#0xe0
-      0000BD F0               [24]  774 	movx	@dptr,a
-      0000BE 74 93            [12]  775 	mov	a,#0x93
-      0000C0 A3               [24]  776 	inc	dptr
-      0000C1 F0               [24]  777 	movx	@dptr,a
-      0000C2 74 04            [12]  778 	mov	a,#0x04
-      0000C4 A3               [24]  779 	inc	dptr
-      0000C5 F0               [24]  780 	movx	@dptr,a
-      0000C6 E4               [12]  781 	clr	a
-      0000C7 A3               [24]  782 	inc	dptr
-      0000C8 F0               [24]  783 	movx	@dptr,a
-      0000C9 90 00 31         [24]  784 	mov	dptr,#(_gpu32UartSpeed + 0x001c)
-      0000CC F0               [24]  785 	movx	@dptr,a
-      0000CD 74 08            [12]  786 	mov	a,#0x08
-      0000CF A3               [24]  787 	inc	dptr
-      0000D0 F0               [24]  788 	movx	@dptr,a
-      0000D1 14               [12]  789 	dec	a
-      0000D2 A3               [24]  790 	inc	dptr
-      0000D3 F0               [24]  791 	movx	@dptr,a
-      0000D4 E4               [12]  792 	clr	a
-      0000D5 A3               [24]  793 	inc	dptr
-      0000D6 F0               [24]  794 	movx	@dptr,a
-      0000D7 90 00 35         [24]  795 	mov	dptr,#(_gpu32UartSpeed + 0x0020)
-      0000DA 74 20            [12]  796 	mov	a,#0x20
-      0000DC F0               [24]  797 	movx	@dptr,a
-      0000DD 74 A1            [12]  798 	mov	a,#0xa1
-      0000DF A3               [24]  799 	inc	dptr
-      0000E0 F0               [24]  800 	movx	@dptr,a
-      0000E1 74 07            [12]  801 	mov	a,#0x07
-      0000E3 A3               [24]  802 	inc	dptr
-      0000E4 F0               [24]  803 	movx	@dptr,a
-      0000E5 E4               [12]  804 	clr	a
-      0000E6 A3               [24]  805 	inc	dptr
-      0000E7 F0               [24]  806 	movx	@dptr,a
-      0000E8 90 00 39         [24]  807 	mov	dptr,#(_gpu32UartSpeed + 0x0024)
-      0000EB 74 C0            [12]  808 	mov	a,#0xc0
-      0000ED F0               [24]  809 	movx	@dptr,a
-      0000EE 74 27            [12]  810 	mov	a,#0x27
-      0000F0 A3               [24]  811 	inc	dptr
-      0000F1 F0               [24]  812 	movx	@dptr,a
-      0000F2 74 09            [12]  813 	mov	a,#0x09
-      0000F4 A3               [24]  814 	inc	dptr
-      0000F5 F0               [24]  815 	movx	@dptr,a
-      0000F6 E4               [12]  816 	clr	a
-      0000F7 A3               [24]  817 	inc	dptr
-      0000F8 F0               [24]  818 	movx	@dptr,a
-      0000F9 90 00 3D         [24]  819 	mov	dptr,#(_gpu32UartSpeed + 0x0028)
-      0000FC 74 60            [12]  820 	mov	a,#0x60
-      0000FE F0               [24]  821 	movx	@dptr,a
-      0000FF 74 AE            [12]  822 	mov	a,#0xae
-      000101 A3               [24]  823 	inc	dptr
-      000102 F0               [24]  824 	movx	@dptr,a
-      000103 74 0A            [12]  825 	mov	a,#0x0a
-      000105 A3               [24]  826 	inc	dptr
-      000106 F0               [24]  827 	movx	@dptr,a
-      000107 E4               [12]  828 	clr	a
-      000108 A3               [24]  829 	inc	dptr
-      000109 F0               [24]  830 	movx	@dptr,a
-      00010A 90 00 41         [24]  831 	mov	dptr,#(_gpu32UartSpeed + 0x002c)
-      00010D F0               [24]  832 	movx	@dptr,a
-      00010E 74 35            [12]  833 	mov	a,#0x35
-      000110 A3               [24]  834 	inc	dptr
-      000111 F0               [24]  835 	movx	@dptr,a
-      000112 74 0C            [12]  836 	mov	a,#0x0c
-      000114 A3               [24]  837 	inc	dptr
-      000115 F0               [24]  838 	movx	@dptr,a
-      000116 E4               [12]  839 	clr	a
-      000117 A3               [24]  840 	inc	dptr
-      000118 F0               [24]  841 	movx	@dptr,a
-      000119 90 00 45         [24]  842 	mov	dptr,#(_gpu32UartSpeed + 0x0030)
-      00011C 74 A0            [12]  843 	mov	a,#0xa0
-      00011E F0               [24]  844 	movx	@dptr,a
-      00011F 74 BB            [12]  845 	mov	a,#0xbb
-      000121 A3               [24]  846 	inc	dptr
-      000122 F0               [24]  847 	movx	@dptr,a
-      000123 74 0D            [12]  848 	mov	a,#0x0d
-      000125 A3               [24]  849 	inc	dptr
-      000126 F0               [24]  850 	movx	@dptr,a
-      000127 E4               [12]  851 	clr	a
-      000128 A3               [24]  852 	inc	dptr
-      000129 F0               [24]  853 	movx	@dptr,a
-      00012A 90 00 49         [24]  854 	mov	dptr,#(_gpu32UartSpeed + 0x0034)
-      00012D F0               [24]  855 	movx	@dptr,a
-      00012E 74 10            [12]  856 	mov	a,#0x10
-      000130 A3               [24]  857 	inc	dptr
-      000131 F0               [24]  858 	movx	@dptr,a
-      000132 74 0E            [12]  859 	mov	a,#0x0e
-      000134 A3               [24]  860 	inc	dptr
-      000135 F0               [24]  861 	movx	@dptr,a
-      000136 E4               [12]  862 	clr	a
-      000137 A3               [24]  863 	inc	dptr
-      000138 F0               [24]  864 	movx	@dptr,a
-                                    865 	.area GSFINAL (CODE)
-      0002C6 02 00 3E         [24]  866 	ljmp	__sdcc_program_startup
-                                    867 ;--------------------------------------------------------
-                                    868 ; Home
-                                    869 ;--------------------------------------------------------
+                                    594 ;--------------------------------------------------------
+                                    595 ; bit data
+                                    596 ;--------------------------------------------------------
+                                    597 	.area BSEG    (BIT)
+                                    598 ;--------------------------------------------------------
+                                    599 ; paged external ram data
+                                    600 ;--------------------------------------------------------
+                                    601 	.area PSEG    (PAG,XDATA)
+                                    602 ;--------------------------------------------------------
+                                    603 ; external ram data
+                                    604 ;--------------------------------------------------------
+                                    605 	.area XSEG    (XDATA)
+      000001                        606 _gpu8Data::
+      000001                        607 	.ds 20
+      000015                        608 _gpu32UartSpeed::
+      000015                        609 	.ds 56
+      00004D                        610 _main_pu8RxUART_65536_128:
+      00004D                        611 	.ds 30
+                                    612 ;--------------------------------------------------------
+                                    613 ; absolute external ram data
+                                    614 ;--------------------------------------------------------
+                                    615 	.area XABS    (ABS,XDATA)
+                                    616 ;--------------------------------------------------------
+                                    617 ; external initialized ram data
+                                    618 ;--------------------------------------------------------
+                                    619 	.area HOME    (CODE)
+                                    620 	.area GSINIT0 (CODE)
+                                    621 	.area GSINIT1 (CODE)
+                                    622 	.area GSINIT2 (CODE)
+                                    623 	.area GSINIT3 (CODE)
+                                    624 	.area GSINIT4 (CODE)
+                                    625 	.area GSINIT5 (CODE)
+                                    626 	.area GSINIT  (CODE)
+                                    627 	.area GSFINAL (CODE)
+                                    628 	.area CSEG    (CODE)
+                                    629 ;--------------------------------------------------------
+                                    630 ; interrupt vector 
+                                    631 ;--------------------------------------------------------
+                                    632 	.area HOME    (CODE)
+      000000                        633 __interrupt_vect:
+      000000 02 00 41         [24]  634 	ljmp	__sdcc_gsinit_startup
+      000003 32               [24]  635 	reti
+      000004                        636 	.ds	7
+      00000B 02 04 B1         [24]  637 	ljmp	_Timer0_ISR
+      00000E                        638 	.ds	5
+      000013 32               [24]  639 	reti
+      000014                        640 	.ds	7
+      00001B 32               [24]  641 	reti
+      00001C                        642 	.ds	7
+      000023 32               [24]  643 	reti
+      000024                        644 	.ds	7
+      00002B 32               [24]  645 	reti
+      00002C                        646 	.ds	7
+      000033 32               [24]  647 	reti
+      000034                        648 	.ds	7
+      00003B 02 04 C8         [24]  649 	ljmp	_pin_interrupt_isr
+                                    650 ;--------------------------------------------------------
+                                    651 ; global & static initialisations
+                                    652 ;--------------------------------------------------------
+                                    653 	.area HOME    (CODE)
+                                    654 	.area GSINIT  (CODE)
+                                    655 	.area GSFINAL (CODE)
+                                    656 	.area GSINIT  (CODE)
+                                    657 	.globl __sdcc_gsinit_startup
+                                    658 	.globl __sdcc_program_startup
+                                    659 	.globl __start__stack
+                                    660 	.globl __mcs51_genRAMCLEAR
+                                    661 ;------------------------------------------------------------
+                                    662 ;Allocation info for local variables in function 'state_switches'
+                                    663 ;------------------------------------------------------------
+                                    664 ;su8PrevSW                 Allocated with name '_state_switches_su8PrevSW_65536_96'
+                                    665 ;apu8SwNum                 Allocated with name '_state_switches_PARM_2'
+                                    666 ;au8SW                     Allocated to registers r7 
+                                    667 ;i                         Allocated to registers r2 
+                                    668 ;u8Result                  Allocated to registers r6 
+                                    669 ;------------------------------------------------------------
+                                    670 ;	src/main.c:464: static UINT8 su8PrevSW = 0;
+      000054 75 28 00         [24]  671 	mov	_state_switches_su8PrevSW_65536_96,#0x00
+                                    672 ;------------------------------------------------------------
+                                    673 ;Allocation info for local variables in function 'main'
+                                    674 ;------------------------------------------------------------
+                                    675 ;su8Cnt                    Allocated with name '_main_su8Cnt_262145_138'
+                                    676 ;u8PrevSwitch              Allocated to registers r5 
+                                    677 ;u8UartRx                  Allocated to registers 
+                                    678 ;u8RotSense                Allocated to registers 
+                                    679 ;u8RxUART                  Allocated with name '_main_u8RxUART_65536_128'
+                                    680 ;u16Cnt                    Allocated to registers r4 r5 
+                                    681 ;u8OutputState             Allocated to registers 
+                                    682 ;u8LineFiAddr              Allocated to registers 
+                                    683 ;u8LineFiSpeed             Allocated to registers 
+                                    684 ;u8Data                    Allocated to registers 
+                                    685 ;u8LineFiCmd               Allocated to registers 
+                                    686 ;u8PwrOnFirstFlag          Allocated to registers 
+                                    687 ;u8StateRxLFP              Allocated to registers r7 
+                                    688 ;stLineFiPkt               Allocated with name '_main_stLineFiPkt_65536_128'
+                                    689 ;u8MotorState              Allocated to registers 
+                                    690 ;u8RxIdx                   Allocated to registers r6 
+                                    691 ;pu8LineFiRx               Allocated with name '_main_pu8LineFiRx_65536_128'
+                                    692 ;u8LineFiRxIdx             Allocated to registers 
+                                    693 ;u8Count2                  Allocated to registers 
+                                    694 ;u8RxPktCnt                Allocated to registers 
+                                    695 ;u8PreambleCnt             Allocated to registers 
+                                    696 ;pu8RxUART                 Allocated with name '_main_pu8RxUART_65536_128'
+                                    697 ;------------------------------------------------------------
+                                    698 ;	src/main.c:845: static uint8 su8Cnt = 0;
+      000057 75 2C 00         [24]  699 	mov	_main_su8Cnt_262145_138,#0x00
+                                    700 ;	src/main.c:107: UINT8 gu8UART = 0;
+      00005A 75 22 00         [24]  701 	mov	_gu8UART,#0x00
+                                    702 ;	src/main.c:108: UINT16 gu16TimeCnt = 0;
+      00005D E4               [12]  703 	clr	a
+      00005E F5 23            [12]  704 	mov	_gu16TimeCnt,a
+      000060 F5 24            [12]  705 	mov	(_gu16TimeCnt + 1),a
+                                    706 ;	src/main.c:90: UINT32 __xdata gpu32UartSpeed[] = {
+      000062 90 00 15         [24]  707 	mov	dptr,#_gpu32UartSpeed
+      000065 74 60            [12]  708 	mov	a,#0x60
+      000067 F0               [24]  709 	movx	@dptr,a
+      000068 74 09            [12]  710 	mov	a,#0x09
+      00006A A3               [24]  711 	inc	dptr
+      00006B F0               [24]  712 	movx	@dptr,a
+      00006C E4               [12]  713 	clr	a
+      00006D A3               [24]  714 	inc	dptr
+      00006E F0               [24]  715 	movx	@dptr,a
+      00006F A3               [24]  716 	inc	dptr
+      000070 F0               [24]  717 	movx	@dptr,a
+      000071 90 00 19         [24]  718 	mov	dptr,#(_gpu32UartSpeed + 0x0004)
+      000074 74 80            [12]  719 	mov	a,#0x80
+      000076 F0               [24]  720 	movx	@dptr,a
+      000077 74 70            [12]  721 	mov	a,#0x70
+      000079 A3               [24]  722 	inc	dptr
+      00007A F0               [24]  723 	movx	@dptr,a
+      00007B E4               [12]  724 	clr	a
+      00007C A3               [24]  725 	inc	dptr
+      00007D F0               [24]  726 	movx	@dptr,a
+      00007E A3               [24]  727 	inc	dptr
+      00007F F0               [24]  728 	movx	@dptr,a
+      000080 90 00 1D         [24]  729 	mov	dptr,#(_gpu32UartSpeed + 0x0008)
+      000083 F0               [24]  730 	movx	@dptr,a
+      000084 74 96            [12]  731 	mov	a,#0x96
+      000086 A3               [24]  732 	inc	dptr
+      000087 F0               [24]  733 	movx	@dptr,a
+      000088 E4               [12]  734 	clr	a
+      000089 A3               [24]  735 	inc	dptr
+      00008A F0               [24]  736 	movx	@dptr,a
+      00008B A3               [24]  737 	inc	dptr
+      00008C F0               [24]  738 	movx	@dptr,a
+      00008D 90 00 21         [24]  739 	mov	dptr,#(_gpu32UartSpeed + 0x000c)
+      000090 F0               [24]  740 	movx	@dptr,a
+      000091 74 E1            [12]  741 	mov	a,#0xe1
+      000093 A3               [24]  742 	inc	dptr
+      000094 F0               [24]  743 	movx	@dptr,a
+      000095 E4               [12]  744 	clr	a
+      000096 A3               [24]  745 	inc	dptr
+      000097 F0               [24]  746 	movx	@dptr,a
+      000098 A3               [24]  747 	inc	dptr
+      000099 F0               [24]  748 	movx	@dptr,a
+      00009A 90 00 25         [24]  749 	mov	dptr,#(_gpu32UartSpeed + 0x0010)
+      00009D F0               [24]  750 	movx	@dptr,a
+      00009E 74 C2            [12]  751 	mov	a,#0xc2
+      0000A0 A3               [24]  752 	inc	dptr
+      0000A1 F0               [24]  753 	movx	@dptr,a
+      0000A2 74 01            [12]  754 	mov	a,#0x01
+      0000A4 A3               [24]  755 	inc	dptr
+      0000A5 F0               [24]  756 	movx	@dptr,a
+      0000A6 E4               [12]  757 	clr	a
+      0000A7 A3               [24]  758 	inc	dptr
+      0000A8 F0               [24]  759 	movx	@dptr,a
+      0000A9 90 00 29         [24]  760 	mov	dptr,#(_gpu32UartSpeed + 0x0014)
+      0000AC F0               [24]  761 	movx	@dptr,a
+      0000AD 74 84            [12]  762 	mov	a,#0x84
+      0000AF A3               [24]  763 	inc	dptr
+      0000B0 F0               [24]  764 	movx	@dptr,a
+      0000B1 74 03            [12]  765 	mov	a,#0x03
+      0000B3 A3               [24]  766 	inc	dptr
+      0000B4 F0               [24]  767 	movx	@dptr,a
+      0000B5 E4               [12]  768 	clr	a
+      0000B6 A3               [24]  769 	inc	dptr
+      0000B7 F0               [24]  770 	movx	@dptr,a
+      0000B8 90 00 2D         [24]  771 	mov	dptr,#(_gpu32UartSpeed + 0x0018)
+      0000BB 74 E0            [12]  772 	mov	a,#0xe0
+      0000BD F0               [24]  773 	movx	@dptr,a
+      0000BE 74 93            [12]  774 	mov	a,#0x93
+      0000C0 A3               [24]  775 	inc	dptr
+      0000C1 F0               [24]  776 	movx	@dptr,a
+      0000C2 74 04            [12]  777 	mov	a,#0x04
+      0000C4 A3               [24]  778 	inc	dptr
+      0000C5 F0               [24]  779 	movx	@dptr,a
+      0000C6 E4               [12]  780 	clr	a
+      0000C7 A3               [24]  781 	inc	dptr
+      0000C8 F0               [24]  782 	movx	@dptr,a
+      0000C9 90 00 31         [24]  783 	mov	dptr,#(_gpu32UartSpeed + 0x001c)
+      0000CC F0               [24]  784 	movx	@dptr,a
+      0000CD 74 08            [12]  785 	mov	a,#0x08
+      0000CF A3               [24]  786 	inc	dptr
+      0000D0 F0               [24]  787 	movx	@dptr,a
+      0000D1 14               [12]  788 	dec	a
+      0000D2 A3               [24]  789 	inc	dptr
+      0000D3 F0               [24]  790 	movx	@dptr,a
+      0000D4 E4               [12]  791 	clr	a
+      0000D5 A3               [24]  792 	inc	dptr
+      0000D6 F0               [24]  793 	movx	@dptr,a
+      0000D7 90 00 35         [24]  794 	mov	dptr,#(_gpu32UartSpeed + 0x0020)
+      0000DA 74 20            [12]  795 	mov	a,#0x20
+      0000DC F0               [24]  796 	movx	@dptr,a
+      0000DD 74 A1            [12]  797 	mov	a,#0xa1
+      0000DF A3               [24]  798 	inc	dptr
+      0000E0 F0               [24]  799 	movx	@dptr,a
+      0000E1 74 07            [12]  800 	mov	a,#0x07
+      0000E3 A3               [24]  801 	inc	dptr
+      0000E4 F0               [24]  802 	movx	@dptr,a
+      0000E5 E4               [12]  803 	clr	a
+      0000E6 A3               [24]  804 	inc	dptr
+      0000E7 F0               [24]  805 	movx	@dptr,a
+      0000E8 90 00 39         [24]  806 	mov	dptr,#(_gpu32UartSpeed + 0x0024)
+      0000EB 74 C0            [12]  807 	mov	a,#0xc0
+      0000ED F0               [24]  808 	movx	@dptr,a
+      0000EE 74 27            [12]  809 	mov	a,#0x27
+      0000F0 A3               [24]  810 	inc	dptr
+      0000F1 F0               [24]  811 	movx	@dptr,a
+      0000F2 74 09            [12]  812 	mov	a,#0x09
+      0000F4 A3               [24]  813 	inc	dptr
+      0000F5 F0               [24]  814 	movx	@dptr,a
+      0000F6 E4               [12]  815 	clr	a
+      0000F7 A3               [24]  816 	inc	dptr
+      0000F8 F0               [24]  817 	movx	@dptr,a
+      0000F9 90 00 3D         [24]  818 	mov	dptr,#(_gpu32UartSpeed + 0x0028)
+      0000FC 74 60            [12]  819 	mov	a,#0x60
+      0000FE F0               [24]  820 	movx	@dptr,a
+      0000FF 74 AE            [12]  821 	mov	a,#0xae
+      000101 A3               [24]  822 	inc	dptr
+      000102 F0               [24]  823 	movx	@dptr,a
+      000103 74 0A            [12]  824 	mov	a,#0x0a
+      000105 A3               [24]  825 	inc	dptr
+      000106 F0               [24]  826 	movx	@dptr,a
+      000107 E4               [12]  827 	clr	a
+      000108 A3               [24]  828 	inc	dptr
+      000109 F0               [24]  829 	movx	@dptr,a
+      00010A 90 00 41         [24]  830 	mov	dptr,#(_gpu32UartSpeed + 0x002c)
+      00010D F0               [24]  831 	movx	@dptr,a
+      00010E 74 35            [12]  832 	mov	a,#0x35
+      000110 A3               [24]  833 	inc	dptr
+      000111 F0               [24]  834 	movx	@dptr,a
+      000112 74 0C            [12]  835 	mov	a,#0x0c
+      000114 A3               [24]  836 	inc	dptr
+      000115 F0               [24]  837 	movx	@dptr,a
+      000116 E4               [12]  838 	clr	a
+      000117 A3               [24]  839 	inc	dptr
+      000118 F0               [24]  840 	movx	@dptr,a
+      000119 90 00 45         [24]  841 	mov	dptr,#(_gpu32UartSpeed + 0x0030)
+      00011C 74 A0            [12]  842 	mov	a,#0xa0
+      00011E F0               [24]  843 	movx	@dptr,a
+      00011F 74 BB            [12]  844 	mov	a,#0xbb
+      000121 A3               [24]  845 	inc	dptr
+      000122 F0               [24]  846 	movx	@dptr,a
+      000123 74 0D            [12]  847 	mov	a,#0x0d
+      000125 A3               [24]  848 	inc	dptr
+      000126 F0               [24]  849 	movx	@dptr,a
+      000127 E4               [12]  850 	clr	a
+      000128 A3               [24]  851 	inc	dptr
+      000129 F0               [24]  852 	movx	@dptr,a
+      00012A 90 00 49         [24]  853 	mov	dptr,#(_gpu32UartSpeed + 0x0034)
+      00012D F0               [24]  854 	movx	@dptr,a
+      00012E 74 10            [12]  855 	mov	a,#0x10
+      000130 A3               [24]  856 	inc	dptr
+      000131 F0               [24]  857 	movx	@dptr,a
+      000132 74 0E            [12]  858 	mov	a,#0x0e
+      000134 A3               [24]  859 	inc	dptr
+      000135 F0               [24]  860 	movx	@dptr,a
+      000136 E4               [12]  861 	clr	a
+      000137 A3               [24]  862 	inc	dptr
+      000138 F0               [24]  863 	movx	@dptr,a
+                                    864 	.area GSFINAL (CODE)
+      0002C6 02 00 3E         [24]  865 	ljmp	__sdcc_program_startup
+                                    866 ;--------------------------------------------------------
+                                    867 ; Home
+                                    868 ;--------------------------------------------------------
+                                    869 	.area HOME    (CODE)
                                     870 	.area HOME    (CODE)
-                                    871 	.area HOME    (CODE)
-      00003E                        872 __sdcc_program_startup:
-      00003E 02 0A E2         [24]  873 	ljmp	_main
-                                    874 ;	return from main will return to caller
-                                    875 ;--------------------------------------------------------
-                                    876 ; code
-                                    877 ;--------------------------------------------------------
-                                    878 	.area CSEG    (CODE)
-                                    879 ;------------------------------------------------------------
-                                    880 ;Allocation info for local variables in function 'putchar'
-                                    881 ;------------------------------------------------------------
-                                    882 ;c                         Allocated to registers r7 
-                                    883 ;------------------------------------------------------------
-                                    884 ;	src/main.c:111: void putchar (char c) 
-                                    885 ;	-----------------------------------------
-                                    886 ;	 function putchar
-                                    887 ;	-----------------------------------------
-      0002C9                        888 _putchar:
-                           000007   889 	ar7 = 0x07
-                           000006   890 	ar6 = 0x06
-                           000005   891 	ar5 = 0x05
-                           000004   892 	ar4 = 0x04
-                           000003   893 	ar3 = 0x03
-                           000002   894 	ar2 = 0x02
-                           000001   895 	ar1 = 0x01
-                           000000   896 	ar0 = 0x00
-      0002C9 AF 82            [24]  897 	mov	r7,dpl
-                                    898 ;	src/main.c:113: if (gu8UART == 0)  {
-      0002CB E5 22            [12]  899 	mov	a,_gu8UART
-      0002CD 70 09            [24]  900 	jnz	00108$
-                                    901 ;	src/main.c:114: TI = 0;
-                                    902 ;	assignBit
-      0002CF C2 99            [12]  903 	clr	_TI
-                                    904 ;	src/main.c:115: SBUF = c;
-      0002D1 8F 99            [24]  905 	mov	_SBUF,r7
-                                    906 ;	src/main.c:116: while(TI==0);
-      0002D3                        907 00101$:
-      0002D3 20 99 09         [24]  908 	jb	_TI,00110$
-      0002D6 80 FB            [24]  909 	sjmp	00101$
-      0002D8                        910 00108$:
-                                    911 ;	src/main.c:119: TI_1 = 0;
-                                    912 ;	assignBit
-      0002D8 C2 F9            [12]  913 	clr	_TI_1
-                                    914 ;	src/main.c:120: SBUF_1 = c;
-      0002DA 8F 9A            [24]  915 	mov	_SBUF_1,r7
-                                    916 ;	src/main.c:121: while(TI_1==0);
-      0002DC                        917 00104$:
-      0002DC 30 F9 FD         [24]  918 	jnb	_TI_1,00104$
-      0002DF                        919 00110$:
-                                    920 ;	src/main.c:123: }
-      0002DF 22               [24]  921 	ret
-                                    922 ;------------------------------------------------------------
-                                    923 ;Allocation info for local variables in function 'conv_nibble2manchester'
-                                    924 ;------------------------------------------------------------
-                                    925 ;c                         Allocated to registers r7 
-                                    926 ;i                         Allocated to registers r5 
-                                    927 ;u8Manch                   Allocated to registers r4 
-                                    928 ;------------------------------------------------------------
-                                    929 ;	src/main.c:125: UINT8 conv_nibble2manchester (UINT8 c)
-                                    930 ;	-----------------------------------------
-                                    931 ;	 function conv_nibble2manchester
-                                    932 ;	-----------------------------------------
-      0002E0                        933 _conv_nibble2manchester:
-      0002E0 AF 82            [24]  934 	mov	r7,dpl
-                                    935 ;	src/main.c:135: UINT8 u8Manch = 0;
-      0002E2 7E 00            [12]  936 	mov	r6,#0x00
-                                    937 ;	src/main.c:136: for (i=0;i<4;i++) {
-      0002E4 7D 00            [12]  938 	mov	r5,#0x00
-      0002E6                        939 00105$:
-                                    940 ;	src/main.c:137: u8Manch >>=2;
-      0002E6 EE               [12]  941 	mov	a,r6
-      0002E7 03               [12]  942 	rr	a
-      0002E8 03               [12]  943 	rr	a
-      0002E9 54 3F            [12]  944 	anl	a,#0x3f
-      0002EB FC               [12]  945 	mov	r4,a
-                                    946 ;	src/main.c:138: if (c&1) {
-      0002EC EF               [12]  947 	mov	a,r7
-      0002ED 30 E0 06         [24]  948 	jnb	acc.0,00102$
-                                    949 ;	src/main.c:139: u8Manch |= 0x40; // 1 -> 0
-      0002F0 74 40            [12]  950 	mov	a,#0x40
-      0002F2 4C               [12]  951 	orl	a,r4
-      0002F3 FE               [12]  952 	mov	r6,a
-      0002F4 80 04            [24]  953 	sjmp	00103$
-      0002F6                        954 00102$:
-                                    955 ;	src/main.c:142: u8Manch |= 0x80; // 0 -> 1
-      0002F6 74 80            [12]  956 	mov	a,#0x80
-      0002F8 4C               [12]  957 	orl	a,r4
-      0002F9 FE               [12]  958 	mov	r6,a
-      0002FA                        959 00103$:
-                                    960 ;	src/main.c:144: c >>= 1;
-      0002FA EF               [12]  961 	mov	a,r7
-      0002FB C3               [12]  962 	clr	c
-      0002FC 13               [12]  963 	rrc	a
-      0002FD FF               [12]  964 	mov	r7,a
-                                    965 ;	src/main.c:136: for (i=0;i<4;i++) {
-      0002FE 0D               [12]  966 	inc	r5
-      0002FF BD 04 00         [24]  967 	cjne	r5,#0x04,00126$
-      000302                        968 00126$:
-      000302 40 E2            [24]  969 	jc	00105$
-                                    970 ;	src/main.c:146: return u8Manch;
-      000304 8E 82            [24]  971 	mov	dpl,r6
-                                    972 ;	src/main.c:147: }
-      000306 22               [24]  973 	ret
-                                    974 ;------------------------------------------------------------
-                                    975 ;Allocation info for local variables in function 'putchar_manchester'
-                                    976 ;------------------------------------------------------------
-                                    977 ;c                         Allocated to registers r7 
-                                    978 ;------------------------------------------------------------
-                                    979 ;	src/main.c:149: void putchar_manchester (char c) 
-                                    980 ;	-----------------------------------------
-                                    981 ;	 function putchar_manchester
-                                    982 ;	-----------------------------------------
-      000307                        983 _putchar_manchester:
-                                    984 ;	src/main.c:151: gu8UART = 1;
-                                    985 ;	src/main.c:152: putchar(conv_nibble2manchester(c));
-      000307 AF 82            [24]  986 	mov	r7,dpl
-      000309 75 22 01         [24]  987 	mov	_gu8UART,#0x01
-      00030C C0 07            [24]  988 	push	ar7
-      00030E 12 02 E0         [24]  989 	lcall	_conv_nibble2manchester
-      000311 12 02 C9         [24]  990 	lcall	_putchar
-      000314 D0 07            [24]  991 	pop	ar7
-                                    992 ;	src/main.c:153: putchar(conv_nibble2manchester(c>>4));
-      000316 EF               [12]  993 	mov	a,r7
-      000317 C4               [12]  994 	swap	a
-      000318 54 0F            [12]  995 	anl	a,#0x0f
-      00031A F5 82            [12]  996 	mov	dpl,a
-      00031C 12 02 E0         [24]  997 	lcall	_conv_nibble2manchester
-                                    998 ;	src/main.c:154: return;
-                                    999 ;	src/main.c:155: }
-      00031F 02 02 C9         [24] 1000 	ljmp	_putchar
-                                   1001 ;------------------------------------------------------------
-                                   1002 ;Allocation info for local variables in function 'preamble'
-                                   1003 ;------------------------------------------------------------
-                                   1004 ;	src/main.c:157: void preamble() 
-                                   1005 ;	-----------------------------------------
-                                   1006 ;	 function preamble
-                                   1007 ;	-----------------------------------------
-      000322                       1008 _preamble:
-                                   1009 ;	src/main.c:159: gu8UART = 1;
-      000322 75 22 01         [24] 1010 	mov	_gu8UART,#0x01
-                                   1011 ;	src/main.c:160: putchar(0xF0);
-      000325 75 82 F0         [24] 1012 	mov	dpl,#0xf0
-      000328 12 02 C9         [24] 1013 	lcall	_putchar
+      00003E                        871 __sdcc_program_startup:
+      00003E 02 0A F2         [24]  872 	ljmp	_main
+                                    873 ;	return from main will return to caller
+                                    874 ;--------------------------------------------------------
+                                    875 ; code
+                                    876 ;--------------------------------------------------------
+                                    877 	.area CSEG    (CODE)
+                                    878 ;------------------------------------------------------------
+                                    879 ;Allocation info for local variables in function 'putchar'
+                                    880 ;------------------------------------------------------------
+                                    881 ;c                         Allocated to registers r6 r7 
+                                    882 ;------------------------------------------------------------
+                                    883 ;	src/main.c:112: int putchar (int c) 
+                                    884 ;	-----------------------------------------
+                                    885 ;	 function putchar
+                                    886 ;	-----------------------------------------
+      0002C9                        887 _putchar:
+                           000007   888 	ar7 = 0x07
+                           000006   889 	ar6 = 0x06
+                           000005   890 	ar5 = 0x05
+                           000004   891 	ar4 = 0x04
+                           000003   892 	ar3 = 0x03
+                           000002   893 	ar2 = 0x02
+                           000001   894 	ar1 = 0x01
+                           000000   895 	ar0 = 0x00
+      0002C9 AE 82            [24]  896 	mov	r6,dpl
+                                    897 ;	src/main.c:114: if (gu8UART == 0)  {
+      0002CB E5 22            [12]  898 	mov	a,_gu8UART
+      0002CD 70 09            [24]  899 	jnz	00108$
+                                    900 ;	src/main.c:115: TI = 0;
+                                    901 ;	assignBit
+      0002CF C2 99            [12]  902 	clr	_TI
+                                    903 ;	src/main.c:116: SBUF = c;
+      0002D1 8E 99            [24]  904 	mov	_SBUF,r6
+                                    905 ;	src/main.c:117: while(TI==0);
+      0002D3                        906 00101$:
+      0002D3 20 99 09         [24]  907 	jb	_TI,00110$
+      0002D6 80 FB            [24]  908 	sjmp	00101$
+      0002D8                        909 00108$:
+                                    910 ;	src/main.c:120: TI_1 = 0;
+                                    911 ;	assignBit
+      0002D8 C2 F9            [12]  912 	clr	_TI_1
+                                    913 ;	src/main.c:121: SBUF_1 = c;
+      0002DA 8E 9A            [24]  914 	mov	_SBUF_1,r6
+                                    915 ;	src/main.c:122: while(TI_1==0);
+      0002DC                        916 00104$:
+      0002DC 30 F9 FD         [24]  917 	jnb	_TI_1,00104$
+      0002DF                        918 00110$:
+                                    919 ;	src/main.c:124: }
+      0002DF 22               [24]  920 	ret
+                                    921 ;------------------------------------------------------------
+                                    922 ;Allocation info for local variables in function 'conv_nibble2manchester'
+                                    923 ;------------------------------------------------------------
+                                    924 ;c                         Allocated to registers r7 
+                                    925 ;i                         Allocated to registers r5 
+                                    926 ;u8Manch                   Allocated to registers r4 
+                                    927 ;------------------------------------------------------------
+                                    928 ;	src/main.c:126: UINT8 conv_nibble2manchester (UINT8 c)
+                                    929 ;	-----------------------------------------
+                                    930 ;	 function conv_nibble2manchester
+                                    931 ;	-----------------------------------------
+      0002E0                        932 _conv_nibble2manchester:
+      0002E0 AF 82            [24]  933 	mov	r7,dpl
+                                    934 ;	src/main.c:136: UINT8 u8Manch = 0;
+      0002E2 7E 00            [12]  935 	mov	r6,#0x00
+                                    936 ;	src/main.c:137: for (i=0;i<4;i++) {
+      0002E4 7D 00            [12]  937 	mov	r5,#0x00
+      0002E6                        938 00105$:
+                                    939 ;	src/main.c:138: u8Manch >>=2;
+      0002E6 EE               [12]  940 	mov	a,r6
+      0002E7 03               [12]  941 	rr	a
+      0002E8 03               [12]  942 	rr	a
+      0002E9 54 3F            [12]  943 	anl	a,#0x3f
+      0002EB FC               [12]  944 	mov	r4,a
+                                    945 ;	src/main.c:139: if (c&1) {
+      0002EC EF               [12]  946 	mov	a,r7
+      0002ED 30 E0 06         [24]  947 	jnb	acc.0,00102$
+                                    948 ;	src/main.c:140: u8Manch |= 0x40; // 1 -> 0
+      0002F0 74 40            [12]  949 	mov	a,#0x40
+      0002F2 4C               [12]  950 	orl	a,r4
+      0002F3 FE               [12]  951 	mov	r6,a
+      0002F4 80 04            [24]  952 	sjmp	00103$
+      0002F6                        953 00102$:
+                                    954 ;	src/main.c:143: u8Manch |= 0x80; // 0 -> 1
+      0002F6 74 80            [12]  955 	mov	a,#0x80
+      0002F8 4C               [12]  956 	orl	a,r4
+      0002F9 FE               [12]  957 	mov	r6,a
+      0002FA                        958 00103$:
+                                    959 ;	src/main.c:145: c >>= 1;
+      0002FA EF               [12]  960 	mov	a,r7
+      0002FB C3               [12]  961 	clr	c
+      0002FC 13               [12]  962 	rrc	a
+      0002FD FF               [12]  963 	mov	r7,a
+                                    964 ;	src/main.c:137: for (i=0;i<4;i++) {
+      0002FE 0D               [12]  965 	inc	r5
+      0002FF BD 04 00         [24]  966 	cjne	r5,#0x04,00126$
+      000302                        967 00126$:
+      000302 40 E2            [24]  968 	jc	00105$
+                                    969 ;	src/main.c:147: return u8Manch;
+      000304 8E 82            [24]  970 	mov	dpl,r6
+                                    971 ;	src/main.c:148: }
+      000306 22               [24]  972 	ret
+                                    973 ;------------------------------------------------------------
+                                    974 ;Allocation info for local variables in function 'putchar_manchester'
+                                    975 ;------------------------------------------------------------
+                                    976 ;c                         Allocated to registers r7 
+                                    977 ;------------------------------------------------------------
+                                    978 ;	src/main.c:150: void putchar_manchester (char c) 
+                                    979 ;	-----------------------------------------
+                                    980 ;	 function putchar_manchester
+                                    981 ;	-----------------------------------------
+      000307                        982 _putchar_manchester:
+                                    983 ;	src/main.c:152: gu8UART = 1;
+                                    984 ;	src/main.c:153: putchar(conv_nibble2manchester(c));
+      000307 AF 82            [24]  985 	mov	r7,dpl
+      000309 75 22 01         [24]  986 	mov	_gu8UART,#0x01
+      00030C C0 07            [24]  987 	push	ar7
+      00030E 12 02 E0         [24]  988 	lcall	_conv_nibble2manchester
+      000311 7D 00            [12]  989 	mov	r5,#0x00
+      000313 8D 83            [24]  990 	mov	dph,r5
+      000315 12 02 C9         [24]  991 	lcall	_putchar
+      000318 D0 07            [24]  992 	pop	ar7
+                                    993 ;	src/main.c:154: putchar(conv_nibble2manchester(c>>4));
+      00031A EF               [12]  994 	mov	a,r7
+      00031B C4               [12]  995 	swap	a
+      00031C 54 0F            [12]  996 	anl	a,#0x0f
+      00031E F5 82            [12]  997 	mov	dpl,a
+      000320 12 02 E0         [24]  998 	lcall	_conv_nibble2manchester
+      000323 7E 00            [12]  999 	mov	r6,#0x00
+      000325 8E 83            [24] 1000 	mov	dph,r6
+                                   1001 ;	src/main.c:155: return;
+                                   1002 ;	src/main.c:156: }
+      000327 02 02 C9         [24] 1003 	ljmp	_putchar
+                                   1004 ;------------------------------------------------------------
+                                   1005 ;Allocation info for local variables in function 'preamble'
+                                   1006 ;------------------------------------------------------------
+                                   1007 ;	src/main.c:158: void preamble() 
+                                   1008 ;	-----------------------------------------
+                                   1009 ;	 function preamble
+                                   1010 ;	-----------------------------------------
+      00032A                       1011 _preamble:
+                                   1012 ;	src/main.c:160: gu8UART = 1;
+      00032A 75 22 01         [24] 1013 	mov	_gu8UART,#0x01
                                    1014 ;	src/main.c:161: putchar(0xF0);
-      00032B 75 82 F0         [24] 1015 	mov	dpl,#0xf0
-      00032E 12 02 C9         [24] 1016 	lcall	_putchar
+      00032D 90 00 F0         [24] 1015 	mov	dptr,#0x00f0
+      000330 12 02 C9         [24] 1016 	lcall	_putchar
                                    1017 ;	src/main.c:162: putchar(0xF0);
-      000331 75 82 F0         [24] 1018 	mov	dpl,#0xf0
-      000334 12 02 C9         [24] 1019 	lcall	_putchar
+      000333 90 00 F0         [24] 1018 	mov	dptr,#0x00f0
+      000336 12 02 C9         [24] 1019 	lcall	_putchar
                                    1020 ;	src/main.c:163: putchar(0xF0);
-      000337 75 82 F0         [24] 1021 	mov	dpl,#0xf0
-                                   1022 ;	src/main.c:164: }
-      00033A 02 02 C9         [24] 1023 	ljmp	_putchar
-                                   1024 ;------------------------------------------------------------
-                                   1025 ;Allocation info for local variables in function 'print_esc'
-                                   1026 ;------------------------------------------------------------
-                                   1027 ;au8State                  Allocated to registers r7 
-                                   1028 ;------------------------------------------------------------
-                                   1029 ;	src/main.c:189: void print_esc(UINT8 au8State)
-                                   1030 ;	-----------------------------------------
-                                   1031 ;	 function print_esc
-                                   1032 ;	-----------------------------------------
-      00033D                       1033 _print_esc:
-      00033D AF 82            [24] 1034 	mov	r7,dpl
-                                   1035 ;	src/main.c:191: printf_fast_f("\n\r");
-      00033F C0 07            [24] 1036 	push	ar7
-      000341 74 8F            [12] 1037 	mov	a,#___str_0
-      000343 C0 E0            [24] 1038 	push	acc
-      000345 74 20            [12] 1039 	mov	a,#(___str_0 >> 8)
-      000347 C0 E0            [24] 1040 	push	acc
-      000349 12 1B 2F         [24] 1041 	lcall	_printf_fast_f
-      00034C 15 81            [12] 1042 	dec	sp
-      00034E 15 81            [12] 1043 	dec	sp
-      000350 D0 07            [24] 1044 	pop	ar7
-                                   1045 ;	src/main.c:192: switch(au8State) {
-      000352 BF 00 02         [24] 1046 	cjne	r7,#0x00,00119$
-      000355 80 0A            [24] 1047 	sjmp	00101$
-      000357                       1048 00119$:
-      000357 BF 01 02         [24] 1049 	cjne	r7,#0x01,00120$
-      00035A 80 16            [24] 1050 	sjmp	00102$
-      00035C                       1051 00120$:
-                                   1052 ;	src/main.c:193: case STATE_SELF :
-      00035C BF 02 33         [24] 1053 	cjne	r7,#0x02,00104$
-      00035F 80 22            [24] 1054 	sjmp	00103$
-      000361                       1055 00101$:
-                                   1056 ;	src/main.c:194: printf_fast_f("self ");
-      000361 74 92            [12] 1057 	mov	a,#___str_1
-      000363 C0 E0            [24] 1058 	push	acc
-      000365 74 20            [12] 1059 	mov	a,#(___str_1 >> 8)
-      000367 C0 E0            [24] 1060 	push	acc
-      000369 12 1B 2F         [24] 1061 	lcall	_printf_fast_f
-      00036C 15 81            [12] 1062 	dec	sp
-      00036E 15 81            [12] 1063 	dec	sp
-                                   1064 ;	src/main.c:195: break;
-                                   1065 ;	src/main.c:196: case STATE_CROSS :
-      000370 80 20            [24] 1066 	sjmp	00104$
-      000372                       1067 00102$:
-                                   1068 ;	src/main.c:197: printf_fast_f("cross");
-      000372 74 98            [12] 1069 	mov	a,#___str_2
-      000374 C0 E0            [24] 1070 	push	acc
-      000376 74 20            [12] 1071 	mov	a,#(___str_2 >> 8)
-      000378 C0 E0            [24] 1072 	push	acc
-      00037A 12 1B 2F         [24] 1073 	lcall	_printf_fast_f
-      00037D 15 81            [12] 1074 	dec	sp
-      00037F 15 81            [12] 1075 	dec	sp
-                                   1076 ;	src/main.c:198: break;
-                                   1077 ;	src/main.c:199: case STATE_BOTH :
-      000381 80 0F            [24] 1078 	sjmp	00104$
-      000383                       1079 00103$:
-                                   1080 ;	src/main.c:200: printf_fast_f("both ");
-      000383 74 9E            [12] 1081 	mov	a,#___str_3
-      000385 C0 E0            [24] 1082 	push	acc
-      000387 74 20            [12] 1083 	mov	a,#(___str_3 >> 8)
-      000389 C0 E0            [24] 1084 	push	acc
-      00038B 12 1B 2F         [24] 1085 	lcall	_printf_fast_f
-      00038E 15 81            [12] 1086 	dec	sp
-      000390 15 81            [12] 1087 	dec	sp
-                                   1088 ;	src/main.c:202: }
-      000392                       1089 00104$:
-                                   1090 ;	src/main.c:203: printf_fast_f(" output:This is UART%d\n\r", gu8UART);
-      000392 AE 22            [24] 1091 	mov	r6,_gu8UART
-      000394 7F 00            [12] 1092 	mov	r7,#0x00
-      000396 C0 06            [24] 1093 	push	ar6
-      000398 C0 07            [24] 1094 	push	ar7
-      00039A 74 A4            [12] 1095 	mov	a,#___str_4
-      00039C C0 E0            [24] 1096 	push	acc
-      00039E 74 20            [12] 1097 	mov	a,#(___str_4 >> 8)
-      0003A0 C0 E0            [24] 1098 	push	acc
-      0003A2 12 1B 2F         [24] 1099 	lcall	_printf_fast_f
-      0003A5 E5 81            [12] 1100 	mov	a,sp
-      0003A7 24 FC            [12] 1101 	add	a,#0xfc
-      0003A9 F5 81            [12] 1102 	mov	sp,a
-                                   1103 ;	src/main.c:204: }
-      0003AB 22               [24] 1104 	ret
-                                   1105 ;------------------------------------------------------------
-                                   1106 ;Allocation info for local variables in function 'print_char'
-                                   1107 ;------------------------------------------------------------
-                                   1108 ;au8Data                   Allocated to registers r7 
-                                   1109 ;------------------------------------------------------------
-                                   1110 ;	src/main.c:206: void print_char(char au8Data)
-                                   1111 ;	-----------------------------------------
-                                   1112 ;	 function print_char
-                                   1113 ;	-----------------------------------------
-      0003AC                       1114 _print_char:
-      0003AC AF 82            [24] 1115 	mov	r7,dpl
-                                   1116 ;	src/main.c:208: switch(au8Data) {
-      0003AE BF 0D 02         [24] 1117 	cjne	r7,#0x0d,00115$
-      0003B1 80 04            [24] 1118 	sjmp	00102$
-      0003B3                       1119 00115$:
-      0003B3 BF 1B 11         [24] 1120 	cjne	r7,#0x1b,00103$
-                                   1121 ;	src/main.c:210: break;
-                                   1122 ;	src/main.c:211: case '\r' :
-      0003B6 22               [24] 1123 	ret
-      0003B7                       1124 00102$:
-                                   1125 ;	src/main.c:212: printf_fast_f("\r\n");
-      0003B7 74 BD            [12] 1126 	mov	a,#___str_5
-      0003B9 C0 E0            [24] 1127 	push	acc
-      0003BB 74 20            [12] 1128 	mov	a,#(___str_5 >> 8)
-      0003BD C0 E0            [24] 1129 	push	acc
-      0003BF 12 1B 2F         [24] 1130 	lcall	_printf_fast_f
-      0003C2 15 81            [12] 1131 	dec	sp
-      0003C4 15 81            [12] 1132 	dec	sp
-                                   1133 ;	src/main.c:213: break;
-                                   1134 ;	src/main.c:214: default :
-      0003C6 22               [24] 1135 	ret
-      0003C7                       1136 00103$:
-                                   1137 ;	src/main.c:215: printf_fast_f("%c",au8Data);
-      0003C7 7E 00            [12] 1138 	mov	r6,#0x00
-      0003C9 C0 07            [24] 1139 	push	ar7
-      0003CB C0 06            [24] 1140 	push	ar6
-      0003CD 74 C0            [12] 1141 	mov	a,#___str_6
-      0003CF C0 E0            [24] 1142 	push	acc
-      0003D1 74 20            [12] 1143 	mov	a,#(___str_6 >> 8)
-      0003D3 C0 E0            [24] 1144 	push	acc
-      0003D5 12 1B 2F         [24] 1145 	lcall	_printf_fast_f
-      0003D8 E5 81            [12] 1146 	mov	a,sp
-      0003DA 24 FC            [12] 1147 	add	a,#0xfc
-      0003DC F5 81            [12] 1148 	mov	sp,a
-                                   1149 ;	src/main.c:216: }
-                                   1150 ;	src/main.c:217: }
-      0003DE 22               [24] 1151 	ret
-                                   1152 ;------------------------------------------------------------
-                                   1153 ;Allocation info for local variables in function 'state_machine'
-                                   1154 ;------------------------------------------------------------
-                                   1155 ;au8RxUART                 Allocated with name '_state_machine_PARM_2'
-                                   1156 ;au8SelfID                 Allocated with name '_state_machine_PARM_3'
-                                   1157 ;au8OtherID                Allocated with name '_state_machine_PARM_4'
-                                   1158 ;au8State                  Allocated to registers r7 
-                                   1159 ;------------------------------------------------------------
-                                   1160 ;	src/main.c:219: UINT8 state_machine(UINT8 au8State, UINT8 au8RxUART, UINT8 au8SelfID, UINT8 au8OtherID)
-                                   1161 ;	-----------------------------------------
-                                   1162 ;	 function state_machine
-                                   1163 ;	-----------------------------------------
-      0003DF                       1164 _state_machine:
-      0003DF AF 82            [24] 1165 	mov	r7,dpl
-                                   1166 ;	src/main.c:221: if(au8RxUART == KEY_ESC) {
-      0003E1 74 1B            [12] 1167 	mov	a,#0x1b
-      0003E3 B5 25 02         [24] 1168 	cjne	a,_state_machine_PARM_2,00142$
-      0003E6 80 02            [24] 1169 	sjmp	00143$
-      0003E8                       1170 00142$:
-      0003E8 80 79            [24] 1171 	sjmp	00110$
-      0003EA                       1172 00143$:
-                                   1173 ;	src/main.c:222: gu8UART = au8SelfID;
-      0003EA AE 26            [24] 1174 	mov	r6,_state_machine_PARM_3
-      0003EC 8E 22            [24] 1175 	mov	_gu8UART,r6
-                                   1176 ;	src/main.c:223: printf_fast_f("\r\ninput:This is UART%d", gu8UART);
-      0003EE AC 22            [24] 1177 	mov	r4,_gu8UART
-      0003F0 7D 00            [12] 1178 	mov	r5,#0x00
-      0003F2 C0 07            [24] 1179 	push	ar7
-      0003F4 C0 06            [24] 1180 	push	ar6
-      0003F6 C0 04            [24] 1181 	push	ar4
-      0003F8 C0 05            [24] 1182 	push	ar5
-      0003FA 74 C3            [12] 1183 	mov	a,#___str_7
-      0003FC C0 E0            [24] 1184 	push	acc
-      0003FE 74 20            [12] 1185 	mov	a,#(___str_7 >> 8)
-      000400 C0 E0            [24] 1186 	push	acc
-      000402 12 1B 2F         [24] 1187 	lcall	_printf_fast_f
-      000405 E5 81            [12] 1188 	mov	a,sp
-      000407 24 FC            [12] 1189 	add	a,#0xfc
-      000409 F5 81            [12] 1190 	mov	sp,a
-      00040B D0 06            [24] 1191 	pop	ar6
-      00040D D0 07            [24] 1192 	pop	ar7
-                                   1193 ;	src/main.c:224: switch(au8State) {
-      00040F BF 00 02         [24] 1194 	cjne	r7,#0x00,00144$
-      000412 80 0D            [24] 1195 	sjmp	00101$
-      000414                       1196 00144$:
-      000414 BF 01 02         [24] 1197 	cjne	r7,#0x01,00145$
-      000417 80 21            [24] 1198 	sjmp	00102$
-      000419                       1199 00145$:
-      000419 BF 02 02         [24] 1200 	cjne	r7,#0x02,00146$
-      00041C 80 35            [24] 1201 	sjmp	00103$
-      00041E                       1202 00146$:
-      00041E 02 04 A6         [24] 1203 	ljmp	00111$
-                                   1204 ;	src/main.c:225: case STATE_SELF :
-      000421                       1205 00101$:
-                                   1206 ;	src/main.c:226: au8State = STATE_CROSS;
-      000421 7F 01            [12] 1207 	mov	r7,#0x01
-                                   1208 ;	src/main.c:227: gu8UART = au8SelfID;
-      000423 8E 22            [24] 1209 	mov	_gu8UART,r6
-                                   1210 ;	src/main.c:228: print_esc(au8State);
-      000425 75 82 01         [24] 1211 	mov	dpl,#0x01
-      000428 C0 07            [24] 1212 	push	ar7
-      00042A 12 03 3D         [24] 1213 	lcall	_print_esc
-                                   1214 ;	src/main.c:229: gu8UART = au8OtherID;
-      00042D 85 27 22         [24] 1215 	mov	_gu8UART,_state_machine_PARM_4
-                                   1216 ;	src/main.c:230: print_esc(au8State);
-      000430 75 82 01         [24] 1217 	mov	dpl,#0x01
-      000433 12 03 3D         [24] 1218 	lcall	_print_esc
-      000436 D0 07            [24] 1219 	pop	ar7
-                                   1220 ;	src/main.c:231: break;
-                                   1221 ;	src/main.c:232: case STATE_CROSS :
-      000438 80 6C            [24] 1222 	sjmp	00111$
-      00043A                       1223 00102$:
-                                   1224 ;	src/main.c:233: au8State = STATE_BOTH;
-      00043A 7F 02            [12] 1225 	mov	r7,#0x02
-                                   1226 ;	src/main.c:234: gu8UART = au8SelfID;
-      00043C 8E 22            [24] 1227 	mov	_gu8UART,r6
-                                   1228 ;	src/main.c:235: print_esc(au8State);
-      00043E 75 82 02         [24] 1229 	mov	dpl,#0x02
-      000441 C0 07            [24] 1230 	push	ar7
-      000443 12 03 3D         [24] 1231 	lcall	_print_esc
-                                   1232 ;	src/main.c:236: gu8UART = au8OtherID;
-      000446 85 27 22         [24] 1233 	mov	_gu8UART,_state_machine_PARM_4
-                                   1234 ;	src/main.c:237: print_esc(au8State);
-      000449 75 82 02         [24] 1235 	mov	dpl,#0x02
-      00044C 12 03 3D         [24] 1236 	lcall	_print_esc
-      00044F D0 07            [24] 1237 	pop	ar7
-                                   1238 ;	src/main.c:238: break;
-                                   1239 ;	src/main.c:239: case STATE_BOTH :
-      000451 80 53            [24] 1240 	sjmp	00111$
-      000453                       1241 00103$:
-                                   1242 ;	src/main.c:240: au8State = STATE_SELF;
-      000453 7F 00            [12] 1243 	mov	r7,#0x00
-                                   1244 ;	src/main.c:241: gu8UART = au8SelfID;
-      000455 8E 22            [24] 1245 	mov	_gu8UART,r6
-                                   1246 ;	src/main.c:242: print_esc(au8State);
-      000457 75 82 00         [24] 1247 	mov	dpl,#0x00
-      00045A C0 07            [24] 1248 	push	ar7
-      00045C 12 03 3D         [24] 1249 	lcall	_print_esc
-      00045F D0 07            [24] 1250 	pop	ar7
-                                   1251 ;	src/main.c:244: }
-      000461 80 43            [24] 1252 	sjmp	00111$
-      000463                       1253 00110$:
-                                   1254 ;	src/main.c:247: switch(au8State) {
-      000463 BF 00 02         [24] 1255 	cjne	r7,#0x00,00147$
-      000466 80 0A            [24] 1256 	sjmp	00105$
-      000468                       1257 00147$:
-      000468 BF 01 02         [24] 1258 	cjne	r7,#0x01,00148$
-      00046B 80 14            [24] 1259 	sjmp	00106$
-      00046D                       1260 00148$:
-                                   1261 ;	src/main.c:248: case STATE_SELF :
-      00046D BF 02 36         [24] 1262 	cjne	r7,#0x02,00111$
-      000470 80 1E            [24] 1263 	sjmp	00107$
-      000472                       1264 00105$:
-                                   1265 ;	src/main.c:249: gu8UART = au8SelfID;
-      000472 85 26 22         [24] 1266 	mov	_gu8UART,_state_machine_PARM_3
-                                   1267 ;	src/main.c:250: print_char(au8RxUART);
-      000475 85 25 82         [24] 1268 	mov	dpl,_state_machine_PARM_2
-      000478 C0 07            [24] 1269 	push	ar7
-      00047A 12 03 AC         [24] 1270 	lcall	_print_char
-      00047D D0 07            [24] 1271 	pop	ar7
-                                   1272 ;	src/main.c:251: break;
-                                   1273 ;	src/main.c:252: case STATE_CROSS :
-      00047F 80 25            [24] 1274 	sjmp	00111$
-      000481                       1275 00106$:
-                                   1276 ;	src/main.c:253: gu8UART = au8OtherID;
-      000481 85 27 22         [24] 1277 	mov	_gu8UART,_state_machine_PARM_4
-                                   1278 ;	src/main.c:254: print_char(au8RxUART);
-      000484 85 25 82         [24] 1279 	mov	dpl,_state_machine_PARM_2
-      000487 C0 07            [24] 1280 	push	ar7
-      000489 12 03 AC         [24] 1281 	lcall	_print_char
-      00048C D0 07            [24] 1282 	pop	ar7
-                                   1283 ;	src/main.c:255: break;
-                                   1284 ;	src/main.c:256: case STATE_BOTH :
-      00048E 80 16            [24] 1285 	sjmp	00111$
-      000490                       1286 00107$:
-                                   1287 ;	src/main.c:257: gu8UART = au8SelfID;
-      000490 85 26 22         [24] 1288 	mov	_gu8UART,_state_machine_PARM_3
-                                   1289 ;	src/main.c:258: print_char(au8RxUART);
-      000493 85 25 82         [24] 1290 	mov	dpl,_state_machine_PARM_2
-      000496 C0 07            [24] 1291 	push	ar7
-      000498 12 03 AC         [24] 1292 	lcall	_print_char
-                                   1293 ;	src/main.c:259: gu8UART = au8OtherID;
-      00049B 85 27 22         [24] 1294 	mov	_gu8UART,_state_machine_PARM_4
-                                   1295 ;	src/main.c:260: print_char(au8RxUART);
-      00049E 85 25 82         [24] 1296 	mov	dpl,_state_machine_PARM_2
-      0004A1 12 03 AC         [24] 1297 	lcall	_print_char
-      0004A4 D0 07            [24] 1298 	pop	ar7
-                                   1299 ;	src/main.c:262: }
-      0004A6                       1300 00111$:
-                                   1301 ;	src/main.c:264: return au8State;
-      0004A6 8F 82            [24] 1302 	mov	dpl,r7
-                                   1303 ;	src/main.c:265: }
-      0004A8 22               [24] 1304 	ret
-                                   1305 ;------------------------------------------------------------
-                                   1306 ;Allocation info for local variables in function 'Timer0_ISR'
-                                   1307 ;------------------------------------------------------------
-                                   1308 ;	src/main.c:267: void Timer0_ISR (void) interrupt(1)  //interrupt address is 0x000B
-                                   1309 ;	-----------------------------------------
-                                   1310 ;	 function Timer0_ISR
-                                   1311 ;	-----------------------------------------
-      0004A9                       1312 _Timer0_ISR:
-                           00000F  1313 	ar7 = 0x0f
-                           00000E  1314 	ar6 = 0x0e
-                           00000D  1315 	ar5 = 0x0d
-                           00000C  1316 	ar4 = 0x0c
-                           00000B  1317 	ar3 = 0x0b
-                           00000A  1318 	ar2 = 0x0a
-                           000009  1319 	ar1 = 0x09
-                           000008  1320 	ar0 = 0x08
-      0004A9 C0 E0            [24] 1321 	push	acc
-      0004AB C0 D0            [24] 1322 	push	psw
-                                   1323 ;	src/main.c:269: TH0 = TH0_INIT;
-      0004AD 75 8C FF         [24] 1324 	mov	_TH0,#0xff
-                                   1325 ;	src/main.c:270: TL0 = TL0_INIT;
-      0004B0 75 8A F3         [24] 1326 	mov	_TL0,#0xf3
-                                   1327 ;	src/main.c:271: gu16TimeCnt++;
-      0004B3 05 23            [12] 1328 	inc	_gu16TimeCnt
-      0004B5 E4               [12] 1329 	clr	a
-      0004B6 B5 23 02         [24] 1330 	cjne	a,_gu16TimeCnt,00103$
-      0004B9 05 24            [12] 1331 	inc	(_gu16TimeCnt + 1)
-      0004BB                       1332 00103$:
-                                   1333 ;	src/main.c:280: } //void Timer0_ISR (void) __interrupt 1  //interrupt address is 0x000B
-      0004BB D0 D0            [24] 1334 	pop	psw
-      0004BD D0 E0            [24] 1335 	pop	acc
-      0004BF 32               [24] 1336 	reti
-                                   1337 ;	eliminated unneeded mov psw,# (no regs used in bank)
-                                   1338 ;	eliminated unneeded push/pop dpl
-                                   1339 ;	eliminated unneeded push/pop dph
-                                   1340 ;	eliminated unneeded push/pop b
-                                   1341 ;------------------------------------------------------------
-                                   1342 ;Allocation info for local variables in function 'pin_interrupt_isr'
-                                   1343 ;------------------------------------------------------------
-                                   1344 ;	src/main.c:282: void pin_interrupt_isr(void) interrupt(7)
-                                   1345 ;	-----------------------------------------
-                                   1346 ;	 function pin_interrupt_isr
-                                   1347 ;	-----------------------------------------
-      0004C0                       1348 _pin_interrupt_isr:
-      0004C0 C0 E0            [24] 1349 	push	acc
-                                   1350 ;	src/main.c:284: if (PIF == 0x10) {
-      0004C2 E5 EC            [12] 1351 	mov	a,_PIF
-                                   1352 ;	src/main.c:286: PIF = 0;
-      0004C4 75 EC 00         [24] 1353 	mov	_PIF,#0x00
-                                   1354 ;	src/main.c:287: }// void pin_interrupt_isr (void) interrupt(7)
-      0004C7 D0 E0            [24] 1355 	pop	acc
-      0004C9 32               [24] 1356 	reti
-                                   1357 ;	eliminated unneeded mov psw,# (no regs used in bank)
-                                   1358 ;	eliminated unneeded push/pop not_psw
-                                   1359 ;	eliminated unneeded push/pop dpl
-                                   1360 ;	eliminated unneeded push/pop dph
-                                   1361 ;	eliminated unneeded push/pop b
-                                   1362 ;------------------------------------------------------------
-                                   1363 ;Allocation info for local variables in function 'chk_manchester'
-                                   1364 ;------------------------------------------------------------
-                                   1365 ;c                         Allocated to registers r7 
-                                   1366 ;i                         Allocated to registers r6 
+      000339 90 00 F0         [24] 1021 	mov	dptr,#0x00f0
+      00033C 12 02 C9         [24] 1022 	lcall	_putchar
+                                   1023 ;	src/main.c:164: putchar(0xF0);
+      00033F 90 00 F0         [24] 1024 	mov	dptr,#0x00f0
+                                   1025 ;	src/main.c:165: }
+      000342 02 02 C9         [24] 1026 	ljmp	_putchar
+                                   1027 ;------------------------------------------------------------
+                                   1028 ;Allocation info for local variables in function 'print_esc'
+                                   1029 ;------------------------------------------------------------
+                                   1030 ;au8State                  Allocated to registers r7 
+                                   1031 ;------------------------------------------------------------
+                                   1032 ;	src/main.c:190: void print_esc(UINT8 au8State)
+                                   1033 ;	-----------------------------------------
+                                   1034 ;	 function print_esc
+                                   1035 ;	-----------------------------------------
+      000345                       1036 _print_esc:
+      000345 AF 82            [24] 1037 	mov	r7,dpl
+                                   1038 ;	src/main.c:192: printf_fast_f("\n\r");
+      000347 C0 07            [24] 1039 	push	ar7
+      000349 74 B2            [12] 1040 	mov	a,#___str_0
+      00034B C0 E0            [24] 1041 	push	acc
+      00034D 74 20            [12] 1042 	mov	a,#(___str_0 >> 8)
+      00034F C0 E0            [24] 1043 	push	acc
+      000351 12 1B 52         [24] 1044 	lcall	_printf_fast_f
+      000354 15 81            [12] 1045 	dec	sp
+      000356 15 81            [12] 1046 	dec	sp
+      000358 D0 07            [24] 1047 	pop	ar7
+                                   1048 ;	src/main.c:193: switch(au8State) {
+      00035A BF 00 02         [24] 1049 	cjne	r7,#0x00,00119$
+      00035D 80 0A            [24] 1050 	sjmp	00101$
+      00035F                       1051 00119$:
+      00035F BF 01 02         [24] 1052 	cjne	r7,#0x01,00120$
+      000362 80 16            [24] 1053 	sjmp	00102$
+      000364                       1054 00120$:
+                                   1055 ;	src/main.c:194: case STATE_SELF :
+      000364 BF 02 33         [24] 1056 	cjne	r7,#0x02,00104$
+      000367 80 22            [24] 1057 	sjmp	00103$
+      000369                       1058 00101$:
+                                   1059 ;	src/main.c:195: printf_fast_f("self ");
+      000369 74 B5            [12] 1060 	mov	a,#___str_1
+      00036B C0 E0            [24] 1061 	push	acc
+      00036D 74 20            [12] 1062 	mov	a,#(___str_1 >> 8)
+      00036F C0 E0            [24] 1063 	push	acc
+      000371 12 1B 52         [24] 1064 	lcall	_printf_fast_f
+      000374 15 81            [12] 1065 	dec	sp
+      000376 15 81            [12] 1066 	dec	sp
+                                   1067 ;	src/main.c:196: break;
+                                   1068 ;	src/main.c:197: case STATE_CROSS :
+      000378 80 20            [24] 1069 	sjmp	00104$
+      00037A                       1070 00102$:
+                                   1071 ;	src/main.c:198: printf_fast_f("cross");
+      00037A 74 BB            [12] 1072 	mov	a,#___str_2
+      00037C C0 E0            [24] 1073 	push	acc
+      00037E 74 20            [12] 1074 	mov	a,#(___str_2 >> 8)
+      000380 C0 E0            [24] 1075 	push	acc
+      000382 12 1B 52         [24] 1076 	lcall	_printf_fast_f
+      000385 15 81            [12] 1077 	dec	sp
+      000387 15 81            [12] 1078 	dec	sp
+                                   1079 ;	src/main.c:199: break;
+                                   1080 ;	src/main.c:200: case STATE_BOTH :
+      000389 80 0F            [24] 1081 	sjmp	00104$
+      00038B                       1082 00103$:
+                                   1083 ;	src/main.c:201: printf_fast_f("both ");
+      00038B 74 C1            [12] 1084 	mov	a,#___str_3
+      00038D C0 E0            [24] 1085 	push	acc
+      00038F 74 20            [12] 1086 	mov	a,#(___str_3 >> 8)
+      000391 C0 E0            [24] 1087 	push	acc
+      000393 12 1B 52         [24] 1088 	lcall	_printf_fast_f
+      000396 15 81            [12] 1089 	dec	sp
+      000398 15 81            [12] 1090 	dec	sp
+                                   1091 ;	src/main.c:203: }
+      00039A                       1092 00104$:
+                                   1093 ;	src/main.c:204: printf_fast_f(" output:This is UART%d\n\r", gu8UART);
+      00039A AE 22            [24] 1094 	mov	r6,_gu8UART
+      00039C 7F 00            [12] 1095 	mov	r7,#0x00
+      00039E C0 06            [24] 1096 	push	ar6
+      0003A0 C0 07            [24] 1097 	push	ar7
+      0003A2 74 C7            [12] 1098 	mov	a,#___str_4
+      0003A4 C0 E0            [24] 1099 	push	acc
+      0003A6 74 20            [12] 1100 	mov	a,#(___str_4 >> 8)
+      0003A8 C0 E0            [24] 1101 	push	acc
+      0003AA 12 1B 52         [24] 1102 	lcall	_printf_fast_f
+      0003AD E5 81            [12] 1103 	mov	a,sp
+      0003AF 24 FC            [12] 1104 	add	a,#0xfc
+      0003B1 F5 81            [12] 1105 	mov	sp,a
+                                   1106 ;	src/main.c:205: }
+      0003B3 22               [24] 1107 	ret
+                                   1108 ;------------------------------------------------------------
+                                   1109 ;Allocation info for local variables in function 'print_char'
+                                   1110 ;------------------------------------------------------------
+                                   1111 ;au8Data                   Allocated to registers r7 
+                                   1112 ;------------------------------------------------------------
+                                   1113 ;	src/main.c:207: void print_char(char au8Data)
+                                   1114 ;	-----------------------------------------
+                                   1115 ;	 function print_char
+                                   1116 ;	-----------------------------------------
+      0003B4                       1117 _print_char:
+      0003B4 AF 82            [24] 1118 	mov	r7,dpl
+                                   1119 ;	src/main.c:209: switch(au8Data) {
+      0003B6 BF 0D 02         [24] 1120 	cjne	r7,#0x0d,00115$
+      0003B9 80 04            [24] 1121 	sjmp	00102$
+      0003BB                       1122 00115$:
+      0003BB BF 1B 11         [24] 1123 	cjne	r7,#0x1b,00103$
+                                   1124 ;	src/main.c:211: break;
+                                   1125 ;	src/main.c:212: case '\r' :
+      0003BE 22               [24] 1126 	ret
+      0003BF                       1127 00102$:
+                                   1128 ;	src/main.c:213: printf_fast_f("\r\n");
+      0003BF 74 E0            [12] 1129 	mov	a,#___str_5
+      0003C1 C0 E0            [24] 1130 	push	acc
+      0003C3 74 20            [12] 1131 	mov	a,#(___str_5 >> 8)
+      0003C5 C0 E0            [24] 1132 	push	acc
+      0003C7 12 1B 52         [24] 1133 	lcall	_printf_fast_f
+      0003CA 15 81            [12] 1134 	dec	sp
+      0003CC 15 81            [12] 1135 	dec	sp
+                                   1136 ;	src/main.c:214: break;
+                                   1137 ;	src/main.c:215: default :
+      0003CE 22               [24] 1138 	ret
+      0003CF                       1139 00103$:
+                                   1140 ;	src/main.c:216: printf_fast_f("%c",au8Data);
+      0003CF 7E 00            [12] 1141 	mov	r6,#0x00
+      0003D1 C0 07            [24] 1142 	push	ar7
+      0003D3 C0 06            [24] 1143 	push	ar6
+      0003D5 74 E3            [12] 1144 	mov	a,#___str_6
+      0003D7 C0 E0            [24] 1145 	push	acc
+      0003D9 74 20            [12] 1146 	mov	a,#(___str_6 >> 8)
+      0003DB C0 E0            [24] 1147 	push	acc
+      0003DD 12 1B 52         [24] 1148 	lcall	_printf_fast_f
+      0003E0 E5 81            [12] 1149 	mov	a,sp
+      0003E2 24 FC            [12] 1150 	add	a,#0xfc
+      0003E4 F5 81            [12] 1151 	mov	sp,a
+                                   1152 ;	src/main.c:217: }
+                                   1153 ;	src/main.c:218: }
+      0003E6 22               [24] 1154 	ret
+                                   1155 ;------------------------------------------------------------
+                                   1156 ;Allocation info for local variables in function 'state_machine'
+                                   1157 ;------------------------------------------------------------
+                                   1158 ;au8RxUART                 Allocated with name '_state_machine_PARM_2'
+                                   1159 ;au8SelfID                 Allocated with name '_state_machine_PARM_3'
+                                   1160 ;au8OtherID                Allocated with name '_state_machine_PARM_4'
+                                   1161 ;au8State                  Allocated to registers r7 
+                                   1162 ;------------------------------------------------------------
+                                   1163 ;	src/main.c:220: UINT8 state_machine(UINT8 au8State, UINT8 au8RxUART, UINT8 au8SelfID, UINT8 au8OtherID)
+                                   1164 ;	-----------------------------------------
+                                   1165 ;	 function state_machine
+                                   1166 ;	-----------------------------------------
+      0003E7                       1167 _state_machine:
+      0003E7 AF 82            [24] 1168 	mov	r7,dpl
+                                   1169 ;	src/main.c:222: if(au8RxUART == KEY_ESC) {
+      0003E9 74 1B            [12] 1170 	mov	a,#0x1b
+      0003EB B5 25 02         [24] 1171 	cjne	a,_state_machine_PARM_2,00142$
+      0003EE 80 02            [24] 1172 	sjmp	00143$
+      0003F0                       1173 00142$:
+      0003F0 80 79            [24] 1174 	sjmp	00110$
+      0003F2                       1175 00143$:
+                                   1176 ;	src/main.c:223: gu8UART = au8SelfID;
+      0003F2 AE 26            [24] 1177 	mov	r6,_state_machine_PARM_3
+      0003F4 8E 22            [24] 1178 	mov	_gu8UART,r6
+                                   1179 ;	src/main.c:224: printf_fast_f("\r\ninput:This is UART%d", gu8UART);
+      0003F6 AC 22            [24] 1180 	mov	r4,_gu8UART
+      0003F8 7D 00            [12] 1181 	mov	r5,#0x00
+      0003FA C0 07            [24] 1182 	push	ar7
+      0003FC C0 06            [24] 1183 	push	ar6
+      0003FE C0 04            [24] 1184 	push	ar4
+      000400 C0 05            [24] 1185 	push	ar5
+      000402 74 E6            [12] 1186 	mov	a,#___str_7
+      000404 C0 E0            [24] 1187 	push	acc
+      000406 74 20            [12] 1188 	mov	a,#(___str_7 >> 8)
+      000408 C0 E0            [24] 1189 	push	acc
+      00040A 12 1B 52         [24] 1190 	lcall	_printf_fast_f
+      00040D E5 81            [12] 1191 	mov	a,sp
+      00040F 24 FC            [12] 1192 	add	a,#0xfc
+      000411 F5 81            [12] 1193 	mov	sp,a
+      000413 D0 06            [24] 1194 	pop	ar6
+      000415 D0 07            [24] 1195 	pop	ar7
+                                   1196 ;	src/main.c:225: switch(au8State) {
+      000417 BF 00 02         [24] 1197 	cjne	r7,#0x00,00144$
+      00041A 80 0D            [24] 1198 	sjmp	00101$
+      00041C                       1199 00144$:
+      00041C BF 01 02         [24] 1200 	cjne	r7,#0x01,00145$
+      00041F 80 21            [24] 1201 	sjmp	00102$
+      000421                       1202 00145$:
+      000421 BF 02 02         [24] 1203 	cjne	r7,#0x02,00146$
+      000424 80 35            [24] 1204 	sjmp	00103$
+      000426                       1205 00146$:
+      000426 02 04 AE         [24] 1206 	ljmp	00111$
+                                   1207 ;	src/main.c:226: case STATE_SELF :
+      000429                       1208 00101$:
+                                   1209 ;	src/main.c:227: au8State = STATE_CROSS;
+      000429 7F 01            [12] 1210 	mov	r7,#0x01
+                                   1211 ;	src/main.c:228: gu8UART = au8SelfID;
+      00042B 8E 22            [24] 1212 	mov	_gu8UART,r6
+                                   1213 ;	src/main.c:229: print_esc(au8State);
+      00042D 75 82 01         [24] 1214 	mov	dpl,#0x01
+      000430 C0 07            [24] 1215 	push	ar7
+      000432 12 03 45         [24] 1216 	lcall	_print_esc
+                                   1217 ;	src/main.c:230: gu8UART = au8OtherID;
+      000435 85 27 22         [24] 1218 	mov	_gu8UART,_state_machine_PARM_4
+                                   1219 ;	src/main.c:231: print_esc(au8State);
+      000438 75 82 01         [24] 1220 	mov	dpl,#0x01
+      00043B 12 03 45         [24] 1221 	lcall	_print_esc
+      00043E D0 07            [24] 1222 	pop	ar7
+                                   1223 ;	src/main.c:232: break;
+                                   1224 ;	src/main.c:233: case STATE_CROSS :
+      000440 80 6C            [24] 1225 	sjmp	00111$
+      000442                       1226 00102$:
+                                   1227 ;	src/main.c:234: au8State = STATE_BOTH;
+      000442 7F 02            [12] 1228 	mov	r7,#0x02
+                                   1229 ;	src/main.c:235: gu8UART = au8SelfID;
+      000444 8E 22            [24] 1230 	mov	_gu8UART,r6
+                                   1231 ;	src/main.c:236: print_esc(au8State);
+      000446 75 82 02         [24] 1232 	mov	dpl,#0x02
+      000449 C0 07            [24] 1233 	push	ar7
+      00044B 12 03 45         [24] 1234 	lcall	_print_esc
+                                   1235 ;	src/main.c:237: gu8UART = au8OtherID;
+      00044E 85 27 22         [24] 1236 	mov	_gu8UART,_state_machine_PARM_4
+                                   1237 ;	src/main.c:238: print_esc(au8State);
+      000451 75 82 02         [24] 1238 	mov	dpl,#0x02
+      000454 12 03 45         [24] 1239 	lcall	_print_esc
+      000457 D0 07            [24] 1240 	pop	ar7
+                                   1241 ;	src/main.c:239: break;
+                                   1242 ;	src/main.c:240: case STATE_BOTH :
+      000459 80 53            [24] 1243 	sjmp	00111$
+      00045B                       1244 00103$:
+                                   1245 ;	src/main.c:241: au8State = STATE_SELF;
+      00045B 7F 00            [12] 1246 	mov	r7,#0x00
+                                   1247 ;	src/main.c:242: gu8UART = au8SelfID;
+      00045D 8E 22            [24] 1248 	mov	_gu8UART,r6
+                                   1249 ;	src/main.c:243: print_esc(au8State);
+      00045F 75 82 00         [24] 1250 	mov	dpl,#0x00
+      000462 C0 07            [24] 1251 	push	ar7
+      000464 12 03 45         [24] 1252 	lcall	_print_esc
+      000467 D0 07            [24] 1253 	pop	ar7
+                                   1254 ;	src/main.c:245: }
+      000469 80 43            [24] 1255 	sjmp	00111$
+      00046B                       1256 00110$:
+                                   1257 ;	src/main.c:248: switch(au8State) {
+      00046B BF 00 02         [24] 1258 	cjne	r7,#0x00,00147$
+      00046E 80 0A            [24] 1259 	sjmp	00105$
+      000470                       1260 00147$:
+      000470 BF 01 02         [24] 1261 	cjne	r7,#0x01,00148$
+      000473 80 14            [24] 1262 	sjmp	00106$
+      000475                       1263 00148$:
+                                   1264 ;	src/main.c:249: case STATE_SELF :
+      000475 BF 02 36         [24] 1265 	cjne	r7,#0x02,00111$
+      000478 80 1E            [24] 1266 	sjmp	00107$
+      00047A                       1267 00105$:
+                                   1268 ;	src/main.c:250: gu8UART = au8SelfID;
+      00047A 85 26 22         [24] 1269 	mov	_gu8UART,_state_machine_PARM_3
+                                   1270 ;	src/main.c:251: print_char(au8RxUART);
+      00047D 85 25 82         [24] 1271 	mov	dpl,_state_machine_PARM_2
+      000480 C0 07            [24] 1272 	push	ar7
+      000482 12 03 B4         [24] 1273 	lcall	_print_char
+      000485 D0 07            [24] 1274 	pop	ar7
+                                   1275 ;	src/main.c:252: break;
+                                   1276 ;	src/main.c:253: case STATE_CROSS :
+      000487 80 25            [24] 1277 	sjmp	00111$
+      000489                       1278 00106$:
+                                   1279 ;	src/main.c:254: gu8UART = au8OtherID;
+      000489 85 27 22         [24] 1280 	mov	_gu8UART,_state_machine_PARM_4
+                                   1281 ;	src/main.c:255: print_char(au8RxUART);
+      00048C 85 25 82         [24] 1282 	mov	dpl,_state_machine_PARM_2
+      00048F C0 07            [24] 1283 	push	ar7
+      000491 12 03 B4         [24] 1284 	lcall	_print_char
+      000494 D0 07            [24] 1285 	pop	ar7
+                                   1286 ;	src/main.c:256: break;
+                                   1287 ;	src/main.c:257: case STATE_BOTH :
+      000496 80 16            [24] 1288 	sjmp	00111$
+      000498                       1289 00107$:
+                                   1290 ;	src/main.c:258: gu8UART = au8SelfID;
+      000498 85 26 22         [24] 1291 	mov	_gu8UART,_state_machine_PARM_3
+                                   1292 ;	src/main.c:259: print_char(au8RxUART);
+      00049B 85 25 82         [24] 1293 	mov	dpl,_state_machine_PARM_2
+      00049E C0 07            [24] 1294 	push	ar7
+      0004A0 12 03 B4         [24] 1295 	lcall	_print_char
+                                   1296 ;	src/main.c:260: gu8UART = au8OtherID;
+      0004A3 85 27 22         [24] 1297 	mov	_gu8UART,_state_machine_PARM_4
+                                   1298 ;	src/main.c:261: print_char(au8RxUART);
+      0004A6 85 25 82         [24] 1299 	mov	dpl,_state_machine_PARM_2
+      0004A9 12 03 B4         [24] 1300 	lcall	_print_char
+      0004AC D0 07            [24] 1301 	pop	ar7
+                                   1302 ;	src/main.c:263: }
+      0004AE                       1303 00111$:
+                                   1304 ;	src/main.c:265: return au8State;
+      0004AE 8F 82            [24] 1305 	mov	dpl,r7
+                                   1306 ;	src/main.c:266: }
+      0004B0 22               [24] 1307 	ret
+                                   1308 ;------------------------------------------------------------
+                                   1309 ;Allocation info for local variables in function 'Timer0_ISR'
+                                   1310 ;------------------------------------------------------------
+                                   1311 ;	src/main.c:268: void Timer0_ISR (void) interrupt(1)  //interrupt address is 0x000B
+                                   1312 ;	-----------------------------------------
+                                   1313 ;	 function Timer0_ISR
+                                   1314 ;	-----------------------------------------
+      0004B1                       1315 _Timer0_ISR:
+                           00000F  1316 	ar7 = 0x0f
+                           00000E  1317 	ar6 = 0x0e
+                           00000D  1318 	ar5 = 0x0d
+                           00000C  1319 	ar4 = 0x0c
+                           00000B  1320 	ar3 = 0x0b
+                           00000A  1321 	ar2 = 0x0a
+                           000009  1322 	ar1 = 0x09
+                           000008  1323 	ar0 = 0x08
+      0004B1 C0 E0            [24] 1324 	push	acc
+      0004B3 C0 D0            [24] 1325 	push	psw
+                                   1326 ;	src/main.c:270: TH0 = TH0_INIT;
+      0004B5 75 8C FF         [24] 1327 	mov	_TH0,#0xff
+                                   1328 ;	src/main.c:271: TL0 = TL0_INIT;
+      0004B8 75 8A F3         [24] 1329 	mov	_TL0,#0xf3
+                                   1330 ;	src/main.c:272: gu16TimeCnt++;
+      0004BB 05 23            [12] 1331 	inc	_gu16TimeCnt
+      0004BD E4               [12] 1332 	clr	a
+      0004BE B5 23 02         [24] 1333 	cjne	a,_gu16TimeCnt,00103$
+      0004C1 05 24            [12] 1334 	inc	(_gu16TimeCnt + 1)
+      0004C3                       1335 00103$:
+                                   1336 ;	src/main.c:281: } //void Timer0_ISR (void) __interrupt 1  //interrupt address is 0x000B
+      0004C3 D0 D0            [24] 1337 	pop	psw
+      0004C5 D0 E0            [24] 1338 	pop	acc
+      0004C7 32               [24] 1339 	reti
+                                   1340 ;	eliminated unneeded mov psw,# (no regs used in bank)
+                                   1341 ;	eliminated unneeded push/pop dpl
+                                   1342 ;	eliminated unneeded push/pop dph
+                                   1343 ;	eliminated unneeded push/pop b
+                                   1344 ;------------------------------------------------------------
+                                   1345 ;Allocation info for local variables in function 'pin_interrupt_isr'
+                                   1346 ;------------------------------------------------------------
+                                   1347 ;	src/main.c:283: void pin_interrupt_isr(void) interrupt(7)
+                                   1348 ;	-----------------------------------------
+                                   1349 ;	 function pin_interrupt_isr
+                                   1350 ;	-----------------------------------------
+      0004C8                       1351 _pin_interrupt_isr:
+      0004C8 C0 E0            [24] 1352 	push	acc
+                                   1353 ;	src/main.c:285: if (PIF == 0x10) {
+      0004CA E5 EC            [12] 1354 	mov	a,_PIF
+                                   1355 ;	src/main.c:287: PIF = 0;
+      0004CC 75 EC 00         [24] 1356 	mov	_PIF,#0x00
+                                   1357 ;	src/main.c:288: }// void pin_interrupt_isr (void) interrupt(7)
+      0004CF D0 E0            [24] 1358 	pop	acc
+      0004D1 32               [24] 1359 	reti
+                                   1360 ;	eliminated unneeded mov psw,# (no regs used in bank)
+                                   1361 ;	eliminated unneeded push/pop psw
+                                   1362 ;	eliminated unneeded push/pop dpl
+                                   1363 ;	eliminated unneeded push/pop dph
+                                   1364 ;	eliminated unneeded push/pop b
+                                   1365 ;------------------------------------------------------------
+                                   1366 ;Allocation info for local variables in function 'chk_manchester'
                                    1367 ;------------------------------------------------------------
-                                   1368 ;	src/main.c:290: UINT8 chk_manchester(UINT8 c)
-                                   1369 ;	-----------------------------------------
-                                   1370 ;	 function chk_manchester
-                                   1371 ;	-----------------------------------------
-      0004CA                       1372 _chk_manchester:
-                           000007  1373 	ar7 = 0x07
-                           000006  1374 	ar6 = 0x06
-                           000005  1375 	ar5 = 0x05
-                           000004  1376 	ar4 = 0x04
-                           000003  1377 	ar3 = 0x03
-                           000002  1378 	ar2 = 0x02
-                           000001  1379 	ar1 = 0x01
-                           000000  1380 	ar0 = 0x00
-      0004CA AF 82            [24] 1381 	mov	r7,dpl
-                                   1382 ;	src/main.c:293: for (i=0;i<4;i++) {
-      0004CC 7E 00            [12] 1383 	mov	r6,#0x00
-      0004CE                       1384 00104$:
-                                   1385 ;	src/main.c:294: if (((c>>(2*i)) & 1) == ((c>>((2*i+1)))&1)) {
-      0004CE EE               [12] 1386 	mov	a,r6
-      0004CF 2E               [12] 1387 	add	a,r6
-      0004D0 FD               [12] 1388 	mov	r5,a
-      0004D1 8D F0            [24] 1389 	mov	b,r5
-      0004D3 05 F0            [12] 1390 	inc	b
-      0004D5 EF               [12] 1391 	mov	a,r7
-      0004D6 80 02            [24] 1392 	sjmp	00121$
-      0004D8                       1393 00120$:
-      0004D8 C3               [12] 1394 	clr	c
-      0004D9 13               [12] 1395 	rrc	a
-      0004DA                       1396 00121$:
-      0004DA D5 F0 FB         [24] 1397 	djnz	b,00120$
-      0004DD FC               [12] 1398 	mov	r4,a
-      0004DE 53 04 01         [24] 1399 	anl	ar4,#0x01
-      0004E1 7B 00            [12] 1400 	mov	r3,#0x00
-      0004E3 ED               [12] 1401 	mov	a,r5
-      0004E4 04               [12] 1402 	inc	a
-      0004E5 F5 F0            [12] 1403 	mov	b,a
-      0004E7 05 F0            [12] 1404 	inc	b
-      0004E9 EF               [12] 1405 	mov	a,r7
-      0004EA 80 02            [24] 1406 	sjmp	00123$
-      0004EC                       1407 00122$:
-      0004EC C3               [12] 1408 	clr	c
-      0004ED 13               [12] 1409 	rrc	a
-      0004EE                       1410 00123$:
-      0004EE D5 F0 FB         [24] 1411 	djnz	b,00122$
-      0004F1 FD               [12] 1412 	mov	r5,a
-      0004F2 53 05 01         [24] 1413 	anl	ar5,#0x01
-      0004F5 7A 00            [12] 1414 	mov	r2,#0x00
-      0004F7 EC               [12] 1415 	mov	a,r4
-      0004F8 B5 05 08         [24] 1416 	cjne	a,ar5,00105$
-      0004FB EB               [12] 1417 	mov	a,r3
-      0004FC B5 02 04         [24] 1418 	cjne	a,ar2,00105$
-                                   1419 ;	src/main.c:296: return 0;
-      0004FF 75 82 00         [24] 1420 	mov	dpl,#0x00
-      000502 22               [24] 1421 	ret
-      000503                       1422 00105$:
-                                   1423 ;	src/main.c:293: for (i=0;i<4;i++) {
-      000503 0E               [12] 1424 	inc	r6
-      000504 BE 04 00         [24] 1425 	cjne	r6,#0x04,00126$
-      000507                       1426 00126$:
-      000507 40 C5            [24] 1427 	jc	00104$
-                                   1428 ;	src/main.c:299: return 1;
-      000509 75 82 01         [24] 1429 	mov	dpl,#0x01
-                                   1430 ;	src/main.c:300: }
-      00050C 22               [24] 1431 	ret
-                                   1432 ;------------------------------------------------------------
-                                   1433 ;Allocation info for local variables in function 'conv_manchester2nibble'
-                                   1434 ;------------------------------------------------------------
-                                   1435 ;c                         Allocated to registers r7 
-                                   1436 ;i                         Allocated to registers r5 
-                                   1437 ;u8Nibble                  Allocated to registers r6 
-                                   1438 ;------------------------------------------------------------
-                                   1439 ;	src/main.c:302: UINT8 conv_manchester2nibble(UINT8 c)
-                                   1440 ;	-----------------------------------------
-                                   1441 ;	 function conv_manchester2nibble
-                                   1442 ;	-----------------------------------------
-      00050D                       1443 _conv_manchester2nibble:
-      00050D AF 82            [24] 1444 	mov	r7,dpl
-                                   1445 ;	src/main.c:305: UINT8 u8Nibble = 0;
-      00050F 7E 00            [12] 1446 	mov	r6,#0x00
-                                   1447 ;	src/main.c:306: for (i=0;i<4;i++) {
-      000511 7D 04            [12] 1448 	mov	r5,#0x04
-      000513                       1449 00106$:
-                                   1450 ;	src/main.c:307: if (c & 1) {
-      000513 EF               [12] 1451 	mov	a,r7
-      000514 30 E0 03         [24] 1452 	jnb	acc.0,00102$
-                                   1453 ;	src/main.c:308: u8Nibble |= 0x80;
-      000517 43 06 80         [24] 1454 	orl	ar6,#0x80
-      00051A                       1455 00102$:
-                                   1456 ;	src/main.c:310: c >>= 2;
-      00051A EF               [12] 1457 	mov	a,r7
-      00051B 03               [12] 1458 	rr	a
-      00051C 03               [12] 1459 	rr	a
-      00051D 54 3F            [12] 1460 	anl	a,#0x3f
-      00051F FF               [12] 1461 	mov	r7,a
-                                   1462 ;	src/main.c:311: u8Nibble >>= 1;
-      000520 EE               [12] 1463 	mov	a,r6
-      000521 C3               [12] 1464 	clr	c
-      000522 13               [12] 1465 	rrc	a
-      000523 FE               [12] 1466 	mov	r6,a
-                                   1467 ;	src/main.c:306: for (i=0;i<4;i++) {
-      000524 DD ED            [24] 1468 	djnz	r5,00106$
-                                   1469 ;	src/main.c:313: return u8Nibble;
-      000526 8E 82            [24] 1470 	mov	dpl,r6
-                                   1471 ;	src/main.c:314: }
-      000528 22               [24] 1472 	ret
-                                   1473 ;------------------------------------------------------------
-                                   1474 ;Allocation info for local variables in function 'conv_manchester2highnibble'
-                                   1475 ;------------------------------------------------------------
-                                   1476 ;c                         Allocated to registers r7 
-                                   1477 ;i                         Allocated to registers r5 
-                                   1478 ;u8Nibble                  Allocated to registers r6 
+                                   1368 ;c                         Allocated to registers r7 
+                                   1369 ;i                         Allocated to registers r6 
+                                   1370 ;------------------------------------------------------------
+                                   1371 ;	src/main.c:291: UINT8 chk_manchester(UINT8 c)
+                                   1372 ;	-----------------------------------------
+                                   1373 ;	 function chk_manchester
+                                   1374 ;	-----------------------------------------
+      0004D2                       1375 _chk_manchester:
+                           000007  1376 	ar7 = 0x07
+                           000006  1377 	ar6 = 0x06
+                           000005  1378 	ar5 = 0x05
+                           000004  1379 	ar4 = 0x04
+                           000003  1380 	ar3 = 0x03
+                           000002  1381 	ar2 = 0x02
+                           000001  1382 	ar1 = 0x01
+                           000000  1383 	ar0 = 0x00
+      0004D2 AF 82            [24] 1384 	mov	r7,dpl
+                                   1385 ;	src/main.c:294: for (i=0;i<4;i++) {
+      0004D4 7E 00            [12] 1386 	mov	r6,#0x00
+      0004D6                       1387 00104$:
+                                   1388 ;	src/main.c:295: if (((c>>(2*i)) & 1) == ((c>>((2*i+1)))&1)) {
+      0004D6 EE               [12] 1389 	mov	a,r6
+      0004D7 2E               [12] 1390 	add	a,r6
+      0004D8 FD               [12] 1391 	mov	r5,a
+      0004D9 8D F0            [24] 1392 	mov	b,r5
+      0004DB 05 F0            [12] 1393 	inc	b
+      0004DD EF               [12] 1394 	mov	a,r7
+      0004DE 80 02            [24] 1395 	sjmp	00121$
+      0004E0                       1396 00120$:
+      0004E0 C3               [12] 1397 	clr	c
+      0004E1 13               [12] 1398 	rrc	a
+      0004E2                       1399 00121$:
+      0004E2 D5 F0 FB         [24] 1400 	djnz	b,00120$
+      0004E5 FC               [12] 1401 	mov	r4,a
+      0004E6 53 04 01         [24] 1402 	anl	ar4,#0x01
+      0004E9 7B 00            [12] 1403 	mov	r3,#0x00
+      0004EB ED               [12] 1404 	mov	a,r5
+      0004EC 04               [12] 1405 	inc	a
+      0004ED F5 F0            [12] 1406 	mov	b,a
+      0004EF 05 F0            [12] 1407 	inc	b
+      0004F1 EF               [12] 1408 	mov	a,r7
+      0004F2 80 02            [24] 1409 	sjmp	00123$
+      0004F4                       1410 00122$:
+      0004F4 C3               [12] 1411 	clr	c
+      0004F5 13               [12] 1412 	rrc	a
+      0004F6                       1413 00123$:
+      0004F6 D5 F0 FB         [24] 1414 	djnz	b,00122$
+      0004F9 FD               [12] 1415 	mov	r5,a
+      0004FA 53 05 01         [24] 1416 	anl	ar5,#0x01
+      0004FD 7A 00            [12] 1417 	mov	r2,#0x00
+      0004FF EC               [12] 1418 	mov	a,r4
+      000500 B5 05 08         [24] 1419 	cjne	a,ar5,00105$
+      000503 EB               [12] 1420 	mov	a,r3
+      000504 B5 02 04         [24] 1421 	cjne	a,ar2,00105$
+                                   1422 ;	src/main.c:297: return 0;
+      000507 75 82 00         [24] 1423 	mov	dpl,#0x00
+      00050A 22               [24] 1424 	ret
+      00050B                       1425 00105$:
+                                   1426 ;	src/main.c:294: for (i=0;i<4;i++) {
+      00050B 0E               [12] 1427 	inc	r6
+      00050C BE 04 00         [24] 1428 	cjne	r6,#0x04,00126$
+      00050F                       1429 00126$:
+      00050F 40 C5            [24] 1430 	jc	00104$
+                                   1431 ;	src/main.c:300: return 1;
+      000511 75 82 01         [24] 1432 	mov	dpl,#0x01
+                                   1433 ;	src/main.c:301: }
+      000514 22               [24] 1434 	ret
+                                   1435 ;------------------------------------------------------------
+                                   1436 ;Allocation info for local variables in function 'conv_manchester2nibble'
+                                   1437 ;------------------------------------------------------------
+                                   1438 ;c                         Allocated to registers r7 
+                                   1439 ;i                         Allocated to registers r5 
+                                   1440 ;u8Nibble                  Allocated to registers r6 
+                                   1441 ;------------------------------------------------------------
+                                   1442 ;	src/main.c:303: UINT8 conv_manchester2nibble(UINT8 c)
+                                   1443 ;	-----------------------------------------
+                                   1444 ;	 function conv_manchester2nibble
+                                   1445 ;	-----------------------------------------
+      000515                       1446 _conv_manchester2nibble:
+      000515 AF 82            [24] 1447 	mov	r7,dpl
+                                   1448 ;	src/main.c:306: UINT8 u8Nibble = 0;
+      000517 7E 00            [12] 1449 	mov	r6,#0x00
+                                   1450 ;	src/main.c:307: for (i=0;i<4;i++) {
+      000519 7D 04            [12] 1451 	mov	r5,#0x04
+      00051B                       1452 00106$:
+                                   1453 ;	src/main.c:308: if (c & 1) {
+      00051B EF               [12] 1454 	mov	a,r7
+      00051C 30 E0 03         [24] 1455 	jnb	acc.0,00102$
+                                   1456 ;	src/main.c:309: u8Nibble |= 0x80;
+      00051F 43 06 80         [24] 1457 	orl	ar6,#0x80
+      000522                       1458 00102$:
+                                   1459 ;	src/main.c:311: c >>= 2;
+      000522 EF               [12] 1460 	mov	a,r7
+      000523 03               [12] 1461 	rr	a
+      000524 03               [12] 1462 	rr	a
+      000525 54 3F            [12] 1463 	anl	a,#0x3f
+      000527 FF               [12] 1464 	mov	r7,a
+                                   1465 ;	src/main.c:312: u8Nibble >>= 1;
+      000528 EE               [12] 1466 	mov	a,r6
+      000529 C3               [12] 1467 	clr	c
+      00052A 13               [12] 1468 	rrc	a
+      00052B FE               [12] 1469 	mov	r6,a
+      00052C ED               [12] 1470 	mov	a,r5
+      00052D 14               [12] 1471 	dec	a
+                                   1472 ;	src/main.c:307: for (i=0;i<4;i++) {
+      00052E FD               [12] 1473 	mov	r5,a
+      00052F 70 EA            [24] 1474 	jnz	00106$
+                                   1475 ;	src/main.c:314: return u8Nibble;
+      000531 8E 82            [24] 1476 	mov	dpl,r6
+                                   1477 ;	src/main.c:315: }
+      000533 22               [24] 1478 	ret
                                    1479 ;------------------------------------------------------------
-                                   1480 ;	src/main.c:316: UINT8 conv_manchester2highnibble(UINT8 c)
-                                   1481 ;	-----------------------------------------
-                                   1482 ;	 function conv_manchester2highnibble
-                                   1483 ;	-----------------------------------------
-      000529                       1484 _conv_manchester2highnibble:
-      000529 AF 82            [24] 1485 	mov	r7,dpl
-                                   1486 ;	src/main.c:319: UINT8 u8Nibble = 0;
-      00052B 7E 00            [12] 1487 	mov	r6,#0x00
-                                   1488 ;	src/main.c:320: for (i=0;i<4;i++) {
-      00052D 7D 04            [12] 1489 	mov	r5,#0x04
-      00052F                       1490 00106$:
-                                   1491 ;	src/main.c:321: u8Nibble >>= 1;
-      00052F EE               [12] 1492 	mov	a,r6
-      000530 C3               [12] 1493 	clr	c
-      000531 13               [12] 1494 	rrc	a
-      000532 FE               [12] 1495 	mov	r6,a
-                                   1496 ;	src/main.c:322: if (c & 1) {
-      000533 EF               [12] 1497 	mov	a,r7
-      000534 30 E0 03         [24] 1498 	jnb	acc.0,00102$
-                                   1499 ;	src/main.c:323: u8Nibble |= 0x80;
-      000537 43 06 80         [24] 1500 	orl	ar6,#0x80
-      00053A                       1501 00102$:
-                                   1502 ;	src/main.c:325: c >>= 2;
-      00053A EF               [12] 1503 	mov	a,r7
-      00053B 03               [12] 1504 	rr	a
-      00053C 03               [12] 1505 	rr	a
-      00053D 54 3F            [12] 1506 	anl	a,#0x3f
-      00053F FF               [12] 1507 	mov	r7,a
-                                   1508 ;	src/main.c:320: for (i=0;i<4;i++) {
-      000540 DD ED            [24] 1509 	djnz	r5,00106$
-                                   1510 ;	src/main.c:327: return u8Nibble;
-      000542 8E 82            [24] 1511 	mov	dpl,r6
-                                   1512 ;	src/main.c:328: }
-      000544 22               [24] 1513 	ret
-                                   1514 ;------------------------------------------------------------
-                                   1515 ;Allocation info for local variables in function 'MODIFY_HIRC_166'
-                                   1516 ;------------------------------------------------------------
-                                   1517 ;hircmap0                  Allocated to registers r7 
-                                   1518 ;hircmap1                  Allocated to registers r6 
-                                   1519 ;trimvalue16bit            Allocated to registers r7 r5 
-                                   1520 ;------------------------------------------------------------
-                                   1521 ;	src/main.c:330: void MODIFY_HIRC_166(void)
-                                   1522 ;	-----------------------------------------
-                                   1523 ;	 function MODIFY_HIRC_166
-                                   1524 ;	-----------------------------------------
-      000545                       1525 _MODIFY_HIRC_166:
-                                   1526 ;	src/main.c:335: if ((PCON&SET_BIT4)==SET_BIT4) {
-      000545 AE 87            [24] 1527 	mov	r6,_PCON
-      000547 53 06 10         [24] 1528 	anl	ar6,#0x10
-      00054A 7F 00            [12] 1529 	mov	r7,#0x00
-      00054C BE 10 41         [24] 1530 	cjne	r6,#0x10,00103$
-      00054F BF 00 3E         [24] 1531 	cjne	r7,#0x00,00103$
-                                   1532 ;	src/main.c:336: hircmap0 = RCTRIM0;
-      000552 AF 84            [24] 1533 	mov	r7,_RCTRIM0
-                                   1534 ;	src/main.c:337: hircmap1 = RCTRIM1;
-      000554 AE 85            [24] 1535 	mov	r6,_RCTRIM1
-                                   1536 ;	src/main.c:338: trimvalue16bit = ((hircmap0<<1)+(hircmap1&0x01));
-      000556 7D 00            [12] 1537 	mov	r5,#0x00
-      000558 EF               [12] 1538 	mov	a,r7
-      000559 2F               [12] 1539 	add	a,r7
-      00055A FF               [12] 1540 	mov	r7,a
-      00055B ED               [12] 1541 	mov	a,r5
-      00055C 33               [12] 1542 	rlc	a
-      00055D FD               [12] 1543 	mov	r5,a
-      00055E 53 06 01         [24] 1544 	anl	ar6,#0x01
-      000561 7C 00            [12] 1545 	mov	r4,#0x00
-      000563 EE               [12] 1546 	mov	a,r6
-      000564 2F               [12] 1547 	add	a,r7
-      000565 FF               [12] 1548 	mov	r7,a
-      000566 EC               [12] 1549 	mov	a,r4
-      000567 3D               [12] 1550 	addc	a,r5
-      000568 FD               [12] 1551 	mov	r5,a
-                                   1552 ;	src/main.c:339: trimvalue16bit = trimvalue16bit - 15;
-      000569 EF               [12] 1553 	mov	a,r7
-      00056A 24 F1            [12] 1554 	add	a,#0xf1
-      00056C FF               [12] 1555 	mov	r7,a
-      00056D ED               [12] 1556 	mov	a,r5
-      00056E 34 FF            [12] 1557 	addc	a,#0xff
-      000570 FD               [12] 1558 	mov	r5,a
-                                   1559 ;	src/main.c:340: hircmap1 = trimvalue16bit&0x01;
-      000571 8F 06            [24] 1560 	mov	ar6,r7
-      000573 53 06 01         [24] 1561 	anl	ar6,#0x01
-                                   1562 ;	src/main.c:341: hircmap0 = trimvalue16bit>>1;
-      000576 ED               [12] 1563 	mov	a,r5
-      000577 C3               [12] 1564 	clr	c
-      000578 13               [12] 1565 	rrc	a
-      000579 CF               [12] 1566 	xch	a,r7
-      00057A 13               [12] 1567 	rrc	a
-      00057B CF               [12] 1568 	xch	a,r7
-      00057C FD               [12] 1569 	mov	r5,a
-                                   1570 ;	src/main.c:342: TA=0XAA;
-      00057D 75 C7 AA         [24] 1571 	mov	_TA,#0xaa
-                                   1572 ;	src/main.c:343: TA=0X55;
-      000580 75 C7 55         [24] 1573 	mov	_TA,#0x55
-                                   1574 ;	src/main.c:344: RCTRIM0 = hircmap0;
-      000583 8F 84            [24] 1575 	mov	_RCTRIM0,r7
-                                   1576 ;	src/main.c:345: TA=0XAA;
-      000585 75 C7 AA         [24] 1577 	mov	_TA,#0xaa
-                                   1578 ;	src/main.c:346: TA=0X55;
-      000588 75 C7 55         [24] 1579 	mov	_TA,#0x55
-                                   1580 ;	src/main.c:347: RCTRIM1 = hircmap1;
-      00058B 8E 85            [24] 1581 	mov	_RCTRIM1,r6
-                                   1582 ;	src/main.c:349: PCON &= CLR_BIT4;
-      00058D 53 87 EF         [24] 1583 	anl	_PCON,#0xef
-      000590                       1584 00103$:
-                                   1585 ;	src/main.c:351: }
-      000590 22               [24] 1586 	ret
-                                   1587 ;------------------------------------------------------------
-                                   1588 ;Allocation info for local variables in function 'disp_help'
-                                   1589 ;------------------------------------------------------------
-                                   1590 ;au8Code                   Allocated to registers r7 
-                                   1591 ;------------------------------------------------------------
-                                   1592 ;	src/main.c:352: void disp_help(UINT8 au8Code)
-                                   1593 ;	-----------------------------------------
-                                   1594 ;	 function disp_help
-                                   1595 ;	-----------------------------------------
-      000591                       1596 _disp_help:
-      000591 AF 82            [24] 1597 	mov	r7,dpl
-                                   1598 ;	src/main.c:354: gu8UART = 1;
-      000593 75 22 01         [24] 1599 	mov	_gu8UART,#0x01
-                                   1600 ;	src/main.c:355: switch(au8Code) {
-      000596 BF 31 01         [24] 1601 	cjne	r7,#0x31,00165$
-      000599 22               [24] 1602 	ret
-      00059A                       1603 00165$:
-      00059A BF 32 01         [24] 1604 	cjne	r7,#0x32,00166$
-      00059D 22               [24] 1605 	ret
-      00059E                       1606 00166$:
-      00059E BF 33 02         [24] 1607 	cjne	r7,#0x33,00167$
-      0005A1 80 32            [24] 1608 	sjmp	00103$
-      0005A3                       1609 00167$:
-      0005A3 BF 34 01         [24] 1610 	cjne	r7,#0x34,00168$
-      0005A6 22               [24] 1611 	ret
-      0005A7                       1612 00168$:
-      0005A7 BF 50 02         [24] 1613 	cjne	r7,#0x50,00169$
-      0005AA 80 49            [24] 1614 	sjmp	00106$
-      0005AC                       1615 00169$:
-      0005AC BF 53 03         [24] 1616 	cjne	r7,#0x53,00170$
-      0005AF 02 06 35         [24] 1617 	ljmp	00110$
-      0005B2                       1618 00170$:
-      0005B2 BF 54 02         [24] 1619 	cjne	r7,#0x54,00171$
-      0005B5 80 5E            [24] 1620 	sjmp	00108$
-      0005B7                       1621 00171$:
-      0005B7 BF 56 03         [24] 1622 	cjne	r7,#0x56,00172$
-      0005BA 02 06 45         [24] 1623 	ljmp	00112$
-      0005BD                       1624 00172$:
-      0005BD BF 70 02         [24] 1625 	cjne	r7,#0x70,00173$
-      0005C0 80 23            [24] 1626 	sjmp	00105$
-      0005C2                       1627 00173$:
-      0005C2 BF 73 02         [24] 1628 	cjne	r7,#0x73,00174$
-      0005C5 80 5E            [24] 1629 	sjmp	00109$
-      0005C7                       1630 00174$:
-      0005C7 BF 74 02         [24] 1631 	cjne	r7,#0x74,00175$
-      0005CA 80 39            [24] 1632 	sjmp	00107$
-      0005CC                       1633 00175$:
-      0005CC BF 76 03         [24] 1634 	cjne	r7,#0x76,00176$
-      0005CF 02 06 45         [24] 1635 	ljmp	00112$
-      0005D2                       1636 00176$:
-      0005D2 02 06 55         [24] 1637 	ljmp	00113$
-                                   1638 ;	src/main.c:360: case '3' :
-      0005D5                       1639 00103$:
-                                   1640 ;	src/main.c:361: printf_fast_f("Idle preamble on/off\r\n");
-      0005D5 74 DA            [12] 1641 	mov	a,#___str_8
-      0005D7 C0 E0            [24] 1642 	push	acc
-      0005D9 74 20            [12] 1643 	mov	a,#(___str_8 >> 8)
-      0005DB C0 E0            [24] 1644 	push	acc
-      0005DD 12 1B 2F         [24] 1645 	lcall	_printf_fast_f
-      0005E0 15 81            [12] 1646 	dec	sp
-      0005E2 15 81            [12] 1647 	dec	sp
-                                   1648 ;	src/main.c:362: break;
-      0005E4 22               [24] 1649 	ret
-                                   1650 ;	src/main.c:365: case 'p' :
-      0005E5                       1651 00105$:
-                                   1652 ;	src/main.c:366: printf_fast_f("LineFi Power Off\r\n");
-      0005E5 74 F1            [12] 1653 	mov	a,#___str_9
-      0005E7 C0 E0            [24] 1654 	push	acc
-      0005E9 74 20            [12] 1655 	mov	a,#(___str_9 >> 8)
-      0005EB C0 E0            [24] 1656 	push	acc
-      0005ED 12 1B 2F         [24] 1657 	lcall	_printf_fast_f
-      0005F0 15 81            [12] 1658 	dec	sp
-      0005F2 15 81            [12] 1659 	dec	sp
-                                   1660 ;	src/main.c:367: break;
-      0005F4 22               [24] 1661 	ret
-                                   1662 ;	src/main.c:368: case 'P' :
-      0005F5                       1663 00106$:
-                                   1664 ;	src/main.c:369: printf_fast_f("LineFi Power On\r\n");
-      0005F5 74 04            [12] 1665 	mov	a,#___str_10
-      0005F7 C0 E0            [24] 1666 	push	acc
-      0005F9 74 21            [12] 1667 	mov	a,#(___str_10 >> 8)
-      0005FB C0 E0            [24] 1668 	push	acc
-      0005FD 12 1B 2F         [24] 1669 	lcall	_printf_fast_f
-      000600 15 81            [12] 1670 	dec	sp
-      000602 15 81            [12] 1671 	dec	sp
-                                   1672 ;	src/main.c:370: break;
-      000604 22               [24] 1673 	ret
-                                   1674 ;	src/main.c:371: case 't' :
-      000605                       1675 00107$:
-                                   1676 ;	src/main.c:372: printf_fast_f("LineFi Uart Tx Low\r\n");
-      000605 74 16            [12] 1677 	mov	a,#___str_11
-      000607 C0 E0            [24] 1678 	push	acc
-      000609 74 21            [12] 1679 	mov	a,#(___str_11 >> 8)
-      00060B C0 E0            [24] 1680 	push	acc
-      00060D 12 1B 2F         [24] 1681 	lcall	_printf_fast_f
-      000610 15 81            [12] 1682 	dec	sp
-      000612 15 81            [12] 1683 	dec	sp
-                                   1684 ;	src/main.c:373: break;
-      000614 22               [24] 1685 	ret
-                                   1686 ;	src/main.c:374: case 'T' :
-      000615                       1687 00108$:
-                                   1688 ;	src/main.c:375: printf_fast_f("LineFi Uart Tx High\r\n");
-      000615 74 2B            [12] 1689 	mov	a,#___str_12
-      000617 C0 E0            [24] 1690 	push	acc
-      000619 74 21            [12] 1691 	mov	a,#(___str_12 >> 8)
-      00061B C0 E0            [24] 1692 	push	acc
-      00061D 12 1B 2F         [24] 1693 	lcall	_printf_fast_f
-      000620 15 81            [12] 1694 	dec	sp
-      000622 15 81            [12] 1695 	dec	sp
-                                   1696 ;	src/main.c:376: break;
-      000624 22               [24] 1697 	ret
-                                   1698 ;	src/main.c:377: case 's' :
-      000625                       1699 00109$:
-                                   1700 ;	src/main.c:378: printf_fast_f("LineFi CSC rx FSM Off\r\n");
-      000625 74 41            [12] 1701 	mov	a,#___str_13
-      000627 C0 E0            [24] 1702 	push	acc
-      000629 74 21            [12] 1703 	mov	a,#(___str_13 >> 8)
-      00062B C0 E0            [24] 1704 	push	acc
-      00062D 12 1B 2F         [24] 1705 	lcall	_printf_fast_f
-      000630 15 81            [12] 1706 	dec	sp
-      000632 15 81            [12] 1707 	dec	sp
-                                   1708 ;	src/main.c:379: break;
-      000634 22               [24] 1709 	ret
-                                   1710 ;	src/main.c:380: case 'S' :
-      000635                       1711 00110$:
-                                   1712 ;	src/main.c:381: printf_fast_f("LineFi CSC rx FSM ON\r\n");
-      000635 74 59            [12] 1713 	mov	a,#___str_14
-      000637 C0 E0            [24] 1714 	push	acc
-      000639 74 21            [12] 1715 	mov	a,#(___str_14 >> 8)
-      00063B C0 E0            [24] 1716 	push	acc
-      00063D 12 1B 2F         [24] 1717 	lcall	_printf_fast_f
-      000640 15 81            [12] 1718 	dec	sp
-      000642 15 81            [12] 1719 	dec	sp
-                                   1720 ;	src/main.c:382: break;
-                                   1721 ;	src/main.c:383: case 'v' : case 'V' :
-      000644 22               [24] 1722 	ret
-      000645                       1723 00112$:
-                                   1724 ;	src/main.c:384: printf_fast_f(__VERSION__);
-      000645 74 70            [12] 1725 	mov	a,#___str_15
-      000647 C0 E0            [24] 1726 	push	acc
-      000649 74 21            [12] 1727 	mov	a,#(___str_15 >> 8)
-      00064B C0 E0            [24] 1728 	push	acc
-      00064D 12 1B 2F         [24] 1729 	lcall	_printf_fast_f
-      000650 15 81            [12] 1730 	dec	sp
-      000652 15 81            [12] 1731 	dec	sp
-                                   1732 ;	src/main.c:385: break;
-                                   1733 ;	src/main.c:386: default :
-      000654 22               [24] 1734 	ret
-      000655                       1735 00113$:
-                                   1736 ;	src/main.c:387: printf_fast_f("1: downlink packet 1\r\n");
-      000655 74 8A            [12] 1737 	mov	a,#___str_16
-      000657 C0 E0            [24] 1738 	push	acc
-      000659 74 21            [12] 1739 	mov	a,#(___str_16 >> 8)
-      00065B C0 E0            [24] 1740 	push	acc
-      00065D 12 1B 2F         [24] 1741 	lcall	_printf_fast_f
-      000660 15 81            [12] 1742 	dec	sp
-      000662 15 81            [12] 1743 	dec	sp
-                                   1744 ;	src/main.c:388: printf_fast_f("2: downlink packet 2\r\n");
-      000664 74 A1            [12] 1745 	mov	a,#___str_17
-      000666 C0 E0            [24] 1746 	push	acc
-      000668 74 21            [12] 1747 	mov	a,#(___str_17 >> 8)
-      00066A C0 E0            [24] 1748 	push	acc
-      00066C 12 1B 2F         [24] 1749 	lcall	_printf_fast_f
-      00066F 15 81            [12] 1750 	dec	sp
-      000671 15 81            [12] 1751 	dec	sp
-                                   1752 ;	src/main.c:389: printf_fast_f("3: uplink idle preamble on/off\r\n");
-      000673 74 B8            [12] 1753 	mov	a,#___str_18
-      000675 C0 E0            [24] 1754 	push	acc
-      000677 74 21            [12] 1755 	mov	a,#(___str_18 >> 8)
-      000679 C0 E0            [24] 1756 	push	acc
-      00067B 12 1B 2F         [24] 1757 	lcall	_printf_fast_f
-      00067E 15 81            [12] 1758 	dec	sp
-      000680 15 81            [12] 1759 	dec	sp
-                                   1760 ;	src/main.c:390: printf_fast_f("p/P: LineFi Power off/on\r\n");
-      000682 74 D9            [12] 1761 	mov	a,#___str_19
-      000684 C0 E0            [24] 1762 	push	acc
-      000686 74 21            [12] 1763 	mov	a,#(___str_19 >> 8)
-      000688 C0 E0            [24] 1764 	push	acc
-      00068A 12 1B 2F         [24] 1765 	lcall	_printf_fast_f
-      00068D 15 81            [12] 1766 	dec	sp
-      00068F 15 81            [12] 1767 	dec	sp
-                                   1768 ;	src/main.c:391: printf_fast_f("t/T: LineFi Uart Tx Low/High\r\n");
-      000691 74 F4            [12] 1769 	mov	a,#___str_20
-      000693 C0 E0            [24] 1770 	push	acc
-      000695 74 21            [12] 1771 	mov	a,#(___str_20 >> 8)
-      000697 C0 E0            [24] 1772 	push	acc
-      000699 12 1B 2F         [24] 1773 	lcall	_printf_fast_f
-      00069C 15 81            [12] 1774 	dec	sp
-      00069E 15 81            [12] 1775 	dec	sp
-                                   1776 ;	src/main.c:392: printf_fast_f("s/S: LineFie CSC Rx FSM off/on\r\n");
-      0006A0 74 13            [12] 1777 	mov	a,#___str_21
-      0006A2 C0 E0            [24] 1778 	push	acc
-      0006A4 74 22            [12] 1779 	mov	a,#(___str_21 >> 8)
-      0006A6 C0 E0            [24] 1780 	push	acc
-      0006A8 12 1B 2F         [24] 1781 	lcall	_printf_fast_f
-      0006AB 15 81            [12] 1782 	dec	sp
-      0006AD 15 81            [12] 1783 	dec	sp
-                                   1784 ;	src/main.c:393: printf_fast_f("test procedure: p -> P -> T -> S -> 1 or 2\r\n");
-      0006AF 74 34            [12] 1785 	mov	a,#___str_22
-      0006B1 C0 E0            [24] 1786 	push	acc
-      0006B3 74 22            [12] 1787 	mov	a,#(___str_22 >> 8)
-      0006B5 C0 E0            [24] 1788 	push	acc
-      0006B7 12 1B 2F         [24] 1789 	lcall	_printf_fast_f
-      0006BA 15 81            [12] 1790 	dec	sp
-      0006BC 15 81            [12] 1791 	dec	sp
-                                   1792 ;	src/main.c:395: }
-                                   1793 ;	src/main.c:396: }
-      0006BE 22               [24] 1794 	ret
-                                   1795 ;------------------------------------------------------------
-                                   1796 ;Allocation info for local variables in function 'gpio_setup'
-                                   1797 ;------------------------------------------------------------
-                                   1798 ;	src/main.c:398: void gpio_setup()
-                                   1799 ;	-----------------------------------------
-                                   1800 ;	 function gpio_setup
-                                   1801 ;	-----------------------------------------
-      0006BF                       1802 _gpio_setup:
-                                   1803 ;	src/main.c:417: Set_All_GPIO_Quasi_Mode;
-      0006BF 75 B1 00         [24] 1804 	mov	_P0M1,#0x00
-      0006C2 75 B2 00         [24] 1805 	mov	_P0M2,#0x00
-      0006C5 75 B3 00         [24] 1806 	mov	_P1M1,#0x00
-      0006C8 75 B4 00         [24] 1807 	mov	_P1M2,#0x00
-      0006CB 75 AC 00         [24] 1808 	mov	_P3M1,#0x00
-      0006CE 75 AD 00         [24] 1809 	mov	_P3M2,#0x00
-                                   1810 ;	src/main.c:419: P15_Input_Mode;
-      0006D1 43 B3 20         [24] 1811 	orl	_P1M1,#0x20
-      0006D4 53 B4 DF         [24] 1812 	anl	_P1M2,#0xdf
-                                   1813 ;	src/main.c:420: P02_Input_Mode;
-      0006D7 43 B1 04         [24] 1814 	orl	_P0M1,#0x04
-      0006DA 53 B2 FB         [24] 1815 	anl	_P0M2,#0xfb
-                                   1816 ;	src/main.c:421: P07_Input_Mode;
-      0006DD 43 B1 80         [24] 1817 	orl	_P0M1,#0x80
-      0006E0 53 B2 7F         [24] 1818 	anl	_P0M2,#0x7f
-                                   1819 ;	src/main.c:423: P16_PushPull_Mode;
-      0006E3 53 B3 BF         [24] 1820 	anl	_P1M1,#0xbf
-      0006E6 43 B4 40         [24] 1821 	orl	_P1M2,#0x40
-                                   1822 ;	src/main.c:424: P13_PushPull_Mode;
-      0006E9 53 B3 F7         [24] 1823 	anl	_P1M1,#0xf7
-      0006EC 43 B4 08         [24] 1824 	orl	_P1M2,#0x08
-                                   1825 ;	src/main.c:425: P14_PushPull_Mode;
-      0006EF 53 B3 EF         [24] 1826 	anl	_P1M1,#0xef
-      0006F2 43 B4 10         [24] 1827 	orl	_P1M2,#0x10
-                                   1828 ;	src/main.c:426: P12_PushPull_Mode;
-      0006F5 53 B3 FB         [24] 1829 	anl	_P1M1,#0xfb
-      0006F8 43 B4 04         [24] 1830 	orl	_P1M2,#0x04
-                                   1831 ;	src/main.c:427: P11_PushPull_Mode;
-      0006FB 53 B3 FD         [24] 1832 	anl	_P1M1,#0xfd
-      0006FE 43 B4 02         [24] 1833 	orl	_P1M2,#0x02
-                                   1834 ;	src/main.c:428: P10_PushPull_Mode;
-      000701 53 B3 FE         [24] 1835 	anl	_P1M1,#0xfe
-      000704 43 B4 01         [24] 1836 	orl	_P1M2,#0x01
-                                   1837 ;	src/main.c:429: P00_PushPull_Mode;
-      000707 53 B1 FE         [24] 1838 	anl	_P0M1,#0xfe
-      00070A 43 B2 01         [24] 1839 	orl	_P0M2,#0x01
-                                   1840 ;	src/main.c:430: P01_PushPull_Mode;
-      00070D 53 B1 FD         [24] 1841 	anl	_P0M1,#0xfd
-      000710 43 B2 02         [24] 1842 	orl	_P0M2,#0x02
-                                   1843 ;	src/main.c:431: P04_PushPull_Mode;
-      000713 53 B1 EF         [24] 1844 	anl	_P0M1,#0xef
-      000716 43 B2 10         [24] 1845 	orl	_P0M2,#0x10
-                                   1846 ;	src/main.c:432: P03_PushPull_Mode;
-      000719 53 B1 F7         [24] 1847 	anl	_P0M1,#0xf7
-      00071C 43 B2 08         [24] 1848 	orl	_P0M2,#0x08
-                                   1849 ;	src/main.c:434: UART_TX = 0;
-                                   1850 ;	assignBit
-      00071F C2 96            [12] 1851 	clr	_P16
-                                   1852 ;	src/main.c:435: LED_B = 1;
-                                   1853 ;	assignBit
-      000721 D2 92            [12] 1854 	setb	_P12
-                                   1855 ;	src/main.c:436: LED_G = 1;
-                                   1856 ;	assignBit
-      000723 D2 93            [12] 1857 	setb	_P13
-                                   1858 ;	src/main.c:437: LED_R = 1;
+                                   1480 ;Allocation info for local variables in function 'conv_manchester2highnibble'
+                                   1481 ;------------------------------------------------------------
+                                   1482 ;c                         Allocated to registers r7 
+                                   1483 ;i                         Allocated to registers r5 
+                                   1484 ;u8Nibble                  Allocated to registers r6 
+                                   1485 ;------------------------------------------------------------
+                                   1486 ;	src/main.c:317: UINT8 conv_manchester2highnibble(UINT8 c)
+                                   1487 ;	-----------------------------------------
+                                   1488 ;	 function conv_manchester2highnibble
+                                   1489 ;	-----------------------------------------
+      000534                       1490 _conv_manchester2highnibble:
+      000534 AF 82            [24] 1491 	mov	r7,dpl
+                                   1492 ;	src/main.c:320: UINT8 u8Nibble = 0;
+      000536 7E 00            [12] 1493 	mov	r6,#0x00
+                                   1494 ;	src/main.c:321: for (i=0;i<4;i++) {
+      000538 7D 04            [12] 1495 	mov	r5,#0x04
+      00053A                       1496 00106$:
+                                   1497 ;	src/main.c:322: u8Nibble >>= 1;
+      00053A EE               [12] 1498 	mov	a,r6
+      00053B C3               [12] 1499 	clr	c
+      00053C 13               [12] 1500 	rrc	a
+      00053D FE               [12] 1501 	mov	r6,a
+                                   1502 ;	src/main.c:323: if (c & 1) {
+      00053E EF               [12] 1503 	mov	a,r7
+      00053F 30 E0 03         [24] 1504 	jnb	acc.0,00102$
+                                   1505 ;	src/main.c:324: u8Nibble |= 0x80;
+      000542 43 06 80         [24] 1506 	orl	ar6,#0x80
+      000545                       1507 00102$:
+                                   1508 ;	src/main.c:326: c >>= 2;
+      000545 EF               [12] 1509 	mov	a,r7
+      000546 03               [12] 1510 	rr	a
+      000547 03               [12] 1511 	rr	a
+      000548 54 3F            [12] 1512 	anl	a,#0x3f
+      00054A FF               [12] 1513 	mov	r7,a
+      00054B ED               [12] 1514 	mov	a,r5
+      00054C 14               [12] 1515 	dec	a
+                                   1516 ;	src/main.c:321: for (i=0;i<4;i++) {
+      00054D FD               [12] 1517 	mov	r5,a
+      00054E 70 EA            [24] 1518 	jnz	00106$
+                                   1519 ;	src/main.c:328: return u8Nibble;
+      000550 8E 82            [24] 1520 	mov	dpl,r6
+                                   1521 ;	src/main.c:329: }
+      000552 22               [24] 1522 	ret
+                                   1523 ;------------------------------------------------------------
+                                   1524 ;Allocation info for local variables in function 'MODIFY_HIRC_166'
+                                   1525 ;------------------------------------------------------------
+                                   1526 ;hircmap0                  Allocated to registers r7 
+                                   1527 ;hircmap1                  Allocated to registers r6 
+                                   1528 ;trimvalue16bit            Allocated to registers r7 r5 
+                                   1529 ;------------------------------------------------------------
+                                   1530 ;	src/main.c:331: void MODIFY_HIRC_166(void)
+                                   1531 ;	-----------------------------------------
+                                   1532 ;	 function MODIFY_HIRC_166
+                                   1533 ;	-----------------------------------------
+      000553                       1534 _MODIFY_HIRC_166:
+                                   1535 ;	src/main.c:336: if ((PCON&SET_BIT4)==SET_BIT4) {
+      000553 AE 87            [24] 1536 	mov	r6,_PCON
+      000555 53 06 10         [24] 1537 	anl	ar6,#0x10
+      000558 7F 00            [12] 1538 	mov	r7,#0x00
+      00055A BE 10 41         [24] 1539 	cjne	r6,#0x10,00103$
+      00055D BF 00 3E         [24] 1540 	cjne	r7,#0x00,00103$
+                                   1541 ;	src/main.c:337: hircmap0 = RCTRIM0;
+      000560 AF 84            [24] 1542 	mov	r7,_RCTRIM0
+                                   1543 ;	src/main.c:338: hircmap1 = RCTRIM1;
+      000562 AE 85            [24] 1544 	mov	r6,_RCTRIM1
+                                   1545 ;	src/main.c:339: trimvalue16bit = ((hircmap0<<1)+(hircmap1&0x01));
+      000564 7D 00            [12] 1546 	mov	r5,#0x00
+      000566 EF               [12] 1547 	mov	a,r7
+      000567 2F               [12] 1548 	add	a,r7
+      000568 FF               [12] 1549 	mov	r7,a
+      000569 ED               [12] 1550 	mov	a,r5
+      00056A 33               [12] 1551 	rlc	a
+      00056B FD               [12] 1552 	mov	r5,a
+      00056C 53 06 01         [24] 1553 	anl	ar6,#0x01
+      00056F 7C 00            [12] 1554 	mov	r4,#0x00
+      000571 EE               [12] 1555 	mov	a,r6
+      000572 2F               [12] 1556 	add	a,r7
+      000573 FF               [12] 1557 	mov	r7,a
+      000574 EC               [12] 1558 	mov	a,r4
+      000575 3D               [12] 1559 	addc	a,r5
+      000576 FD               [12] 1560 	mov	r5,a
+                                   1561 ;	src/main.c:340: trimvalue16bit = trimvalue16bit - 15;
+      000577 EF               [12] 1562 	mov	a,r7
+      000578 24 F1            [12] 1563 	add	a,#0xf1
+      00057A FF               [12] 1564 	mov	r7,a
+      00057B ED               [12] 1565 	mov	a,r5
+      00057C 34 FF            [12] 1566 	addc	a,#0xff
+      00057E FD               [12] 1567 	mov	r5,a
+                                   1568 ;	src/main.c:341: hircmap1 = trimvalue16bit&0x01;
+      00057F 8F 06            [24] 1569 	mov	ar6,r7
+      000581 53 06 01         [24] 1570 	anl	ar6,#0x01
+                                   1571 ;	src/main.c:342: hircmap0 = trimvalue16bit>>1;
+      000584 ED               [12] 1572 	mov	a,r5
+      000585 C3               [12] 1573 	clr	c
+      000586 13               [12] 1574 	rrc	a
+      000587 CF               [12] 1575 	xch	a,r7
+      000588 13               [12] 1576 	rrc	a
+      000589 CF               [12] 1577 	xch	a,r7
+      00058A FD               [12] 1578 	mov	r5,a
+                                   1579 ;	src/main.c:343: TA=0XAA;
+      00058B 75 C7 AA         [24] 1580 	mov	_TA,#0xaa
+                                   1581 ;	src/main.c:344: TA=0X55;
+      00058E 75 C7 55         [24] 1582 	mov	_TA,#0x55
+                                   1583 ;	src/main.c:345: RCTRIM0 = hircmap0;
+      000591 8F 84            [24] 1584 	mov	_RCTRIM0,r7
+                                   1585 ;	src/main.c:346: TA=0XAA;
+      000593 75 C7 AA         [24] 1586 	mov	_TA,#0xaa
+                                   1587 ;	src/main.c:347: TA=0X55;
+      000596 75 C7 55         [24] 1588 	mov	_TA,#0x55
+                                   1589 ;	src/main.c:348: RCTRIM1 = hircmap1;
+      000599 8E 85            [24] 1590 	mov	_RCTRIM1,r6
+                                   1591 ;	src/main.c:350: PCON &= CLR_BIT4;
+      00059B 53 87 EF         [24] 1592 	anl	_PCON,#0xef
+      00059E                       1593 00103$:
+                                   1594 ;	src/main.c:352: }
+      00059E 22               [24] 1595 	ret
+                                   1596 ;------------------------------------------------------------
+                                   1597 ;Allocation info for local variables in function 'disp_help'
+                                   1598 ;------------------------------------------------------------
+                                   1599 ;au8Code                   Allocated to registers r7 
+                                   1600 ;------------------------------------------------------------
+                                   1601 ;	src/main.c:353: void disp_help(UINT8 au8Code)
+                                   1602 ;	-----------------------------------------
+                                   1603 ;	 function disp_help
+                                   1604 ;	-----------------------------------------
+      00059F                       1605 _disp_help:
+      00059F AF 82            [24] 1606 	mov	r7,dpl
+                                   1607 ;	src/main.c:355: gu8UART = 1;
+      0005A1 75 22 01         [24] 1608 	mov	_gu8UART,#0x01
+                                   1609 ;	src/main.c:356: switch(au8Code) {
+      0005A4 BF 31 01         [24] 1610 	cjne	r7,#0x31,00165$
+      0005A7 22               [24] 1611 	ret
+      0005A8                       1612 00165$:
+      0005A8 BF 32 01         [24] 1613 	cjne	r7,#0x32,00166$
+      0005AB 22               [24] 1614 	ret
+      0005AC                       1615 00166$:
+      0005AC BF 33 02         [24] 1616 	cjne	r7,#0x33,00167$
+      0005AF 80 32            [24] 1617 	sjmp	00103$
+      0005B1                       1618 00167$:
+      0005B1 BF 34 01         [24] 1619 	cjne	r7,#0x34,00168$
+      0005B4 22               [24] 1620 	ret
+      0005B5                       1621 00168$:
+      0005B5 BF 50 02         [24] 1622 	cjne	r7,#0x50,00169$
+      0005B8 80 49            [24] 1623 	sjmp	00106$
+      0005BA                       1624 00169$:
+      0005BA BF 53 03         [24] 1625 	cjne	r7,#0x53,00170$
+      0005BD 02 06 43         [24] 1626 	ljmp	00110$
+      0005C0                       1627 00170$:
+      0005C0 BF 54 02         [24] 1628 	cjne	r7,#0x54,00171$
+      0005C3 80 5E            [24] 1629 	sjmp	00108$
+      0005C5                       1630 00171$:
+      0005C5 BF 56 03         [24] 1631 	cjne	r7,#0x56,00172$
+      0005C8 02 06 53         [24] 1632 	ljmp	00112$
+      0005CB                       1633 00172$:
+      0005CB BF 70 02         [24] 1634 	cjne	r7,#0x70,00173$
+      0005CE 80 23            [24] 1635 	sjmp	00105$
+      0005D0                       1636 00173$:
+      0005D0 BF 73 02         [24] 1637 	cjne	r7,#0x73,00174$
+      0005D3 80 5E            [24] 1638 	sjmp	00109$
+      0005D5                       1639 00174$:
+      0005D5 BF 74 02         [24] 1640 	cjne	r7,#0x74,00175$
+      0005D8 80 39            [24] 1641 	sjmp	00107$
+      0005DA                       1642 00175$:
+      0005DA BF 76 03         [24] 1643 	cjne	r7,#0x76,00176$
+      0005DD 02 06 53         [24] 1644 	ljmp	00112$
+      0005E0                       1645 00176$:
+      0005E0 02 06 63         [24] 1646 	ljmp	00113$
+                                   1647 ;	src/main.c:361: case '3' :
+      0005E3                       1648 00103$:
+                                   1649 ;	src/main.c:362: printf_fast_f("Idle preamble on/off\r\n");
+      0005E3 74 FD            [12] 1650 	mov	a,#___str_8
+      0005E5 C0 E0            [24] 1651 	push	acc
+      0005E7 74 20            [12] 1652 	mov	a,#(___str_8 >> 8)
+      0005E9 C0 E0            [24] 1653 	push	acc
+      0005EB 12 1B 52         [24] 1654 	lcall	_printf_fast_f
+      0005EE 15 81            [12] 1655 	dec	sp
+      0005F0 15 81            [12] 1656 	dec	sp
+                                   1657 ;	src/main.c:363: break;
+      0005F2 22               [24] 1658 	ret
+                                   1659 ;	src/main.c:366: case 'p' :
+      0005F3                       1660 00105$:
+                                   1661 ;	src/main.c:367: printf_fast_f("LineFi Power Off\r\n");
+      0005F3 74 14            [12] 1662 	mov	a,#___str_9
+      0005F5 C0 E0            [24] 1663 	push	acc
+      0005F7 74 21            [12] 1664 	mov	a,#(___str_9 >> 8)
+      0005F9 C0 E0            [24] 1665 	push	acc
+      0005FB 12 1B 52         [24] 1666 	lcall	_printf_fast_f
+      0005FE 15 81            [12] 1667 	dec	sp
+      000600 15 81            [12] 1668 	dec	sp
+                                   1669 ;	src/main.c:368: break;
+      000602 22               [24] 1670 	ret
+                                   1671 ;	src/main.c:369: case 'P' :
+      000603                       1672 00106$:
+                                   1673 ;	src/main.c:370: printf_fast_f("LineFi Power On\r\n");
+      000603 74 27            [12] 1674 	mov	a,#___str_10
+      000605 C0 E0            [24] 1675 	push	acc
+      000607 74 21            [12] 1676 	mov	a,#(___str_10 >> 8)
+      000609 C0 E0            [24] 1677 	push	acc
+      00060B 12 1B 52         [24] 1678 	lcall	_printf_fast_f
+      00060E 15 81            [12] 1679 	dec	sp
+      000610 15 81            [12] 1680 	dec	sp
+                                   1681 ;	src/main.c:371: break;
+      000612 22               [24] 1682 	ret
+                                   1683 ;	src/main.c:372: case 't' :
+      000613                       1684 00107$:
+                                   1685 ;	src/main.c:373: printf_fast_f("LineFi Uart Tx Low\r\n");
+      000613 74 39            [12] 1686 	mov	a,#___str_11
+      000615 C0 E0            [24] 1687 	push	acc
+      000617 74 21            [12] 1688 	mov	a,#(___str_11 >> 8)
+      000619 C0 E0            [24] 1689 	push	acc
+      00061B 12 1B 52         [24] 1690 	lcall	_printf_fast_f
+      00061E 15 81            [12] 1691 	dec	sp
+      000620 15 81            [12] 1692 	dec	sp
+                                   1693 ;	src/main.c:374: break;
+      000622 22               [24] 1694 	ret
+                                   1695 ;	src/main.c:375: case 'T' :
+      000623                       1696 00108$:
+                                   1697 ;	src/main.c:376: printf_fast_f("LineFi Uart Tx High\r\n");
+      000623 74 4E            [12] 1698 	mov	a,#___str_12
+      000625 C0 E0            [24] 1699 	push	acc
+      000627 74 21            [12] 1700 	mov	a,#(___str_12 >> 8)
+      000629 C0 E0            [24] 1701 	push	acc
+      00062B 12 1B 52         [24] 1702 	lcall	_printf_fast_f
+      00062E 15 81            [12] 1703 	dec	sp
+      000630 15 81            [12] 1704 	dec	sp
+                                   1705 ;	src/main.c:377: break;
+      000632 22               [24] 1706 	ret
+                                   1707 ;	src/main.c:378: case 's' :
+      000633                       1708 00109$:
+                                   1709 ;	src/main.c:379: printf_fast_f("LineFi CSC rx FSM Off\r\n");
+      000633 74 64            [12] 1710 	mov	a,#___str_13
+      000635 C0 E0            [24] 1711 	push	acc
+      000637 74 21            [12] 1712 	mov	a,#(___str_13 >> 8)
+      000639 C0 E0            [24] 1713 	push	acc
+      00063B 12 1B 52         [24] 1714 	lcall	_printf_fast_f
+      00063E 15 81            [12] 1715 	dec	sp
+      000640 15 81            [12] 1716 	dec	sp
+                                   1717 ;	src/main.c:380: break;
+      000642 22               [24] 1718 	ret
+                                   1719 ;	src/main.c:381: case 'S' :
+      000643                       1720 00110$:
+                                   1721 ;	src/main.c:382: printf_fast_f("LineFi CSC rx FSM ON\r\n");
+      000643 74 7C            [12] 1722 	mov	a,#___str_14
+      000645 C0 E0            [24] 1723 	push	acc
+      000647 74 21            [12] 1724 	mov	a,#(___str_14 >> 8)
+      000649 C0 E0            [24] 1725 	push	acc
+      00064B 12 1B 52         [24] 1726 	lcall	_printf_fast_f
+      00064E 15 81            [12] 1727 	dec	sp
+      000650 15 81            [12] 1728 	dec	sp
+                                   1729 ;	src/main.c:383: break;
+                                   1730 ;	src/main.c:384: case 'v' : case 'V' :
+      000652 22               [24] 1731 	ret
+      000653                       1732 00112$:
+                                   1733 ;	src/main.c:385: printf_fast_f(__VERSION__);
+      000653 74 93            [12] 1734 	mov	a,#___str_15
+      000655 C0 E0            [24] 1735 	push	acc
+      000657 74 21            [12] 1736 	mov	a,#(___str_15 >> 8)
+      000659 C0 E0            [24] 1737 	push	acc
+      00065B 12 1B 52         [24] 1738 	lcall	_printf_fast_f
+      00065E 15 81            [12] 1739 	dec	sp
+      000660 15 81            [12] 1740 	dec	sp
+                                   1741 ;	src/main.c:386: break;
+                                   1742 ;	src/main.c:387: default :
+      000662 22               [24] 1743 	ret
+      000663                       1744 00113$:
+                                   1745 ;	src/main.c:388: printf_fast_f("1: downlink packet 1\r\n");
+      000663 74 AD            [12] 1746 	mov	a,#___str_16
+      000665 C0 E0            [24] 1747 	push	acc
+      000667 74 21            [12] 1748 	mov	a,#(___str_16 >> 8)
+      000669 C0 E0            [24] 1749 	push	acc
+      00066B 12 1B 52         [24] 1750 	lcall	_printf_fast_f
+      00066E 15 81            [12] 1751 	dec	sp
+      000670 15 81            [12] 1752 	dec	sp
+                                   1753 ;	src/main.c:389: printf_fast_f("2: downlink packet 2\r\n");
+      000672 74 C4            [12] 1754 	mov	a,#___str_17
+      000674 C0 E0            [24] 1755 	push	acc
+      000676 74 21            [12] 1756 	mov	a,#(___str_17 >> 8)
+      000678 C0 E0            [24] 1757 	push	acc
+      00067A 12 1B 52         [24] 1758 	lcall	_printf_fast_f
+      00067D 15 81            [12] 1759 	dec	sp
+      00067F 15 81            [12] 1760 	dec	sp
+                                   1761 ;	src/main.c:390: printf_fast_f("3: uplink idle preamble on/off\r\n");
+      000681 74 DB            [12] 1762 	mov	a,#___str_18
+      000683 C0 E0            [24] 1763 	push	acc
+      000685 74 21            [12] 1764 	mov	a,#(___str_18 >> 8)
+      000687 C0 E0            [24] 1765 	push	acc
+      000689 12 1B 52         [24] 1766 	lcall	_printf_fast_f
+      00068C 15 81            [12] 1767 	dec	sp
+      00068E 15 81            [12] 1768 	dec	sp
+                                   1769 ;	src/main.c:391: printf_fast_f("p/P: LineFi Power off/on\r\n");
+      000690 74 FC            [12] 1770 	mov	a,#___str_19
+      000692 C0 E0            [24] 1771 	push	acc
+      000694 74 21            [12] 1772 	mov	a,#(___str_19 >> 8)
+      000696 C0 E0            [24] 1773 	push	acc
+      000698 12 1B 52         [24] 1774 	lcall	_printf_fast_f
+      00069B 15 81            [12] 1775 	dec	sp
+      00069D 15 81            [12] 1776 	dec	sp
+                                   1777 ;	src/main.c:392: printf_fast_f("t/T: LineFi Uart Tx Low/High\r\n");
+      00069F 74 17            [12] 1778 	mov	a,#___str_20
+      0006A1 C0 E0            [24] 1779 	push	acc
+      0006A3 74 22            [12] 1780 	mov	a,#(___str_20 >> 8)
+      0006A5 C0 E0            [24] 1781 	push	acc
+      0006A7 12 1B 52         [24] 1782 	lcall	_printf_fast_f
+      0006AA 15 81            [12] 1783 	dec	sp
+      0006AC 15 81            [12] 1784 	dec	sp
+                                   1785 ;	src/main.c:393: printf_fast_f("s/S: LineFie CSC Rx FSM off/on\r\n");
+      0006AE 74 36            [12] 1786 	mov	a,#___str_21
+      0006B0 C0 E0            [24] 1787 	push	acc
+      0006B2 74 22            [12] 1788 	mov	a,#(___str_21 >> 8)
+      0006B4 C0 E0            [24] 1789 	push	acc
+      0006B6 12 1B 52         [24] 1790 	lcall	_printf_fast_f
+      0006B9 15 81            [12] 1791 	dec	sp
+      0006BB 15 81            [12] 1792 	dec	sp
+                                   1793 ;	src/main.c:394: printf_fast_f("test procedure: p -> P -> T -> S -> 1 or 2\r\n");
+      0006BD 74 57            [12] 1794 	mov	a,#___str_22
+      0006BF C0 E0            [24] 1795 	push	acc
+      0006C1 74 22            [12] 1796 	mov	a,#(___str_22 >> 8)
+      0006C3 C0 E0            [24] 1797 	push	acc
+      0006C5 12 1B 52         [24] 1798 	lcall	_printf_fast_f
+      0006C8 15 81            [12] 1799 	dec	sp
+      0006CA 15 81            [12] 1800 	dec	sp
+                                   1801 ;	src/main.c:396: }
+                                   1802 ;	src/main.c:397: }
+      0006CC 22               [24] 1803 	ret
+                                   1804 ;------------------------------------------------------------
+                                   1805 ;Allocation info for local variables in function 'gpio_setup'
+                                   1806 ;------------------------------------------------------------
+                                   1807 ;	src/main.c:399: void gpio_setup()
+                                   1808 ;	-----------------------------------------
+                                   1809 ;	 function gpio_setup
+                                   1810 ;	-----------------------------------------
+      0006CD                       1811 _gpio_setup:
+                                   1812 ;	src/main.c:418: Set_All_GPIO_Quasi_Mode;
+      0006CD 75 B1 00         [24] 1813 	mov	_P0M1,#0x00
+      0006D0 75 B2 00         [24] 1814 	mov	_P0M2,#0x00
+      0006D3 75 B3 00         [24] 1815 	mov	_P1M1,#0x00
+      0006D6 75 B4 00         [24] 1816 	mov	_P1M2,#0x00
+      0006D9 75 AC 00         [24] 1817 	mov	_P3M1,#0x00
+      0006DC 75 AD 00         [24] 1818 	mov	_P3M2,#0x00
+                                   1819 ;	src/main.c:420: P15_Input_Mode;
+      0006DF 43 B3 20         [24] 1820 	orl	_P1M1,#0x20
+      0006E2 53 B4 DF         [24] 1821 	anl	_P1M2,#0xdf
+                                   1822 ;	src/main.c:421: P02_Input_Mode;
+      0006E5 43 B1 04         [24] 1823 	orl	_P0M1,#0x04
+      0006E8 53 B2 FB         [24] 1824 	anl	_P0M2,#0xfb
+                                   1825 ;	src/main.c:422: P07_Input_Mode;
+      0006EB 43 B1 80         [24] 1826 	orl	_P0M1,#0x80
+      0006EE 53 B2 7F         [24] 1827 	anl	_P0M2,#0x7f
+                                   1828 ;	src/main.c:424: P16_PushPull_Mode;
+      0006F1 53 B3 BF         [24] 1829 	anl	_P1M1,#0xbf
+      0006F4 43 B4 40         [24] 1830 	orl	_P1M2,#0x40
+                                   1831 ;	src/main.c:425: P13_PushPull_Mode;
+      0006F7 53 B3 F7         [24] 1832 	anl	_P1M1,#0xf7
+      0006FA 43 B4 08         [24] 1833 	orl	_P1M2,#0x08
+                                   1834 ;	src/main.c:426: P14_PushPull_Mode;
+      0006FD 53 B3 EF         [24] 1835 	anl	_P1M1,#0xef
+      000700 43 B4 10         [24] 1836 	orl	_P1M2,#0x10
+                                   1837 ;	src/main.c:427: P12_PushPull_Mode;
+      000703 53 B3 FB         [24] 1838 	anl	_P1M1,#0xfb
+      000706 43 B4 04         [24] 1839 	orl	_P1M2,#0x04
+                                   1840 ;	src/main.c:428: P11_PushPull_Mode;
+      000709 53 B3 FD         [24] 1841 	anl	_P1M1,#0xfd
+      00070C 43 B4 02         [24] 1842 	orl	_P1M2,#0x02
+                                   1843 ;	src/main.c:429: P10_PushPull_Mode;
+      00070F 53 B3 FE         [24] 1844 	anl	_P1M1,#0xfe
+      000712 43 B4 01         [24] 1845 	orl	_P1M2,#0x01
+                                   1846 ;	src/main.c:430: P00_PushPull_Mode;
+      000715 53 B1 FE         [24] 1847 	anl	_P0M1,#0xfe
+      000718 43 B2 01         [24] 1848 	orl	_P0M2,#0x01
+                                   1849 ;	src/main.c:431: P01_PushPull_Mode;
+      00071B 53 B1 FD         [24] 1850 	anl	_P0M1,#0xfd
+      00071E 43 B2 02         [24] 1851 	orl	_P0M2,#0x02
+                                   1852 ;	src/main.c:432: P04_PushPull_Mode;
+      000721 53 B1 EF         [24] 1853 	anl	_P0M1,#0xef
+      000724 43 B2 10         [24] 1854 	orl	_P0M2,#0x10
+                                   1855 ;	src/main.c:433: P03_PushPull_Mode;
+      000727 53 B1 F7         [24] 1856 	anl	_P0M1,#0xf7
+      00072A 43 B2 08         [24] 1857 	orl	_P0M2,#0x08
+                                   1858 ;	src/main.c:435: UART_TX = 0;
                                    1859 ;	assignBit
-      000725 D2 94            [12] 1860 	setb	_P14
-                                   1861 ;	src/main.c:438: MOTOR_EN = 0;
+      00072D C2 96            [12] 1860 	clr	_P16
+                                   1861 ;	src/main.c:436: LED_B = 1;
                                    1862 ;	assignBit
-      000727 C2 90            [12] 1863 	clr	_P10
-                                   1864 ;	src/main.c:439: MOTOR_CW = 0;
+      00072F D2 92            [12] 1863 	setb	_P12
+                                   1864 ;	src/main.c:437: LED_G = 1;
                                    1865 ;	assignBit
-      000729 C2 80            [12] 1866 	clr	_P00
-                                   1867 ;	src/main.c:440: MOTOR_CCW = 0;
+      000731 D2 93            [12] 1866 	setb	_P13
+                                   1867 ;	src/main.c:438: LED_R = 1;
                                    1868 ;	assignBit
-      00072B C2 81            [12] 1869 	clr	_P01
-                                   1870 ;	src/main.c:441: SEL_RX_POL = 0;
+      000733 D2 94            [12] 1869 	setb	_P14
+                                   1870 ;	src/main.c:439: MOTOR_EN = 0;
                                    1871 ;	assignBit
-      00072D C2 84            [12] 1872 	clr	_P04
-                                   1873 ;	src/main.c:442: PWR_OUT = 0;
+      000735 C2 90            [12] 1872 	clr	_P10
+                                   1873 ;	src/main.c:440: MOTOR_CW = 0;
                                    1874 ;	assignBit
-      00072F C2 83            [12] 1875 	clr	_P03
-                                   1876 ;	src/main.c:443: }
-      000731 22               [24] 1877 	ret
-                                   1878 ;------------------------------------------------------------
-                                   1879 ;Allocation info for local variables in function 'state_switches'
-                                   1880 ;------------------------------------------------------------
-                                   1881 ;su8PrevSW                 Allocated with name '_state_switches_su8PrevSW_65536_96'
-                                   1882 ;apu8SwNum                 Allocated with name '_state_switches_PARM_2'
-                                   1883 ;au8SW                     Allocated to registers r7 
-                                   1884 ;i                         Allocated to registers r2 
-                                   1885 ;u8Result                  Allocated to registers r6 
-                                   1886 ;------------------------------------------------------------
-                                   1887 ;	src/main.c:461: UINT8 state_switches(UINT8 au8SW, UINT8 *apu8SwNum)
-                                   1888 ;	-----------------------------------------
-                                   1889 ;	 function state_switches
-                                   1890 ;	-----------------------------------------
-      000732                       1891 _state_switches:
-      000732 AF 82            [24] 1892 	mov	r7,dpl
-                                   1893 ;	src/main.c:466: UINT8 u8Result = SW_NONE;
-      000734 7E 04            [12] 1894 	mov	r6,#0x04
-                                   1895 ;	src/main.c:467: if (su8PrevSW == au8SW) {
-      000736 EF               [12] 1896 	mov	a,r7
-      000737 B5 28 14         [24] 1897 	cjne	a,_state_switches_su8PrevSW_65536_96,00102$
-                                   1898 ;	src/main.c:468: *apu8SwNum = 0;
-      00073A AB 18            [24] 1899 	mov	r3,_state_switches_PARM_2
-      00073C AC 19            [24] 1900 	mov	r4,(_state_switches_PARM_2 + 1)
-      00073E AD 1A            [24] 1901 	mov	r5,(_state_switches_PARM_2 + 2)
-      000740 8B 82            [24] 1902 	mov	dpl,r3
-      000742 8C 83            [24] 1903 	mov	dph,r4
-      000744 8D F0            [24] 1904 	mov	b,r5
-      000746 E4               [12] 1905 	clr	a
-      000747 12 20 58         [24] 1906 	lcall	__gptrput
-                                   1907 ;	src/main.c:469: return SW_NONE;
-      00074A 75 82 04         [24] 1908 	mov	dpl,#0x04
-      00074D 22               [24] 1909 	ret
-      00074E                       1910 00102$:
-                                   1911 ;	src/main.c:477: *apu8SwNum = 0;
-      00074E AB 18            [24] 1912 	mov	r3,_state_switches_PARM_2
-      000750 AC 19            [24] 1913 	mov	r4,(_state_switches_PARM_2 + 1)
-      000752 AD 1A            [24] 1914 	mov	r5,(_state_switches_PARM_2 + 2)
-      000754 8B 82            [24] 1915 	mov	dpl,r3
-      000756 8C 83            [24] 1916 	mov	dph,r4
-      000758 8D F0            [24] 1917 	mov	b,r5
-      00075A E4               [12] 1918 	clr	a
-      00075B 12 20 58         [24] 1919 	lcall	__gptrput
-                                   1920 ;	src/main.c:479: for (i=0;i<5;i++) {
-      00075E 7A 00            [12] 1921 	mov	r2,#0x00
-      000760                       1922 00113$:
-                                   1923 ;	src/main.c:480: switch((su8PrevSW>>i)&1) {
-      000760 8A F0            [24] 1924 	mov	b,r2
-      000762 05 F0            [12] 1925 	inc	b
-      000764 E5 28            [12] 1926 	mov	a,_state_switches_su8PrevSW_65536_96
-      000766 80 02            [24] 1927 	sjmp	00153$
-      000768                       1928 00152$:
-      000768 C3               [12] 1929 	clr	c
-      000769 13               [12] 1930 	rrc	a
-      00076A                       1931 00153$:
-      00076A D5 F0 FB         [24] 1932 	djnz	b,00152$
-      00076D F8               [12] 1933 	mov	r0,a
-      00076E 53 00 01         [24] 1934 	anl	ar0,#0x01
-      000771 79 00            [12] 1935 	mov	r1,#0x00
-      000773 B8 00 05         [24] 1936 	cjne	r0,#0x00,00154$
-      000776 B9 00 02         [24] 1937 	cjne	r1,#0x00,00154$
-      000779 80 54            [24] 1938 	sjmp	00107$
-      00077B                       1939 00154$:
-      00077B B8 01 05         [24] 1940 	cjne	r0,#0x01,00155$
-      00077E B9 00 02         [24] 1941 	cjne	r1,#0x00,00155$
-      000781 80 03            [24] 1942 	sjmp	00156$
-      000783                       1943 00155$:
-      000783 02 08 19         [24] 1944 	ljmp	00114$
-      000786                       1945 00156$:
-                                   1946 ;	src/main.c:482: switch((au8SW>>i)&1) {
-      000786 8A F0            [24] 1947 	mov	b,r2
-      000788 05 F0            [12] 1948 	inc	b
-      00078A EF               [12] 1949 	mov	a,r7
-      00078B 80 02            [24] 1950 	sjmp	00158$
-      00078D                       1951 00157$:
-      00078D C3               [12] 1952 	clr	c
-      00078E 13               [12] 1953 	rrc	a
-      00078F                       1954 00158$:
-      00078F D5 F0 FB         [24] 1955 	djnz	b,00157$
-      000792 F8               [12] 1956 	mov	r0,a
-      000793 53 00 01         [24] 1957 	anl	ar0,#0x01
-      000796 79 00            [12] 1958 	mov	r1,#0x00
-      000798 B8 00 05         [24] 1959 	cjne	r0,#0x00,00159$
-      00079B B9 00 02         [24] 1960 	cjne	r1,#0x00,00159$
-      00079E 80 03            [24] 1961 	sjmp	00160$
-      0007A0                       1962 00159$:
-      0007A0 02 08 19         [24] 1963 	ljmp	00114$
-      0007A3                       1964 00160$:
-                                   1965 ;	src/main.c:486: su8PrevSW = au8SW;
-      0007A3 8F 28            [24] 1966 	mov	_state_switches_su8PrevSW_65536_96,r7
-                                   1967 ;	src/main.c:487: *apu8SwNum |= 1<<i;
-      0007A5 8B 82            [24] 1968 	mov	dpl,r3
-      0007A7 8C 83            [24] 1969 	mov	dph,r4
-      0007A9 8D F0            [24] 1970 	mov	b,r5
-      0007AB 12 20 73         [24] 1971 	lcall	__gptrget
-      0007AE F9               [12] 1972 	mov	r1,a
-      0007AF 8A 00            [24] 1973 	mov	ar0,r2
-      0007B1 88 F0            [24] 1974 	mov	b,r0
-      0007B3 05 F0            [12] 1975 	inc	b
-      0007B5 74 01            [12] 1976 	mov	a,#0x01
-      0007B7 80 02            [24] 1977 	sjmp	00163$
-      0007B9                       1978 00161$:
-      0007B9 25 E0            [12] 1979 	add	a,acc
-      0007BB                       1980 00163$:
-      0007BB D5 F0 FB         [24] 1981 	djnz	b,00161$
-      0007BE F8               [12] 1982 	mov	r0,a
-      0007BF 42 01            [12] 1983 	orl	ar1,a
-      0007C1 8B 82            [24] 1984 	mov	dpl,r3
-      0007C3 8C 83            [24] 1985 	mov	dph,r4
-      0007C5 8D F0            [24] 1986 	mov	b,r5
-      0007C7 E9               [12] 1987 	mov	a,r1
-      0007C8 12 20 58         [24] 1988 	lcall	__gptrput
-                                   1989 ;	src/main.c:488: u8Result = SW_OFF;
-      0007CB 7E 00            [12] 1990 	mov	r6,#0x00
-                                   1991 ;	src/main.c:492: break;
-                                   1992 ;	src/main.c:493: case SW_OFF :
-      0007CD 80 4A            [24] 1993 	sjmp	00114$
-      0007CF                       1994 00107$:
-                                   1995 ;	src/main.c:494: switch((au8SW>>i)&1) {
-      0007CF 8A F0            [24] 1996 	mov	b,r2
-      0007D1 05 F0            [12] 1997 	inc	b
-      0007D3 EF               [12] 1998 	mov	a,r7
-      0007D4 80 02            [24] 1999 	sjmp	00165$
-      0007D6                       2000 00164$:
-      0007D6 C3               [12] 2001 	clr	c
-      0007D7 13               [12] 2002 	rrc	a
-      0007D8                       2003 00165$:
-      0007D8 D5 F0 FB         [24] 2004 	djnz	b,00164$
-      0007DB F8               [12] 2005 	mov	r0,a
-      0007DC 53 00 01         [24] 2006 	anl	ar0,#0x01
-      0007DF 79 00            [12] 2007 	mov	r1,#0x00
-      0007E1 B8 00 05         [24] 2008 	cjne	r0,#0x00,00166$
-      0007E4 B9 00 02         [24] 2009 	cjne	r1,#0x00,00166$
-      0007E7 80 30            [24] 2010 	sjmp	00114$
-      0007E9                       2011 00166$:
-      0007E9 B8 01 2D         [24] 2012 	cjne	r0,#0x01,00114$
-      0007EC B9 00 2A         [24] 2013 	cjne	r1,#0x00,00114$
-                                   2014 ;	src/main.c:496: su8PrevSW = au8SW;
-      0007EF 8F 28            [24] 2015 	mov	_state_switches_su8PrevSW_65536_96,r7
-                                   2016 ;	src/main.c:497: *apu8SwNum |= 1<<i;
-      0007F1 8B 82            [24] 2017 	mov	dpl,r3
-      0007F3 8C 83            [24] 2018 	mov	dph,r4
-      0007F5 8D F0            [24] 2019 	mov	b,r5
-      0007F7 12 20 73         [24] 2020 	lcall	__gptrget
-      0007FA F9               [12] 2021 	mov	r1,a
-      0007FB 8A 00            [24] 2022 	mov	ar0,r2
-      0007FD 88 F0            [24] 2023 	mov	b,r0
-      0007FF 05 F0            [12] 2024 	inc	b
-      000801 74 01            [12] 2025 	mov	a,#0x01
-      000803 80 02            [24] 2026 	sjmp	00171$
-      000805                       2027 00169$:
-      000805 25 E0            [12] 2028 	add	a,acc
-      000807                       2029 00171$:
-      000807 D5 F0 FB         [24] 2030 	djnz	b,00169$
-      00080A F8               [12] 2031 	mov	r0,a
-      00080B 42 01            [12] 2032 	orl	ar1,a
-      00080D 8B 82            [24] 2033 	mov	dpl,r3
-      00080F 8C 83            [24] 2034 	mov	dph,r4
-      000811 8D F0            [24] 2035 	mov	b,r5
-      000813 E9               [12] 2036 	mov	a,r1
-      000814 12 20 58         [24] 2037 	lcall	__gptrput
-                                   2038 ;	src/main.c:498: u8Result = SW_ON;
-      000817 7E 01            [12] 2039 	mov	r6,#0x01
-                                   2040 ;	src/main.c:506: }
-      000819                       2041 00114$:
-                                   2042 ;	src/main.c:479: for (i=0;i<5;i++) {
-      000819 0A               [12] 2043 	inc	r2
-      00081A BA 05 00         [24] 2044 	cjne	r2,#0x05,00172$
-      00081D                       2045 00172$:
-      00081D 50 03            [24] 2046 	jnc	00173$
-      00081F 02 07 60         [24] 2047 	ljmp	00113$
-      000822                       2048 00173$:
-                                   2049 ;	src/main.c:510: return u8Result;
-      000822 8E 82            [24] 2050 	mov	dpl,r6
-                                   2051 ;	src/main.c:598: }
-      000824 22               [24] 2052 	ret
-                                   2053 ;------------------------------------------------------------
-                                   2054 ;Allocation info for local variables in function 'ctrl_rgbled'
-                                   2055 ;------------------------------------------------------------
-                                   2056 ;u8RxUART                  Allocated to registers r7 
-                                   2057 ;------------------------------------------------------------
-                                   2058 ;	src/main.c:601: void ctrl_rgbled(UINT8 u8RxUART)
-                                   2059 ;	-----------------------------------------
-                                   2060 ;	 function ctrl_rgbled
-                                   2061 ;	-----------------------------------------
-      000825                       2062 _ctrl_rgbled:
-                                   2063 ;	src/main.c:605: if (u8RxUART) {
-      000825 E5 82            [12] 2064 	mov	a,dpl
-      000827 FF               [12] 2065 	mov	r7,a
-      000828 60 1E            [24] 2066 	jz	00111$
-                                   2067 ;	src/main.c:606: if (u8RxUART&0x1) {
-      00082A EF               [12] 2068 	mov	a,r7
-      00082B 30 E0 04         [24] 2069 	jnb	acc.0,00102$
-                                   2070 ;	src/main.c:607: LED_R = LED_ON;
-                                   2071 ;	assignBit
-      00082E C2 94            [12] 2072 	clr	_P14
-      000830 80 02            [24] 2073 	sjmp	00103$
-      000832                       2074 00102$:
-                                   2075 ;	src/main.c:610: LED_R = LED_OFF;
-                                   2076 ;	assignBit
-      000832 D2 94            [12] 2077 	setb	_P14
-      000834                       2078 00103$:
-                                   2079 ;	src/main.c:612: if (u8RxUART&0x2) {
-      000834 EF               [12] 2080 	mov	a,r7
-      000835 30 E1 04         [24] 2081 	jnb	acc.1,00105$
-                                   2082 ;	src/main.c:613: LED_G = LED_ON;
-                                   2083 ;	assignBit
-      000838 C2 93            [12] 2084 	clr	_P13
-      00083A 80 02            [24] 2085 	sjmp	00106$
-      00083C                       2086 00105$:
-                                   2087 ;	src/main.c:616: LED_G = LED_OFF;
-                                   2088 ;	assignBit
-      00083C D2 93            [12] 2089 	setb	_P13
-      00083E                       2090 00106$:
-                                   2091 ;	src/main.c:618: if (u8RxUART&0x4) {
-      00083E EF               [12] 2092 	mov	a,r7
-      00083F 30 E2 03         [24] 2093 	jnb	acc.2,00108$
-                                   2094 ;	src/main.c:619: LED_B = LED_ON;
-                                   2095 ;	assignBit
-      000842 C2 92            [12] 2096 	clr	_P12
-      000844 22               [24] 2097 	ret
-      000845                       2098 00108$:
-                                   2099 ;	src/main.c:622: LED_B = LED_OFF;
-                                   2100 ;	assignBit
-      000845 D2 92            [12] 2101 	setb	_P12
-      000847 22               [24] 2102 	ret
-      000848                       2103 00111$:
-                                   2104 ;	src/main.c:626: LED_R = LED_OFF;
-                                   2105 ;	assignBit
-      000848 D2 94            [12] 2106 	setb	_P14
-                                   2107 ;	src/main.c:627: LED_G = LED_OFF;
-                                   2108 ;	assignBit
-      00084A D2 93            [12] 2109 	setb	_P13
-                                   2110 ;	src/main.c:628: LED_B = LED_OFF;
+      000737 C2 80            [12] 1875 	clr	_P00
+                                   1876 ;	src/main.c:441: MOTOR_CCW = 0;
+                                   1877 ;	assignBit
+      000739 C2 81            [12] 1878 	clr	_P01
+                                   1879 ;	src/main.c:442: SEL_RX_POL = 0;
+                                   1880 ;	assignBit
+      00073B C2 84            [12] 1881 	clr	_P04
+                                   1882 ;	src/main.c:443: PWR_OUT = 0;
+                                   1883 ;	assignBit
+      00073D C2 83            [12] 1884 	clr	_P03
+                                   1885 ;	src/main.c:444: }
+      00073F 22               [24] 1886 	ret
+                                   1887 ;------------------------------------------------------------
+                                   1888 ;Allocation info for local variables in function 'state_switches'
+                                   1889 ;------------------------------------------------------------
+                                   1890 ;su8PrevSW                 Allocated with name '_state_switches_su8PrevSW_65536_96'
+                                   1891 ;apu8SwNum                 Allocated with name '_state_switches_PARM_2'
+                                   1892 ;au8SW                     Allocated to registers r7 
+                                   1893 ;i                         Allocated to registers r2 
+                                   1894 ;u8Result                  Allocated to registers r6 
+                                   1895 ;------------------------------------------------------------
+                                   1896 ;	src/main.c:462: UINT8 state_switches(UINT8 au8SW, UINT8 *apu8SwNum)
+                                   1897 ;	-----------------------------------------
+                                   1898 ;	 function state_switches
+                                   1899 ;	-----------------------------------------
+      000740                       1900 _state_switches:
+      000740 AF 82            [24] 1901 	mov	r7,dpl
+                                   1902 ;	src/main.c:467: UINT8 u8Result = SW_NONE;
+      000742 7E 04            [12] 1903 	mov	r6,#0x04
+                                   1904 ;	src/main.c:468: if (su8PrevSW == au8SW) {
+      000744 EF               [12] 1905 	mov	a,r7
+      000745 B5 28 14         [24] 1906 	cjne	a,_state_switches_su8PrevSW_65536_96,00102$
+                                   1907 ;	src/main.c:469: *apu8SwNum = 0;
+      000748 AB 18            [24] 1908 	mov	r3,_state_switches_PARM_2
+      00074A AC 19            [24] 1909 	mov	r4,(_state_switches_PARM_2 + 1)
+      00074C AD 1A            [24] 1910 	mov	r5,(_state_switches_PARM_2 + 2)
+      00074E 8B 82            [24] 1911 	mov	dpl,r3
+      000750 8C 83            [24] 1912 	mov	dph,r4
+      000752 8D F0            [24] 1913 	mov	b,r5
+      000754 E4               [12] 1914 	clr	a
+      000755 12 20 7B         [24] 1915 	lcall	__gptrput
+                                   1916 ;	src/main.c:470: return SW_NONE;
+      000758 75 82 04         [24] 1917 	mov	dpl,#0x04
+      00075B 22               [24] 1918 	ret
+      00075C                       1919 00102$:
+                                   1920 ;	src/main.c:478: *apu8SwNum = 0;
+      00075C AB 18            [24] 1921 	mov	r3,_state_switches_PARM_2
+      00075E AC 19            [24] 1922 	mov	r4,(_state_switches_PARM_2 + 1)
+      000760 AD 1A            [24] 1923 	mov	r5,(_state_switches_PARM_2 + 2)
+      000762 8B 82            [24] 1924 	mov	dpl,r3
+      000764 8C 83            [24] 1925 	mov	dph,r4
+      000766 8D F0            [24] 1926 	mov	b,r5
+      000768 E4               [12] 1927 	clr	a
+      000769 12 20 7B         [24] 1928 	lcall	__gptrput
+                                   1929 ;	src/main.c:480: for (i=0;i<5;i++) {
+      00076C 7A 00            [12] 1930 	mov	r2,#0x00
+      00076E                       1931 00113$:
+                                   1932 ;	src/main.c:481: switch((su8PrevSW>>i)&1) {
+      00076E 8A F0            [24] 1933 	mov	b,r2
+      000770 05 F0            [12] 1934 	inc	b
+      000772 E5 28            [12] 1935 	mov	a,_state_switches_su8PrevSW_65536_96
+      000774 80 02            [24] 1936 	sjmp	00153$
+      000776                       1937 00152$:
+      000776 C3               [12] 1938 	clr	c
+      000777 13               [12] 1939 	rrc	a
+      000778                       1940 00153$:
+      000778 D5 F0 FB         [24] 1941 	djnz	b,00152$
+      00077B F8               [12] 1942 	mov	r0,a
+      00077C 53 00 01         [24] 1943 	anl	ar0,#0x01
+      00077F 79 00            [12] 1944 	mov	r1,#0x00
+      000781 B8 00 05         [24] 1945 	cjne	r0,#0x00,00154$
+      000784 B9 00 02         [24] 1946 	cjne	r1,#0x00,00154$
+      000787 80 55            [24] 1947 	sjmp	00107$
+      000789                       1948 00154$:
+      000789 B8 01 05         [24] 1949 	cjne	r0,#0x01,00155$
+      00078C B9 00 02         [24] 1950 	cjne	r1,#0x00,00155$
+      00078F 80 03            [24] 1951 	sjmp	00156$
+      000791                       1952 00155$:
+      000791 02 08 29         [24] 1953 	ljmp	00114$
+      000794                       1954 00156$:
+                                   1955 ;	src/main.c:483: switch((au8SW>>i)&1) {
+      000794 8A F0            [24] 1956 	mov	b,r2
+      000796 05 F0            [12] 1957 	inc	b
+      000798 EF               [12] 1958 	mov	a,r7
+      000799 80 02            [24] 1959 	sjmp	00158$
+      00079B                       1960 00157$:
+      00079B C3               [12] 1961 	clr	c
+      00079C 13               [12] 1962 	rrc	a
+      00079D                       1963 00158$:
+      00079D D5 F0 FB         [24] 1964 	djnz	b,00157$
+      0007A0 F8               [12] 1965 	mov	r0,a
+      0007A1 53 00 01         [24] 1966 	anl	ar0,#0x01
+      0007A4 79 00            [12] 1967 	mov	r1,#0x00
+      0007A6 B8 00 05         [24] 1968 	cjne	r0,#0x00,00159$
+      0007A9 B9 00 02         [24] 1969 	cjne	r1,#0x00,00159$
+      0007AC 80 03            [24] 1970 	sjmp	00160$
+      0007AE                       1971 00159$:
+      0007AE 02 08 29         [24] 1972 	ljmp	00114$
+      0007B1                       1973 00160$:
+                                   1974 ;	src/main.c:487: su8PrevSW = au8SW;
+      0007B1 8F 28            [24] 1975 	mov	_state_switches_su8PrevSW_65536_96,r7
+                                   1976 ;	src/main.c:488: *apu8SwNum |= 1<<i;
+      0007B3 8B 82            [24] 1977 	mov	dpl,r3
+      0007B5 8C 83            [24] 1978 	mov	dph,r4
+      0007B7 8D F0            [24] 1979 	mov	b,r5
+      0007B9 12 20 96         [24] 1980 	lcall	__gptrget
+      0007BC F9               [12] 1981 	mov	r1,a
+      0007BD 8A 00            [24] 1982 	mov	ar0,r2
+      0007BF 88 F0            [24] 1983 	mov	b,r0
+      0007C1 05 F0            [12] 1984 	inc	b
+      0007C3 74 01            [12] 1985 	mov	a,#0x01
+      0007C5 80 02            [24] 1986 	sjmp	00163$
+      0007C7                       1987 00161$:
+      0007C7 25 E0            [12] 1988 	add	a,acc
+      0007C9                       1989 00163$:
+      0007C9 D5 F0 FB         [24] 1990 	djnz	b,00161$
+      0007CC F8               [12] 1991 	mov	r0,a
+      0007CD E9               [12] 1992 	mov	a,r1
+      0007CE 42 00            [12] 1993 	orl	ar0,a
+      0007D0 8B 82            [24] 1994 	mov	dpl,r3
+      0007D2 8C 83            [24] 1995 	mov	dph,r4
+      0007D4 8D F0            [24] 1996 	mov	b,r5
+      0007D6 E8               [12] 1997 	mov	a,r0
+      0007D7 12 20 7B         [24] 1998 	lcall	__gptrput
+                                   1999 ;	src/main.c:489: u8Result = SW_OFF;
+      0007DA 7E 00            [12] 2000 	mov	r6,#0x00
+                                   2001 ;	src/main.c:493: break;
+                                   2002 ;	src/main.c:494: case SW_OFF :
+      0007DC 80 4B            [24] 2003 	sjmp	00114$
+      0007DE                       2004 00107$:
+                                   2005 ;	src/main.c:495: switch((au8SW>>i)&1) {
+      0007DE 8A F0            [24] 2006 	mov	b,r2
+      0007E0 05 F0            [12] 2007 	inc	b
+      0007E2 EF               [12] 2008 	mov	a,r7
+      0007E3 80 02            [24] 2009 	sjmp	00165$
+      0007E5                       2010 00164$:
+      0007E5 C3               [12] 2011 	clr	c
+      0007E6 13               [12] 2012 	rrc	a
+      0007E7                       2013 00165$:
+      0007E7 D5 F0 FB         [24] 2014 	djnz	b,00164$
+      0007EA F8               [12] 2015 	mov	r0,a
+      0007EB 53 00 01         [24] 2016 	anl	ar0,#0x01
+      0007EE 79 00            [12] 2017 	mov	r1,#0x00
+      0007F0 B8 00 05         [24] 2018 	cjne	r0,#0x00,00166$
+      0007F3 B9 00 02         [24] 2019 	cjne	r1,#0x00,00166$
+      0007F6 80 31            [24] 2020 	sjmp	00114$
+      0007F8                       2021 00166$:
+      0007F8 B8 01 2E         [24] 2022 	cjne	r0,#0x01,00114$
+      0007FB B9 00 2B         [24] 2023 	cjne	r1,#0x00,00114$
+                                   2024 ;	src/main.c:497: su8PrevSW = au8SW;
+      0007FE 8F 28            [24] 2025 	mov	_state_switches_su8PrevSW_65536_96,r7
+                                   2026 ;	src/main.c:498: *apu8SwNum |= 1<<i;
+      000800 8B 82            [24] 2027 	mov	dpl,r3
+      000802 8C 83            [24] 2028 	mov	dph,r4
+      000804 8D F0            [24] 2029 	mov	b,r5
+      000806 12 20 96         [24] 2030 	lcall	__gptrget
+      000809 F9               [12] 2031 	mov	r1,a
+      00080A 8A 00            [24] 2032 	mov	ar0,r2
+      00080C 88 F0            [24] 2033 	mov	b,r0
+      00080E 05 F0            [12] 2034 	inc	b
+      000810 74 01            [12] 2035 	mov	a,#0x01
+      000812 80 02            [24] 2036 	sjmp	00171$
+      000814                       2037 00169$:
+      000814 25 E0            [12] 2038 	add	a,acc
+      000816                       2039 00171$:
+      000816 D5 F0 FB         [24] 2040 	djnz	b,00169$
+      000819 F8               [12] 2041 	mov	r0,a
+      00081A E9               [12] 2042 	mov	a,r1
+      00081B 42 00            [12] 2043 	orl	ar0,a
+      00081D 8B 82            [24] 2044 	mov	dpl,r3
+      00081F 8C 83            [24] 2045 	mov	dph,r4
+      000821 8D F0            [24] 2046 	mov	b,r5
+      000823 E8               [12] 2047 	mov	a,r0
+      000824 12 20 7B         [24] 2048 	lcall	__gptrput
+                                   2049 ;	src/main.c:499: u8Result = SW_ON;
+      000827 7E 01            [12] 2050 	mov	r6,#0x01
+                                   2051 ;	src/main.c:507: }
+      000829                       2052 00114$:
+                                   2053 ;	src/main.c:480: for (i=0;i<5;i++) {
+      000829 0A               [12] 2054 	inc	r2
+      00082A BA 05 00         [24] 2055 	cjne	r2,#0x05,00172$
+      00082D                       2056 00172$:
+      00082D 50 03            [24] 2057 	jnc	00173$
+      00082F 02 07 6E         [24] 2058 	ljmp	00113$
+      000832                       2059 00173$:
+                                   2060 ;	src/main.c:511: return u8Result;
+      000832 8E 82            [24] 2061 	mov	dpl,r6
+                                   2062 ;	src/main.c:599: }
+      000834 22               [24] 2063 	ret
+                                   2064 ;------------------------------------------------------------
+                                   2065 ;Allocation info for local variables in function 'ctrl_rgbled'
+                                   2066 ;------------------------------------------------------------
+                                   2067 ;u8RxUART                  Allocated to registers r7 
+                                   2068 ;------------------------------------------------------------
+                                   2069 ;	src/main.c:602: void ctrl_rgbled(UINT8 u8RxUART)
+                                   2070 ;	-----------------------------------------
+                                   2071 ;	 function ctrl_rgbled
+                                   2072 ;	-----------------------------------------
+      000835                       2073 _ctrl_rgbled:
+                                   2074 ;	src/main.c:606: if (u8RxUART) {
+      000835 E5 82            [12] 2075 	mov	a,dpl
+      000837 FF               [12] 2076 	mov	r7,a
+      000838 60 1E            [24] 2077 	jz	00111$
+                                   2078 ;	src/main.c:607: if (u8RxUART&0x1) {
+      00083A EF               [12] 2079 	mov	a,r7
+      00083B 30 E0 04         [24] 2080 	jnb	acc.0,00102$
+                                   2081 ;	src/main.c:608: LED_R = LED_ON;
+                                   2082 ;	assignBit
+      00083E C2 94            [12] 2083 	clr	_P14
+      000840 80 02            [24] 2084 	sjmp	00103$
+      000842                       2085 00102$:
+                                   2086 ;	src/main.c:611: LED_R = LED_OFF;
+                                   2087 ;	assignBit
+      000842 D2 94            [12] 2088 	setb	_P14
+      000844                       2089 00103$:
+                                   2090 ;	src/main.c:613: if (u8RxUART&0x2) {
+      000844 EF               [12] 2091 	mov	a,r7
+      000845 30 E1 04         [24] 2092 	jnb	acc.1,00105$
+                                   2093 ;	src/main.c:614: LED_G = LED_ON;
+                                   2094 ;	assignBit
+      000848 C2 93            [12] 2095 	clr	_P13
+      00084A 80 02            [24] 2096 	sjmp	00106$
+      00084C                       2097 00105$:
+                                   2098 ;	src/main.c:617: LED_G = LED_OFF;
+                                   2099 ;	assignBit
+      00084C D2 93            [12] 2100 	setb	_P13
+      00084E                       2101 00106$:
+                                   2102 ;	src/main.c:619: if (u8RxUART&0x4) {
+      00084E EF               [12] 2103 	mov	a,r7
+      00084F 30 E2 03         [24] 2104 	jnb	acc.2,00108$
+                                   2105 ;	src/main.c:620: LED_B = LED_ON;
+                                   2106 ;	assignBit
+      000852 C2 92            [12] 2107 	clr	_P12
+      000854 22               [24] 2108 	ret
+      000855                       2109 00108$:
+                                   2110 ;	src/main.c:623: LED_B = LED_OFF;
                                    2111 ;	assignBit
-      00084C D2 92            [12] 2112 	setb	_P12
-                                   2113 ;	src/main.c:630: }
-      00084E 22               [24] 2114 	ret
-                                   2115 ;------------------------------------------------------------
-                                   2116 ;Allocation info for local variables in function 'chk_my_addr'
-                                   2117 ;------------------------------------------------------------
-                                   2118 ;au8RxData                 Allocated with name '_chk_my_addr_PARM_2'
-                                   2119 ;au8MyAddr                 Allocated to registers r7 
-                                   2120 ;------------------------------------------------------------
-                                   2121 ;	src/main.c:632: UINT8 chk_my_addr(UINT8 au8MyAddr, UINT8 au8RxData)
-                                   2122 ;	-----------------------------------------
-                                   2123 ;	 function chk_my_addr
-                                   2124 ;	-----------------------------------------
-      00084F                       2125 _chk_my_addr:
-      00084F AF 82            [24] 2126 	mov	r7,dpl
-                                   2127 ;	src/main.c:634: if ( (au8RxData>>4) == (au8MyAddr&0x0F)) {
-      000851 E5 18            [12] 2128 	mov	a,_chk_my_addr_PARM_2
-      000853 C4               [12] 2129 	swap	a
-      000854 54 0F            [12] 2130 	anl	a,#0x0f
-      000856 FE               [12] 2131 	mov	r6,a
-      000857 53 07 0F         [24] 2132 	anl	ar7,#0x0f
-      00085A E4               [12] 2133 	clr	a
-      00085B FD               [12] 2134 	mov	r5,a
-      00085C FC               [12] 2135 	mov	r4,a
-      00085D EE               [12] 2136 	mov	a,r6
-      00085E B5 07 08         [24] 2137 	cjne	a,ar7,00102$
-      000861 EC               [12] 2138 	mov	a,r4
-      000862 B5 05 04         [24] 2139 	cjne	a,ar5,00102$
-                                   2140 ;	src/main.c:635: return 1;
-      000865 75 82 01         [24] 2141 	mov	dpl,#0x01
-      000868 22               [24] 2142 	ret
-      000869                       2143 00102$:
-                                   2144 ;	src/main.c:637: return 0;
-      000869 75 82 00         [24] 2145 	mov	dpl,#0x00
-                                   2146 ;	src/main.c:638: }
-      00086C 22               [24] 2147 	ret
-                                   2148 ;------------------------------------------------------------
-                                   2149 ;Allocation info for local variables in function 'process_my_packet'
-                                   2150 ;------------------------------------------------------------
-                                   2151 ;apstLineFiPkt             Allocated to registers r5 r6 r7 
-                                   2152 ;sloc0                     Allocated with name '_process_my_packet_sloc0_1_0'
-                                   2153 ;------------------------------------------------------------
-                                   2154 ;	src/main.c:640: void process_my_packet(linefi_packet_t * apstLineFiPkt)
-                                   2155 ;	-----------------------------------------
-                                   2156 ;	 function process_my_packet
-                                   2157 ;	-----------------------------------------
-      00086D                       2158 _process_my_packet:
-      00086D AD 82            [24] 2159 	mov	r5,dpl
-      00086F AE 83            [24] 2160 	mov	r6,dph
-      000871 AF F0            [24] 2161 	mov	r7,b
-                                   2162 ;	src/main.c:642: switch(apstLineFiPkt->u8Type) {
-      000873 74 01            [12] 2163 	mov	a,#0x01
-      000875 2D               [12] 2164 	add	a,r5
-      000876 FA               [12] 2165 	mov	r2,a
-      000877 E4               [12] 2166 	clr	a
-      000878 3E               [12] 2167 	addc	a,r6
-      000879 FB               [12] 2168 	mov	r3,a
-      00087A 8F 04            [24] 2169 	mov	ar4,r7
-      00087C 8A 82            [24] 2170 	mov	dpl,r2
-      00087E 8B 83            [24] 2171 	mov	dph,r3
-      000880 8C F0            [24] 2172 	mov	b,r4
-      000882 12 20 73         [24] 2173 	lcall	__gptrget
-      000885 FC               [12] 2174 	mov  r4,a
-      000886 24 F9            [12] 2175 	add	a,#0xff - 0x06
-      000888 50 01            [24] 2176 	jnc	00116$
-      00088A 22               [24] 2177 	ret
-      00088B                       2178 00116$:
-      00088B EC               [12] 2179 	mov	a,r4
-      00088C 2C               [12] 2180 	add	a,r4
-      00088D 2C               [12] 2181 	add	a,r4
-      00088E 90 08 92         [24] 2182 	mov	dptr,#00117$
-      000891 73               [24] 2183 	jmp	@a+dptr
-      000892                       2184 00117$:
-      000892 02 09 BB         [24] 2185 	ljmp	00109$
-      000895 02 09 BB         [24] 2186 	ljmp	00109$
-      000898 02 09 BB         [24] 2187 	ljmp	00109$
-      00089B 02 09 BB         [24] 2188 	ljmp	00109$
-      00089E 02 08 A7         [24] 2189 	ljmp	00105$
-      0008A1 02 09 2B         [24] 2190 	ljmp	00106$
-      0008A4 02 09 A2         [24] 2191 	ljmp	00107$
-                                   2192 ;	src/main.c:651: case Type_SetLED :
-      0008A7                       2193 00105$:
-                                   2194 ;	src/main.c:652: LED_R = apstLineFiPkt->pu8Data[0];
-      0008A7 74 05            [12] 2195 	mov	a,#0x05
-      0008A9 2D               [12] 2196 	add	a,r5
-      0008AA F5 29            [12] 2197 	mov	_process_my_packet_sloc0_1_0,a
-      0008AC E4               [12] 2198 	clr	a
-      0008AD 3E               [12] 2199 	addc	a,r6
-      0008AE F5 2A            [12] 2200 	mov	(_process_my_packet_sloc0_1_0 + 1),a
-      0008B0 8F 2B            [24] 2201 	mov	(_process_my_packet_sloc0_1_0 + 2),r7
-      0008B2 85 29 82         [24] 2202 	mov	dpl,_process_my_packet_sloc0_1_0
-      0008B5 85 2A 83         [24] 2203 	mov	dph,(_process_my_packet_sloc0_1_0 + 1)
-      0008B8 85 2B F0         [24] 2204 	mov	b,(_process_my_packet_sloc0_1_0 + 2)
-      0008BB 12 20 73         [24] 2205 	lcall	__gptrget
-      0008BE F8               [12] 2206 	mov	r0,a
-      0008BF A3               [24] 2207 	inc	dptr
-      0008C0 12 20 73         [24] 2208 	lcall	__gptrget
-      0008C3 F9               [12] 2209 	mov	r1,a
-      0008C4 A3               [24] 2210 	inc	dptr
-      0008C5 12 20 73         [24] 2211 	lcall	__gptrget
-      0008C8 FC               [12] 2212 	mov	r4,a
-      0008C9 88 82            [24] 2213 	mov	dpl,r0
-      0008CB 89 83            [24] 2214 	mov	dph,r1
-      0008CD 8C F0            [24] 2215 	mov	b,r4
-      0008CF 12 20 73         [24] 2216 	lcall	__gptrget
-                                   2217 ;	assignBit
-      0008D2 24 FF            [12] 2218 	add	a,#0xff
-      0008D4 92 94            [24] 2219 	mov	_P14,c
-                                   2220 ;	src/main.c:653: LED_G = apstLineFiPkt->pu8Data[1];
-      0008D6 85 29 82         [24] 2221 	mov	dpl,_process_my_packet_sloc0_1_0
-      0008D9 85 2A 83         [24] 2222 	mov	dph,(_process_my_packet_sloc0_1_0 + 1)
-      0008DC 85 2B F0         [24] 2223 	mov	b,(_process_my_packet_sloc0_1_0 + 2)
-      0008DF 12 20 73         [24] 2224 	lcall	__gptrget
-      0008E2 FA               [12] 2225 	mov	r2,a
-      0008E3 A3               [24] 2226 	inc	dptr
-      0008E4 12 20 73         [24] 2227 	lcall	__gptrget
-      0008E7 FB               [12] 2228 	mov	r3,a
-      0008E8 A3               [24] 2229 	inc	dptr
-      0008E9 12 20 73         [24] 2230 	lcall	__gptrget
-      0008EC FC               [12] 2231 	mov	r4,a
-      0008ED 0A               [12] 2232 	inc	r2
-      0008EE BA 00 01         [24] 2233 	cjne	r2,#0x00,00118$
-      0008F1 0B               [12] 2234 	inc	r3
-      0008F2                       2235 00118$:
-      0008F2 8A 82            [24] 2236 	mov	dpl,r2
-      0008F4 8B 83            [24] 2237 	mov	dph,r3
-      0008F6 8C F0            [24] 2238 	mov	b,r4
-      0008F8 12 20 73         [24] 2239 	lcall	__gptrget
-                                   2240 ;	assignBit
-      0008FB 24 FF            [12] 2241 	add	a,#0xff
-      0008FD 92 93            [24] 2242 	mov	_P13,c
-                                   2243 ;	src/main.c:654: LED_B = apstLineFiPkt->pu8Data[2];
-      0008FF 85 29 82         [24] 2244 	mov	dpl,_process_my_packet_sloc0_1_0
-      000902 85 2A 83         [24] 2245 	mov	dph,(_process_my_packet_sloc0_1_0 + 1)
-      000905 85 2B F0         [24] 2246 	mov	b,(_process_my_packet_sloc0_1_0 + 2)
-      000908 12 20 73         [24] 2247 	lcall	__gptrget
-      00090B FA               [12] 2248 	mov	r2,a
-      00090C A3               [24] 2249 	inc	dptr
-      00090D 12 20 73         [24] 2250 	lcall	__gptrget
-      000910 FB               [12] 2251 	mov	r3,a
-      000911 A3               [24] 2252 	inc	dptr
-      000912 12 20 73         [24] 2253 	lcall	__gptrget
-      000915 FC               [12] 2254 	mov	r4,a
-      000916 74 02            [12] 2255 	mov	a,#0x02
-      000918 2A               [12] 2256 	add	a,r2
-      000919 FA               [12] 2257 	mov	r2,a
-      00091A E4               [12] 2258 	clr	a
-      00091B 3B               [12] 2259 	addc	a,r3
-      00091C FB               [12] 2260 	mov	r3,a
-      00091D 8A 82            [24] 2261 	mov	dpl,r2
-      00091F 8B 83            [24] 2262 	mov	dph,r3
-      000921 8C F0            [24] 2263 	mov	b,r4
-      000923 12 20 73         [24] 2264 	lcall	__gptrget
-                                   2265 ;	assignBit
-      000926 24 FF            [12] 2266 	add	a,#0xff
-      000928 92 92            [24] 2267 	mov	_P12,c
-                                   2268 ;	src/main.c:655: break;
-      00092A 22               [24] 2269 	ret
-                                   2270 ;	src/main.c:656: case Type_CtrlMotor :
-      00092B                       2271 00106$:
-                                   2272 ;	src/main.c:657: MOTOR_EN = apstLineFiPkt->pu8Data[0];
-      00092B 74 05            [12] 2273 	mov	a,#0x05
-      00092D 2D               [12] 2274 	add	a,r5
-      00092E FD               [12] 2275 	mov	r5,a
-      00092F E4               [12] 2276 	clr	a
-      000930 3E               [12] 2277 	addc	a,r6
-      000931 FE               [12] 2278 	mov	r6,a
-      000932 8D 82            [24] 2279 	mov	dpl,r5
-      000934 8E 83            [24] 2280 	mov	dph,r6
-      000936 8F F0            [24] 2281 	mov	b,r7
-      000938 12 20 73         [24] 2282 	lcall	__gptrget
-      00093B FA               [12] 2283 	mov	r2,a
-      00093C A3               [24] 2284 	inc	dptr
-      00093D 12 20 73         [24] 2285 	lcall	__gptrget
-      000940 FB               [12] 2286 	mov	r3,a
-      000941 A3               [24] 2287 	inc	dptr
-      000942 12 20 73         [24] 2288 	lcall	__gptrget
-      000945 FC               [12] 2289 	mov	r4,a
-      000946 8A 82            [24] 2290 	mov	dpl,r2
-      000948 8B 83            [24] 2291 	mov	dph,r3
-      00094A 8C F0            [24] 2292 	mov	b,r4
-      00094C 12 20 73         [24] 2293 	lcall	__gptrget
-                                   2294 ;	assignBit
-      00094F 24 FF            [12] 2295 	add	a,#0xff
-      000951 92 90            [24] 2296 	mov	_P10,c
-                                   2297 ;	src/main.c:658: MOTOR_CW = apstLineFiPkt->pu8Data[1];
-      000953 8D 82            [24] 2298 	mov	dpl,r5
-      000955 8E 83            [24] 2299 	mov	dph,r6
-      000957 8F F0            [24] 2300 	mov	b,r7
-      000959 12 20 73         [24] 2301 	lcall	__gptrget
-      00095C FA               [12] 2302 	mov	r2,a
-      00095D A3               [24] 2303 	inc	dptr
-      00095E 12 20 73         [24] 2304 	lcall	__gptrget
-      000961 FB               [12] 2305 	mov	r3,a
-      000962 A3               [24] 2306 	inc	dptr
-      000963 12 20 73         [24] 2307 	lcall	__gptrget
-      000966 FC               [12] 2308 	mov	r4,a
-      000967 0A               [12] 2309 	inc	r2
-      000968 BA 00 01         [24] 2310 	cjne	r2,#0x00,00119$
-      00096B 0B               [12] 2311 	inc	r3
-      00096C                       2312 00119$:
-      00096C 8A 82            [24] 2313 	mov	dpl,r2
-      00096E 8B 83            [24] 2314 	mov	dph,r3
-      000970 8C F0            [24] 2315 	mov	b,r4
-      000972 12 20 73         [24] 2316 	lcall	__gptrget
-                                   2317 ;	assignBit
-      000975 24 FF            [12] 2318 	add	a,#0xff
-      000977 92 80            [24] 2319 	mov	_P00,c
-                                   2320 ;	src/main.c:659: MOTOR_CCW = apstLineFiPkt->pu8Data[2];
-      000979 8D 82            [24] 2321 	mov	dpl,r5
-      00097B 8E 83            [24] 2322 	mov	dph,r6
-      00097D 8F F0            [24] 2323 	mov	b,r7
-      00097F 12 20 73         [24] 2324 	lcall	__gptrget
-      000982 FD               [12] 2325 	mov	r5,a
-      000983 A3               [24] 2326 	inc	dptr
-      000984 12 20 73         [24] 2327 	lcall	__gptrget
-      000987 FE               [12] 2328 	mov	r6,a
-      000988 A3               [24] 2329 	inc	dptr
-      000989 12 20 73         [24] 2330 	lcall	__gptrget
-      00098C FF               [12] 2331 	mov	r7,a
-      00098D 74 02            [12] 2332 	mov	a,#0x02
-      00098F 2D               [12] 2333 	add	a,r5
-      000990 FD               [12] 2334 	mov	r5,a
-      000991 E4               [12] 2335 	clr	a
-      000992 3E               [12] 2336 	addc	a,r6
-      000993 FE               [12] 2337 	mov	r6,a
-      000994 8D 82            [24] 2338 	mov	dpl,r5
-      000996 8E 83            [24] 2339 	mov	dph,r6
-      000998 8F F0            [24] 2340 	mov	b,r7
-      00099A 12 20 73         [24] 2341 	lcall	__gptrget
-                                   2342 ;	assignBit
-      00099D 24 FF            [12] 2343 	add	a,#0xff
-      00099F 92 81            [24] 2344 	mov	_P01,c
-                                   2345 ;	src/main.c:660: break;
-                                   2346 ;	src/main.c:661: case Type_ReadAddr :
-      0009A1 22               [24] 2347 	ret
-      0009A2                       2348 00107$:
-                                   2349 ;	src/main.c:662: printf_fast_f("My address is 0x%x\r\n", gu8MyAddr);
-      0009A2 AE 21            [24] 2350 	mov	r6,_gu8MyAddr
-      0009A4 7F 00            [12] 2351 	mov	r7,#0x00
-      0009A6 C0 06            [24] 2352 	push	ar6
-      0009A8 C0 07            [24] 2353 	push	ar7
-      0009AA 74 61            [12] 2354 	mov	a,#___str_23
-      0009AC C0 E0            [24] 2355 	push	acc
-      0009AE 74 22            [12] 2356 	mov	a,#(___str_23 >> 8)
-      0009B0 C0 E0            [24] 2357 	push	acc
-      0009B2 12 1B 2F         [24] 2358 	lcall	_printf_fast_f
-      0009B5 E5 81            [12] 2359 	mov	a,sp
-      0009B7 24 FC            [12] 2360 	add	a,#0xfc
-      0009B9 F5 81            [12] 2361 	mov	sp,a
-                                   2362 ;	src/main.c:664: }
-      0009BB                       2363 00109$:
-                                   2364 ;	src/main.c:665: }
-      0009BB 22               [24] 2365 	ret
-                                   2366 ;------------------------------------------------------------
-                                   2367 ;Allocation info for local variables in function 'process_all_packet'
-                                   2368 ;------------------------------------------------------------
-                                   2369 ;apstLineFiPkt             Allocated to registers r5 r6 r7 
-                                   2370 ;------------------------------------------------------------
-                                   2371 ;	src/main.c:667: void process_all_packet(linefi_packet_t * apstLineFiPkt)
-                                   2372 ;	-----------------------------------------
-                                   2373 ;	 function process_all_packet
-                                   2374 ;	-----------------------------------------
-      0009BC                       2375 _process_all_packet:
-      0009BC AD 82            [24] 2376 	mov	r5,dpl
-      0009BE AE 83            [24] 2377 	mov	r6,dph
-      0009C0 AF F0            [24] 2378 	mov	r7,b
-                                   2379 ;	src/main.c:669: switch(apstLineFiPkt->u8Type) {
-      0009C2 74 01            [12] 2380 	mov	a,#0x01
-      0009C4 2D               [12] 2381 	add	a,r5
-      0009C5 FA               [12] 2382 	mov	r2,a
-      0009C6 E4               [12] 2383 	clr	a
-      0009C7 3E               [12] 2384 	addc	a,r6
-      0009C8 FB               [12] 2385 	mov	r3,a
-      0009C9 8F 04            [24] 2386 	mov	ar4,r7
-      0009CB 8A 82            [24] 2387 	mov	dpl,r2
-      0009CD 8B 83            [24] 2388 	mov	dph,r3
-      0009CF 8C F0            [24] 2389 	mov	b,r4
-      0009D1 12 20 73         [24] 2390 	lcall	__gptrget
-      0009D4 FC               [12] 2391 	mov  r4,a
-      0009D5 24 F9            [12] 2392 	add	a,#0xff - 0x06
-      0009D7 50 03            [24] 2393 	jnc	00132$
-      0009D9 02 0A 85         [24] 2394 	ljmp	00110$
-      0009DC                       2395 00132$:
-      0009DC EC               [12] 2396 	mov	a,r4
-      0009DD 2C               [12] 2397 	add	a,r4
-      0009DE 2C               [12] 2398 	add	a,r4
-      0009DF 90 09 E3         [24] 2399 	mov	dptr,#00133$
-      0009E2 73               [24] 2400 	jmp	@a+dptr
-      0009E3                       2401 00133$:
-      0009E3 02 0A A4         [24] 2402 	ljmp	00114$
-      0009E6 02 0A 4C         [24] 2403 	ljmp	00106$
-      0009E9 02 0A A4         [24] 2404 	ljmp	00114$
-      0009EC 02 09 F8         [24] 2405 	ljmp	00101$
-      0009EF 02 0A 85         [24] 2406 	ljmp	00110$
-      0009F2 02 0A 85         [24] 2407 	ljmp	00110$
-      0009F5 02 0A 6B         [24] 2408 	ljmp	00109$
-                                   2409 ;	src/main.c:670: case Type_SetAddr :
-      0009F8                       2410 00101$:
-                                   2411 ;	src/main.c:671: if (SWITCH == SW_ON) {
-      0009F8 20 95 01         [24] 2412 	jb	_P15,00134$
-      0009FB 22               [24] 2413 	ret
-      0009FC                       2414 00134$:
-                                   2415 ;	src/main.c:672: printf_fast_f("set address as %d\r\n", apstLineFiPkt->u8Addr);
-      0009FC 74 02            [12] 2416 	mov	a,#0x02
-      0009FE 2D               [12] 2417 	add	a,r5
-      0009FF FA               [12] 2418 	mov	r2,a
-      000A00 E4               [12] 2419 	clr	a
-      000A01 3E               [12] 2420 	addc	a,r6
-      000A02 FB               [12] 2421 	mov	r3,a
-      000A03 8F 04            [24] 2422 	mov	ar4,r7
-      000A05 8A 82            [24] 2423 	mov	dpl,r2
-      000A07 8B 83            [24] 2424 	mov	dph,r3
-      000A09 8C F0            [24] 2425 	mov	b,r4
-      000A0B 12 20 73         [24] 2426 	lcall	__gptrget
-      000A0E F8               [12] 2427 	mov	r0,a
-      000A0F 79 00            [12] 2428 	mov	r1,#0x00
-      000A11 C0 04            [24] 2429 	push	ar4
-      000A13 C0 03            [24] 2430 	push	ar3
-      000A15 C0 02            [24] 2431 	push	ar2
-      000A17 C0 00            [24] 2432 	push	ar0
-      000A19 C0 01            [24] 2433 	push	ar1
-      000A1B 74 76            [12] 2434 	mov	a,#___str_24
-      000A1D C0 E0            [24] 2435 	push	acc
-      000A1F 74 22            [12] 2436 	mov	a,#(___str_24 >> 8)
-      000A21 C0 E0            [24] 2437 	push	acc
-      000A23 12 1B 2F         [24] 2438 	lcall	_printf_fast_f
-      000A26 E5 81            [12] 2439 	mov	a,sp
-      000A28 24 FC            [12] 2440 	add	a,#0xfc
-      000A2A F5 81            [12] 2441 	mov	sp,a
-      000A2C D0 02            [24] 2442 	pop	ar2
-      000A2E D0 03            [24] 2443 	pop	ar3
-      000A30 D0 04            [24] 2444 	pop	ar4
-                                   2445 ;	src/main.c:673: gu8MyAddr = apstLineFiPkt->u8Addr;
-      000A32 8A 82            [24] 2446 	mov	dpl,r2
-      000A34 8B 83            [24] 2447 	mov	dph,r3
-      000A36 8C F0            [24] 2448 	mov	b,r4
-      000A38 12 20 73         [24] 2449 	lcall	__gptrget
-      000A3B F5 21            [12] 2450 	mov	_gu8MyAddr,a
-                                   2451 ;	src/main.c:674: Erase_APROM_Page(BASE_ADDRESS);
-      000A3D 90 37 00         [24] 2452 	mov	dptr,#0x3700
-      000A40 12 11 56         [24] 2453 	lcall	_Erase_APROM_Page
-                                   2454 ;	src/main.c:675: Write_APROM_BYTE(BASE_ADDRESS+0, gu8MyAddr);
-      000A43 85 21 10         [24] 2455 	mov	_Write_APROM_BYTE_PARM_2,_gu8MyAddr
-      000A46 90 37 00         [24] 2456 	mov	dptr,#0x3700
-                                   2457 ;	src/main.c:677: break;
-                                   2458 ;	src/main.c:682: case Type_Ucast :
-      000A49 02 11 6A         [24] 2459 	ljmp	_Write_APROM_BYTE
-      000A4C                       2460 00106$:
-                                   2461 ;	src/main.c:683: if (gu8MyAddr == apstLineFiPkt->u8Addr) {
-      000A4C 74 02            [12] 2462 	mov	a,#0x02
-      000A4E 2D               [12] 2463 	add	a,r5
-      000A4F FA               [12] 2464 	mov	r2,a
-      000A50 E4               [12] 2465 	clr	a
-      000A51 3E               [12] 2466 	addc	a,r6
-      000A52 FB               [12] 2467 	mov	r3,a
-      000A53 8F 04            [24] 2468 	mov	ar4,r7
-      000A55 8A 82            [24] 2469 	mov	dpl,r2
-      000A57 8B 83            [24] 2470 	mov	dph,r3
-      000A59 8C F0            [24] 2471 	mov	b,r4
-      000A5B 12 20 73         [24] 2472 	lcall	__gptrget
-      000A5E FA               [12] 2473 	mov	r2,a
-      000A5F B5 21 42         [24] 2474 	cjne	a,_gu8MyAddr,00114$
-                                   2475 ;	src/main.c:684: process_my_packet(apstLineFiPkt);
-      000A62 8D 82            [24] 2476 	mov	dpl,r5
-      000A64 8E 83            [24] 2477 	mov	dph,r6
-      000A66 8F F0            [24] 2478 	mov	b,r7
-                                   2479 ;	src/main.c:686: break;
-                                   2480 ;	src/main.c:687: case Type_ReadAddr :
-      000A68 02 08 6D         [24] 2481 	ljmp	_process_my_packet
-      000A6B                       2482 00109$:
-                                   2483 ;	src/main.c:688: printf_fast_f("My address is %d\r\n", gu8MyAddr);
-      000A6B AB 21            [24] 2484 	mov	r3,_gu8MyAddr
-      000A6D 7C 00            [12] 2485 	mov	r4,#0x00
-      000A6F C0 03            [24] 2486 	push	ar3
-      000A71 C0 04            [24] 2487 	push	ar4
-      000A73 74 8A            [12] 2488 	mov	a,#___str_25
-      000A75 C0 E0            [24] 2489 	push	acc
-      000A77 74 22            [12] 2490 	mov	a,#(___str_25 >> 8)
-      000A79 C0 E0            [24] 2491 	push	acc
-      000A7B 12 1B 2F         [24] 2492 	lcall	_printf_fast_f
-      000A7E E5 81            [12] 2493 	mov	a,sp
-      000A80 24 FC            [12] 2494 	add	a,#0xfc
-      000A82 F5 81            [12] 2495 	mov	sp,a
-                                   2496 ;	src/main.c:689: break;
-                                   2497 ;	src/main.c:690: default :
-      000A84 22               [24] 2498 	ret
-      000A85                       2499 00110$:
-                                   2500 ;	src/main.c:691: if (gu8MyAddr == apstLineFiPkt->u8Addr) {
-      000A85 74 02            [12] 2501 	mov	a,#0x02
-      000A87 2D               [12] 2502 	add	a,r5
-      000A88 FA               [12] 2503 	mov	r2,a
-      000A89 E4               [12] 2504 	clr	a
-      000A8A 3E               [12] 2505 	addc	a,r6
-      000A8B FB               [12] 2506 	mov	r3,a
-      000A8C 8F 04            [24] 2507 	mov	ar4,r7
-      000A8E 8A 82            [24] 2508 	mov	dpl,r2
-      000A90 8B 83            [24] 2509 	mov	dph,r3
-      000A92 8C F0            [24] 2510 	mov	b,r4
-      000A94 12 20 73         [24] 2511 	lcall	__gptrget
-      000A97 FA               [12] 2512 	mov	r2,a
-      000A98 B5 21 09         [24] 2513 	cjne	a,_gu8MyAddr,00114$
-                                   2514 ;	src/main.c:692: process_my_packet(apstLineFiPkt);
-      000A9B 8D 82            [24] 2515 	mov	dpl,r5
-      000A9D 8E 83            [24] 2516 	mov	dph,r6
-      000A9F 8F F0            [24] 2517 	mov	b,r7
-                                   2518 ;	src/main.c:695: }
-                                   2519 ;	src/main.c:696: }
-      000AA1 02 08 6D         [24] 2520 	ljmp	_process_my_packet
-      000AA4                       2521 00114$:
-      000AA4 22               [24] 2522 	ret
-                                   2523 ;------------------------------------------------------------
-                                   2524 ;Allocation info for local variables in function 'print_one_octet_linefi'
-                                   2525 ;------------------------------------------------------------
-                                   2526 ;au8Data                   Allocated to registers r7 
-                                   2527 ;------------------------------------------------------------
-                                   2528 ;	src/main.c:698: void print_one_octet_linefi(UINT8 au8Data)
-                                   2529 ;	-----------------------------------------
-                                   2530 ;	 function print_one_octet_linefi
-                                   2531 ;	-----------------------------------------
-      000AA5                       2532 _print_one_octet_linefi:
-                                   2533 ;	src/main.c:700: printf_fast_f("address:%u\r\n", au8Data>>4);
-      000AA5 E5 82            [12] 2534 	mov	a,dpl
-      000AA7 FF               [12] 2535 	mov	r7,a
-      000AA8 C4               [12] 2536 	swap	a
-      000AA9 54 0F            [12] 2537 	anl	a,#0x0f
-      000AAB FE               [12] 2538 	mov	r6,a
-      000AAC 7D 00            [12] 2539 	mov	r5,#0x00
-      000AAE C0 07            [24] 2540 	push	ar7
-      000AB0 C0 06            [24] 2541 	push	ar6
-      000AB2 C0 05            [24] 2542 	push	ar5
-      000AB4 74 9D            [12] 2543 	mov	a,#___str_26
-      000AB6 C0 E0            [24] 2544 	push	acc
-      000AB8 74 22            [12] 2545 	mov	a,#(___str_26 >> 8)
-      000ABA C0 E0            [24] 2546 	push	acc
-      000ABC 12 1B 2F         [24] 2547 	lcall	_printf_fast_f
-      000ABF E5 81            [12] 2548 	mov	a,sp
-      000AC1 24 FC            [12] 2549 	add	a,#0xfc
-      000AC3 F5 81            [12] 2550 	mov	sp,a
-      000AC5 D0 07            [24] 2551 	pop	ar7
-                                   2552 ;	src/main.c:701: printf_fast_f("command:%u\r\n", au8Data&0xF);
-      000AC7 53 07 0F         [24] 2553 	anl	ar7,#0x0f
-      000ACA 7E 00            [12] 2554 	mov	r6,#0x00
-      000ACC C0 07            [24] 2555 	push	ar7
-      000ACE C0 06            [24] 2556 	push	ar6
-      000AD0 74 AA            [12] 2557 	mov	a,#___str_27
-      000AD2 C0 E0            [24] 2558 	push	acc
-      000AD4 74 22            [12] 2559 	mov	a,#(___str_27 >> 8)
-      000AD6 C0 E0            [24] 2560 	push	acc
-      000AD8 12 1B 2F         [24] 2561 	lcall	_printf_fast_f
-      000ADB E5 81            [12] 2562 	mov	a,sp
-      000ADD 24 FC            [12] 2563 	add	a,#0xfc
-      000ADF F5 81            [12] 2564 	mov	sp,a
-                                   2565 ;	src/main.c:702: }
-      000AE1 22               [24] 2566 	ret
-                                   2567 ;------------------------------------------------------------
-                                   2568 ;Allocation info for local variables in function 'main'
-                                   2569 ;------------------------------------------------------------
-                                   2570 ;su8Cnt                    Allocated with name '_main_su8Cnt_262145_138'
-                                   2571 ;u8PrevSwitch              Allocated to registers r5 
-                                   2572 ;u8UartRx                  Allocated to registers 
-                                   2573 ;u8RotSense                Allocated to registers 
-                                   2574 ;u8RxUART                  Allocated with name '_main_u8RxUART_65536_128'
-                                   2575 ;u16Cnt                    Allocated to registers r4 r5 
-                                   2576 ;u8OutputState             Allocated to registers 
-                                   2577 ;u8LineFiAddr              Allocated to registers 
-                                   2578 ;u8LineFiSpeed             Allocated to registers 
-                                   2579 ;u8Data                    Allocated to registers 
-                                   2580 ;u8LineFiCmd               Allocated to registers 
-                                   2581 ;u8PwrOnFirstFlag          Allocated to registers 
-                                   2582 ;u8StateRxLFP              Allocated to registers r7 
-                                   2583 ;stLineFiPkt               Allocated with name '_main_stLineFiPkt_65536_128'
-                                   2584 ;u8MotorState              Allocated to registers 
-                                   2585 ;u8RxIdx                   Allocated to registers r6 
-                                   2586 ;pu8LineFiRx               Allocated with name '_main_pu8LineFiRx_65536_128'
-                                   2587 ;u8LineFiRxIdx             Allocated to registers 
-                                   2588 ;u8Count2                  Allocated to registers 
-                                   2589 ;u8RxPktCnt                Allocated to registers 
-                                   2590 ;u8PreambleCnt             Allocated to registers 
-                                   2591 ;pu8RxUART                 Allocated with name '_main_pu8RxUART_65536_128'
-                                   2592 ;------------------------------------------------------------
-                                   2593 ;	src/main.c:707: void main (void)
-                                   2594 ;	-----------------------------------------
-                                   2595 ;	 function main
-                                   2596 ;	-----------------------------------------
-      000AE2                       2597 _main:
-                                   2598 ;	src/main.c:727: UINT8 u8StateRxLFP = STATE_RxLFP_INIT; // State Rx LineFi Packet
-      000AE2 7F 00            [12] 2599 	mov	r7,#0x00
-                                   2600 ;	src/main.c:731: linefi_packet_t stLineFiPkt = {
-      000AE4 75 2E 01         [24] 2601 	mov	_main_stLineFiPkt_65536_128,#0x01
-      000AE7 75 2F 02         [24] 2602 	mov	(_main_stLineFiPkt_65536_128 + 0x0001),#0x02
-      000AEA 75 30 03         [24] 2603 	mov	(_main_stLineFiPkt_65536_128 + 0x0002),#0x03
-      000AED 75 31 04         [24] 2604 	mov	(_main_stLineFiPkt_65536_128 + 0x0003),#0x04
-      000AF0 75 32 05         [24] 2605 	mov	(_main_stLineFiPkt_65536_128 + 0x0004),#0x05
-      000AF3 75 33 01         [24] 2606 	mov	((_main_stLineFiPkt_65536_128 + 0x0005) + 0),#_gpu8Data
-      000AF6 75 34 00         [24] 2607 	mov	((_main_stLineFiPkt_65536_128 + 0x0005) + 1),#(_gpu8Data >> 8)
-                                   2608 ;	1-genFromRTrack replaced	mov	((_main_stLineFiPkt_65536_128 + 0x0005) + 2),#0x00
-      000AF9 8F 35            [24] 2609 	mov	((_main_stLineFiPkt_65536_128 + 0x0005) + 2),r7
-                                   2610 ;	src/main.c:743: UINT8 u8RxIdx = 0;
-      000AFB 7E 00            [12] 2611 	mov	r6,#0x00
-                                   2612 ;	src/main.c:748: gpio_setup();
-      000AFD C0 07            [24] 2613 	push	ar7
-      000AFF C0 06            [24] 2614 	push	ar6
-      000B01 12 06 BF         [24] 2615 	lcall	_gpio_setup
-                                   2616 ;	src/main.c:749: uart_setup();
-      000B04 12 1B 13         [24] 2617 	lcall	_uart_setup
-                                   2618 ;	src/main.c:750: InitialUART1_Timer3(57600);
-      000B07 90 E1 00         [24] 2619 	mov	dptr,#0xe100
-      000B0A E4               [12] 2620 	clr	a
-      000B0B F5 F0            [12] 2621 	mov	b,a
-      000B0D 12 1A 96         [24] 2622 	lcall	_InitialUART1_Timer3
-                                   2623 ;	src/main.c:752: MODIFY_HIRC_166();
-      000B10 12 05 45         [24] 2624 	lcall	_MODIFY_HIRC_166
-                                   2625 ;	src/main.c:754: clr_T0M;// 16/12 MHz
-      000B13 53 8E F7         [24] 2626 	anl	_CKCON,#0xf7
-                                   2627 ;	src/main.c:757: set_ET0;                                    //enable Timer0 interrupt
-                                   2628 ;	assignBit
-      000B16 D2 A9            [12] 2629 	setb	_ET0
-                                   2630 ;	src/main.c:758: set_TR0;                                    //Timer0 run
-                                   2631 ;	assignBit
-      000B18 D2 8C            [12] 2632 	setb	_TR0
-                                   2633 ;	src/main.c:760: gu8UART = 0;
-      000B1A 75 22 00         [24] 2634 	mov	_gu8UART,#0x00
-                                   2635 ;	src/main.c:761: printf_fast_f("This is UART0\n\r");
-      000B1D 74 B7            [12] 2636 	mov	a,#___str_28
-      000B1F C0 E0            [24] 2637 	push	acc
-      000B21 74 22            [12] 2638 	mov	a,#(___str_28 >> 8)
-      000B23 C0 E0            [24] 2639 	push	acc
-      000B25 12 1B 2F         [24] 2640 	lcall	_printf_fast_f
-      000B28 15 81            [12] 2641 	dec	sp
-      000B2A 15 81            [12] 2642 	dec	sp
-                                   2643 ;	src/main.c:762: printf_fast_f("LineFi Sniffer\n\r");
-      000B2C 74 C7            [12] 2644 	mov	a,#___str_29
-      000B2E C0 E0            [24] 2645 	push	acc
-      000B30 74 22            [12] 2646 	mov	a,#(___str_29 >> 8)
-      000B32 C0 E0            [24] 2647 	push	acc
-      000B34 12 1B 2F         [24] 2648 	lcall	_printf_fast_f
-      000B37 15 81            [12] 2649 	dec	sp
-      000B39 15 81            [12] 2650 	dec	sp
-                                   2651 ;	src/main.c:763: gu8UART = 1;
-      000B3B 75 22 01         [24] 2652 	mov	_gu8UART,#0x01
-                                   2653 ;	src/main.c:764: printf_fast_f("This is UART1\n\r");
-      000B3E 74 D8            [12] 2654 	mov	a,#___str_30
-      000B40 C0 E0            [24] 2655 	push	acc
-      000B42 74 22            [12] 2656 	mov	a,#(___str_30 >> 8)
-      000B44 C0 E0            [24] 2657 	push	acc
-      000B46 12 1B 2F         [24] 2658 	lcall	_printf_fast_f
-      000B49 15 81            [12] 2659 	dec	sp
-      000B4B 15 81            [12] 2660 	dec	sp
-      000B4D D0 06            [24] 2661 	pop	ar6
-      000B4F D0 07            [24] 2662 	pop	ar7
-                                   2663 ;	src/main.c:769: for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
-      000B51 7C 30            [12] 2664 	mov	r4,#0x30
-      000B53 7D 75            [12] 2665 	mov	r5,#0x75
-      000B55                       2666 00144$:
-                                   2667 ;	src/main.c:770: nop; nop; nop; nop; nop;
-      000B55 00               [12] 2668 	NOP
-      000B56 00               [12] 2669 	NOP
-      000B57 00               [12] 2670 	NOP
-      000B58 00               [12] 2671 	NOP
-      000B59 00               [12] 2672 	NOP
-      000B5A 1C               [12] 2673 	dec	r4
-      000B5B BC FF 01         [24] 2674 	cjne	r4,#0xff,00252$
-      000B5E 1D               [12] 2675 	dec	r5
-      000B5F                       2676 00252$:
-                                   2677 ;	src/main.c:769: for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
-      000B5F EC               [12] 2678 	mov	a,r4
-      000B60 4D               [12] 2679 	orl	a,r5
-                                   2680 ;	src/main.c:772: gu8UART = 0;
-      000B61 70 F2            [24] 2681 	jnz	00144$
-      000B63 F5 22            [12] 2682 	mov	_gu8UART,a
-                                   2683 ;	src/main.c:774: u8UartRx = UART_RX;
-      000B65 A2 82            [12] 2684 	mov	c,_P02
-                                   2685 ;	src/main.c:775: u8PrevSwitch = SWITCH;
-      000B67 A2 95            [12] 2686 	mov	c,_P15
-      000B69 E4               [12] 2687 	clr	a
-      000B6A 33               [12] 2688 	rlc	a
-      000B6B FD               [12] 2689 	mov	r5,a
-                                   2690 ;	src/main.c:777: set_EPI;
-      000B6C 43 9B 02         [24] 2691 	orl	_EIE,#0x02
-                                   2692 ;	src/main.c:778: set_EA;
-                                   2693 ;	assignBit
-      000B6F D2 AF            [12] 2694 	setb	_EA
-                                   2695 ;	src/main.c:780: if (UART_RX == 0) {
-      000B71 20 82 02         [24] 2696 	jb	_P02,00103$
-                                   2697 ;	src/main.c:781: SEL_RX_POL = 1;
-                                   2698 ;	assignBit
-      000B74 D2 84            [12] 2699 	setb	_P04
-      000B76                       2700 00103$:
-                                   2701 ;	src/main.c:783: MOTOR_EN = 1;
-                                   2702 ;	assignBit
-      000B76 D2 90            [12] 2703 	setb	_P10
-                                   2704 ;	src/main.c:785: gu8MyAddr = gpcEEPROM[0]; // 0x00이면 펌웨어 쓴 직후
-      000B78 90 37 00         [24] 2705 	mov	dptr,#_gpcEEPROM
-      000B7B E4               [12] 2706 	clr	a
-      000B7C 93               [24] 2707 	movc	a,@a+dptr
-      000B7D F5 21            [12] 2708 	mov	_gu8MyAddr,a
-                                   2709 ;	src/main.c:787: while(1) {
-      000B7F                       2710 00140$:
-                                   2711 ;	src/main.c:790: if (Receive_Data_From_UART0_nb(&u8RxUART)) {
-      000B7F 90 00 2D         [24] 2712 	mov	dptr,#_main_u8RxUART_65536_128
-      000B82 75 F0 40         [24] 2713 	mov	b,#0x40
-      000B85 C0 07            [24] 2714 	push	ar7
-      000B87 C0 06            [24] 2715 	push	ar6
-      000B89 C0 05            [24] 2716 	push	ar5
-      000B8B 12 1A 6E         [24] 2717 	lcall	_Receive_Data_From_UART0_nb
-      000B8E E5 82            [12] 2718 	mov	a,dpl
-      000B90 D0 05            [24] 2719 	pop	ar5
-      000B92 D0 06            [24] 2720 	pop	ar6
-      000B94 D0 07            [24] 2721 	pop	ar7
-      000B96 70 03            [24] 2722 	jnz	00255$
-      000B98 02 0D E8         [24] 2723 	ljmp	00115$
-      000B9B                       2724 00255$:
-                                   2725 ;	src/main.c:791: switch(u8RxUART) {
-      000B9B 74 31            [12] 2726 	mov	a,#0x31
-      000B9D B5 2D 02         [24] 2727 	cjne	a,_main_u8RxUART_65536_128,00256$
-      000BA0 80 42            [24] 2728 	sjmp	00104$
-      000BA2                       2729 00256$:
-      000BA2 74 32            [12] 2730 	mov	a,#0x32
-      000BA4 B5 2D 02         [24] 2731 	cjne	a,_main_u8RxUART_65536_128,00257$
-      000BA7 80 77            [24] 2732 	sjmp	00105$
-      000BA9                       2733 00257$:
-      000BA9 74 33            [12] 2734 	mov	a,#0x33
-      000BAB B5 2D 03         [24] 2735 	cjne	a,_main_u8RxUART_65536_128,00258$
-      000BAE 02 0C 5C         [24] 2736 	ljmp	00106$
-      000BB1                       2737 00258$:
-      000BB1 74 34            [12] 2738 	mov	a,#0x34
-      000BB3 B5 2D 03         [24] 2739 	cjne	a,_main_u8RxUART_65536_128,00259$
-      000BB6 02 0C 98         [24] 2740 	ljmp	00107$
-      000BB9                       2741 00259$:
-      000BB9 74 35            [12] 2742 	mov	a,#0x35
-      000BBB B5 2D 03         [24] 2743 	cjne	a,_main_u8RxUART_65536_128,00260$
-      000BBE 02 0C D4         [24] 2744 	ljmp	00108$
-      000BC1                       2745 00260$:
-      000BC1 74 36            [12] 2746 	mov	a,#0x36
-      000BC3 B5 2D 03         [24] 2747 	cjne	a,_main_u8RxUART_65536_128,00261$
-      000BC6 02 0D 10         [24] 2748 	ljmp	00109$
-      000BC9                       2749 00261$:
-      000BC9 74 37            [12] 2750 	mov	a,#0x37
-      000BCB B5 2D 03         [24] 2751 	cjne	a,_main_u8RxUART_65536_128,00262$
-      000BCE 02 0D 4C         [24] 2752 	ljmp	00110$
-      000BD1                       2753 00262$:
-      000BD1 74 38            [12] 2754 	mov	a,#0x38
-      000BD3 B5 2D 03         [24] 2755 	cjne	a,_main_u8RxUART_65536_128,00263$
-      000BD6 02 0D 87         [24] 2756 	ljmp	00111$
-      000BD9                       2757 00263$:
-      000BD9 74 74            [12] 2758 	mov	a,#0x74
-      000BDB B5 2D 03         [24] 2759 	cjne	a,_main_u8RxUART_65536_128,00264$
-      000BDE 02 0D C2         [24] 2760 	ljmp	00112$
-      000BE1                       2761 00264$:
-      000BE1 02 0D E8         [24] 2762 	ljmp	00115$
-                                   2763 ;	src/main.c:792: case '1' :
-      000BE4                       2764 00104$:
-                                   2765 ;	src/main.c:793: TOGGLE(UART_TX);
-      000BE4 B2 96            [12] 2766 	cpl	_P16
-                                   2767 ;	src/main.c:794: printf_fast_f("UART_TX=");
-      000BE6 C0 07            [24] 2768 	push	ar7
-      000BE8 C0 06            [24] 2769 	push	ar6
-      000BEA C0 05            [24] 2770 	push	ar5
-      000BEC 74 E8            [12] 2771 	mov	a,#___str_31
-      000BEE C0 E0            [24] 2772 	push	acc
-      000BF0 74 22            [12] 2773 	mov	a,#(___str_31 >> 8)
-      000BF2 C0 E0            [24] 2774 	push	acc
-      000BF4 12 1B 2F         [24] 2775 	lcall	_printf_fast_f
-      000BF7 15 81            [12] 2776 	dec	sp
-      000BF9 15 81            [12] 2777 	dec	sp
-                                   2778 ;	src/main.c:795: printf_fast_f("%d\n\r", UART_TX);
-      000BFB A2 96            [12] 2779 	mov	c,_P16
-      000BFD E4               [12] 2780 	clr	a
-      000BFE 33               [12] 2781 	rlc	a
-      000BFF FB               [12] 2782 	mov	r3,a
-      000C00 7C 00            [12] 2783 	mov	r4,#0x00
-      000C02 C0 03            [24] 2784 	push	ar3
-      000C04 C0 04            [24] 2785 	push	ar4
-      000C06 74 F1            [12] 2786 	mov	a,#___str_32
-      000C08 C0 E0            [24] 2787 	push	acc
-      000C0A 74 22            [12] 2788 	mov	a,#(___str_32 >> 8)
-      000C0C C0 E0            [24] 2789 	push	acc
-      000C0E 12 1B 2F         [24] 2790 	lcall	_printf_fast_f
-      000C11 E5 81            [12] 2791 	mov	a,sp
-      000C13 24 FC            [12] 2792 	add	a,#0xfc
-      000C15 F5 81            [12] 2793 	mov	sp,a
-      000C17 D0 05            [24] 2794 	pop	ar5
-      000C19 D0 06            [24] 2795 	pop	ar6
-      000C1B D0 07            [24] 2796 	pop	ar7
-                                   2797 ;	src/main.c:796: break;
-      000C1D 02 0D E8         [24] 2798 	ljmp	00115$
-                                   2799 ;	src/main.c:797: case '2' :
-      000C20                       2800 00105$:
-                                   2801 ;	src/main.c:798: TOGGLE(LED_R);
-      000C20 B2 94            [12] 2802 	cpl	_P14
-                                   2803 ;	src/main.c:799: printf_fast_f("LED_R=");
-      000C22 C0 07            [24] 2804 	push	ar7
-      000C24 C0 06            [24] 2805 	push	ar6
-      000C26 C0 05            [24] 2806 	push	ar5
-      000C28 74 F6            [12] 2807 	mov	a,#___str_33
-      000C2A C0 E0            [24] 2808 	push	acc
-      000C2C 74 22            [12] 2809 	mov	a,#(___str_33 >> 8)
-      000C2E C0 E0            [24] 2810 	push	acc
-      000C30 12 1B 2F         [24] 2811 	lcall	_printf_fast_f
-      000C33 15 81            [12] 2812 	dec	sp
-      000C35 15 81            [12] 2813 	dec	sp
-                                   2814 ;	src/main.c:800: printf_fast_f("%d\n\r", LED_R);
-      000C37 A2 94            [12] 2815 	mov	c,_P14
-      000C39 E4               [12] 2816 	clr	a
-      000C3A 33               [12] 2817 	rlc	a
-      000C3B FB               [12] 2818 	mov	r3,a
-      000C3C 7C 00            [12] 2819 	mov	r4,#0x00
-      000C3E C0 03            [24] 2820 	push	ar3
-      000C40 C0 04            [24] 2821 	push	ar4
-      000C42 74 F1            [12] 2822 	mov	a,#___str_32
-      000C44 C0 E0            [24] 2823 	push	acc
-      000C46 74 22            [12] 2824 	mov	a,#(___str_32 >> 8)
-      000C48 C0 E0            [24] 2825 	push	acc
-      000C4A 12 1B 2F         [24] 2826 	lcall	_printf_fast_f
-      000C4D E5 81            [12] 2827 	mov	a,sp
-      000C4F 24 FC            [12] 2828 	add	a,#0xfc
-      000C51 F5 81            [12] 2829 	mov	sp,a
-      000C53 D0 05            [24] 2830 	pop	ar5
-      000C55 D0 06            [24] 2831 	pop	ar6
-      000C57 D0 07            [24] 2832 	pop	ar7
-                                   2833 ;	src/main.c:801: break;
-      000C59 02 0D E8         [24] 2834 	ljmp	00115$
-                                   2835 ;	src/main.c:802: case '3' :
-      000C5C                       2836 00106$:
-                                   2837 ;	src/main.c:803: TOGGLE(LED_G);
-      000C5C B2 93            [12] 2838 	cpl	_P13
-                                   2839 ;	src/main.c:804: printf_fast_f("LED_G=");
-      000C5E C0 07            [24] 2840 	push	ar7
-      000C60 C0 06            [24] 2841 	push	ar6
-      000C62 C0 05            [24] 2842 	push	ar5
-      000C64 74 FD            [12] 2843 	mov	a,#___str_34
-      000C66 C0 E0            [24] 2844 	push	acc
-      000C68 74 22            [12] 2845 	mov	a,#(___str_34 >> 8)
-      000C6A C0 E0            [24] 2846 	push	acc
-      000C6C 12 1B 2F         [24] 2847 	lcall	_printf_fast_f
-      000C6F 15 81            [12] 2848 	dec	sp
-      000C71 15 81            [12] 2849 	dec	sp
-                                   2850 ;	src/main.c:805: printf_fast_f("%d\n\r", LED_G);
-      000C73 A2 93            [12] 2851 	mov	c,_P13
-      000C75 E4               [12] 2852 	clr	a
-      000C76 33               [12] 2853 	rlc	a
-      000C77 FB               [12] 2854 	mov	r3,a
-      000C78 7C 00            [12] 2855 	mov	r4,#0x00
-      000C7A C0 03            [24] 2856 	push	ar3
-      000C7C C0 04            [24] 2857 	push	ar4
-      000C7E 74 F1            [12] 2858 	mov	a,#___str_32
-      000C80 C0 E0            [24] 2859 	push	acc
-      000C82 74 22            [12] 2860 	mov	a,#(___str_32 >> 8)
-      000C84 C0 E0            [24] 2861 	push	acc
-      000C86 12 1B 2F         [24] 2862 	lcall	_printf_fast_f
-      000C89 E5 81            [12] 2863 	mov	a,sp
-      000C8B 24 FC            [12] 2864 	add	a,#0xfc
-      000C8D F5 81            [12] 2865 	mov	sp,a
-      000C8F D0 05            [24] 2866 	pop	ar5
-      000C91 D0 06            [24] 2867 	pop	ar6
-      000C93 D0 07            [24] 2868 	pop	ar7
-                                   2869 ;	src/main.c:806: break;
-      000C95 02 0D E8         [24] 2870 	ljmp	00115$
-                                   2871 ;	src/main.c:807: case '4' :
-      000C98                       2872 00107$:
-                                   2873 ;	src/main.c:808: TOGGLE(LED_B);
-      000C98 B2 92            [12] 2874 	cpl	_P12
-                                   2875 ;	src/main.c:809: printf_fast_f("LED_B=");
-      000C9A C0 07            [24] 2876 	push	ar7
-      000C9C C0 06            [24] 2877 	push	ar6
-      000C9E C0 05            [24] 2878 	push	ar5
-      000CA0 74 04            [12] 2879 	mov	a,#___str_35
-      000CA2 C0 E0            [24] 2880 	push	acc
-      000CA4 74 23            [12] 2881 	mov	a,#(___str_35 >> 8)
-      000CA6 C0 E0            [24] 2882 	push	acc
-      000CA8 12 1B 2F         [24] 2883 	lcall	_printf_fast_f
-      000CAB 15 81            [12] 2884 	dec	sp
-      000CAD 15 81            [12] 2885 	dec	sp
-                                   2886 ;	src/main.c:810: printf_fast_f("%d\n\r", LED_B);
-      000CAF A2 92            [12] 2887 	mov	c,_P12
-      000CB1 E4               [12] 2888 	clr	a
-      000CB2 33               [12] 2889 	rlc	a
-      000CB3 FB               [12] 2890 	mov	r3,a
-      000CB4 7C 00            [12] 2891 	mov	r4,#0x00
-      000CB6 C0 03            [24] 2892 	push	ar3
-      000CB8 C0 04            [24] 2893 	push	ar4
-      000CBA 74 F1            [12] 2894 	mov	a,#___str_32
-      000CBC C0 E0            [24] 2895 	push	acc
-      000CBE 74 22            [12] 2896 	mov	a,#(___str_32 >> 8)
-      000CC0 C0 E0            [24] 2897 	push	acc
-      000CC2 12 1B 2F         [24] 2898 	lcall	_printf_fast_f
-      000CC5 E5 81            [12] 2899 	mov	a,sp
-      000CC7 24 FC            [12] 2900 	add	a,#0xfc
-      000CC9 F5 81            [12] 2901 	mov	sp,a
-      000CCB D0 05            [24] 2902 	pop	ar5
-      000CCD D0 06            [24] 2903 	pop	ar6
-      000CCF D0 07            [24] 2904 	pop	ar7
-                                   2905 ;	src/main.c:811: break;
-      000CD1 02 0D E8         [24] 2906 	ljmp	00115$
-                                   2907 ;	src/main.c:812: case '5' :
-      000CD4                       2908 00108$:
-                                   2909 ;	src/main.c:813: TOGGLE(MOTOR_EN);
-      000CD4 B2 90            [12] 2910 	cpl	_P10
-                                   2911 ;	src/main.c:814: printf_fast_f("MOTOR_EN=");
-      000CD6 C0 07            [24] 2912 	push	ar7
-      000CD8 C0 06            [24] 2913 	push	ar6
-      000CDA C0 05            [24] 2914 	push	ar5
-      000CDC 74 0B            [12] 2915 	mov	a,#___str_36
-      000CDE C0 E0            [24] 2916 	push	acc
-      000CE0 74 23            [12] 2917 	mov	a,#(___str_36 >> 8)
-      000CE2 C0 E0            [24] 2918 	push	acc
-      000CE4 12 1B 2F         [24] 2919 	lcall	_printf_fast_f
-      000CE7 15 81            [12] 2920 	dec	sp
-      000CE9 15 81            [12] 2921 	dec	sp
-                                   2922 ;	src/main.c:815: printf_fast_f("%d\n\r", MOTOR_EN);
-      000CEB A2 90            [12] 2923 	mov	c,_P10
-      000CED E4               [12] 2924 	clr	a
-      000CEE 33               [12] 2925 	rlc	a
-      000CEF FB               [12] 2926 	mov	r3,a
-      000CF0 7C 00            [12] 2927 	mov	r4,#0x00
-      000CF2 C0 03            [24] 2928 	push	ar3
-      000CF4 C0 04            [24] 2929 	push	ar4
-      000CF6 74 F1            [12] 2930 	mov	a,#___str_32
-      000CF8 C0 E0            [24] 2931 	push	acc
-      000CFA 74 22            [12] 2932 	mov	a,#(___str_32 >> 8)
-      000CFC C0 E0            [24] 2933 	push	acc
-      000CFE 12 1B 2F         [24] 2934 	lcall	_printf_fast_f
-      000D01 E5 81            [12] 2935 	mov	a,sp
-      000D03 24 FC            [12] 2936 	add	a,#0xfc
-      000D05 F5 81            [12] 2937 	mov	sp,a
-      000D07 D0 05            [24] 2938 	pop	ar5
-      000D09 D0 06            [24] 2939 	pop	ar6
-      000D0B D0 07            [24] 2940 	pop	ar7
-                                   2941 ;	src/main.c:816: break;
-      000D0D 02 0D E8         [24] 2942 	ljmp	00115$
-                                   2943 ;	src/main.c:817: case '6' :
-      000D10                       2944 00109$:
-                                   2945 ;	src/main.c:818: TOGGLE(MOTOR_CW);
-      000D10 B2 80            [12] 2946 	cpl	_P00
-                                   2947 ;	src/main.c:819: printf_fast_f("MOTOR_CW=");
-      000D12 C0 07            [24] 2948 	push	ar7
-      000D14 C0 06            [24] 2949 	push	ar6
-      000D16 C0 05            [24] 2950 	push	ar5
-      000D18 74 15            [12] 2951 	mov	a,#___str_37
-      000D1A C0 E0            [24] 2952 	push	acc
-      000D1C 74 23            [12] 2953 	mov	a,#(___str_37 >> 8)
-      000D1E C0 E0            [24] 2954 	push	acc
-      000D20 12 1B 2F         [24] 2955 	lcall	_printf_fast_f
-      000D23 15 81            [12] 2956 	dec	sp
-      000D25 15 81            [12] 2957 	dec	sp
-                                   2958 ;	src/main.c:820: printf_fast_f("%d\n\r", MOTOR_CW);
-      000D27 A2 80            [12] 2959 	mov	c,_P00
-      000D29 E4               [12] 2960 	clr	a
-      000D2A 33               [12] 2961 	rlc	a
-      000D2B FB               [12] 2962 	mov	r3,a
-      000D2C 7C 00            [12] 2963 	mov	r4,#0x00
-      000D2E C0 03            [24] 2964 	push	ar3
-      000D30 C0 04            [24] 2965 	push	ar4
-      000D32 74 F1            [12] 2966 	mov	a,#___str_32
-      000D34 C0 E0            [24] 2967 	push	acc
-      000D36 74 22            [12] 2968 	mov	a,#(___str_32 >> 8)
-      000D38 C0 E0            [24] 2969 	push	acc
-      000D3A 12 1B 2F         [24] 2970 	lcall	_printf_fast_f
-      000D3D E5 81            [12] 2971 	mov	a,sp
-      000D3F 24 FC            [12] 2972 	add	a,#0xfc
-      000D41 F5 81            [12] 2973 	mov	sp,a
-      000D43 D0 05            [24] 2974 	pop	ar5
-      000D45 D0 06            [24] 2975 	pop	ar6
-      000D47 D0 07            [24] 2976 	pop	ar7
-                                   2977 ;	src/main.c:821: break;
-      000D49 02 0D E8         [24] 2978 	ljmp	00115$
-                                   2979 ;	src/main.c:822: case '7' :
-      000D4C                       2980 00110$:
-                                   2981 ;	src/main.c:823: TOGGLE(MOTOR_CCW);
-      000D4C B2 81            [12] 2982 	cpl	_P01
-                                   2983 ;	src/main.c:824: printf_fast_f("MOTOR_CCW=");
-      000D4E C0 07            [24] 2984 	push	ar7
-      000D50 C0 06            [24] 2985 	push	ar6
-      000D52 C0 05            [24] 2986 	push	ar5
-      000D54 74 1F            [12] 2987 	mov	a,#___str_38
-      000D56 C0 E0            [24] 2988 	push	acc
-      000D58 74 23            [12] 2989 	mov	a,#(___str_38 >> 8)
-      000D5A C0 E0            [24] 2990 	push	acc
-      000D5C 12 1B 2F         [24] 2991 	lcall	_printf_fast_f
-      000D5F 15 81            [12] 2992 	dec	sp
-      000D61 15 81            [12] 2993 	dec	sp
-                                   2994 ;	src/main.c:825: printf_fast_f("%d\n\r", MOTOR_CCW);
-      000D63 A2 81            [12] 2995 	mov	c,_P01
-      000D65 E4               [12] 2996 	clr	a
-      000D66 33               [12] 2997 	rlc	a
-      000D67 FB               [12] 2998 	mov	r3,a
-      000D68 7C 00            [12] 2999 	mov	r4,#0x00
-      000D6A C0 03            [24] 3000 	push	ar3
-      000D6C C0 04            [24] 3001 	push	ar4
-      000D6E 74 F1            [12] 3002 	mov	a,#___str_32
-      000D70 C0 E0            [24] 3003 	push	acc
-      000D72 74 22            [12] 3004 	mov	a,#(___str_32 >> 8)
-      000D74 C0 E0            [24] 3005 	push	acc
-      000D76 12 1B 2F         [24] 3006 	lcall	_printf_fast_f
-      000D79 E5 81            [12] 3007 	mov	a,sp
-      000D7B 24 FC            [12] 3008 	add	a,#0xfc
-      000D7D F5 81            [12] 3009 	mov	sp,a
-      000D7F D0 05            [24] 3010 	pop	ar5
-      000D81 D0 06            [24] 3011 	pop	ar6
-      000D83 D0 07            [24] 3012 	pop	ar7
-                                   3013 ;	src/main.c:826: break;
-                                   3014 ;	src/main.c:827: case '8' :
-      000D85 80 61            [24] 3015 	sjmp	00115$
-      000D87                       3016 00111$:
-                                   3017 ;	src/main.c:828: TOGGLE(SEL_RX_POL);
-      000D87 B2 84            [12] 3018 	cpl	_P04
-                                   3019 ;	src/main.c:829: printf_fast_f("SEL_RX_POL=");
-      000D89 C0 07            [24] 3020 	push	ar7
-      000D8B C0 06            [24] 3021 	push	ar6
-      000D8D C0 05            [24] 3022 	push	ar5
-      000D8F 74 2A            [12] 3023 	mov	a,#___str_39
-      000D91 C0 E0            [24] 3024 	push	acc
-      000D93 74 23            [12] 3025 	mov	a,#(___str_39 >> 8)
-      000D95 C0 E0            [24] 3026 	push	acc
-      000D97 12 1B 2F         [24] 3027 	lcall	_printf_fast_f
-      000D9A 15 81            [12] 3028 	dec	sp
-      000D9C 15 81            [12] 3029 	dec	sp
-                                   3030 ;	src/main.c:830: printf_fast_f("%d\n\r", SEL_RX_POL);
-      000D9E A2 84            [12] 3031 	mov	c,_P04
-      000DA0 E4               [12] 3032 	clr	a
-      000DA1 33               [12] 3033 	rlc	a
-      000DA2 FB               [12] 3034 	mov	r3,a
-      000DA3 7C 00            [12] 3035 	mov	r4,#0x00
-      000DA5 C0 03            [24] 3036 	push	ar3
-      000DA7 C0 04            [24] 3037 	push	ar4
-      000DA9 74 F1            [12] 3038 	mov	a,#___str_32
-      000DAB C0 E0            [24] 3039 	push	acc
-      000DAD 74 22            [12] 3040 	mov	a,#(___str_32 >> 8)
-      000DAF C0 E0            [24] 3041 	push	acc
-      000DB1 12 1B 2F         [24] 3042 	lcall	_printf_fast_f
-      000DB4 E5 81            [12] 3043 	mov	a,sp
-      000DB6 24 FC            [12] 3044 	add	a,#0xfc
-      000DB8 F5 81            [12] 3045 	mov	sp,a
-      000DBA D0 05            [24] 3046 	pop	ar5
-      000DBC D0 06            [24] 3047 	pop	ar6
-      000DBE D0 07            [24] 3048 	pop	ar7
-                                   3049 ;	src/main.c:831: break;
-                                   3050 ;	src/main.c:832: case 't' :
-      000DC0 80 26            [24] 3051 	sjmp	00115$
-      000DC2                       3052 00112$:
-                                   3053 ;	src/main.c:833: printf_fast_f("count:%d\r\n", gu16TimeCnt);
-      000DC2 C0 07            [24] 3054 	push	ar7
-      000DC4 C0 06            [24] 3055 	push	ar6
-      000DC6 C0 05            [24] 3056 	push	ar5
-      000DC8 C0 23            [24] 3057 	push	_gu16TimeCnt
-      000DCA C0 24            [24] 3058 	push	(_gu16TimeCnt + 1)
-      000DCC 74 36            [12] 3059 	mov	a,#___str_40
-      000DCE C0 E0            [24] 3060 	push	acc
-      000DD0 74 23            [12] 3061 	mov	a,#(___str_40 >> 8)
-      000DD2 C0 E0            [24] 3062 	push	acc
-      000DD4 12 1B 2F         [24] 3063 	lcall	_printf_fast_f
-      000DD7 E5 81            [12] 3064 	mov	a,sp
-      000DD9 24 FC            [12] 3065 	add	a,#0xfc
-      000DDB F5 81            [12] 3066 	mov	sp,a
-      000DDD D0 05            [24] 3067 	pop	ar5
-      000DDF D0 06            [24] 3068 	pop	ar6
-      000DE1 D0 07            [24] 3069 	pop	ar7
-                                   3070 ;	src/main.c:834: gu16TimeCnt = 0;
-      000DE3 E4               [12] 3071 	clr	a
-      000DE4 F5 23            [12] 3072 	mov	_gu16TimeCnt,a
-      000DE6 F5 24            [12] 3073 	mov	(_gu16TimeCnt + 1),a
-                                   3074 ;	src/main.c:836: }
-      000DE8                       3075 00115$:
-                                   3076 ;	src/main.c:839: if (u8PrevSwitch != SWITCH) { // 스위치 스테이트가 변하면..
-      000DE8 8D 04            [24] 3077 	mov	ar4,r5
-      000DEA A2 95            [12] 3078 	mov	c,_P15
-      000DEC E4               [12] 3079 	clr	a
-      000DED 33               [12] 3080 	rlc	a
-      000DEE FB               [12] 3081 	mov	r3,a
-      000DEF EC               [12] 3082 	mov	a,r4
-      000DF0 B5 03 02         [24] 3083 	cjne	a,ar3,00265$
-      000DF3 80 67            [24] 3084 	sjmp	00120$
-      000DF5                       3085 00265$:
-                                   3086 ;	src/main.c:840: printf_fast_f("SWITCH:%d\n\r", SWITCH);
-      000DF5 A2 95            [12] 3087 	mov	c,_P15
-      000DF7 E4               [12] 3088 	clr	a
-      000DF8 33               [12] 3089 	rlc	a
-      000DF9 FB               [12] 3090 	mov	r3,a
-      000DFA 7C 00            [12] 3091 	mov	r4,#0x00
-      000DFC C0 07            [24] 3092 	push	ar7
-      000DFE C0 06            [24] 3093 	push	ar6
-      000E00 C0 03            [24] 3094 	push	ar3
-      000E02 C0 04            [24] 3095 	push	ar4
-      000E04 74 41            [12] 3096 	mov	a,#___str_41
-      000E06 C0 E0            [24] 3097 	push	acc
-      000E08 74 23            [12] 3098 	mov	a,#(___str_41 >> 8)
-      000E0A C0 E0            [24] 3099 	push	acc
-      000E0C 12 1B 2F         [24] 3100 	lcall	_printf_fast_f
-      000E0F E5 81            [12] 3101 	mov	a,sp
-      000E11 24 FC            [12] 3102 	add	a,#0xfc
-      000E13 F5 81            [12] 3103 	mov	sp,a
-      000E15 D0 06            [24] 3104 	pop	ar6
-      000E17 D0 07            [24] 3105 	pop	ar7
-                                   3106 ;	src/main.c:841: if (SWITCH) { //눌렸을 때
-      000E19 20 95 3B         [24] 3107 	jb	_P15,00118$
-                                   3108 ;	src/main.c:845: su8Cnt++;
-      000E1C 05 2C            [12] 3109 	inc	_main_su8Cnt_262145_138
-                                   3110 ;	src/main.c:846: LED_R = su8Cnt&1;
-      000E1E E5 2C            [12] 3111 	mov	a,_main_su8Cnt_262145_138
-      000E20 54 01            [12] 3112 	anl	a,#0x01
-                                   3113 ;	assignBit
-      000E22 24 FF            [12] 3114 	add	a,#0xff
-      000E24 E4               [12] 3115 	clr	a
-      000E25 33               [12] 3116 	rlc	a
-                                   3117 ;	assignBit
-      000E26 FC               [12] 3118 	mov	r4,a
-      000E27 24 FF            [12] 3119 	add	a,#0xff
-      000E29 92 94            [24] 3120 	mov	_P14,c
-                                   3121 ;	src/main.c:847: LED_G = (su8Cnt>>1)&1;
-      000E2B E5 2C            [12] 3122 	mov	a,_main_su8Cnt_262145_138
-      000E2D 03               [12] 3123 	rr	a
-      000E2E 54 01            [12] 3124 	anl	a,#0x01
-                                   3125 ;	assignBit
-      000E30 24 FF            [12] 3126 	add	a,#0xff
-      000E32 E4               [12] 3127 	clr	a
-      000E33 33               [12] 3128 	rlc	a
-                                   3129 ;	assignBit
-      000E34 FB               [12] 3130 	mov	r3,a
-      000E35 24 FF            [12] 3131 	add	a,#0xff
-      000E37 92 93            [24] 3132 	mov	_P13,c
-                                   3133 ;	src/main.c:848: LED_B = (su8Cnt>>2)&1;
-      000E39 E5 2C            [12] 3134 	mov	a,_main_su8Cnt_262145_138
-      000E3B 03               [12] 3135 	rr	a
-      000E3C 03               [12] 3136 	rr	a
-      000E3D 54 01            [12] 3137 	anl	a,#0x01
-                                   3138 ;	assignBit
-      000E3F 24 FF            [12] 3139 	add	a,#0xff
-      000E41 E4               [12] 3140 	clr	a
-      000E42 33               [12] 3141 	rlc	a
-                                   3142 ;	assignBit
-      000E43 FA               [12] 3143 	mov	r2,a
-      000E44 24 FF            [12] 3144 	add	a,#0xff
-      000E46 92 92            [24] 3145 	mov	_P12,c
-                                   3146 ;	src/main.c:850: MOTOR_EN = su8Cnt&1;
-                                   3147 ;	assignBit
-      000E48 EC               [12] 3148 	mov	a,r4
-      000E49 24 FF            [12] 3149 	add	a,#0xff
-      000E4B 92 90            [24] 3150 	mov	_P10,c
-                                   3151 ;	src/main.c:851: MOTOR_CW = (su8Cnt>>1)&1;
-                                   3152 ;	assignBit
-      000E4D EB               [12] 3153 	mov	a,r3
-      000E4E 24 FF            [12] 3154 	add	a,#0xff
-      000E50 92 80            [24] 3155 	mov	_P00,c
-                                   3156 ;	src/main.c:852: MOTOR_CCW = (su8Cnt>>2)&1;
-                                   3157 ;	assignBit
-      000E52 EA               [12] 3158 	mov	a,r2
-      000E53 24 FF            [12] 3159 	add	a,#0xff
-      000E55 92 81            [24] 3160 	mov	_P01,c
-      000E57                       3161 00118$:
-                                   3162 ;	src/main.c:855: u8PrevSwitch = SWITCH;
-      000E57 A2 95            [12] 3163 	mov	c,_P15
-      000E59 E4               [12] 3164 	clr	a
-      000E5A 33               [12] 3165 	rlc	a
-      000E5B FD               [12] 3166 	mov	r5,a
-      000E5C                       3167 00120$:
-                                   3168 ;	src/main.c:858: if (SWITCH) {
-      000E5C A2 95            [12] 3169 	mov	c,_P15
-                                   3170 ;	src/main.c:861: if (u8UartRx != UART_RX) {
-      000E5E A2 82            [12] 3171 	mov	c,_P02
-                                   3172 ;	src/main.c:866: switch(u8StateRxLFP) {
-      000E60 BF 00 02         [24] 3173 	cjne	r7,#0x00,00267$
-      000E63 80 0D            [24] 3174 	sjmp	00121$
-      000E65                       3175 00267$:
-      000E65 BF 01 02         [24] 3176 	cjne	r7,#0x01,00268$
-      000E68 80 36            [24] 3177 	sjmp	00124$
-      000E6A                       3178 00268$:
-      000E6A BF 02 02         [24] 3179 	cjne	r7,#0x02,00269$
-      000E6D 80 75            [24] 3180 	sjmp	00130$
-      000E6F                       3181 00269$:
-      000E6F 02 0B 7F         [24] 3182 	ljmp	00140$
-                                   3183 ;	src/main.c:867: case STATE_RxLFP_INIT :
-      000E72                       3184 00121$:
-                                   3185 ;	src/main.c:868: if (Receive_Data_From_UART1_nb(&u8RxUART)) {
-      000E72 90 00 2D         [24] 3186 	mov	dptr,#_main_u8RxUART_65536_128
-      000E75 75 F0 40         [24] 3187 	mov	b,#0x40
-      000E78 C0 07            [24] 3188 	push	ar7
-      000E7A C0 06            [24] 3189 	push	ar6
-      000E7C C0 05            [24] 3190 	push	ar5
-      000E7E 12 1A EB         [24] 3191 	lcall	_Receive_Data_From_UART1_nb
-      000E81 E5 82            [12] 3192 	mov	a,dpl
-      000E83 D0 05            [24] 3193 	pop	ar5
-      000E85 D0 06            [24] 3194 	pop	ar6
-      000E87 D0 07            [24] 3195 	pop	ar7
-      000E89 70 03            [24] 3196 	jnz	00270$
-      000E8B 02 0B 7F         [24] 3197 	ljmp	00140$
-      000E8E                       3198 00270$:
-                                   3199 ;	src/main.c:869: gu16TimeCnt = 0;
-      000E8E E4               [12] 3200 	clr	a
-      000E8F F5 23            [12] 3201 	mov	_gu16TimeCnt,a
-      000E91 F5 24            [12] 3202 	mov	(_gu16TimeCnt + 1),a
-                                   3203 ;	src/main.c:871: pu8RxUART[u8RxIdx++] = u8RxUART;
-      000E93 7E 01            [12] 3204 	mov	r6,#0x01
-      000E95 90 00 4D         [24] 3205 	mov	dptr,#_main_pu8RxUART_65536_128
-      000E98 E5 2D            [12] 3206 	mov	a,_main_u8RxUART_65536_128
-      000E9A F0               [24] 3207 	movx	@dptr,a
-                                   3208 ;	src/main.c:872: u8StateRxLFP = STATE_RxLFP_START;
-      000E9B 7F 01            [12] 3209 	mov	r7,#0x01
-                                   3210 ;	src/main.c:874: break;
-      000E9D 02 0B 7F         [24] 3211 	ljmp	00140$
-                                   3212 ;	src/main.c:875: case STATE_RxLFP_START :
-      000EA0                       3213 00124$:
-                                   3214 ;	src/main.c:876: if (Receive_Data_From_UART1_nb(&u8RxUART)) {
-      000EA0 90 00 2D         [24] 3215 	mov	dptr,#_main_u8RxUART_65536_128
-      000EA3 75 F0 40         [24] 3216 	mov	b,#0x40
-      000EA6 C0 07            [24] 3217 	push	ar7
-      000EA8 C0 06            [24] 3218 	push	ar6
-      000EAA C0 05            [24] 3219 	push	ar5
-      000EAC 12 1A EB         [24] 3220 	lcall	_Receive_Data_From_UART1_nb
-      000EAF E5 82            [12] 3221 	mov	a,dpl
-      000EB1 D0 05            [24] 3222 	pop	ar5
-      000EB3 D0 06            [24] 3223 	pop	ar6
-      000EB5 D0 07            [24] 3224 	pop	ar7
-      000EB7 60 18            [24] 3225 	jz	00128$
-                                   3226 ;	src/main.c:877: gu16TimeCnt = 0;
-      000EB9 E4               [12] 3227 	clr	a
-      000EBA F5 23            [12] 3228 	mov	_gu16TimeCnt,a
-      000EBC F5 24            [12] 3229 	mov	(_gu16TimeCnt + 1),a
-                                   3230 ;	src/main.c:878: pu8RxUART[u8RxIdx++] = u8RxUART;
-      000EBE 8E 04            [24] 3231 	mov	ar4,r6
-      000EC0 0E               [12] 3232 	inc	r6
-      000EC1 EC               [12] 3233 	mov	a,r4
-      000EC2 24 4D            [12] 3234 	add	a,#_main_pu8RxUART_65536_128
-      000EC4 F5 82            [12] 3235 	mov	dpl,a
-      000EC6 E4               [12] 3236 	clr	a
-      000EC7 34 00            [12] 3237 	addc	a,#(_main_pu8RxUART_65536_128 >> 8)
-      000EC9 F5 83            [12] 3238 	mov	dph,a
-      000ECB E5 2D            [12] 3239 	mov	a,_main_u8RxUART_65536_128
-      000ECD F0               [24] 3240 	movx	@dptr,a
-      000ECE 02 0B 7F         [24] 3241 	ljmp	00140$
-      000ED1                       3242 00128$:
-                                   3243 ;	src/main.c:880: else if (gu16TimeCnt > 1000) { // 1msec넘으면
-      000ED1 C3               [12] 3244 	clr	c
-      000ED2 74 E8            [12] 3245 	mov	a,#0xe8
-      000ED4 95 23            [12] 3246 	subb	a,_gu16TimeCnt
-      000ED6 74 03            [12] 3247 	mov	a,#0x03
-      000ED8 95 24            [12] 3248 	subb	a,(_gu16TimeCnt + 1)
-      000EDA 40 03            [24] 3249 	jc	00272$
-      000EDC 02 0B 7F         [24] 3250 	ljmp	00140$
-      000EDF                       3251 00272$:
-                                   3252 ;	src/main.c:881: u8StateRxLFP = STATE_RxLFP_END;
-      000EDF 7F 02            [12] 3253 	mov	r7,#0x02
-                                   3254 ;	src/main.c:883: break;
-      000EE1 02 0B 7F         [24] 3255 	ljmp	00140$
-                                   3256 ;	src/main.c:885: case STATE_RxLFP_END :
-      000EE4                       3257 00130$:
-                                   3258 ;	src/main.c:886: print_raw_packet(u8RxIdx, pu8RxUART);
-      000EE4 75 4E 4D         [24] 3259 	mov	_print_raw_packet_PARM_2,#_main_pu8RxUART_65536_128
-      000EE7 75 4F 00         [24] 3260 	mov	(_print_raw_packet_PARM_2 + 1),#(_main_pu8RxUART_65536_128 >> 8)
-      000EEA 75 50 00         [24] 3261 	mov	(_print_raw_packet_PARM_2 + 2),#0x00
-      000EED 8E 82            [24] 3262 	mov	dpl,r6
-      000EEF C0 06            [24] 3263 	push	ar6
-      000EF1 C0 05            [24] 3264 	push	ar5
-      000EF3 12 17 C8         [24] 3265 	lcall	_print_raw_packet
-      000EF6 D0 05            [24] 3266 	pop	ar5
-      000EF8 D0 06            [24] 3267 	pop	ar6
-                                   3268 ;	src/main.c:887: switch(cp_buf2linefipacket(u8RxIdx, pu8RxUART, &stLineFiPkt)) {
-      000EFA 75 43 4D         [24] 3269 	mov	_cp_buf2linefipacket_PARM_2,#_main_pu8RxUART_65536_128
-      000EFD 75 44 00         [24] 3270 	mov	(_cp_buf2linefipacket_PARM_2 + 1),#(_main_pu8RxUART_65536_128 >> 8)
-      000F00 75 45 00         [24] 3271 	mov	(_cp_buf2linefipacket_PARM_2 + 2),#0x00
-      000F03 75 46 2E         [24] 3272 	mov	_cp_buf2linefipacket_PARM_3,#_main_stLineFiPkt_65536_128
-      000F06 75 47 00         [24] 3273 	mov	(_cp_buf2linefipacket_PARM_3 + 1),#0x00
-      000F09 75 48 40         [24] 3274 	mov	(_cp_buf2linefipacket_PARM_3 + 2),#0x40
-      000F0C 8E 82            [24] 3275 	mov	dpl,r6
-      000F0E C0 06            [24] 3276 	push	ar6
-      000F10 C0 05            [24] 3277 	push	ar5
-      000F12 12 14 12         [24] 3278 	lcall	_cp_buf2linefipacket
-      000F15 AC 82            [24] 3279 	mov	r4,dpl
-      000F17 D0 05            [24] 3280 	pop	ar5
-      000F19 D0 06            [24] 3281 	pop	ar6
-      000F1B BC 02 02         [24] 3282 	cjne	r4,#0x02,00273$
-      000F1E 80 0A            [24] 3283 	sjmp	00131$
-      000F20                       3284 00273$:
-      000F20 BC 03 02         [24] 3285 	cjne	r4,#0x03,00274$
-      000F23 80 31            [24] 3286 	sjmp	00133$
-      000F25                       3287 00274$:
-                                   3288 ;	src/main.c:888: case CONV_OK :
-      000F25 BC 04 5B         [24] 3289 	cjne	r4,#0x04,00137$
-      000F28 80 13            [24] 3290 	sjmp	00132$
-      000F2A                       3291 00131$:
-                                   3292 ;	src/main.c:889: print_linefipacket(&stLineFiPkt);
-      000F2A 90 00 2E         [24] 3293 	mov	dptr,#_main_stLineFiPkt_65536_128
-      000F2D 75 F0 40         [24] 3294 	mov	b,#0x40
-      000F30 C0 06            [24] 3295 	push	ar6
-      000F32 C0 05            [24] 3296 	push	ar5
-      000F34 12 15 82         [24] 3297 	lcall	_print_linefipacket
-      000F37 D0 05            [24] 3298 	pop	ar5
-      000F39 D0 06            [24] 3299 	pop	ar6
-                                   3300 ;	src/main.c:890: break;
-                                   3301 ;	src/main.c:891: case CONV_ERR_CRC :
-      000F3B 80 46            [24] 3302 	sjmp	00137$
-      000F3D                       3303 00132$:
-                                   3304 ;	src/main.c:892: printf_fast_f("ERROR: CRC!!\r\n");
-      000F3D C0 06            [24] 3305 	push	ar6
-      000F3F C0 05            [24] 3306 	push	ar5
-      000F41 74 4D            [12] 3307 	mov	a,#___str_42
-      000F43 C0 E0            [24] 3308 	push	acc
-      000F45 74 23            [12] 3309 	mov	a,#(___str_42 >> 8)
-      000F47 C0 E0            [24] 3310 	push	acc
-      000F49 12 1B 2F         [24] 3311 	lcall	_printf_fast_f
-      000F4C 15 81            [12] 3312 	dec	sp
-      000F4E 15 81            [12] 3313 	dec	sp
-      000F50 D0 05            [24] 3314 	pop	ar5
-      000F52 D0 06            [24] 3315 	pop	ar6
-                                   3316 ;	src/main.c:893: break;
-                                   3317 ;	src/main.c:894: case CONV_ERR_TOO_SMALLSIZE :
-      000F54 80 2D            [24] 3318 	sjmp	00137$
-      000F56                       3319 00133$:
-                                   3320 ;	src/main.c:895: switch(u8RxIdx) {
-      000F56 BE 01 13         [24] 3321 	cjne	r6,#0x01,00135$
-                                   3322 ;	src/main.c:897: print_one_octet_linefi(pu8RxUART[0]);
-      000F59 90 00 4D         [24] 3323 	mov	dptr,#_main_pu8RxUART_65536_128
-      000F5C E0               [24] 3324 	movx	a,@dptr
-      000F5D F5 82            [12] 3325 	mov	dpl,a
-      000F5F C0 06            [24] 3326 	push	ar6
-      000F61 C0 05            [24] 3327 	push	ar5
-      000F63 12 0A A5         [24] 3328 	lcall	_print_one_octet_linefi
-      000F66 D0 05            [24] 3329 	pop	ar5
-      000F68 D0 06            [24] 3330 	pop	ar6
-                                   3331 ;	src/main.c:898: break;
-                                   3332 ;	src/main.c:899: default :
-      000F6A 80 17            [24] 3333 	sjmp	00137$
-      000F6C                       3334 00135$:
-                                   3335 ;	src/main.c:900: printf_fast_f("ERROR: too small length!!\r\n");
-      000F6C C0 06            [24] 3336 	push	ar6
-      000F6E C0 05            [24] 3337 	push	ar5
-      000F70 74 5C            [12] 3338 	mov	a,#___str_43
-      000F72 C0 E0            [24] 3339 	push	acc
-      000F74 74 23            [12] 3340 	mov	a,#(___str_43 >> 8)
-      000F76 C0 E0            [24] 3341 	push	acc
-      000F78 12 1B 2F         [24] 3342 	lcall	_printf_fast_f
-      000F7B 15 81            [12] 3343 	dec	sp
-      000F7D 15 81            [12] 3344 	dec	sp
-      000F7F D0 05            [24] 3345 	pop	ar5
-      000F81 D0 06            [24] 3346 	pop	ar6
-                                   3347 ;	src/main.c:904: }
-      000F83                       3348 00137$:
-                                   3349 ;	src/main.c:905: u8StateRxLFP = STATE_RxLFP_INIT;
-      000F83 7F 00            [12] 3350 	mov	r7,#0x00
-                                   3351 ;	src/main.c:907: } //switch(u8StateRxLFP)
-                                   3352 ;	src/main.c:909: }
-      000F85 02 0B 7F         [24] 3353 	ljmp	00140$
+      000855 D2 92            [12] 2112 	setb	_P12
+      000857 22               [24] 2113 	ret
+      000858                       2114 00111$:
+                                   2115 ;	src/main.c:627: LED_R = LED_OFF;
+                                   2116 ;	assignBit
+      000858 D2 94            [12] 2117 	setb	_P14
+                                   2118 ;	src/main.c:628: LED_G = LED_OFF;
+                                   2119 ;	assignBit
+      00085A D2 93            [12] 2120 	setb	_P13
+                                   2121 ;	src/main.c:629: LED_B = LED_OFF;
+                                   2122 ;	assignBit
+      00085C D2 92            [12] 2123 	setb	_P12
+                                   2124 ;	src/main.c:631: }
+      00085E 22               [24] 2125 	ret
+                                   2126 ;------------------------------------------------------------
+                                   2127 ;Allocation info for local variables in function 'chk_my_addr'
+                                   2128 ;------------------------------------------------------------
+                                   2129 ;au8RxData                 Allocated with name '_chk_my_addr_PARM_2'
+                                   2130 ;au8MyAddr                 Allocated to registers r7 
+                                   2131 ;------------------------------------------------------------
+                                   2132 ;	src/main.c:633: UINT8 chk_my_addr(UINT8 au8MyAddr, UINT8 au8RxData)
+                                   2133 ;	-----------------------------------------
+                                   2134 ;	 function chk_my_addr
+                                   2135 ;	-----------------------------------------
+      00085F                       2136 _chk_my_addr:
+      00085F AF 82            [24] 2137 	mov	r7,dpl
+                                   2138 ;	src/main.c:635: if ( (au8RxData>>4) == (au8MyAddr&0x0F)) {
+      000861 E5 18            [12] 2139 	mov	a,_chk_my_addr_PARM_2
+      000863 C4               [12] 2140 	swap	a
+      000864 54 0F            [12] 2141 	anl	a,#0x0f
+      000866 FE               [12] 2142 	mov	r6,a
+      000867 53 07 0F         [24] 2143 	anl	ar7,#0x0f
+      00086A E4               [12] 2144 	clr	a
+      00086B FD               [12] 2145 	mov	r5,a
+      00086C FC               [12] 2146 	mov	r4,a
+      00086D EE               [12] 2147 	mov	a,r6
+      00086E B5 07 08         [24] 2148 	cjne	a,ar7,00102$
+      000871 EC               [12] 2149 	mov	a,r4
+      000872 B5 05 04         [24] 2150 	cjne	a,ar5,00102$
+                                   2151 ;	src/main.c:636: return 1;
+      000875 75 82 01         [24] 2152 	mov	dpl,#0x01
+      000878 22               [24] 2153 	ret
+      000879                       2154 00102$:
+                                   2155 ;	src/main.c:638: return 0;
+      000879 75 82 00         [24] 2156 	mov	dpl,#0x00
+                                   2157 ;	src/main.c:639: }
+      00087C 22               [24] 2158 	ret
+                                   2159 ;------------------------------------------------------------
+                                   2160 ;Allocation info for local variables in function 'process_my_packet'
+                                   2161 ;------------------------------------------------------------
+                                   2162 ;apstLineFiPkt             Allocated to registers r5 r6 r7 
+                                   2163 ;sloc0                     Allocated with name '_process_my_packet_sloc0_1_0'
+                                   2164 ;------------------------------------------------------------
+                                   2165 ;	src/main.c:641: void process_my_packet(linefi_packet_t * apstLineFiPkt)
+                                   2166 ;	-----------------------------------------
+                                   2167 ;	 function process_my_packet
+                                   2168 ;	-----------------------------------------
+      00087D                       2169 _process_my_packet:
+      00087D AD 82            [24] 2170 	mov	r5,dpl
+      00087F AE 83            [24] 2171 	mov	r6,dph
+      000881 AF F0            [24] 2172 	mov	r7,b
+                                   2173 ;	src/main.c:643: switch(apstLineFiPkt->u8Type) {
+      000883 74 01            [12] 2174 	mov	a,#0x01
+      000885 2D               [12] 2175 	add	a,r5
+      000886 FA               [12] 2176 	mov	r2,a
+      000887 E4               [12] 2177 	clr	a
+      000888 3E               [12] 2178 	addc	a,r6
+      000889 FB               [12] 2179 	mov	r3,a
+      00088A 8F 04            [24] 2180 	mov	ar4,r7
+      00088C 8A 82            [24] 2181 	mov	dpl,r2
+      00088E 8B 83            [24] 2182 	mov	dph,r3
+      000890 8C F0            [24] 2183 	mov	b,r4
+      000892 12 20 96         [24] 2184 	lcall	__gptrget
+      000895 FC               [12] 2185 	mov  r4,a
+      000896 24 F9            [12] 2186 	add	a,#0xff - 0x06
+      000898 50 01            [24] 2187 	jnc	00116$
+      00089A 22               [24] 2188 	ret
+      00089B                       2189 00116$:
+      00089B EC               [12] 2190 	mov	a,r4
+      00089C 2C               [12] 2191 	add	a,r4
+      00089D 2C               [12] 2192 	add	a,r4
+      00089E 90 08 A2         [24] 2193 	mov	dptr,#00117$
+      0008A1 73               [24] 2194 	jmp	@a+dptr
+      0008A2                       2195 00117$:
+      0008A2 02 09 CB         [24] 2196 	ljmp	00109$
+      0008A5 02 09 CB         [24] 2197 	ljmp	00109$
+      0008A8 02 09 CB         [24] 2198 	ljmp	00109$
+      0008AB 02 09 CB         [24] 2199 	ljmp	00109$
+      0008AE 02 08 B7         [24] 2200 	ljmp	00105$
+      0008B1 02 09 3B         [24] 2201 	ljmp	00106$
+      0008B4 02 09 B2         [24] 2202 	ljmp	00107$
+                                   2203 ;	src/main.c:652: case Type_SetLED :
+      0008B7                       2204 00105$:
+                                   2205 ;	src/main.c:653: LED_R = apstLineFiPkt->pu8Data[0];
+      0008B7 74 05            [12] 2206 	mov	a,#0x05
+      0008B9 2D               [12] 2207 	add	a,r5
+      0008BA F5 29            [12] 2208 	mov	_process_my_packet_sloc0_1_0,a
+      0008BC E4               [12] 2209 	clr	a
+      0008BD 3E               [12] 2210 	addc	a,r6
+      0008BE F5 2A            [12] 2211 	mov	(_process_my_packet_sloc0_1_0 + 1),a
+      0008C0 8F 2B            [24] 2212 	mov	(_process_my_packet_sloc0_1_0 + 2),r7
+      0008C2 85 29 82         [24] 2213 	mov	dpl,_process_my_packet_sloc0_1_0
+      0008C5 85 2A 83         [24] 2214 	mov	dph,(_process_my_packet_sloc0_1_0 + 1)
+      0008C8 85 2B F0         [24] 2215 	mov	b,(_process_my_packet_sloc0_1_0 + 2)
+      0008CB 12 20 96         [24] 2216 	lcall	__gptrget
+      0008CE F8               [12] 2217 	mov	r0,a
+      0008CF A3               [24] 2218 	inc	dptr
+      0008D0 12 20 96         [24] 2219 	lcall	__gptrget
+      0008D3 F9               [12] 2220 	mov	r1,a
+      0008D4 A3               [24] 2221 	inc	dptr
+      0008D5 12 20 96         [24] 2222 	lcall	__gptrget
+      0008D8 FC               [12] 2223 	mov	r4,a
+      0008D9 88 82            [24] 2224 	mov	dpl,r0
+      0008DB 89 83            [24] 2225 	mov	dph,r1
+      0008DD 8C F0            [24] 2226 	mov	b,r4
+      0008DF 12 20 96         [24] 2227 	lcall	__gptrget
+                                   2228 ;	assignBit
+      0008E2 24 FF            [12] 2229 	add	a,#0xff
+      0008E4 92 94            [24] 2230 	mov	_P14,c
+                                   2231 ;	src/main.c:654: LED_G = apstLineFiPkt->pu8Data[1];
+      0008E6 85 29 82         [24] 2232 	mov	dpl,_process_my_packet_sloc0_1_0
+      0008E9 85 2A 83         [24] 2233 	mov	dph,(_process_my_packet_sloc0_1_0 + 1)
+      0008EC 85 2B F0         [24] 2234 	mov	b,(_process_my_packet_sloc0_1_0 + 2)
+      0008EF 12 20 96         [24] 2235 	lcall	__gptrget
+      0008F2 FA               [12] 2236 	mov	r2,a
+      0008F3 A3               [24] 2237 	inc	dptr
+      0008F4 12 20 96         [24] 2238 	lcall	__gptrget
+      0008F7 FB               [12] 2239 	mov	r3,a
+      0008F8 A3               [24] 2240 	inc	dptr
+      0008F9 12 20 96         [24] 2241 	lcall	__gptrget
+      0008FC FC               [12] 2242 	mov	r4,a
+      0008FD 0A               [12] 2243 	inc	r2
+      0008FE BA 00 01         [24] 2244 	cjne	r2,#0x00,00118$
+      000901 0B               [12] 2245 	inc	r3
+      000902                       2246 00118$:
+      000902 8A 82            [24] 2247 	mov	dpl,r2
+      000904 8B 83            [24] 2248 	mov	dph,r3
+      000906 8C F0            [24] 2249 	mov	b,r4
+      000908 12 20 96         [24] 2250 	lcall	__gptrget
+                                   2251 ;	assignBit
+      00090B 24 FF            [12] 2252 	add	a,#0xff
+      00090D 92 93            [24] 2253 	mov	_P13,c
+                                   2254 ;	src/main.c:655: LED_B = apstLineFiPkt->pu8Data[2];
+      00090F 85 29 82         [24] 2255 	mov	dpl,_process_my_packet_sloc0_1_0
+      000912 85 2A 83         [24] 2256 	mov	dph,(_process_my_packet_sloc0_1_0 + 1)
+      000915 85 2B F0         [24] 2257 	mov	b,(_process_my_packet_sloc0_1_0 + 2)
+      000918 12 20 96         [24] 2258 	lcall	__gptrget
+      00091B FA               [12] 2259 	mov	r2,a
+      00091C A3               [24] 2260 	inc	dptr
+      00091D 12 20 96         [24] 2261 	lcall	__gptrget
+      000920 FB               [12] 2262 	mov	r3,a
+      000921 A3               [24] 2263 	inc	dptr
+      000922 12 20 96         [24] 2264 	lcall	__gptrget
+      000925 FC               [12] 2265 	mov	r4,a
+      000926 74 02            [12] 2266 	mov	a,#0x02
+      000928 2A               [12] 2267 	add	a,r2
+      000929 FA               [12] 2268 	mov	r2,a
+      00092A E4               [12] 2269 	clr	a
+      00092B 3B               [12] 2270 	addc	a,r3
+      00092C FB               [12] 2271 	mov	r3,a
+      00092D 8A 82            [24] 2272 	mov	dpl,r2
+      00092F 8B 83            [24] 2273 	mov	dph,r3
+      000931 8C F0            [24] 2274 	mov	b,r4
+      000933 12 20 96         [24] 2275 	lcall	__gptrget
+                                   2276 ;	assignBit
+      000936 24 FF            [12] 2277 	add	a,#0xff
+      000938 92 92            [24] 2278 	mov	_P12,c
+                                   2279 ;	src/main.c:656: break;
+      00093A 22               [24] 2280 	ret
+                                   2281 ;	src/main.c:657: case Type_CtrlMotor :
+      00093B                       2282 00106$:
+                                   2283 ;	src/main.c:658: MOTOR_EN = apstLineFiPkt->pu8Data[0];
+      00093B 74 05            [12] 2284 	mov	a,#0x05
+      00093D 2D               [12] 2285 	add	a,r5
+      00093E FD               [12] 2286 	mov	r5,a
+      00093F E4               [12] 2287 	clr	a
+      000940 3E               [12] 2288 	addc	a,r6
+      000941 FE               [12] 2289 	mov	r6,a
+      000942 8D 82            [24] 2290 	mov	dpl,r5
+      000944 8E 83            [24] 2291 	mov	dph,r6
+      000946 8F F0            [24] 2292 	mov	b,r7
+      000948 12 20 96         [24] 2293 	lcall	__gptrget
+      00094B FA               [12] 2294 	mov	r2,a
+      00094C A3               [24] 2295 	inc	dptr
+      00094D 12 20 96         [24] 2296 	lcall	__gptrget
+      000950 FB               [12] 2297 	mov	r3,a
+      000951 A3               [24] 2298 	inc	dptr
+      000952 12 20 96         [24] 2299 	lcall	__gptrget
+      000955 FC               [12] 2300 	mov	r4,a
+      000956 8A 82            [24] 2301 	mov	dpl,r2
+      000958 8B 83            [24] 2302 	mov	dph,r3
+      00095A 8C F0            [24] 2303 	mov	b,r4
+      00095C 12 20 96         [24] 2304 	lcall	__gptrget
+                                   2305 ;	assignBit
+      00095F 24 FF            [12] 2306 	add	a,#0xff
+      000961 92 90            [24] 2307 	mov	_P10,c
+                                   2308 ;	src/main.c:659: MOTOR_CW = apstLineFiPkt->pu8Data[1];
+      000963 8D 82            [24] 2309 	mov	dpl,r5
+      000965 8E 83            [24] 2310 	mov	dph,r6
+      000967 8F F0            [24] 2311 	mov	b,r7
+      000969 12 20 96         [24] 2312 	lcall	__gptrget
+      00096C FA               [12] 2313 	mov	r2,a
+      00096D A3               [24] 2314 	inc	dptr
+      00096E 12 20 96         [24] 2315 	lcall	__gptrget
+      000971 FB               [12] 2316 	mov	r3,a
+      000972 A3               [24] 2317 	inc	dptr
+      000973 12 20 96         [24] 2318 	lcall	__gptrget
+      000976 FC               [12] 2319 	mov	r4,a
+      000977 0A               [12] 2320 	inc	r2
+      000978 BA 00 01         [24] 2321 	cjne	r2,#0x00,00119$
+      00097B 0B               [12] 2322 	inc	r3
+      00097C                       2323 00119$:
+      00097C 8A 82            [24] 2324 	mov	dpl,r2
+      00097E 8B 83            [24] 2325 	mov	dph,r3
+      000980 8C F0            [24] 2326 	mov	b,r4
+      000982 12 20 96         [24] 2327 	lcall	__gptrget
+                                   2328 ;	assignBit
+      000985 24 FF            [12] 2329 	add	a,#0xff
+      000987 92 80            [24] 2330 	mov	_P00,c
+                                   2331 ;	src/main.c:660: MOTOR_CCW = apstLineFiPkt->pu8Data[2];
+      000989 8D 82            [24] 2332 	mov	dpl,r5
+      00098B 8E 83            [24] 2333 	mov	dph,r6
+      00098D 8F F0            [24] 2334 	mov	b,r7
+      00098F 12 20 96         [24] 2335 	lcall	__gptrget
+      000992 FD               [12] 2336 	mov	r5,a
+      000993 A3               [24] 2337 	inc	dptr
+      000994 12 20 96         [24] 2338 	lcall	__gptrget
+      000997 FE               [12] 2339 	mov	r6,a
+      000998 A3               [24] 2340 	inc	dptr
+      000999 12 20 96         [24] 2341 	lcall	__gptrget
+      00099C FF               [12] 2342 	mov	r7,a
+      00099D 74 02            [12] 2343 	mov	a,#0x02
+      00099F 2D               [12] 2344 	add	a,r5
+      0009A0 FD               [12] 2345 	mov	r5,a
+      0009A1 E4               [12] 2346 	clr	a
+      0009A2 3E               [12] 2347 	addc	a,r6
+      0009A3 FE               [12] 2348 	mov	r6,a
+      0009A4 8D 82            [24] 2349 	mov	dpl,r5
+      0009A6 8E 83            [24] 2350 	mov	dph,r6
+      0009A8 8F F0            [24] 2351 	mov	b,r7
+      0009AA 12 20 96         [24] 2352 	lcall	__gptrget
+                                   2353 ;	assignBit
+      0009AD 24 FF            [12] 2354 	add	a,#0xff
+      0009AF 92 81            [24] 2355 	mov	_P01,c
+                                   2356 ;	src/main.c:661: break;
+                                   2357 ;	src/main.c:662: case Type_ReadAddr :
+      0009B1 22               [24] 2358 	ret
+      0009B2                       2359 00107$:
+                                   2360 ;	src/main.c:663: printf_fast_f("My address is 0x%x\r\n", gu8MyAddr);
+      0009B2 AE 21            [24] 2361 	mov	r6,_gu8MyAddr
+      0009B4 7F 00            [12] 2362 	mov	r7,#0x00
+      0009B6 C0 06            [24] 2363 	push	ar6
+      0009B8 C0 07            [24] 2364 	push	ar7
+      0009BA 74 84            [12] 2365 	mov	a,#___str_23
+      0009BC C0 E0            [24] 2366 	push	acc
+      0009BE 74 22            [12] 2367 	mov	a,#(___str_23 >> 8)
+      0009C0 C0 E0            [24] 2368 	push	acc
+      0009C2 12 1B 52         [24] 2369 	lcall	_printf_fast_f
+      0009C5 E5 81            [12] 2370 	mov	a,sp
+      0009C7 24 FC            [12] 2371 	add	a,#0xfc
+      0009C9 F5 81            [12] 2372 	mov	sp,a
+                                   2373 ;	src/main.c:665: }
+      0009CB                       2374 00109$:
+                                   2375 ;	src/main.c:666: }
+      0009CB 22               [24] 2376 	ret
+                                   2377 ;------------------------------------------------------------
+                                   2378 ;Allocation info for local variables in function 'process_all_packet'
+                                   2379 ;------------------------------------------------------------
+                                   2380 ;apstLineFiPkt             Allocated to registers r5 r6 r7 
+                                   2381 ;------------------------------------------------------------
+                                   2382 ;	src/main.c:668: void process_all_packet(linefi_packet_t * apstLineFiPkt)
+                                   2383 ;	-----------------------------------------
+                                   2384 ;	 function process_all_packet
+                                   2385 ;	-----------------------------------------
+      0009CC                       2386 _process_all_packet:
+      0009CC AD 82            [24] 2387 	mov	r5,dpl
+      0009CE AE 83            [24] 2388 	mov	r6,dph
+      0009D0 AF F0            [24] 2389 	mov	r7,b
+                                   2390 ;	src/main.c:670: switch(apstLineFiPkt->u8Type) {
+      0009D2 74 01            [12] 2391 	mov	a,#0x01
+      0009D4 2D               [12] 2392 	add	a,r5
+      0009D5 FA               [12] 2393 	mov	r2,a
+      0009D6 E4               [12] 2394 	clr	a
+      0009D7 3E               [12] 2395 	addc	a,r6
+      0009D8 FB               [12] 2396 	mov	r3,a
+      0009D9 8F 04            [24] 2397 	mov	ar4,r7
+      0009DB 8A 82            [24] 2398 	mov	dpl,r2
+      0009DD 8B 83            [24] 2399 	mov	dph,r3
+      0009DF 8C F0            [24] 2400 	mov	b,r4
+      0009E1 12 20 96         [24] 2401 	lcall	__gptrget
+      0009E4 FC               [12] 2402 	mov  r4,a
+      0009E5 24 F9            [12] 2403 	add	a,#0xff - 0x06
+      0009E7 50 03            [24] 2404 	jnc	00132$
+      0009E9 02 0A 95         [24] 2405 	ljmp	00110$
+      0009EC                       2406 00132$:
+      0009EC EC               [12] 2407 	mov	a,r4
+      0009ED 2C               [12] 2408 	add	a,r4
+      0009EE 2C               [12] 2409 	add	a,r4
+      0009EF 90 09 F3         [24] 2410 	mov	dptr,#00133$
+      0009F2 73               [24] 2411 	jmp	@a+dptr
+      0009F3                       2412 00133$:
+      0009F3 02 0A B4         [24] 2413 	ljmp	00114$
+      0009F6 02 0A 5C         [24] 2414 	ljmp	00106$
+      0009F9 02 0A B4         [24] 2415 	ljmp	00114$
+      0009FC 02 0A 08         [24] 2416 	ljmp	00101$
+      0009FF 02 0A 95         [24] 2417 	ljmp	00110$
+      000A02 02 0A 95         [24] 2418 	ljmp	00110$
+      000A05 02 0A 7B         [24] 2419 	ljmp	00109$
+                                   2420 ;	src/main.c:671: case Type_SetAddr :
+      000A08                       2421 00101$:
+                                   2422 ;	src/main.c:672: if (SWITCH == SW_ON) {
+      000A08 20 95 01         [24] 2423 	jb	_P15,00134$
+      000A0B 22               [24] 2424 	ret
+      000A0C                       2425 00134$:
+                                   2426 ;	src/main.c:673: printf_fast_f("set address as %d\r\n", apstLineFiPkt->u8Addr);
+      000A0C 74 02            [12] 2427 	mov	a,#0x02
+      000A0E 2D               [12] 2428 	add	a,r5
+      000A0F FA               [12] 2429 	mov	r2,a
+      000A10 E4               [12] 2430 	clr	a
+      000A11 3E               [12] 2431 	addc	a,r6
+      000A12 FB               [12] 2432 	mov	r3,a
+      000A13 8F 04            [24] 2433 	mov	ar4,r7
+      000A15 8A 82            [24] 2434 	mov	dpl,r2
+      000A17 8B 83            [24] 2435 	mov	dph,r3
+      000A19 8C F0            [24] 2436 	mov	b,r4
+      000A1B 12 20 96         [24] 2437 	lcall	__gptrget
+      000A1E F8               [12] 2438 	mov	r0,a
+      000A1F 79 00            [12] 2439 	mov	r1,#0x00
+      000A21 C0 04            [24] 2440 	push	ar4
+      000A23 C0 03            [24] 2441 	push	ar3
+      000A25 C0 02            [24] 2442 	push	ar2
+      000A27 C0 00            [24] 2443 	push	ar0
+      000A29 C0 01            [24] 2444 	push	ar1
+      000A2B 74 99            [12] 2445 	mov	a,#___str_24
+      000A2D C0 E0            [24] 2446 	push	acc
+      000A2F 74 22            [12] 2447 	mov	a,#(___str_24 >> 8)
+      000A31 C0 E0            [24] 2448 	push	acc
+      000A33 12 1B 52         [24] 2449 	lcall	_printf_fast_f
+      000A36 E5 81            [12] 2450 	mov	a,sp
+      000A38 24 FC            [12] 2451 	add	a,#0xfc
+      000A3A F5 81            [12] 2452 	mov	sp,a
+      000A3C D0 02            [24] 2453 	pop	ar2
+      000A3E D0 03            [24] 2454 	pop	ar3
+      000A40 D0 04            [24] 2455 	pop	ar4
+                                   2456 ;	src/main.c:674: gu8MyAddr = apstLineFiPkt->u8Addr;
+      000A42 8A 82            [24] 2457 	mov	dpl,r2
+      000A44 8B 83            [24] 2458 	mov	dph,r3
+      000A46 8C F0            [24] 2459 	mov	b,r4
+      000A48 12 20 96         [24] 2460 	lcall	__gptrget
+      000A4B F5 21            [12] 2461 	mov	_gu8MyAddr,a
+                                   2462 ;	src/main.c:675: Erase_APROM_Page(BASE_ADDRESS);
+      000A4D 90 37 00         [24] 2463 	mov	dptr,#0x3700
+      000A50 12 11 4C         [24] 2464 	lcall	_Erase_APROM_Page
+                                   2465 ;	src/main.c:676: Write_APROM_BYTE(BASE_ADDRESS+0, gu8MyAddr);
+      000A53 85 21 10         [24] 2466 	mov	_Write_APROM_BYTE_PARM_2,_gu8MyAddr
+      000A56 90 37 00         [24] 2467 	mov	dptr,#0x3700
+                                   2468 ;	src/main.c:678: break;
+                                   2469 ;	src/main.c:683: case Type_Ucast :
+      000A59 02 11 60         [24] 2470 	ljmp	_Write_APROM_BYTE
+      000A5C                       2471 00106$:
+                                   2472 ;	src/main.c:684: if (gu8MyAddr == apstLineFiPkt->u8Addr) {
+      000A5C 74 02            [12] 2473 	mov	a,#0x02
+      000A5E 2D               [12] 2474 	add	a,r5
+      000A5F FA               [12] 2475 	mov	r2,a
+      000A60 E4               [12] 2476 	clr	a
+      000A61 3E               [12] 2477 	addc	a,r6
+      000A62 FB               [12] 2478 	mov	r3,a
+      000A63 8F 04            [24] 2479 	mov	ar4,r7
+      000A65 8A 82            [24] 2480 	mov	dpl,r2
+      000A67 8B 83            [24] 2481 	mov	dph,r3
+      000A69 8C F0            [24] 2482 	mov	b,r4
+      000A6B 12 20 96         [24] 2483 	lcall	__gptrget
+      000A6E FA               [12] 2484 	mov	r2,a
+      000A6F B5 21 42         [24] 2485 	cjne	a,_gu8MyAddr,00114$
+                                   2486 ;	src/main.c:685: process_my_packet(apstLineFiPkt);
+      000A72 8D 82            [24] 2487 	mov	dpl,r5
+      000A74 8E 83            [24] 2488 	mov	dph,r6
+      000A76 8F F0            [24] 2489 	mov	b,r7
+                                   2490 ;	src/main.c:687: break;
+                                   2491 ;	src/main.c:688: case Type_ReadAddr :
+      000A78 02 08 7D         [24] 2492 	ljmp	_process_my_packet
+      000A7B                       2493 00109$:
+                                   2494 ;	src/main.c:689: printf_fast_f("My address is %d\r\n", gu8MyAddr);
+      000A7B AB 21            [24] 2495 	mov	r3,_gu8MyAddr
+      000A7D 7C 00            [12] 2496 	mov	r4,#0x00
+      000A7F C0 03            [24] 2497 	push	ar3
+      000A81 C0 04            [24] 2498 	push	ar4
+      000A83 74 AD            [12] 2499 	mov	a,#___str_25
+      000A85 C0 E0            [24] 2500 	push	acc
+      000A87 74 22            [12] 2501 	mov	a,#(___str_25 >> 8)
+      000A89 C0 E0            [24] 2502 	push	acc
+      000A8B 12 1B 52         [24] 2503 	lcall	_printf_fast_f
+      000A8E E5 81            [12] 2504 	mov	a,sp
+      000A90 24 FC            [12] 2505 	add	a,#0xfc
+      000A92 F5 81            [12] 2506 	mov	sp,a
+                                   2507 ;	src/main.c:690: break;
+                                   2508 ;	src/main.c:691: default :
+      000A94 22               [24] 2509 	ret
+      000A95                       2510 00110$:
+                                   2511 ;	src/main.c:692: if (gu8MyAddr == apstLineFiPkt->u8Addr) {
+      000A95 74 02            [12] 2512 	mov	a,#0x02
+      000A97 2D               [12] 2513 	add	a,r5
+      000A98 FA               [12] 2514 	mov	r2,a
+      000A99 E4               [12] 2515 	clr	a
+      000A9A 3E               [12] 2516 	addc	a,r6
+      000A9B FB               [12] 2517 	mov	r3,a
+      000A9C 8F 04            [24] 2518 	mov	ar4,r7
+      000A9E 8A 82            [24] 2519 	mov	dpl,r2
+      000AA0 8B 83            [24] 2520 	mov	dph,r3
+      000AA2 8C F0            [24] 2521 	mov	b,r4
+      000AA4 12 20 96         [24] 2522 	lcall	__gptrget
+      000AA7 FA               [12] 2523 	mov	r2,a
+      000AA8 B5 21 09         [24] 2524 	cjne	a,_gu8MyAddr,00114$
+                                   2525 ;	src/main.c:693: process_my_packet(apstLineFiPkt);
+      000AAB 8D 82            [24] 2526 	mov	dpl,r5
+      000AAD 8E 83            [24] 2527 	mov	dph,r6
+      000AAF 8F F0            [24] 2528 	mov	b,r7
+                                   2529 ;	src/main.c:696: }
+                                   2530 ;	src/main.c:697: }
+      000AB1 02 08 7D         [24] 2531 	ljmp	_process_my_packet
+      000AB4                       2532 00114$:
+      000AB4 22               [24] 2533 	ret
+                                   2534 ;------------------------------------------------------------
+                                   2535 ;Allocation info for local variables in function 'print_one_octet_linefi'
+                                   2536 ;------------------------------------------------------------
+                                   2537 ;au8Data                   Allocated to registers r7 
+                                   2538 ;------------------------------------------------------------
+                                   2539 ;	src/main.c:699: void print_one_octet_linefi(UINT8 au8Data)
+                                   2540 ;	-----------------------------------------
+                                   2541 ;	 function print_one_octet_linefi
+                                   2542 ;	-----------------------------------------
+      000AB5                       2543 _print_one_octet_linefi:
+                                   2544 ;	src/main.c:701: printf_fast_f("address:%u\r\n", au8Data>>4);
+      000AB5 E5 82            [12] 2545 	mov	a,dpl
+      000AB7 FF               [12] 2546 	mov	r7,a
+      000AB8 C4               [12] 2547 	swap	a
+      000AB9 54 0F            [12] 2548 	anl	a,#0x0f
+      000ABB FE               [12] 2549 	mov	r6,a
+      000ABC 7D 00            [12] 2550 	mov	r5,#0x00
+      000ABE C0 07            [24] 2551 	push	ar7
+      000AC0 C0 06            [24] 2552 	push	ar6
+      000AC2 C0 05            [24] 2553 	push	ar5
+      000AC4 74 C0            [12] 2554 	mov	a,#___str_26
+      000AC6 C0 E0            [24] 2555 	push	acc
+      000AC8 74 22            [12] 2556 	mov	a,#(___str_26 >> 8)
+      000ACA C0 E0            [24] 2557 	push	acc
+      000ACC 12 1B 52         [24] 2558 	lcall	_printf_fast_f
+      000ACF E5 81            [12] 2559 	mov	a,sp
+      000AD1 24 FC            [12] 2560 	add	a,#0xfc
+      000AD3 F5 81            [12] 2561 	mov	sp,a
+      000AD5 D0 07            [24] 2562 	pop	ar7
+                                   2563 ;	src/main.c:702: printf_fast_f("command:%u\r\n", au8Data&0xF);
+      000AD7 53 07 0F         [24] 2564 	anl	ar7,#0x0f
+      000ADA 7E 00            [12] 2565 	mov	r6,#0x00
+      000ADC C0 07            [24] 2566 	push	ar7
+      000ADE C0 06            [24] 2567 	push	ar6
+      000AE0 74 CD            [12] 2568 	mov	a,#___str_27
+      000AE2 C0 E0            [24] 2569 	push	acc
+      000AE4 74 22            [12] 2570 	mov	a,#(___str_27 >> 8)
+      000AE6 C0 E0            [24] 2571 	push	acc
+      000AE8 12 1B 52         [24] 2572 	lcall	_printf_fast_f
+      000AEB E5 81            [12] 2573 	mov	a,sp
+      000AED 24 FC            [12] 2574 	add	a,#0xfc
+      000AEF F5 81            [12] 2575 	mov	sp,a
+                                   2576 ;	src/main.c:703: }
+      000AF1 22               [24] 2577 	ret
+                                   2578 ;------------------------------------------------------------
+                                   2579 ;Allocation info for local variables in function 'main'
+                                   2580 ;------------------------------------------------------------
+                                   2581 ;su8Cnt                    Allocated with name '_main_su8Cnt_262145_138'
+                                   2582 ;u8PrevSwitch              Allocated to registers r5 
+                                   2583 ;u8UartRx                  Allocated to registers 
+                                   2584 ;u8RotSense                Allocated to registers 
+                                   2585 ;u8RxUART                  Allocated with name '_main_u8RxUART_65536_128'
+                                   2586 ;u16Cnt                    Allocated to registers r4 r5 
+                                   2587 ;u8OutputState             Allocated to registers 
+                                   2588 ;u8LineFiAddr              Allocated to registers 
+                                   2589 ;u8LineFiSpeed             Allocated to registers 
+                                   2590 ;u8Data                    Allocated to registers 
+                                   2591 ;u8LineFiCmd               Allocated to registers 
+                                   2592 ;u8PwrOnFirstFlag          Allocated to registers 
+                                   2593 ;u8StateRxLFP              Allocated to registers r7 
+                                   2594 ;stLineFiPkt               Allocated with name '_main_stLineFiPkt_65536_128'
+                                   2595 ;u8MotorState              Allocated to registers 
+                                   2596 ;u8RxIdx                   Allocated to registers r6 
+                                   2597 ;pu8LineFiRx               Allocated with name '_main_pu8LineFiRx_65536_128'
+                                   2598 ;u8LineFiRxIdx             Allocated to registers 
+                                   2599 ;u8Count2                  Allocated to registers 
+                                   2600 ;u8RxPktCnt                Allocated to registers 
+                                   2601 ;u8PreambleCnt             Allocated to registers 
+                                   2602 ;pu8RxUART                 Allocated with name '_main_pu8RxUART_65536_128'
+                                   2603 ;------------------------------------------------------------
+                                   2604 ;	src/main.c:708: void main (void)
+                                   2605 ;	-----------------------------------------
+                                   2606 ;	 function main
+                                   2607 ;	-----------------------------------------
+      000AF2                       2608 _main:
+                                   2609 ;	src/main.c:728: UINT8 u8StateRxLFP = STATE_RxLFP_INIT; // State Rx LineFi Packet
+      000AF2 7F 00            [12] 2610 	mov	r7,#0x00
+                                   2611 ;	src/main.c:732: linefi_packet_t stLineFiPkt = {
+      000AF4 75 2E 01         [24] 2612 	mov	_main_stLineFiPkt_65536_128,#0x01
+      000AF7 75 2F 02         [24] 2613 	mov	(_main_stLineFiPkt_65536_128 + 0x0001),#0x02
+      000AFA 75 30 03         [24] 2614 	mov	(_main_stLineFiPkt_65536_128 + 0x0002),#0x03
+      000AFD 75 31 04         [24] 2615 	mov	(_main_stLineFiPkt_65536_128 + 0x0003),#0x04
+      000B00 75 32 05         [24] 2616 	mov	(_main_stLineFiPkt_65536_128 + 0x0004),#0x05
+      000B03 75 33 01         [24] 2617 	mov	((_main_stLineFiPkt_65536_128 + 0x0005) + 0),#_gpu8Data
+      000B06 75 34 00         [24] 2618 	mov	((_main_stLineFiPkt_65536_128 + 0x0005) + 1),#(_gpu8Data >> 8)
+                                   2619 ;	1-genFromRTrack replaced	mov	((_main_stLineFiPkt_65536_128 + 0x0005) + 2),#0x00
+      000B09 8F 35            [24] 2620 	mov	((_main_stLineFiPkt_65536_128 + 0x0005) + 2),r7
+                                   2621 ;	src/main.c:744: UINT8 u8RxIdx = 0;
+      000B0B 7E 00            [12] 2622 	mov	r6,#0x00
+                                   2623 ;	src/main.c:749: gpio_setup();
+      000B0D C0 07            [24] 2624 	push	ar7
+      000B0F C0 06            [24] 2625 	push	ar6
+      000B11 12 06 CD         [24] 2626 	lcall	_gpio_setup
+                                   2627 ;	src/main.c:750: uart_setup();
+      000B14 12 1B 36         [24] 2628 	lcall	_uart_setup
+                                   2629 ;	src/main.c:751: InitialUART1_Timer3(115200); // RX에서 받는 타이밍? interrupt하는 주기?
+      000B17 90 C2 00         [24] 2630 	mov	dptr,#0xc200
+      000B1A 75 F0 01         [24] 2631 	mov	b,#0x01
+      000B1D E4               [12] 2632 	clr	a
+      000B1E 12 1A B9         [24] 2633 	lcall	_InitialUART1_Timer3
+                                   2634 ;	src/main.c:753: MODIFY_HIRC_166();
+      000B21 12 05 53         [24] 2635 	lcall	_MODIFY_HIRC_166
+                                   2636 ;	src/main.c:755: clr_T0M;// 16/12 MHz
+      000B24 53 8E F7         [24] 2637 	anl	_CKCON,#0xf7
+                                   2638 ;	src/main.c:758: set_ET0;                                    //enable Timer0 interrupt
+                                   2639 ;	assignBit
+      000B27 D2 A9            [12] 2640 	setb	_ET0
+                                   2641 ;	src/main.c:759: set_TR0;                                    //Timer0 run
+                                   2642 ;	assignBit
+      000B29 D2 8C            [12] 2643 	setb	_TR0
+                                   2644 ;	src/main.c:761: gu8UART = 0;
+      000B2B 75 22 00         [24] 2645 	mov	_gu8UART,#0x00
+                                   2646 ;	src/main.c:762: printf_fast_f("This is UART0\n\r");
+      000B2E 74 DA            [12] 2647 	mov	a,#___str_28
+      000B30 C0 E0            [24] 2648 	push	acc
+      000B32 74 22            [12] 2649 	mov	a,#(___str_28 >> 8)
+      000B34 C0 E0            [24] 2650 	push	acc
+      000B36 12 1B 52         [24] 2651 	lcall	_printf_fast_f
+      000B39 15 81            [12] 2652 	dec	sp
+      000B3B 15 81            [12] 2653 	dec	sp
+                                   2654 ;	src/main.c:763: printf_fast_f("LineFi Sniffer\n\r");
+      000B3D 74 EA            [12] 2655 	mov	a,#___str_29
+      000B3F C0 E0            [24] 2656 	push	acc
+      000B41 74 22            [12] 2657 	mov	a,#(___str_29 >> 8)
+      000B43 C0 E0            [24] 2658 	push	acc
+      000B45 12 1B 52         [24] 2659 	lcall	_printf_fast_f
+      000B48 15 81            [12] 2660 	dec	sp
+      000B4A 15 81            [12] 2661 	dec	sp
+                                   2662 ;	src/main.c:764: gu8UART = 1;
+      000B4C 75 22 01         [24] 2663 	mov	_gu8UART,#0x01
+                                   2664 ;	src/main.c:765: printf_fast_f("This is UART1\n\r");
+      000B4F 74 FB            [12] 2665 	mov	a,#___str_30
+      000B51 C0 E0            [24] 2666 	push	acc
+      000B53 74 22            [12] 2667 	mov	a,#(___str_30 >> 8)
+      000B55 C0 E0            [24] 2668 	push	acc
+      000B57 12 1B 52         [24] 2669 	lcall	_printf_fast_f
+      000B5A 15 81            [12] 2670 	dec	sp
+      000B5C 15 81            [12] 2671 	dec	sp
+      000B5E D0 06            [24] 2672 	pop	ar6
+      000B60 D0 07            [24] 2673 	pop	ar7
+                                   2674 ;	src/main.c:770: for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
+      000B62 7C 30            [12] 2675 	mov	r4,#0x30
+      000B64 7D 75            [12] 2676 	mov	r5,#0x75
+      000B66                       2677 00144$:
+                                   2678 ;	src/main.c:771: nop; nop; nop; nop; nop;
+      000B66 00               [12] 2679 	NOP
+      000B67 00               [12] 2680 	NOP
+      000B68 00               [12] 2681 	NOP
+      000B69 00               [12] 2682 	NOP
+      000B6A 00               [12] 2683 	NOP
+      000B6B EC               [12] 2684 	mov	a,r4
+      000B6C 24 FF            [12] 2685 	add	a,#0xff
+      000B6E FA               [12] 2686 	mov	r2,a
+      000B6F ED               [12] 2687 	mov	a,r5
+      000B70 34 FF            [12] 2688 	addc	a,#0xff
+      000B72 FB               [12] 2689 	mov	r3,a
+      000B73 8A 04            [24] 2690 	mov	ar4,r2
+      000B75 8B 05            [24] 2691 	mov	ar5,r3
+                                   2692 ;	src/main.c:770: for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
+      000B77 EA               [12] 2693 	mov	a,r2
+      000B78 4B               [12] 2694 	orl	a,r3
+                                   2695 ;	src/main.c:773: gu8UART = 0;
+      000B79 70 EB            [24] 2696 	jnz	00144$
+      000B7B F5 22            [12] 2697 	mov	_gu8UART,a
+                                   2698 ;	src/main.c:775: u8UartRx = UART_RX;
+      000B7D A2 82            [12] 2699 	mov	c,_P02
+                                   2700 ;	src/main.c:776: u8PrevSwitch = SWITCH;
+      000B7F A2 95            [12] 2701 	mov	c,_P15
+      000B81 E4               [12] 2702 	clr	a
+      000B82 33               [12] 2703 	rlc	a
+      000B83 FD               [12] 2704 	mov	r5,a
+                                   2705 ;	src/main.c:778: set_EPI;
+      000B84 43 9B 02         [24] 2706 	orl	_EIE,#0x02
+                                   2707 ;	src/main.c:779: set_EA;
+                                   2708 ;	assignBit
+      000B87 D2 AF            [12] 2709 	setb	_EA
+                                   2710 ;	src/main.c:781: if (UART_RX == 0) {
+      000B89 20 82 02         [24] 2711 	jb	_P02,00103$
+                                   2712 ;	src/main.c:782: SEL_RX_POL = 1;
+                                   2713 ;	assignBit
+      000B8C D2 84            [12] 2714 	setb	_P04
+      000B8E                       2715 00103$:
+                                   2716 ;	src/main.c:784: MOTOR_EN = 1;
+                                   2717 ;	assignBit
+      000B8E D2 90            [12] 2718 	setb	_P10
+                                   2719 ;	src/main.c:786: gu8MyAddr = gpcEEPROM[0]; // 0x00이면 펌웨어 쓴 직후
+      000B90 90 37 00         [24] 2720 	mov	dptr,#_gpcEEPROM
+      000B93 E4               [12] 2721 	clr	a
+      000B94 93               [24] 2722 	movc	a,@a+dptr
+      000B95 F5 21            [12] 2723 	mov	_gu8MyAddr,a
+                                   2724 ;	src/main.c:788: while(1) {
+      000B97                       2725 00140$:
+                                   2726 ;	src/main.c:791: if (Receive_Data_From_UART0_nb(&u8RxUART)) {
+      000B97 90 00 2D         [24] 2727 	mov	dptr,#_main_u8RxUART_65536_128
+      000B9A 75 F0 40         [24] 2728 	mov	b,#0x40
+      000B9D C0 07            [24] 2729 	push	ar7
+      000B9F C0 06            [24] 2730 	push	ar6
+      000BA1 C0 05            [24] 2731 	push	ar5
+      000BA3 12 1A 91         [24] 2732 	lcall	_Receive_Data_From_UART0_nb
+      000BA6 E5 82            [12] 2733 	mov	a,dpl
+      000BA8 D0 05            [24] 2734 	pop	ar5
+      000BAA D0 06            [24] 2735 	pop	ar6
+      000BAC D0 07            [24] 2736 	pop	ar7
+      000BAE 70 03            [24] 2737 	jnz	00253$
+      000BB0 02 0E 00         [24] 2738 	ljmp	00115$
+      000BB3                       2739 00253$:
+                                   2740 ;	src/main.c:792: switch(u8RxUART) {
+      000BB3 74 31            [12] 2741 	mov	a,#0x31
+      000BB5 B5 2D 02         [24] 2742 	cjne	a,_main_u8RxUART_65536_128,00254$
+      000BB8 80 42            [24] 2743 	sjmp	00104$
+      000BBA                       2744 00254$:
+      000BBA 74 32            [12] 2745 	mov	a,#0x32
+      000BBC B5 2D 02         [24] 2746 	cjne	a,_main_u8RxUART_65536_128,00255$
+      000BBF 80 77            [24] 2747 	sjmp	00105$
+      000BC1                       2748 00255$:
+      000BC1 74 33            [12] 2749 	mov	a,#0x33
+      000BC3 B5 2D 03         [24] 2750 	cjne	a,_main_u8RxUART_65536_128,00256$
+      000BC6 02 0C 74         [24] 2751 	ljmp	00106$
+      000BC9                       2752 00256$:
+      000BC9 74 34            [12] 2753 	mov	a,#0x34
+      000BCB B5 2D 03         [24] 2754 	cjne	a,_main_u8RxUART_65536_128,00257$
+      000BCE 02 0C B0         [24] 2755 	ljmp	00107$
+      000BD1                       2756 00257$:
+      000BD1 74 35            [12] 2757 	mov	a,#0x35
+      000BD3 B5 2D 03         [24] 2758 	cjne	a,_main_u8RxUART_65536_128,00258$
+      000BD6 02 0C EC         [24] 2759 	ljmp	00108$
+      000BD9                       2760 00258$:
+      000BD9 74 36            [12] 2761 	mov	a,#0x36
+      000BDB B5 2D 03         [24] 2762 	cjne	a,_main_u8RxUART_65536_128,00259$
+      000BDE 02 0D 28         [24] 2763 	ljmp	00109$
+      000BE1                       2764 00259$:
+      000BE1 74 37            [12] 2765 	mov	a,#0x37
+      000BE3 B5 2D 03         [24] 2766 	cjne	a,_main_u8RxUART_65536_128,00260$
+      000BE6 02 0D 64         [24] 2767 	ljmp	00110$
+      000BE9                       2768 00260$:
+      000BE9 74 38            [12] 2769 	mov	a,#0x38
+      000BEB B5 2D 03         [24] 2770 	cjne	a,_main_u8RxUART_65536_128,00261$
+      000BEE 02 0D 9F         [24] 2771 	ljmp	00111$
+      000BF1                       2772 00261$:
+      000BF1 74 74            [12] 2773 	mov	a,#0x74
+      000BF3 B5 2D 03         [24] 2774 	cjne	a,_main_u8RxUART_65536_128,00262$
+      000BF6 02 0D DA         [24] 2775 	ljmp	00112$
+      000BF9                       2776 00262$:
+      000BF9 02 0E 00         [24] 2777 	ljmp	00115$
+                                   2778 ;	src/main.c:793: case '1' :
+      000BFC                       2779 00104$:
+                                   2780 ;	src/main.c:794: TOGGLE(UART_TX);
+      000BFC B2 96            [12] 2781 	cpl	_P16
+                                   2782 ;	src/main.c:795: printf_fast_f("UART_TX=");
+      000BFE C0 07            [24] 2783 	push	ar7
+      000C00 C0 06            [24] 2784 	push	ar6
+      000C02 C0 05            [24] 2785 	push	ar5
+      000C04 74 0B            [12] 2786 	mov	a,#___str_31
+      000C06 C0 E0            [24] 2787 	push	acc
+      000C08 74 23            [12] 2788 	mov	a,#(___str_31 >> 8)
+      000C0A C0 E0            [24] 2789 	push	acc
+      000C0C 12 1B 52         [24] 2790 	lcall	_printf_fast_f
+      000C0F 15 81            [12] 2791 	dec	sp
+      000C11 15 81            [12] 2792 	dec	sp
+                                   2793 ;	src/main.c:796: printf_fast_f("%d\n\r", UART_TX);
+      000C13 A2 96            [12] 2794 	mov	c,_P16
+      000C15 E4               [12] 2795 	clr	a
+      000C16 33               [12] 2796 	rlc	a
+      000C17 FB               [12] 2797 	mov	r3,a
+      000C18 7C 00            [12] 2798 	mov	r4,#0x00
+      000C1A C0 03            [24] 2799 	push	ar3
+      000C1C C0 04            [24] 2800 	push	ar4
+      000C1E 74 14            [12] 2801 	mov	a,#___str_32
+      000C20 C0 E0            [24] 2802 	push	acc
+      000C22 74 23            [12] 2803 	mov	a,#(___str_32 >> 8)
+      000C24 C0 E0            [24] 2804 	push	acc
+      000C26 12 1B 52         [24] 2805 	lcall	_printf_fast_f
+      000C29 E5 81            [12] 2806 	mov	a,sp
+      000C2B 24 FC            [12] 2807 	add	a,#0xfc
+      000C2D F5 81            [12] 2808 	mov	sp,a
+      000C2F D0 05            [24] 2809 	pop	ar5
+      000C31 D0 06            [24] 2810 	pop	ar6
+      000C33 D0 07            [24] 2811 	pop	ar7
+                                   2812 ;	src/main.c:797: break;
+      000C35 02 0E 00         [24] 2813 	ljmp	00115$
+                                   2814 ;	src/main.c:798: case '2' :
+      000C38                       2815 00105$:
+                                   2816 ;	src/main.c:799: TOGGLE(LED_R);
+      000C38 B2 94            [12] 2817 	cpl	_P14
+                                   2818 ;	src/main.c:800: printf_fast_f("LED_R=");
+      000C3A C0 07            [24] 2819 	push	ar7
+      000C3C C0 06            [24] 2820 	push	ar6
+      000C3E C0 05            [24] 2821 	push	ar5
+      000C40 74 19            [12] 2822 	mov	a,#___str_33
+      000C42 C0 E0            [24] 2823 	push	acc
+      000C44 74 23            [12] 2824 	mov	a,#(___str_33 >> 8)
+      000C46 C0 E0            [24] 2825 	push	acc
+      000C48 12 1B 52         [24] 2826 	lcall	_printf_fast_f
+      000C4B 15 81            [12] 2827 	dec	sp
+      000C4D 15 81            [12] 2828 	dec	sp
+                                   2829 ;	src/main.c:801: printf_fast_f("%d\n\r", LED_R);
+      000C4F A2 94            [12] 2830 	mov	c,_P14
+      000C51 E4               [12] 2831 	clr	a
+      000C52 33               [12] 2832 	rlc	a
+      000C53 FB               [12] 2833 	mov	r3,a
+      000C54 7C 00            [12] 2834 	mov	r4,#0x00
+      000C56 C0 03            [24] 2835 	push	ar3
+      000C58 C0 04            [24] 2836 	push	ar4
+      000C5A 74 14            [12] 2837 	mov	a,#___str_32
+      000C5C C0 E0            [24] 2838 	push	acc
+      000C5E 74 23            [12] 2839 	mov	a,#(___str_32 >> 8)
+      000C60 C0 E0            [24] 2840 	push	acc
+      000C62 12 1B 52         [24] 2841 	lcall	_printf_fast_f
+      000C65 E5 81            [12] 2842 	mov	a,sp
+      000C67 24 FC            [12] 2843 	add	a,#0xfc
+      000C69 F5 81            [12] 2844 	mov	sp,a
+      000C6B D0 05            [24] 2845 	pop	ar5
+      000C6D D0 06            [24] 2846 	pop	ar6
+      000C6F D0 07            [24] 2847 	pop	ar7
+                                   2848 ;	src/main.c:802: break;
+      000C71 02 0E 00         [24] 2849 	ljmp	00115$
+                                   2850 ;	src/main.c:803: case '3' :
+      000C74                       2851 00106$:
+                                   2852 ;	src/main.c:804: TOGGLE(LED_G);
+      000C74 B2 93            [12] 2853 	cpl	_P13
+                                   2854 ;	src/main.c:805: printf_fast_f("LED_G=");
+      000C76 C0 07            [24] 2855 	push	ar7
+      000C78 C0 06            [24] 2856 	push	ar6
+      000C7A C0 05            [24] 2857 	push	ar5
+      000C7C 74 20            [12] 2858 	mov	a,#___str_34
+      000C7E C0 E0            [24] 2859 	push	acc
+      000C80 74 23            [12] 2860 	mov	a,#(___str_34 >> 8)
+      000C82 C0 E0            [24] 2861 	push	acc
+      000C84 12 1B 52         [24] 2862 	lcall	_printf_fast_f
+      000C87 15 81            [12] 2863 	dec	sp
+      000C89 15 81            [12] 2864 	dec	sp
+                                   2865 ;	src/main.c:806: printf_fast_f("%d\n\r", LED_G);
+      000C8B A2 93            [12] 2866 	mov	c,_P13
+      000C8D E4               [12] 2867 	clr	a
+      000C8E 33               [12] 2868 	rlc	a
+      000C8F FB               [12] 2869 	mov	r3,a
+      000C90 7C 00            [12] 2870 	mov	r4,#0x00
+      000C92 C0 03            [24] 2871 	push	ar3
+      000C94 C0 04            [24] 2872 	push	ar4
+      000C96 74 14            [12] 2873 	mov	a,#___str_32
+      000C98 C0 E0            [24] 2874 	push	acc
+      000C9A 74 23            [12] 2875 	mov	a,#(___str_32 >> 8)
+      000C9C C0 E0            [24] 2876 	push	acc
+      000C9E 12 1B 52         [24] 2877 	lcall	_printf_fast_f
+      000CA1 E5 81            [12] 2878 	mov	a,sp
+      000CA3 24 FC            [12] 2879 	add	a,#0xfc
+      000CA5 F5 81            [12] 2880 	mov	sp,a
+      000CA7 D0 05            [24] 2881 	pop	ar5
+      000CA9 D0 06            [24] 2882 	pop	ar6
+      000CAB D0 07            [24] 2883 	pop	ar7
+                                   2884 ;	src/main.c:807: break;
+      000CAD 02 0E 00         [24] 2885 	ljmp	00115$
+                                   2886 ;	src/main.c:808: case '4' :
+      000CB0                       2887 00107$:
+                                   2888 ;	src/main.c:809: TOGGLE(LED_B);
+      000CB0 B2 92            [12] 2889 	cpl	_P12
+                                   2890 ;	src/main.c:810: printf_fast_f("LED_B=");
+      000CB2 C0 07            [24] 2891 	push	ar7
+      000CB4 C0 06            [24] 2892 	push	ar6
+      000CB6 C0 05            [24] 2893 	push	ar5
+      000CB8 74 27            [12] 2894 	mov	a,#___str_35
+      000CBA C0 E0            [24] 2895 	push	acc
+      000CBC 74 23            [12] 2896 	mov	a,#(___str_35 >> 8)
+      000CBE C0 E0            [24] 2897 	push	acc
+      000CC0 12 1B 52         [24] 2898 	lcall	_printf_fast_f
+      000CC3 15 81            [12] 2899 	dec	sp
+      000CC5 15 81            [12] 2900 	dec	sp
+                                   2901 ;	src/main.c:811: printf_fast_f("%d\n\r", LED_B);
+      000CC7 A2 92            [12] 2902 	mov	c,_P12
+      000CC9 E4               [12] 2903 	clr	a
+      000CCA 33               [12] 2904 	rlc	a
+      000CCB FB               [12] 2905 	mov	r3,a
+      000CCC 7C 00            [12] 2906 	mov	r4,#0x00
+      000CCE C0 03            [24] 2907 	push	ar3
+      000CD0 C0 04            [24] 2908 	push	ar4
+      000CD2 74 14            [12] 2909 	mov	a,#___str_32
+      000CD4 C0 E0            [24] 2910 	push	acc
+      000CD6 74 23            [12] 2911 	mov	a,#(___str_32 >> 8)
+      000CD8 C0 E0            [24] 2912 	push	acc
+      000CDA 12 1B 52         [24] 2913 	lcall	_printf_fast_f
+      000CDD E5 81            [12] 2914 	mov	a,sp
+      000CDF 24 FC            [12] 2915 	add	a,#0xfc
+      000CE1 F5 81            [12] 2916 	mov	sp,a
+      000CE3 D0 05            [24] 2917 	pop	ar5
+      000CE5 D0 06            [24] 2918 	pop	ar6
+      000CE7 D0 07            [24] 2919 	pop	ar7
+                                   2920 ;	src/main.c:812: break;
+      000CE9 02 0E 00         [24] 2921 	ljmp	00115$
+                                   2922 ;	src/main.c:813: case '5' :
+      000CEC                       2923 00108$:
+                                   2924 ;	src/main.c:814: TOGGLE(MOTOR_EN);
+      000CEC B2 90            [12] 2925 	cpl	_P10
+                                   2926 ;	src/main.c:815: printf_fast_f("MOTOR_EN=");
+      000CEE C0 07            [24] 2927 	push	ar7
+      000CF0 C0 06            [24] 2928 	push	ar6
+      000CF2 C0 05            [24] 2929 	push	ar5
+      000CF4 74 2E            [12] 2930 	mov	a,#___str_36
+      000CF6 C0 E0            [24] 2931 	push	acc
+      000CF8 74 23            [12] 2932 	mov	a,#(___str_36 >> 8)
+      000CFA C0 E0            [24] 2933 	push	acc
+      000CFC 12 1B 52         [24] 2934 	lcall	_printf_fast_f
+      000CFF 15 81            [12] 2935 	dec	sp
+      000D01 15 81            [12] 2936 	dec	sp
+                                   2937 ;	src/main.c:816: printf_fast_f("%d\n\r", MOTOR_EN);
+      000D03 A2 90            [12] 2938 	mov	c,_P10
+      000D05 E4               [12] 2939 	clr	a
+      000D06 33               [12] 2940 	rlc	a
+      000D07 FB               [12] 2941 	mov	r3,a
+      000D08 7C 00            [12] 2942 	mov	r4,#0x00
+      000D0A C0 03            [24] 2943 	push	ar3
+      000D0C C0 04            [24] 2944 	push	ar4
+      000D0E 74 14            [12] 2945 	mov	a,#___str_32
+      000D10 C0 E0            [24] 2946 	push	acc
+      000D12 74 23            [12] 2947 	mov	a,#(___str_32 >> 8)
+      000D14 C0 E0            [24] 2948 	push	acc
+      000D16 12 1B 52         [24] 2949 	lcall	_printf_fast_f
+      000D19 E5 81            [12] 2950 	mov	a,sp
+      000D1B 24 FC            [12] 2951 	add	a,#0xfc
+      000D1D F5 81            [12] 2952 	mov	sp,a
+      000D1F D0 05            [24] 2953 	pop	ar5
+      000D21 D0 06            [24] 2954 	pop	ar6
+      000D23 D0 07            [24] 2955 	pop	ar7
+                                   2956 ;	src/main.c:817: break;
+      000D25 02 0E 00         [24] 2957 	ljmp	00115$
+                                   2958 ;	src/main.c:818: case '6' :
+      000D28                       2959 00109$:
+                                   2960 ;	src/main.c:819: TOGGLE(MOTOR_CW);
+      000D28 B2 80            [12] 2961 	cpl	_P00
+                                   2962 ;	src/main.c:820: printf_fast_f("MOTOR_CW=");
+      000D2A C0 07            [24] 2963 	push	ar7
+      000D2C C0 06            [24] 2964 	push	ar6
+      000D2E C0 05            [24] 2965 	push	ar5
+      000D30 74 38            [12] 2966 	mov	a,#___str_37
+      000D32 C0 E0            [24] 2967 	push	acc
+      000D34 74 23            [12] 2968 	mov	a,#(___str_37 >> 8)
+      000D36 C0 E0            [24] 2969 	push	acc
+      000D38 12 1B 52         [24] 2970 	lcall	_printf_fast_f
+      000D3B 15 81            [12] 2971 	dec	sp
+      000D3D 15 81            [12] 2972 	dec	sp
+                                   2973 ;	src/main.c:821: printf_fast_f("%d\n\r", MOTOR_CW);
+      000D3F A2 80            [12] 2974 	mov	c,_P00
+      000D41 E4               [12] 2975 	clr	a
+      000D42 33               [12] 2976 	rlc	a
+      000D43 FB               [12] 2977 	mov	r3,a
+      000D44 7C 00            [12] 2978 	mov	r4,#0x00
+      000D46 C0 03            [24] 2979 	push	ar3
+      000D48 C0 04            [24] 2980 	push	ar4
+      000D4A 74 14            [12] 2981 	mov	a,#___str_32
+      000D4C C0 E0            [24] 2982 	push	acc
+      000D4E 74 23            [12] 2983 	mov	a,#(___str_32 >> 8)
+      000D50 C0 E0            [24] 2984 	push	acc
+      000D52 12 1B 52         [24] 2985 	lcall	_printf_fast_f
+      000D55 E5 81            [12] 2986 	mov	a,sp
+      000D57 24 FC            [12] 2987 	add	a,#0xfc
+      000D59 F5 81            [12] 2988 	mov	sp,a
+      000D5B D0 05            [24] 2989 	pop	ar5
+      000D5D D0 06            [24] 2990 	pop	ar6
+      000D5F D0 07            [24] 2991 	pop	ar7
+                                   2992 ;	src/main.c:822: break;
+      000D61 02 0E 00         [24] 2993 	ljmp	00115$
+                                   2994 ;	src/main.c:823: case '7' :
+      000D64                       2995 00110$:
+                                   2996 ;	src/main.c:824: TOGGLE(MOTOR_CCW);
+      000D64 B2 81            [12] 2997 	cpl	_P01
+                                   2998 ;	src/main.c:825: printf_fast_f("MOTOR_CCW=");
+      000D66 C0 07            [24] 2999 	push	ar7
+      000D68 C0 06            [24] 3000 	push	ar6
+      000D6A C0 05            [24] 3001 	push	ar5
+      000D6C 74 42            [12] 3002 	mov	a,#___str_38
+      000D6E C0 E0            [24] 3003 	push	acc
+      000D70 74 23            [12] 3004 	mov	a,#(___str_38 >> 8)
+      000D72 C0 E0            [24] 3005 	push	acc
+      000D74 12 1B 52         [24] 3006 	lcall	_printf_fast_f
+      000D77 15 81            [12] 3007 	dec	sp
+      000D79 15 81            [12] 3008 	dec	sp
+                                   3009 ;	src/main.c:826: printf_fast_f("%d\n\r", MOTOR_CCW);
+      000D7B A2 81            [12] 3010 	mov	c,_P01
+      000D7D E4               [12] 3011 	clr	a
+      000D7E 33               [12] 3012 	rlc	a
+      000D7F FB               [12] 3013 	mov	r3,a
+      000D80 7C 00            [12] 3014 	mov	r4,#0x00
+      000D82 C0 03            [24] 3015 	push	ar3
+      000D84 C0 04            [24] 3016 	push	ar4
+      000D86 74 14            [12] 3017 	mov	a,#___str_32
+      000D88 C0 E0            [24] 3018 	push	acc
+      000D8A 74 23            [12] 3019 	mov	a,#(___str_32 >> 8)
+      000D8C C0 E0            [24] 3020 	push	acc
+      000D8E 12 1B 52         [24] 3021 	lcall	_printf_fast_f
+      000D91 E5 81            [12] 3022 	mov	a,sp
+      000D93 24 FC            [12] 3023 	add	a,#0xfc
+      000D95 F5 81            [12] 3024 	mov	sp,a
+      000D97 D0 05            [24] 3025 	pop	ar5
+      000D99 D0 06            [24] 3026 	pop	ar6
+      000D9B D0 07            [24] 3027 	pop	ar7
+                                   3028 ;	src/main.c:827: break;
+                                   3029 ;	src/main.c:828: case '8' :
+      000D9D 80 61            [24] 3030 	sjmp	00115$
+      000D9F                       3031 00111$:
+                                   3032 ;	src/main.c:829: TOGGLE(SEL_RX_POL);
+      000D9F B2 84            [12] 3033 	cpl	_P04
+                                   3034 ;	src/main.c:830: printf_fast_f("SEL_RX_POL=");
+      000DA1 C0 07            [24] 3035 	push	ar7
+      000DA3 C0 06            [24] 3036 	push	ar6
+      000DA5 C0 05            [24] 3037 	push	ar5
+      000DA7 74 4D            [12] 3038 	mov	a,#___str_39
+      000DA9 C0 E0            [24] 3039 	push	acc
+      000DAB 74 23            [12] 3040 	mov	a,#(___str_39 >> 8)
+      000DAD C0 E0            [24] 3041 	push	acc
+      000DAF 12 1B 52         [24] 3042 	lcall	_printf_fast_f
+      000DB2 15 81            [12] 3043 	dec	sp
+      000DB4 15 81            [12] 3044 	dec	sp
+                                   3045 ;	src/main.c:831: printf_fast_f("%d\n\r", SEL_RX_POL);
+      000DB6 A2 84            [12] 3046 	mov	c,_P04
+      000DB8 E4               [12] 3047 	clr	a
+      000DB9 33               [12] 3048 	rlc	a
+      000DBA FB               [12] 3049 	mov	r3,a
+      000DBB 7C 00            [12] 3050 	mov	r4,#0x00
+      000DBD C0 03            [24] 3051 	push	ar3
+      000DBF C0 04            [24] 3052 	push	ar4
+      000DC1 74 14            [12] 3053 	mov	a,#___str_32
+      000DC3 C0 E0            [24] 3054 	push	acc
+      000DC5 74 23            [12] 3055 	mov	a,#(___str_32 >> 8)
+      000DC7 C0 E0            [24] 3056 	push	acc
+      000DC9 12 1B 52         [24] 3057 	lcall	_printf_fast_f
+      000DCC E5 81            [12] 3058 	mov	a,sp
+      000DCE 24 FC            [12] 3059 	add	a,#0xfc
+      000DD0 F5 81            [12] 3060 	mov	sp,a
+      000DD2 D0 05            [24] 3061 	pop	ar5
+      000DD4 D0 06            [24] 3062 	pop	ar6
+      000DD6 D0 07            [24] 3063 	pop	ar7
+                                   3064 ;	src/main.c:832: break;
+                                   3065 ;	src/main.c:833: case 't' :
+      000DD8 80 26            [24] 3066 	sjmp	00115$
+      000DDA                       3067 00112$:
+                                   3068 ;	src/main.c:834: printf_fast_f("count:%d\r\n", gu16TimeCnt);
+      000DDA C0 07            [24] 3069 	push	ar7
+      000DDC C0 06            [24] 3070 	push	ar6
+      000DDE C0 05            [24] 3071 	push	ar5
+      000DE0 C0 23            [24] 3072 	push	_gu16TimeCnt
+      000DE2 C0 24            [24] 3073 	push	(_gu16TimeCnt + 1)
+      000DE4 74 59            [12] 3074 	mov	a,#___str_40
+      000DE6 C0 E0            [24] 3075 	push	acc
+      000DE8 74 23            [12] 3076 	mov	a,#(___str_40 >> 8)
+      000DEA C0 E0            [24] 3077 	push	acc
+      000DEC 12 1B 52         [24] 3078 	lcall	_printf_fast_f
+      000DEF E5 81            [12] 3079 	mov	a,sp
+      000DF1 24 FC            [12] 3080 	add	a,#0xfc
+      000DF3 F5 81            [12] 3081 	mov	sp,a
+      000DF5 D0 05            [24] 3082 	pop	ar5
+      000DF7 D0 06            [24] 3083 	pop	ar6
+      000DF9 D0 07            [24] 3084 	pop	ar7
+                                   3085 ;	src/main.c:835: gu16TimeCnt = 0;
+      000DFB E4               [12] 3086 	clr	a
+      000DFC F5 23            [12] 3087 	mov	_gu16TimeCnt,a
+      000DFE F5 24            [12] 3088 	mov	(_gu16TimeCnt + 1),a
+                                   3089 ;	src/main.c:837: }
+      000E00                       3090 00115$:
+                                   3091 ;	src/main.c:840: if (u8PrevSwitch != SWITCH) { // 스위치 스테이트가 변하면..
+      000E00 8D 04            [24] 3092 	mov	ar4,r5
+      000E02 A2 95            [12] 3093 	mov	c,_P15
+      000E04 E4               [12] 3094 	clr	a
+      000E05 33               [12] 3095 	rlc	a
+      000E06 FB               [12] 3096 	mov	r3,a
+      000E07 EC               [12] 3097 	mov	a,r4
+      000E08 B5 03 02         [24] 3098 	cjne	a,ar3,00263$
+      000E0B 80 5B            [24] 3099 	sjmp	00120$
+      000E0D                       3100 00263$:
+                                   3101 ;	src/main.c:841: printf_fast_f("SWITCH:%d\n\r", SWITCH);
+      000E0D A2 95            [12] 3102 	mov	c,_P15
+      000E0F E4               [12] 3103 	clr	a
+      000E10 33               [12] 3104 	rlc	a
+      000E11 FB               [12] 3105 	mov	r3,a
+      000E12 7C 00            [12] 3106 	mov	r4,#0x00
+      000E14 C0 07            [24] 3107 	push	ar7
+      000E16 C0 06            [24] 3108 	push	ar6
+      000E18 C0 03            [24] 3109 	push	ar3
+      000E1A C0 04            [24] 3110 	push	ar4
+      000E1C 74 64            [12] 3111 	mov	a,#___str_41
+      000E1E C0 E0            [24] 3112 	push	acc
+      000E20 74 23            [12] 3113 	mov	a,#(___str_41 >> 8)
+      000E22 C0 E0            [24] 3114 	push	acc
+      000E24 12 1B 52         [24] 3115 	lcall	_printf_fast_f
+      000E27 E5 81            [12] 3116 	mov	a,sp
+      000E29 24 FC            [12] 3117 	add	a,#0xfc
+      000E2B F5 81            [12] 3118 	mov	sp,a
+      000E2D D0 06            [24] 3119 	pop	ar6
+      000E2F D0 07            [24] 3120 	pop	ar7
+                                   3121 ;	src/main.c:842: if (SWITCH) { //눌렸을 때
+      000E31 20 95 2F         [24] 3122 	jb	_P15,00118$
+                                   3123 ;	src/main.c:846: su8Cnt++;
+      000E34 05 2C            [12] 3124 	inc	_main_su8Cnt_262145_138
+                                   3125 ;	src/main.c:847: LED_R = su8Cnt&1;
+      000E36 E5 2C            [12] 3126 	mov	a,_main_su8Cnt_262145_138
+      000E38 54 01            [12] 3127 	anl	a,#0x01
+                                   3128 ;	assignBit
+      000E3A FC               [12] 3129 	mov	r4,a
+      000E3B 24 FF            [12] 3130 	add	a,#0xff
+      000E3D 92 94            [24] 3131 	mov	_P14,c
+                                   3132 ;	src/main.c:848: LED_G = (su8Cnt>>1)&1;
+      000E3F E5 2C            [12] 3133 	mov	a,_main_su8Cnt_262145_138
+      000E41 03               [12] 3134 	rr	a
+      000E42 54 01            [12] 3135 	anl	a,#0x01
+                                   3136 ;	assignBit
+      000E44 FB               [12] 3137 	mov	r3,a
+      000E45 24 FF            [12] 3138 	add	a,#0xff
+      000E47 92 93            [24] 3139 	mov	_P13,c
+                                   3140 ;	src/main.c:849: LED_B = (su8Cnt>>2)&1;
+      000E49 E5 2C            [12] 3141 	mov	a,_main_su8Cnt_262145_138
+      000E4B 03               [12] 3142 	rr	a
+      000E4C 03               [12] 3143 	rr	a
+      000E4D 54 01            [12] 3144 	anl	a,#0x01
+                                   3145 ;	assignBit
+      000E4F FA               [12] 3146 	mov	r2,a
+      000E50 24 FF            [12] 3147 	add	a,#0xff
+      000E52 92 92            [24] 3148 	mov	_P12,c
+                                   3149 ;	src/main.c:851: MOTOR_EN = su8Cnt&1;
+                                   3150 ;	assignBit
+      000E54 EC               [12] 3151 	mov	a,r4
+      000E55 24 FF            [12] 3152 	add	a,#0xff
+      000E57 92 90            [24] 3153 	mov	_P10,c
+                                   3154 ;	src/main.c:852: MOTOR_CW = (su8Cnt>>1)&1;
+                                   3155 ;	assignBit
+      000E59 EB               [12] 3156 	mov	a,r3
+      000E5A 24 FF            [12] 3157 	add	a,#0xff
+      000E5C 92 80            [24] 3158 	mov	_P00,c
+                                   3159 ;	src/main.c:853: MOTOR_CCW = (su8Cnt>>2)&1;
+                                   3160 ;	assignBit
+      000E5E EA               [12] 3161 	mov	a,r2
+      000E5F 24 FF            [12] 3162 	add	a,#0xff
+      000E61 92 81            [24] 3163 	mov	_P01,c
+      000E63                       3164 00118$:
+                                   3165 ;	src/main.c:856: u8PrevSwitch = SWITCH;
+      000E63 A2 95            [12] 3166 	mov	c,_P15
+      000E65 E4               [12] 3167 	clr	a
+      000E66 33               [12] 3168 	rlc	a
+      000E67 FD               [12] 3169 	mov	r5,a
+      000E68                       3170 00120$:
+                                   3171 ;	src/main.c:859: if (SWITCH) {
+      000E68 A2 95            [12] 3172 	mov	c,_P15
+                                   3173 ;	src/main.c:862: if (u8UartRx != UART_RX) {
+      000E6A A2 82            [12] 3174 	mov	c,_P02
+                                   3175 ;	src/main.c:867: switch(u8StateRxLFP) {
+      000E6C BF 00 02         [24] 3176 	cjne	r7,#0x00,00265$
+      000E6F 80 0D            [24] 3177 	sjmp	00121$
+      000E71                       3178 00265$:
+      000E71 BF 01 02         [24] 3179 	cjne	r7,#0x01,00266$
+      000E74 80 36            [24] 3180 	sjmp	00124$
+      000E76                       3181 00266$:
+      000E76 BF 02 02         [24] 3182 	cjne	r7,#0x02,00267$
+      000E79 80 74            [24] 3183 	sjmp	00130$
+      000E7B                       3184 00267$:
+      000E7B 02 0B 97         [24] 3185 	ljmp	00140$
+                                   3186 ;	src/main.c:868: case STATE_RxLFP_INIT :
+      000E7E                       3187 00121$:
+                                   3188 ;	src/main.c:869: if (Receive_Data_From_UART1_nb(&u8RxUART)) {
+      000E7E 90 00 2D         [24] 3189 	mov	dptr,#_main_u8RxUART_65536_128
+      000E81 75 F0 40         [24] 3190 	mov	b,#0x40
+      000E84 C0 07            [24] 3191 	push	ar7
+      000E86 C0 06            [24] 3192 	push	ar6
+      000E88 C0 05            [24] 3193 	push	ar5
+      000E8A 12 1B 0E         [24] 3194 	lcall	_Receive_Data_From_UART1_nb
+      000E8D E5 82            [12] 3195 	mov	a,dpl
+      000E8F D0 05            [24] 3196 	pop	ar5
+      000E91 D0 06            [24] 3197 	pop	ar6
+      000E93 D0 07            [24] 3198 	pop	ar7
+      000E95 70 03            [24] 3199 	jnz	00268$
+      000E97 02 0B 97         [24] 3200 	ljmp	00140$
+      000E9A                       3201 00268$:
+                                   3202 ;	src/main.c:870: gu16TimeCnt = 0;
+      000E9A E4               [12] 3203 	clr	a
+      000E9B F5 23            [12] 3204 	mov	_gu16TimeCnt,a
+      000E9D F5 24            [12] 3205 	mov	(_gu16TimeCnt + 1),a
+                                   3206 ;	src/main.c:872: pu8RxUART[u8RxIdx++] = u8RxUART;
+      000E9F 7E 01            [12] 3207 	mov	r6,#0x01
+      000EA1 90 00 4D         [24] 3208 	mov	dptr,#_main_pu8RxUART_65536_128
+      000EA4 E5 2D            [12] 3209 	mov	a,_main_u8RxUART_65536_128
+      000EA6 F0               [24] 3210 	movx	@dptr,a
+                                   3211 ;	src/main.c:873: u8StateRxLFP = STATE_RxLFP_START;
+      000EA7 7F 01            [12] 3212 	mov	r7,#0x01
+                                   3213 ;	src/main.c:875: break;
+      000EA9 02 0B 97         [24] 3214 	ljmp	00140$
+                                   3215 ;	src/main.c:876: case STATE_RxLFP_START :
+      000EAC                       3216 00124$:
+                                   3217 ;	src/main.c:877: if (Receive_Data_From_UART1_nb(&u8RxUART)) {
+      000EAC 90 00 2D         [24] 3218 	mov	dptr,#_main_u8RxUART_65536_128
+      000EAF 75 F0 40         [24] 3219 	mov	b,#0x40
+      000EB2 C0 07            [24] 3220 	push	ar7
+      000EB4 C0 06            [24] 3221 	push	ar6
+      000EB6 C0 05            [24] 3222 	push	ar5
+      000EB8 12 1B 0E         [24] 3223 	lcall	_Receive_Data_From_UART1_nb
+      000EBB E5 82            [12] 3224 	mov	a,dpl
+      000EBD D0 05            [24] 3225 	pop	ar5
+      000EBF D0 06            [24] 3226 	pop	ar6
+      000EC1 D0 07            [24] 3227 	pop	ar7
+      000EC3 60 18            [24] 3228 	jz	00128$
+                                   3229 ;	src/main.c:878: gu16TimeCnt = 0;
+      000EC5 E4               [12] 3230 	clr	a
+      000EC6 F5 23            [12] 3231 	mov	_gu16TimeCnt,a
+      000EC8 F5 24            [12] 3232 	mov	(_gu16TimeCnt + 1),a
+                                   3233 ;	src/main.c:879: pu8RxUART[u8RxIdx++] = u8RxUART;
+      000ECA 8E 04            [24] 3234 	mov	ar4,r6
+      000ECC 0E               [12] 3235 	inc	r6
+      000ECD EC               [12] 3236 	mov	a,r4
+      000ECE 24 4D            [12] 3237 	add	a,#_main_pu8RxUART_65536_128
+      000ED0 F5 82            [12] 3238 	mov	dpl,a
+      000ED2 E4               [12] 3239 	clr	a
+      000ED3 34 00            [12] 3240 	addc	a,#(_main_pu8RxUART_65536_128 >> 8)
+      000ED5 F5 83            [12] 3241 	mov	dph,a
+      000ED7 E5 2D            [12] 3242 	mov	a,_main_u8RxUART_65536_128
+      000ED9 F0               [24] 3243 	movx	@dptr,a
+      000EDA 02 0B 97         [24] 3244 	ljmp	00140$
+      000EDD                       3245 00128$:
+                                   3246 ;	src/main.c:881: else if (gu16TimeCnt > 100) { // 1sec넘으면
+      000EDD C3               [12] 3247 	clr	c
+      000EDE 74 64            [12] 3248 	mov	a,#0x64
+      000EE0 95 23            [12] 3249 	subb	a,_gu16TimeCnt
+      000EE2 E4               [12] 3250 	clr	a
+      000EE3 95 24            [12] 3251 	subb	a,(_gu16TimeCnt + 1)
+      000EE5 40 03            [24] 3252 	jc	00270$
+      000EE7 02 0B 97         [24] 3253 	ljmp	00140$
+      000EEA                       3254 00270$:
+                                   3255 ;	src/main.c:882: u8StateRxLFP = STATE_RxLFP_END;
+      000EEA 7F 02            [12] 3256 	mov	r7,#0x02
+                                   3257 ;	src/main.c:884: break;
+      000EEC 02 0B 97         [24] 3258 	ljmp	00140$
+                                   3259 ;	src/main.c:886: case STATE_RxLFP_END :
+      000EEF                       3260 00130$:
+                                   3261 ;	src/main.c:887: print_raw_packet(u8RxIdx, pu8RxUART);
+      000EEF 75 4E 4D         [24] 3262 	mov	_print_raw_packet_PARM_2,#_main_pu8RxUART_65536_128
+      000EF2 75 4F 00         [24] 3263 	mov	(_print_raw_packet_PARM_2 + 1),#(_main_pu8RxUART_65536_128 >> 8)
+      000EF5 75 50 00         [24] 3264 	mov	(_print_raw_packet_PARM_2 + 2),#0x00
+      000EF8 8E 82            [24] 3265 	mov	dpl,r6
+      000EFA C0 06            [24] 3266 	push	ar6
+      000EFC C0 05            [24] 3267 	push	ar5
+      000EFE 12 17 EB         [24] 3268 	lcall	_print_raw_packet
+      000F01 D0 05            [24] 3269 	pop	ar5
+      000F03 D0 06            [24] 3270 	pop	ar6
+                                   3271 ;	src/main.c:890: switch(cp_buf2linefipacket(u8RxIdx, pu8RxUART, &stLineFiPkt)) {
+      000F05 75 43 4D         [24] 3272 	mov	_cp_buf2linefipacket_PARM_2,#_main_pu8RxUART_65536_128
+      000F08 75 44 00         [24] 3273 	mov	(_cp_buf2linefipacket_PARM_2 + 1),#(_main_pu8RxUART_65536_128 >> 8)
+      000F0B 75 45 00         [24] 3274 	mov	(_cp_buf2linefipacket_PARM_2 + 2),#0x00
+      000F0E 75 46 2E         [24] 3275 	mov	_cp_buf2linefipacket_PARM_3,#_main_stLineFiPkt_65536_128
+      000F11 75 47 00         [24] 3276 	mov	(_cp_buf2linefipacket_PARM_3 + 1),#0x00
+      000F14 75 48 40         [24] 3277 	mov	(_cp_buf2linefipacket_PARM_3 + 2),#0x40
+      000F17 8E 82            [24] 3278 	mov	dpl,r6
+      000F19 C0 06            [24] 3279 	push	ar6
+      000F1B C0 05            [24] 3280 	push	ar5
+      000F1D 12 14 35         [24] 3281 	lcall	_cp_buf2linefipacket
+      000F20 AC 82            [24] 3282 	mov	r4,dpl
+      000F22 D0 05            [24] 3283 	pop	ar5
+      000F24 D0 06            [24] 3284 	pop	ar6
+      000F26 BC 02 02         [24] 3285 	cjne	r4,#0x02,00271$
+      000F29 80 4E            [24] 3286 	sjmp	00137$
+      000F2B                       3287 00271$:
+      000F2B BC 03 02         [24] 3288 	cjne	r4,#0x03,00272$
+      000F2E 80 1C            [24] 3289 	sjmp	00133$
+      000F30                       3290 00272$:
+      000F30 BC 04 46         [24] 3291 	cjne	r4,#0x04,00137$
+                                   3292 ;	src/main.c:895: printf_fast_f("ERROR: CRC!!\r\n");
+      000F33 C0 06            [24] 3293 	push	ar6
+      000F35 C0 05            [24] 3294 	push	ar5
+      000F37 74 70            [12] 3295 	mov	a,#___str_42
+      000F39 C0 E0            [24] 3296 	push	acc
+      000F3B 74 23            [12] 3297 	mov	a,#(___str_42 >> 8)
+      000F3D C0 E0            [24] 3298 	push	acc
+      000F3F 12 1B 52         [24] 3299 	lcall	_printf_fast_f
+      000F42 15 81            [12] 3300 	dec	sp
+      000F44 15 81            [12] 3301 	dec	sp
+      000F46 D0 05            [24] 3302 	pop	ar5
+      000F48 D0 06            [24] 3303 	pop	ar6
+                                   3304 ;	src/main.c:896: break;
+                                   3305 ;	src/main.c:897: case CONV_ERR_TOO_SMALLSIZE :
+      000F4A 80 2D            [24] 3306 	sjmp	00137$
+      000F4C                       3307 00133$:
+                                   3308 ;	src/main.c:898: switch(u8RxIdx) {
+      000F4C BE 01 13         [24] 3309 	cjne	r6,#0x01,00135$
+                                   3310 ;	src/main.c:900: print_one_octet_linefi(pu8RxUART[0]);
+      000F4F 90 00 4D         [24] 3311 	mov	dptr,#_main_pu8RxUART_65536_128
+      000F52 E0               [24] 3312 	movx	a,@dptr
+      000F53 F5 82            [12] 3313 	mov	dpl,a
+      000F55 C0 06            [24] 3314 	push	ar6
+      000F57 C0 05            [24] 3315 	push	ar5
+      000F59 12 0A B5         [24] 3316 	lcall	_print_one_octet_linefi
+      000F5C D0 05            [24] 3317 	pop	ar5
+      000F5E D0 06            [24] 3318 	pop	ar6
+                                   3319 ;	src/main.c:901: break;
+                                   3320 ;	src/main.c:902: default :
+      000F60 80 17            [24] 3321 	sjmp	00137$
+      000F62                       3322 00135$:
+                                   3323 ;	src/main.c:903: printf_fast_f("ERROR: too small length!!\r\n");
+      000F62 C0 06            [24] 3324 	push	ar6
+      000F64 C0 05            [24] 3325 	push	ar5
+      000F66 74 7F            [12] 3326 	mov	a,#___str_43
+      000F68 C0 E0            [24] 3327 	push	acc
+      000F6A 74 23            [12] 3328 	mov	a,#(___str_43 >> 8)
+      000F6C C0 E0            [24] 3329 	push	acc
+      000F6E 12 1B 52         [24] 3330 	lcall	_printf_fast_f
+      000F71 15 81            [12] 3331 	dec	sp
+      000F73 15 81            [12] 3332 	dec	sp
+      000F75 D0 05            [24] 3333 	pop	ar5
+      000F77 D0 06            [24] 3334 	pop	ar6
+                                   3335 ;	src/main.c:907: }
+      000F79                       3336 00137$:
+                                   3337 ;	src/main.c:908: u8StateRxLFP = STATE_RxLFP_INIT;
+      000F79 7F 00            [12] 3338 	mov	r7,#0x00
+                                   3339 ;	src/main.c:910: } //switch(u8StateRxLFP)
+                                   3340 ;	src/main.c:912: }
+      000F7B 02 0B 97         [24] 3341 	ljmp	00140$
+                                   3342 	.area CSEG    (CODE)
+                                   3343 	.area CONST   (CODE)
+                                   3344 	.area CONST   (CODE)
+      0020B2                       3345 ___str_0:
+      0020B2 0A                    3346 	.db 0x0a
+      0020B3 0D                    3347 	.db 0x0d
+      0020B4 00                    3348 	.db 0x00
+                                   3349 	.area CSEG    (CODE)
+                                   3350 	.area CONST   (CODE)
+      0020B5                       3351 ___str_1:
+      0020B5 73 65 6C 66 20        3352 	.ascii "self "
+      0020BA 00                    3353 	.db 0x00
                                    3354 	.area CSEG    (CODE)
                                    3355 	.area CONST   (CODE)
-                                   3356 	.area CONST   (CODE)
-      00208F                       3357 ___str_0:
-      00208F 0A                    3358 	.db 0x0a
-      002090 0D                    3359 	.db 0x0d
-      002091 00                    3360 	.db 0x00
-                                   3361 	.area CSEG    (CODE)
-                                   3362 	.area CONST   (CODE)
-      002092                       3363 ___str_1:
-      002092 73 65 6C 66 20        3364 	.ascii "self "
-      002097 00                    3365 	.db 0x00
-                                   3366 	.area CSEG    (CODE)
-                                   3367 	.area CONST   (CODE)
-      002098                       3368 ___str_2:
-      002098 63 72 6F 73 73        3369 	.ascii "cross"
-      00209D 00                    3370 	.db 0x00
-                                   3371 	.area CSEG    (CODE)
-                                   3372 	.area CONST   (CODE)
-      00209E                       3373 ___str_3:
-      00209E 62 6F 74 68 20        3374 	.ascii "both "
-      0020A3 00                    3375 	.db 0x00
-                                   3376 	.area CSEG    (CODE)
-                                   3377 	.area CONST   (CODE)
-      0020A4                       3378 ___str_4:
-      0020A4 20 6F 75 74 70 75 74  3379 	.ascii " output:This is UART%d"
+      0020BB                       3356 ___str_2:
+      0020BB 63 72 6F 73 73        3357 	.ascii "cross"
+      0020C0 00                    3358 	.db 0x00
+                                   3359 	.area CSEG    (CODE)
+                                   3360 	.area CONST   (CODE)
+      0020C1                       3361 ___str_3:
+      0020C1 62 6F 74 68 20        3362 	.ascii "both "
+      0020C6 00                    3363 	.db 0x00
+                                   3364 	.area CSEG    (CODE)
+                                   3365 	.area CONST   (CODE)
+      0020C7                       3366 ___str_4:
+      0020C7 20 6F 75 74 70 75 74  3367 	.ascii " output:This is UART%d"
              3A 54 68 69 73 20 69
              73 20 55 41 52 54 25
              64
-      0020BA 0A                    3380 	.db 0x0a
-      0020BB 0D                    3381 	.db 0x0d
-      0020BC 00                    3382 	.db 0x00
-                                   3383 	.area CSEG    (CODE)
-                                   3384 	.area CONST   (CODE)
-      0020BD                       3385 ___str_5:
-      0020BD 0D                    3386 	.db 0x0d
-      0020BE 0A                    3387 	.db 0x0a
-      0020BF 00                    3388 	.db 0x00
-                                   3389 	.area CSEG    (CODE)
-                                   3390 	.area CONST   (CODE)
-      0020C0                       3391 ___str_6:
-      0020C0 25 63                 3392 	.ascii "%c"
-      0020C2 00                    3393 	.db 0x00
-                                   3394 	.area CSEG    (CODE)
-                                   3395 	.area CONST   (CODE)
-      0020C3                       3396 ___str_7:
-      0020C3 0D                    3397 	.db 0x0d
-      0020C4 0A                    3398 	.db 0x0a
-      0020C5 69 6E 70 75 74 3A 54  3399 	.ascii "input:This is UART%d"
+      0020DD 0A                    3368 	.db 0x0a
+      0020DE 0D                    3369 	.db 0x0d
+      0020DF 00                    3370 	.db 0x00
+                                   3371 	.area CSEG    (CODE)
+                                   3372 	.area CONST   (CODE)
+      0020E0                       3373 ___str_5:
+      0020E0 0D                    3374 	.db 0x0d
+      0020E1 0A                    3375 	.db 0x0a
+      0020E2 00                    3376 	.db 0x00
+                                   3377 	.area CSEG    (CODE)
+                                   3378 	.area CONST   (CODE)
+      0020E3                       3379 ___str_6:
+      0020E3 25 63                 3380 	.ascii "%c"
+      0020E5 00                    3381 	.db 0x00
+                                   3382 	.area CSEG    (CODE)
+                                   3383 	.area CONST   (CODE)
+      0020E6                       3384 ___str_7:
+      0020E6 0D                    3385 	.db 0x0d
+      0020E7 0A                    3386 	.db 0x0a
+      0020E8 69 6E 70 75 74 3A 54  3387 	.ascii "input:This is UART%d"
              68 69 73 20 69 73 20
              55 41 52 54 25 64
-      0020D9 00                    3400 	.db 0x00
-                                   3401 	.area CSEG    (CODE)
-                                   3402 	.area CONST   (CODE)
-      0020DA                       3403 ___str_8:
-      0020DA 49 64 6C 65 20 70 72  3404 	.ascii "Idle preamble on/off"
+      0020FC 00                    3388 	.db 0x00
+                                   3389 	.area CSEG    (CODE)
+                                   3390 	.area CONST   (CODE)
+      0020FD                       3391 ___str_8:
+      0020FD 49 64 6C 65 20 70 72  3392 	.ascii "Idle preamble on/off"
              65 61 6D 62 6C 65 20
              6F 6E 2F 6F 66 66
-      0020EE 0D                    3405 	.db 0x0d
-      0020EF 0A                    3406 	.db 0x0a
-      0020F0 00                    3407 	.db 0x00
-                                   3408 	.area CSEG    (CODE)
-                                   3409 	.area CONST   (CODE)
-      0020F1                       3410 ___str_9:
-      0020F1 4C 69 6E 65 46 69 20  3411 	.ascii "LineFi Power Off"
+      002111 0D                    3393 	.db 0x0d
+      002112 0A                    3394 	.db 0x0a
+      002113 00                    3395 	.db 0x00
+                                   3396 	.area CSEG    (CODE)
+                                   3397 	.area CONST   (CODE)
+      002114                       3398 ___str_9:
+      002114 4C 69 6E 65 46 69 20  3399 	.ascii "LineFi Power Off"
              50 6F 77 65 72 20 4F
              66 66
-      002101 0D                    3412 	.db 0x0d
-      002102 0A                    3413 	.db 0x0a
-      002103 00                    3414 	.db 0x00
-                                   3415 	.area CSEG    (CODE)
-                                   3416 	.area CONST   (CODE)
-      002104                       3417 ___str_10:
-      002104 4C 69 6E 65 46 69 20  3418 	.ascii "LineFi Power On"
+      002124 0D                    3400 	.db 0x0d
+      002125 0A                    3401 	.db 0x0a
+      002126 00                    3402 	.db 0x00
+                                   3403 	.area CSEG    (CODE)
+                                   3404 	.area CONST   (CODE)
+      002127                       3405 ___str_10:
+      002127 4C 69 6E 65 46 69 20  3406 	.ascii "LineFi Power On"
              50 6F 77 65 72 20 4F
              6E
-      002113 0D                    3419 	.db 0x0d
-      002114 0A                    3420 	.db 0x0a
-      002115 00                    3421 	.db 0x00
-                                   3422 	.area CSEG    (CODE)
-                                   3423 	.area CONST   (CODE)
-      002116                       3424 ___str_11:
-      002116 4C 69 6E 65 46 69 20  3425 	.ascii "LineFi Uart Tx Low"
+      002136 0D                    3407 	.db 0x0d
+      002137 0A                    3408 	.db 0x0a
+      002138 00                    3409 	.db 0x00
+                                   3410 	.area CSEG    (CODE)
+                                   3411 	.area CONST   (CODE)
+      002139                       3412 ___str_11:
+      002139 4C 69 6E 65 46 69 20  3413 	.ascii "LineFi Uart Tx Low"
              55 61 72 74 20 54 78
              20 4C 6F 77
-      002128 0D                    3426 	.db 0x0d
-      002129 0A                    3427 	.db 0x0a
-      00212A 00                    3428 	.db 0x00
-                                   3429 	.area CSEG    (CODE)
-                                   3430 	.area CONST   (CODE)
-      00212B                       3431 ___str_12:
-      00212B 4C 69 6E 65 46 69 20  3432 	.ascii "LineFi Uart Tx High"
+      00214B 0D                    3414 	.db 0x0d
+      00214C 0A                    3415 	.db 0x0a
+      00214D 00                    3416 	.db 0x00
+                                   3417 	.area CSEG    (CODE)
+                                   3418 	.area CONST   (CODE)
+      00214E                       3419 ___str_12:
+      00214E 4C 69 6E 65 46 69 20  3420 	.ascii "LineFi Uart Tx High"
              55 61 72 74 20 54 78
              20 48 69 67 68
-      00213E 0D                    3433 	.db 0x0d
-      00213F 0A                    3434 	.db 0x0a
-      002140 00                    3435 	.db 0x00
-                                   3436 	.area CSEG    (CODE)
-                                   3437 	.area CONST   (CODE)
-      002141                       3438 ___str_13:
-      002141 4C 69 6E 65 46 69 20  3439 	.ascii "LineFi CSC rx FSM Off"
+      002161 0D                    3421 	.db 0x0d
+      002162 0A                    3422 	.db 0x0a
+      002163 00                    3423 	.db 0x00
+                                   3424 	.area CSEG    (CODE)
+                                   3425 	.area CONST   (CODE)
+      002164                       3426 ___str_13:
+      002164 4C 69 6E 65 46 69 20  3427 	.ascii "LineFi CSC rx FSM Off"
              43 53 43 20 72 78 20
              46 53 4D 20 4F 66 66
-      002156 0D                    3440 	.db 0x0d
-      002157 0A                    3441 	.db 0x0a
-      002158 00                    3442 	.db 0x00
-                                   3443 	.area CSEG    (CODE)
-                                   3444 	.area CONST   (CODE)
-      002159                       3445 ___str_14:
-      002159 4C 69 6E 65 46 69 20  3446 	.ascii "LineFi CSC rx FSM ON"
+      002179 0D                    3428 	.db 0x0d
+      00217A 0A                    3429 	.db 0x0a
+      00217B 00                    3430 	.db 0x00
+                                   3431 	.area CSEG    (CODE)
+                                   3432 	.area CONST   (CODE)
+      00217C                       3433 ___str_14:
+      00217C 4C 69 6E 65 46 69 20  3434 	.ascii "LineFi CSC rx FSM ON"
              43 53 43 20 72 78 20
              46 53 4D 20 4F 4E
-      00216D 0D                    3447 	.db 0x0d
-      00216E 0A                    3448 	.db 0x0a
-      00216F 00                    3449 	.db 0x00
-                                   3450 	.area CSEG    (CODE)
-                                   3451 	.area CONST   (CODE)
-      002170                       3452 ___str_15:
-      002170 56 65 72 73 69 6F 6E  3453 	.ascii "Version 1.4 on 20231026"
+      002190 0D                    3435 	.db 0x0d
+      002191 0A                    3436 	.db 0x0a
+      002192 00                    3437 	.db 0x00
+                                   3438 	.area CSEG    (CODE)
+                                   3439 	.area CONST   (CODE)
+      002193                       3440 ___str_15:
+      002193 56 65 72 73 69 6F 6E  3441 	.ascii "Version 1.4 on 20231026"
              20 31 2E 34 20 6F 6E
              20 32 30 32 33 31 30
              32 36
-      002187 0D                    3454 	.db 0x0d
-      002188 0A                    3455 	.db 0x0a
-      002189 00                    3456 	.db 0x00
-                                   3457 	.area CSEG    (CODE)
-                                   3458 	.area CONST   (CODE)
-      00218A                       3459 ___str_16:
-      00218A 31 3A 20 64 6F 77 6E  3460 	.ascii "1: downlink packet 1"
+      0021AA 0D                    3442 	.db 0x0d
+      0021AB 0A                    3443 	.db 0x0a
+      0021AC 00                    3444 	.db 0x00
+                                   3445 	.area CSEG    (CODE)
+                                   3446 	.area CONST   (CODE)
+      0021AD                       3447 ___str_16:
+      0021AD 31 3A 20 64 6F 77 6E  3448 	.ascii "1: downlink packet 1"
              6C 69 6E 6B 20 70 61
              63 6B 65 74 20 31
-      00219E 0D                    3461 	.db 0x0d
-      00219F 0A                    3462 	.db 0x0a
-      0021A0 00                    3463 	.db 0x00
-                                   3464 	.area CSEG    (CODE)
-                                   3465 	.area CONST   (CODE)
-      0021A1                       3466 ___str_17:
-      0021A1 32 3A 20 64 6F 77 6E  3467 	.ascii "2: downlink packet 2"
+      0021C1 0D                    3449 	.db 0x0d
+      0021C2 0A                    3450 	.db 0x0a
+      0021C3 00                    3451 	.db 0x00
+                                   3452 	.area CSEG    (CODE)
+                                   3453 	.area CONST   (CODE)
+      0021C4                       3454 ___str_17:
+      0021C4 32 3A 20 64 6F 77 6E  3455 	.ascii "2: downlink packet 2"
              6C 69 6E 6B 20 70 61
              63 6B 65 74 20 32
-      0021B5 0D                    3468 	.db 0x0d
-      0021B6 0A                    3469 	.db 0x0a
-      0021B7 00                    3470 	.db 0x00
-                                   3471 	.area CSEG    (CODE)
-                                   3472 	.area CONST   (CODE)
-      0021B8                       3473 ___str_18:
-      0021B8 33 3A 20 75 70 6C 69  3474 	.ascii "3: uplink idle preamble on/off"
+      0021D8 0D                    3456 	.db 0x0d
+      0021D9 0A                    3457 	.db 0x0a
+      0021DA 00                    3458 	.db 0x00
+                                   3459 	.area CSEG    (CODE)
+                                   3460 	.area CONST   (CODE)
+      0021DB                       3461 ___str_18:
+      0021DB 33 3A 20 75 70 6C 69  3462 	.ascii "3: uplink idle preamble on/off"
              6E 6B 20 69 64 6C 65
              20 70 72 65 61 6D 62
              6C 65 20 6F 6E 2F 6F
              66 66
-      0021D6 0D                    3475 	.db 0x0d
-      0021D7 0A                    3476 	.db 0x0a
-      0021D8 00                    3477 	.db 0x00
-                                   3478 	.area CSEG    (CODE)
-                                   3479 	.area CONST   (CODE)
-      0021D9                       3480 ___str_19:
-      0021D9 70 2F 50 3A 20 4C 69  3481 	.ascii "p/P: LineFi Power off/on"
+      0021F9 0D                    3463 	.db 0x0d
+      0021FA 0A                    3464 	.db 0x0a
+      0021FB 00                    3465 	.db 0x00
+                                   3466 	.area CSEG    (CODE)
+                                   3467 	.area CONST   (CODE)
+      0021FC                       3468 ___str_19:
+      0021FC 70 2F 50 3A 20 4C 69  3469 	.ascii "p/P: LineFi Power off/on"
              6E 65 46 69 20 50 6F
              77 65 72 20 6F 66 66
              2F 6F 6E
-      0021F1 0D                    3482 	.db 0x0d
-      0021F2 0A                    3483 	.db 0x0a
-      0021F3 00                    3484 	.db 0x00
-                                   3485 	.area CSEG    (CODE)
-                                   3486 	.area CONST   (CODE)
-      0021F4                       3487 ___str_20:
-      0021F4 74 2F 54 3A 20 4C 69  3488 	.ascii "t/T: LineFi Uart Tx Low/High"
+      002214 0D                    3470 	.db 0x0d
+      002215 0A                    3471 	.db 0x0a
+      002216 00                    3472 	.db 0x00
+                                   3473 	.area CSEG    (CODE)
+                                   3474 	.area CONST   (CODE)
+      002217                       3475 ___str_20:
+      002217 74 2F 54 3A 20 4C 69  3476 	.ascii "t/T: LineFi Uart Tx Low/High"
              6E 65 46 69 20 55 61
              72 74 20 54 78 20 4C
              6F 77 2F 48 69 67 68
-      002210 0D                    3489 	.db 0x0d
-      002211 0A                    3490 	.db 0x0a
-      002212 00                    3491 	.db 0x00
-                                   3492 	.area CSEG    (CODE)
-                                   3493 	.area CONST   (CODE)
-      002213                       3494 ___str_21:
-      002213 73 2F 53 3A 20 4C 69  3495 	.ascii "s/S: LineFie CSC Rx FSM off/on"
+      002233 0D                    3477 	.db 0x0d
+      002234 0A                    3478 	.db 0x0a
+      002235 00                    3479 	.db 0x00
+                                   3480 	.area CSEG    (CODE)
+                                   3481 	.area CONST   (CODE)
+      002236                       3482 ___str_21:
+      002236 73 2F 53 3A 20 4C 69  3483 	.ascii "s/S: LineFie CSC Rx FSM off/on"
              6E 65 46 69 65 20 43
              53 43 20 52 78 20 46
              53 4D 20 6F 66 66 2F
              6F 6E
-      002231 0D                    3496 	.db 0x0d
-      002232 0A                    3497 	.db 0x0a
-      002233 00                    3498 	.db 0x00
-                                   3499 	.area CSEG    (CODE)
-                                   3500 	.area CONST   (CODE)
-      002234                       3501 ___str_22:
-      002234 74 65 73 74 20 70 72  3502 	.ascii "test procedure: p -> P -> T -> S -> 1 or 2"
+      002254 0D                    3484 	.db 0x0d
+      002255 0A                    3485 	.db 0x0a
+      002256 00                    3486 	.db 0x00
+                                   3487 	.area CSEG    (CODE)
+                                   3488 	.area CONST   (CODE)
+      002257                       3489 ___str_22:
+      002257 74 65 73 74 20 70 72  3490 	.ascii "test procedure: p -> P -> T -> S -> 1 or 2"
              6F 63 65 64 75 72 65
              3A 20 70 20 2D 3E 20
              50 20 2D 3E 20 54 20
              2D 3E 20 53 20 2D 3E
              20 31 20 6F 72 20 32
-      00225E 0D                    3503 	.db 0x0d
-      00225F 0A                    3504 	.db 0x0a
-      002260 00                    3505 	.db 0x00
-                                   3506 	.area CSEG    (CODE)
-                                   3507 	.area CONST   (CODE)
-      002261                       3508 ___str_23:
-      002261 4D 79 20 61 64 64 72  3509 	.ascii "My address is 0x%x"
+      002281 0D                    3491 	.db 0x0d
+      002282 0A                    3492 	.db 0x0a
+      002283 00                    3493 	.db 0x00
+                                   3494 	.area CSEG    (CODE)
+                                   3495 	.area CONST   (CODE)
+      002284                       3496 ___str_23:
+      002284 4D 79 20 61 64 64 72  3497 	.ascii "My address is 0x%x"
              65 73 73 20 69 73 20
              30 78 25 78
-      002273 0D                    3510 	.db 0x0d
-      002274 0A                    3511 	.db 0x0a
-      002275 00                    3512 	.db 0x00
-                                   3513 	.area CSEG    (CODE)
-                                   3514 	.area CONST   (CODE)
-      002276                       3515 ___str_24:
-      002276 73 65 74 20 61 64 64  3516 	.ascii "set address as %d"
+      002296 0D                    3498 	.db 0x0d
+      002297 0A                    3499 	.db 0x0a
+      002298 00                    3500 	.db 0x00
+                                   3501 	.area CSEG    (CODE)
+                                   3502 	.area CONST   (CODE)
+      002299                       3503 ___str_24:
+      002299 73 65 74 20 61 64 64  3504 	.ascii "set address as %d"
              72 65 73 73 20 61 73
              20 25 64
-      002287 0D                    3517 	.db 0x0d
-      002288 0A                    3518 	.db 0x0a
-      002289 00                    3519 	.db 0x00
-                                   3520 	.area CSEG    (CODE)
-                                   3521 	.area CONST   (CODE)
-      00228A                       3522 ___str_25:
-      00228A 4D 79 20 61 64 64 72  3523 	.ascii "My address is %d"
+      0022AA 0D                    3505 	.db 0x0d
+      0022AB 0A                    3506 	.db 0x0a
+      0022AC 00                    3507 	.db 0x00
+                                   3508 	.area CSEG    (CODE)
+                                   3509 	.area CONST   (CODE)
+      0022AD                       3510 ___str_25:
+      0022AD 4D 79 20 61 64 64 72  3511 	.ascii "My address is %d"
              65 73 73 20 69 73 20
              25 64
-      00229A 0D                    3524 	.db 0x0d
-      00229B 0A                    3525 	.db 0x0a
-      00229C 00                    3526 	.db 0x00
-                                   3527 	.area CSEG    (CODE)
-                                   3528 	.area CONST   (CODE)
-      00229D                       3529 ___str_26:
-      00229D 61 64 64 72 65 73 73  3530 	.ascii "address:%u"
+      0022BD 0D                    3512 	.db 0x0d
+      0022BE 0A                    3513 	.db 0x0a
+      0022BF 00                    3514 	.db 0x00
+                                   3515 	.area CSEG    (CODE)
+                                   3516 	.area CONST   (CODE)
+      0022C0                       3517 ___str_26:
+      0022C0 61 64 64 72 65 73 73  3518 	.ascii "address:%u"
              3A 25 75
-      0022A7 0D                    3531 	.db 0x0d
-      0022A8 0A                    3532 	.db 0x0a
-      0022A9 00                    3533 	.db 0x00
-                                   3534 	.area CSEG    (CODE)
-                                   3535 	.area CONST   (CODE)
-      0022AA                       3536 ___str_27:
-      0022AA 63 6F 6D 6D 61 6E 64  3537 	.ascii "command:%u"
+      0022CA 0D                    3519 	.db 0x0d
+      0022CB 0A                    3520 	.db 0x0a
+      0022CC 00                    3521 	.db 0x00
+                                   3522 	.area CSEG    (CODE)
+                                   3523 	.area CONST   (CODE)
+      0022CD                       3524 ___str_27:
+      0022CD 63 6F 6D 6D 61 6E 64  3525 	.ascii "command:%u"
              3A 25 75
-      0022B4 0D                    3538 	.db 0x0d
-      0022B5 0A                    3539 	.db 0x0a
-      0022B6 00                    3540 	.db 0x00
-                                   3541 	.area CSEG    (CODE)
-                                   3542 	.area CONST   (CODE)
-      0022B7                       3543 ___str_28:
-      0022B7 54 68 69 73 20 69 73  3544 	.ascii "This is UART0"
+      0022D7 0D                    3526 	.db 0x0d
+      0022D8 0A                    3527 	.db 0x0a
+      0022D9 00                    3528 	.db 0x00
+                                   3529 	.area CSEG    (CODE)
+                                   3530 	.area CONST   (CODE)
+      0022DA                       3531 ___str_28:
+      0022DA 54 68 69 73 20 69 73  3532 	.ascii "This is UART0"
              20 55 41 52 54 30
-      0022C4 0A                    3545 	.db 0x0a
-      0022C5 0D                    3546 	.db 0x0d
-      0022C6 00                    3547 	.db 0x00
-                                   3548 	.area CSEG    (CODE)
-                                   3549 	.area CONST   (CODE)
-      0022C7                       3550 ___str_29:
-      0022C7 4C 69 6E 65 46 69 20  3551 	.ascii "LineFi Sniffer"
+      0022E7 0A                    3533 	.db 0x0a
+      0022E8 0D                    3534 	.db 0x0d
+      0022E9 00                    3535 	.db 0x00
+                                   3536 	.area CSEG    (CODE)
+                                   3537 	.area CONST   (CODE)
+      0022EA                       3538 ___str_29:
+      0022EA 4C 69 6E 65 46 69 20  3539 	.ascii "LineFi Sniffer"
              53 6E 69 66 66 65 72
-      0022D5 0A                    3552 	.db 0x0a
-      0022D6 0D                    3553 	.db 0x0d
-      0022D7 00                    3554 	.db 0x00
+      0022F8 0A                    3540 	.db 0x0a
+      0022F9 0D                    3541 	.db 0x0d
+      0022FA 00                    3542 	.db 0x00
+                                   3543 	.area CSEG    (CODE)
+                                   3544 	.area CONST   (CODE)
+      0022FB                       3545 ___str_30:
+      0022FB 54 68 69 73 20 69 73  3546 	.ascii "This is UART1"
+             20 55 41 52 54 31
+      002308 0A                    3547 	.db 0x0a
+      002309 0D                    3548 	.db 0x0d
+      00230A 00                    3549 	.db 0x00
+                                   3550 	.area CSEG    (CODE)
+                                   3551 	.area CONST   (CODE)
+      00230B                       3552 ___str_31:
+      00230B 55 41 52 54 5F 54 58  3553 	.ascii "UART_TX="
+             3D
+      002313 00                    3554 	.db 0x00
                                    3555 	.area CSEG    (CODE)
                                    3556 	.area CONST   (CODE)
-      0022D8                       3557 ___str_30:
-      0022D8 54 68 69 73 20 69 73  3558 	.ascii "This is UART1"
-             20 55 41 52 54 31
-      0022E5 0A                    3559 	.db 0x0a
-      0022E6 0D                    3560 	.db 0x0d
-      0022E7 00                    3561 	.db 0x00
+      002314                       3557 ___str_32:
+      002314 25 64                 3558 	.ascii "%d"
+      002316 0A                    3559 	.db 0x0a
+      002317 0D                    3560 	.db 0x0d
+      002318 00                    3561 	.db 0x00
                                    3562 	.area CSEG    (CODE)
                                    3563 	.area CONST   (CODE)
-      0022E8                       3564 ___str_31:
-      0022E8 55 41 52 54 5F 54 58  3565 	.ascii "UART_TX="
-             3D
-      0022F0 00                    3566 	.db 0x00
+      002319                       3564 ___str_33:
+      002319 4C 45 44 5F 52 3D     3565 	.ascii "LED_R="
+      00231F 00                    3566 	.db 0x00
                                    3567 	.area CSEG    (CODE)
                                    3568 	.area CONST   (CODE)
-      0022F1                       3569 ___str_32:
-      0022F1 25 64                 3570 	.ascii "%d"
-      0022F3 0A                    3571 	.db 0x0a
-      0022F4 0D                    3572 	.db 0x0d
-      0022F5 00                    3573 	.db 0x00
-                                   3574 	.area CSEG    (CODE)
-                                   3575 	.area CONST   (CODE)
-      0022F6                       3576 ___str_33:
-      0022F6 4C 45 44 5F 52 3D     3577 	.ascii "LED_R="
-      0022FC 00                    3578 	.db 0x00
-                                   3579 	.area CSEG    (CODE)
-                                   3580 	.area CONST   (CODE)
-      0022FD                       3581 ___str_34:
-      0022FD 4C 45 44 5F 47 3D     3582 	.ascii "LED_G="
-      002303 00                    3583 	.db 0x00
-                                   3584 	.area CSEG    (CODE)
-                                   3585 	.area CONST   (CODE)
-      002304                       3586 ___str_35:
-      002304 4C 45 44 5F 42 3D     3587 	.ascii "LED_B="
-      00230A 00                    3588 	.db 0x00
-                                   3589 	.area CSEG    (CODE)
-                                   3590 	.area CONST   (CODE)
-      00230B                       3591 ___str_36:
-      00230B 4D 4F 54 4F 52 5F 45  3592 	.ascii "MOTOR_EN="
+      002320                       3569 ___str_34:
+      002320 4C 45 44 5F 47 3D     3570 	.ascii "LED_G="
+      002326 00                    3571 	.db 0x00
+                                   3572 	.area CSEG    (CODE)
+                                   3573 	.area CONST   (CODE)
+      002327                       3574 ___str_35:
+      002327 4C 45 44 5F 42 3D     3575 	.ascii "LED_B="
+      00232D 00                    3576 	.db 0x00
+                                   3577 	.area CSEG    (CODE)
+                                   3578 	.area CONST   (CODE)
+      00232E                       3579 ___str_36:
+      00232E 4D 4F 54 4F 52 5F 45  3580 	.ascii "MOTOR_EN="
              4E 3D
-      002314 00                    3593 	.db 0x00
-                                   3594 	.area CSEG    (CODE)
-                                   3595 	.area CONST   (CODE)
-      002315                       3596 ___str_37:
-      002315 4D 4F 54 4F 52 5F 43  3597 	.ascii "MOTOR_CW="
+      002337 00                    3581 	.db 0x00
+                                   3582 	.area CSEG    (CODE)
+                                   3583 	.area CONST   (CODE)
+      002338                       3584 ___str_37:
+      002338 4D 4F 54 4F 52 5F 43  3585 	.ascii "MOTOR_CW="
              57 3D
-      00231E 00                    3598 	.db 0x00
-                                   3599 	.area CSEG    (CODE)
-                                   3600 	.area CONST   (CODE)
-      00231F                       3601 ___str_38:
-      00231F 4D 4F 54 4F 52 5F 43  3602 	.ascii "MOTOR_CCW="
+      002341 00                    3586 	.db 0x00
+                                   3587 	.area CSEG    (CODE)
+                                   3588 	.area CONST   (CODE)
+      002342                       3589 ___str_38:
+      002342 4D 4F 54 4F 52 5F 43  3590 	.ascii "MOTOR_CCW="
              43 57 3D
-      002329 00                    3603 	.db 0x00
+      00234C 00                    3591 	.db 0x00
+                                   3592 	.area CSEG    (CODE)
+                                   3593 	.area CONST   (CODE)
+      00234D                       3594 ___str_39:
+      00234D 53 45 4C 5F 52 58 5F  3595 	.ascii "SEL_RX_POL="
+             50 4F 4C 3D
+      002358 00                    3596 	.db 0x00
+                                   3597 	.area CSEG    (CODE)
+                                   3598 	.area CONST   (CODE)
+      002359                       3599 ___str_40:
+      002359 63 6F 75 6E 74 3A 25  3600 	.ascii "count:%d"
+             64
+      002361 0D                    3601 	.db 0x0d
+      002362 0A                    3602 	.db 0x0a
+      002363 00                    3603 	.db 0x00
                                    3604 	.area CSEG    (CODE)
                                    3605 	.area CONST   (CODE)
-      00232A                       3606 ___str_39:
-      00232A 53 45 4C 5F 52 58 5F  3607 	.ascii "SEL_RX_POL="
-             50 4F 4C 3D
-      002335 00                    3608 	.db 0x00
-                                   3609 	.area CSEG    (CODE)
-                                   3610 	.area CONST   (CODE)
-      002336                       3611 ___str_40:
-      002336 63 6F 75 6E 74 3A 25  3612 	.ascii "count:%d"
-             64
-      00233E 0D                    3613 	.db 0x0d
-      00233F 0A                    3614 	.db 0x0a
-      002340 00                    3615 	.db 0x00
-                                   3616 	.area CSEG    (CODE)
-                                   3617 	.area CONST   (CODE)
-      002341                       3618 ___str_41:
-      002341 53 57 49 54 43 48 3A  3619 	.ascii "SWITCH:%d"
+      002364                       3606 ___str_41:
+      002364 53 57 49 54 43 48 3A  3607 	.ascii "SWITCH:%d"
              25 64
-      00234A 0A                    3620 	.db 0x0a
-      00234B 0D                    3621 	.db 0x0d
-      00234C 00                    3622 	.db 0x00
-                                   3623 	.area CSEG    (CODE)
-                                   3624 	.area CONST   (CODE)
-      00234D                       3625 ___str_42:
-      00234D 45 52 52 4F 52 3A 20  3626 	.ascii "ERROR: CRC!!"
+      00236D 0A                    3608 	.db 0x0a
+      00236E 0D                    3609 	.db 0x0d
+      00236F 00                    3610 	.db 0x00
+                                   3611 	.area CSEG    (CODE)
+                                   3612 	.area CONST   (CODE)
+      002370                       3613 ___str_42:
+      002370 45 52 52 4F 52 3A 20  3614 	.ascii "ERROR: CRC!!"
              43 52 43 21 21
-      002359 0D                    3627 	.db 0x0d
-      00235A 0A                    3628 	.db 0x0a
-      00235B 00                    3629 	.db 0x00
-                                   3630 	.area CSEG    (CODE)
-                                   3631 	.area CONST   (CODE)
-      00235C                       3632 ___str_43:
-      00235C 45 52 52 4F 52 3A 20  3633 	.ascii "ERROR: too small length!!"
+      00237C 0D                    3615 	.db 0x0d
+      00237D 0A                    3616 	.db 0x0a
+      00237E 00                    3617 	.db 0x00
+                                   3618 	.area CSEG    (CODE)
+                                   3619 	.area CONST   (CODE)
+      00237F                       3620 ___str_43:
+      00237F 45 52 52 4F 52 3A 20  3621 	.ascii "ERROR: too small length!!"
              74 6F 6F 20 73 6D 61
              6C 6C 20 6C 65 6E 67
              74 68 21 21
-      002375 0D                    3634 	.db 0x0d
-      002376 0A                    3635 	.db 0x0a
-      002377 00                    3636 	.db 0x00
-                                   3637 	.area CSEG    (CODE)
-                                   3638 	.area CABS    (ABS,CODE)
-      003700                       3639 	.org 0x3700
-      003700                       3640 _gpcEEPROM:
-      003700 00                    3641 	.db 0x00
-      003701 00                    3642 	.db 0x00
-      003702 00                    3643 	.db 0x00
-      003703 00                    3644 	.db 0x00
-      003704 00                    3645 	.db 0x00
-      003705 00                    3646 	.db 0x00
-      003706 00                    3647 	.db 0x00
-      003707 00                    3648 	.db 0x00
-      003708 00                    3649 	.db 0x00
-      003709 00                    3650 	.db 0x00
-      00370A 00                    3651 	.db 0x00
-      00370B 00                    3652 	.db 0x00
-      00370C 00                    3653 	.db 0x00
-      00370D 00                    3654 	.db 0x00
-      00370E 00                    3655 	.db 0x00
-      00370F 00                    3656 	.db 0x00
-      003710 00                    3657 	.db 0x00
-      003711 00                    3658 	.db 0x00
-      003712 00                    3659 	.db 0x00
-      003713 00                    3660 	.db 0x00
-      003714 00                    3661 	.db 0x00
-      003715 00                    3662 	.db 0x00
-      003716 00                    3663 	.db 0x00
-      003717 00                    3664 	.db 0x00
-      003718 00                    3665 	.db 0x00
-      003719 00                    3666 	.db 0x00
-      00371A 00                    3667 	.db 0x00
-      00371B 00                    3668 	.db 0x00
-      00371C 00                    3669 	.db 0x00
-      00371D 00                    3670 	.db 0x00
-      00371E 00                    3671 	.db 0x00
-      00371F 00                    3672 	.db 0x00
-      003720 00                    3673 	.db 0x00
-      003721 00                    3674 	.db 0x00
-      003722 00                    3675 	.db 0x00
-      003723 00                    3676 	.db 0x00
-      003724 00                    3677 	.db 0x00
-      003725 00                    3678 	.db 0x00
-      003726 00                    3679 	.db 0x00
-      003727 00                    3680 	.db 0x00
-      003728 00                    3681 	.db 0x00
-      003729 00                    3682 	.db 0x00
-      00372A 00                    3683 	.db 0x00
-      00372B 00                    3684 	.db 0x00
-      00372C 00                    3685 	.db 0x00
-      00372D 00                    3686 	.db 0x00
-      00372E 00                    3687 	.db 0x00
-      00372F 00                    3688 	.db 0x00
-      003730 00                    3689 	.db 0x00
-      003731 00                    3690 	.db 0x00
-      003732 00                    3691 	.db 0x00
-      003733 00                    3692 	.db 0x00
-      003734 00                    3693 	.db 0x00
-      003735 00                    3694 	.db 0x00
-      003736 00                    3695 	.db 0x00
-      003737 00                    3696 	.db 0x00
-      003738 00                    3697 	.db 0x00
-      003739 00                    3698 	.db 0x00
-      00373A 00                    3699 	.db 0x00
-      00373B 00                    3700 	.db 0x00
-      00373C 00                    3701 	.db 0x00
-      00373D 00                    3702 	.db 0x00
-      00373E 00                    3703 	.db 0x00
-      00373F 00                    3704 	.db 0x00
-      003740 00                    3705 	.db 0x00
-      003741 00                    3706 	.db 0x00
-      003742 00                    3707 	.db 0x00
-      003743 00                    3708 	.db 0x00
-      003744 00                    3709 	.db 0x00
-      003745 00                    3710 	.db 0x00
-      003746 00                    3711 	.db 0x00
-      003747 00                    3712 	.db 0x00
-      003748 00                    3713 	.db 0x00
-      003749 00                    3714 	.db 0x00
-      00374A 00                    3715 	.db 0x00
-      00374B 00                    3716 	.db 0x00
-      00374C 00                    3717 	.db 0x00
-      00374D 00                    3718 	.db 0x00
-      00374E 00                    3719 	.db 0x00
-      00374F 00                    3720 	.db 0x00
-      003750 00                    3721 	.db 0x00
-      003751 00                    3722 	.db 0x00
-      003752 00                    3723 	.db 0x00
-      003753 00                    3724 	.db 0x00
-      003754 00                    3725 	.db 0x00
-      003755 00                    3726 	.db 0x00
-      003756 00                    3727 	.db 0x00
-      003757 00                    3728 	.db 0x00
-      003758 00                    3729 	.db 0x00
-      003759 00                    3730 	.db 0x00
-      00375A 00                    3731 	.db 0x00
-      00375B 00                    3732 	.db 0x00
-      00375C 00                    3733 	.db 0x00
-      00375D 00                    3734 	.db 0x00
-      00375E 00                    3735 	.db 0x00
-      00375F 00                    3736 	.db 0x00
-      003760 00                    3737 	.db 0x00
-      003761 00                    3738 	.db 0x00
-      003762 00                    3739 	.db 0x00
-      003763 00                    3740 	.db 0x00
-      003764 00                    3741 	.db 0x00
-      003765 00                    3742 	.db 0x00
-      003766 00                    3743 	.db 0x00
-      003767 00                    3744 	.db 0x00
-      003768 00                    3745 	.db 0x00
-      003769 00                    3746 	.db 0x00
-      00376A 00                    3747 	.db 0x00
-      00376B 00                    3748 	.db 0x00
-      00376C 00                    3749 	.db 0x00
-      00376D 00                    3750 	.db 0x00
-      00376E 00                    3751 	.db 0x00
-      00376F 00                    3752 	.db 0x00
-      003770 00                    3753 	.db 0x00
-      003771 00                    3754 	.db 0x00
-      003772 00                    3755 	.db 0x00
-      003773 00                    3756 	.db 0x00
-      003774 00                    3757 	.db 0x00
-      003775 00                    3758 	.db 0x00
-      003776 00                    3759 	.db 0x00
-      003777 00                    3760 	.db 0x00
-      003778 00                    3761 	.db 0x00
-      003779 00                    3762 	.db 0x00
-      00377A 00                    3763 	.db 0x00
-      00377B 00                    3764 	.db 0x00
-      00377C 00                    3765 	.db 0x00
-      00377D 00                    3766 	.db 0x00
-      00377E 00                    3767 	.db 0x00
-      00377F 00                    3768 	.db 0x00
+      002398 0D                    3622 	.db 0x0d
+      002399 0A                    3623 	.db 0x0a
+      00239A 00                    3624 	.db 0x00
+                                   3625 	.area CSEG    (CODE)
+                                   3626 	.area CABS    (ABS,CODE)
+      003700                       3627 	.org 0x3700
+      003700                       3628 _gpcEEPROM:
+      003700 00                    3629 	.db 0x00
+      003701 00                    3630 	.db 0x00
+      003702 00                    3631 	.db 0x00
+      003703 00                    3632 	.db 0x00
+      003704 00                    3633 	.db 0x00
+      003705 00                    3634 	.db 0x00
+      003706 00                    3635 	.db 0x00
+      003707 00                    3636 	.db 0x00
+      003708 00                    3637 	.db 0x00
+      003709 00                    3638 	.db 0x00
+      00370A 00                    3639 	.db 0x00
+      00370B 00                    3640 	.db 0x00
+      00370C 00                    3641 	.db 0x00
+      00370D 00                    3642 	.db 0x00
+      00370E 00                    3643 	.db 0x00
+      00370F 00                    3644 	.db 0x00
+      003710 00                    3645 	.db 0x00
+      003711 00                    3646 	.db 0x00
+      003712 00                    3647 	.db 0x00
+      003713 00                    3648 	.db 0x00
+      003714 00                    3649 	.db 0x00
+      003715 00                    3650 	.db 0x00
+      003716 00                    3651 	.db 0x00
+      003717 00                    3652 	.db 0x00
+      003718 00                    3653 	.db 0x00
+      003719 00                    3654 	.db 0x00
+      00371A 00                    3655 	.db 0x00
+      00371B 00                    3656 	.db 0x00
+      00371C 00                    3657 	.db 0x00
+      00371D 00                    3658 	.db 0x00
+      00371E 00                    3659 	.db 0x00
+      00371F 00                    3660 	.db 0x00
+      003720 00                    3661 	.db 0x00
+      003721 00                    3662 	.db 0x00
+      003722 00                    3663 	.db 0x00
+      003723 00                    3664 	.db 0x00
+      003724 00                    3665 	.db 0x00
+      003725 00                    3666 	.db 0x00
+      003726 00                    3667 	.db 0x00
+      003727 00                    3668 	.db 0x00
+      003728 00                    3669 	.db 0x00
+      003729 00                    3670 	.db 0x00
+      00372A 00                    3671 	.db 0x00
+      00372B 00                    3672 	.db 0x00
+      00372C 00                    3673 	.db 0x00
+      00372D 00                    3674 	.db 0x00
+      00372E 00                    3675 	.db 0x00
+      00372F 00                    3676 	.db 0x00
+      003730 00                    3677 	.db 0x00
+      003731 00                    3678 	.db 0x00
+      003732 00                    3679 	.db 0x00
+      003733 00                    3680 	.db 0x00
+      003734 00                    3681 	.db 0x00
+      003735 00                    3682 	.db 0x00
+      003736 00                    3683 	.db 0x00
+      003737 00                    3684 	.db 0x00
+      003738 00                    3685 	.db 0x00
+      003739 00                    3686 	.db 0x00
+      00373A 00                    3687 	.db 0x00
+      00373B 00                    3688 	.db 0x00
+      00373C 00                    3689 	.db 0x00
+      00373D 00                    3690 	.db 0x00
+      00373E 00                    3691 	.db 0x00
+      00373F 00                    3692 	.db 0x00
+      003740 00                    3693 	.db 0x00
+      003741 00                    3694 	.db 0x00
+      003742 00                    3695 	.db 0x00
+      003743 00                    3696 	.db 0x00
+      003744 00                    3697 	.db 0x00
+      003745 00                    3698 	.db 0x00
+      003746 00                    3699 	.db 0x00
+      003747 00                    3700 	.db 0x00
+      003748 00                    3701 	.db 0x00
+      003749 00                    3702 	.db 0x00
+      00374A 00                    3703 	.db 0x00
+      00374B 00                    3704 	.db 0x00
+      00374C 00                    3705 	.db 0x00
+      00374D 00                    3706 	.db 0x00
+      00374E 00                    3707 	.db 0x00
+      00374F 00                    3708 	.db 0x00
+      003750 00                    3709 	.db 0x00
+      003751 00                    3710 	.db 0x00
+      003752 00                    3711 	.db 0x00
+      003753 00                    3712 	.db 0x00
+      003754 00                    3713 	.db 0x00
+      003755 00                    3714 	.db 0x00
+      003756 00                    3715 	.db 0x00
+      003757 00                    3716 	.db 0x00
+      003758 00                    3717 	.db 0x00
+      003759 00                    3718 	.db 0x00
+      00375A 00                    3719 	.db 0x00
+      00375B 00                    3720 	.db 0x00
+      00375C 00                    3721 	.db 0x00
+      00375D 00                    3722 	.db 0x00
+      00375E 00                    3723 	.db 0x00
+      00375F 00                    3724 	.db 0x00
+      003760 00                    3725 	.db 0x00
+      003761 00                    3726 	.db 0x00
+      003762 00                    3727 	.db 0x00
+      003763 00                    3728 	.db 0x00
+      003764 00                    3729 	.db 0x00
+      003765 00                    3730 	.db 0x00
+      003766 00                    3731 	.db 0x00
+      003767 00                    3732 	.db 0x00
+      003768 00                    3733 	.db 0x00
+      003769 00                    3734 	.db 0x00
+      00376A 00                    3735 	.db 0x00
+      00376B 00                    3736 	.db 0x00
+      00376C 00                    3737 	.db 0x00
+      00376D 00                    3738 	.db 0x00
+      00376E 00                    3739 	.db 0x00
+      00376F 00                    3740 	.db 0x00
+      003770 00                    3741 	.db 0x00
+      003771 00                    3742 	.db 0x00
+      003772 00                    3743 	.db 0x00
+      003773 00                    3744 	.db 0x00
+      003774 00                    3745 	.db 0x00
+      003775 00                    3746 	.db 0x00
+      003776 00                    3747 	.db 0x00
+      003777 00                    3748 	.db 0x00
+      003778 00                    3749 	.db 0x00
+      003779 00                    3750 	.db 0x00
+      00377A 00                    3751 	.db 0x00
+      00377B 00                    3752 	.db 0x00
+      00377C 00                    3753 	.db 0x00
+      00377D 00                    3754 	.db 0x00
+      00377E 00                    3755 	.db 0x00
+      00377F 00                    3756 	.db 0x00

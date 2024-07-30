@@ -1,6 +1,6 @@
                                       1 ;--------------------------------------------------------
                                       2 ; File Created by SDCC : free open source ANSI-C Compiler
-                                      3 ; Version 4.2.0 #13081 (Linux)
+                                      3 ; Version 4.0.0 #11528 (Linux)
                                       4 ;--------------------------------------------------------
                                       5 	.module eeprom_iap
                                       6 	.optsdcc -mmcs51 --model-small
@@ -504,7 +504,7 @@
       000010                        504 _Write_APROM_BYTE_PARM_2:
       000010                        505 	.ds 1
                                     506 ;--------------------------------------------------------
-                                    507 ; overlayable items in internal ram
+                                    507 ; overlayable items in internal ram 
                                     508 ;--------------------------------------------------------
                                     509 	.area	OSEG    (OVR,DATA)
       000018                        510 _iap_cmd_PARM_2:
@@ -582,7 +582,7 @@
                                     582 ;	-----------------------------------------
                                     583 ;	 function iap_cmd
                                     584 ;	-----------------------------------------
-      001062                        585 _iap_cmd:
+      00113C                        585 _iap_cmd:
                            000007   586 	ar7 = 0x07
                            000006   587 	ar6 = 0x06
                            000005   588 	ar5 = 0x05
@@ -591,85 +591,85 @@
                            000002   591 	ar2 = 0x02
                            000001   592 	ar1 = 0x01
                            000000   593 	ar0 = 0x00
-      001062 AF 82            [24]  594 	mov	r7,dpl
+      00113C AF 82            [24]  594 	mov	r7,dpl
                                     595 ;	../lib/eeprom_iap.c:11: set_IAPEN; // Enable IAPEN
                                     596 ;	assignBit
-      001064 A2 AF            [12]  597 	mov	c,_EA
-      001066 92 00            [24]  598 	mov	_BIT_TMP,c
+      00113E A2 AF            [12]  597 	mov	c,_EA
+      001140 92 00            [24]  598 	mov	_BIT_TMP,c
                                     599 ;	assignBit
-      001068 C2 AF            [12]  600 	clr	_EA
-      00106A 75 C7 AA         [24]  601 	mov	_TA,#0xaa
-      00106D 75 C7 55         [24]  602 	mov	_TA,#0x55
-      001070 43 9F 01         [24]  603 	orl	_CHPCON,#0x01
+      001142 C2 AF            [12]  600 	clr	_EA
+      001144 75 C7 AA         [24]  601 	mov	_TA,#0xaa
+      001147 75 C7 55         [24]  602 	mov	_TA,#0x55
+      00114A 43 9F 01         [24]  603 	orl	_CHPCON,#0x01
                                     604 ;	assignBit
-      001073 A2 00            [12]  605 	mov	c,_BIT_TMP
-      001075 92 AF            [24]  606 	mov	_EA,c
+      00114D A2 00            [12]  605 	mov	c,_BIT_TMP
+      00114F 92 AF            [24]  606 	mov	_EA,c
                                     607 ;	../lib/eeprom_iap.c:13: if (au8Flag) {
-      001077 E5 1B            [12]  608 	mov	a,_iap_cmd_PARM_5
-      001079 60 13            [24]  609 	jz	00102$
+      001151 E5 1B            [12]  608 	mov	a,_iap_cmd_PARM_5
+      001153 60 13            [24]  609 	jz	00102$
                                     610 ;	../lib/eeprom_iap.c:14: set_APUEN;							//enable APROM update
                                     611 ;	assignBit
-      00107B A2 AF            [12]  612 	mov	c,_EA
-      00107D 92 00            [24]  613 	mov	_BIT_TMP,c
+      001155 A2 AF            [12]  612 	mov	c,_EA
+      001157 92 00            [24]  613 	mov	_BIT_TMP,c
                                     614 ;	assignBit
-      00107F C2 AF            [12]  615 	clr	_EA
-      001081 75 C7 AA         [24]  616 	mov	_TA,#0xaa
-      001084 75 C7 55         [24]  617 	mov	_TA,#0x55
-      001087 43 A5 01         [24]  618 	orl	_IAPUEN,#0x01
+      001159 C2 AF            [12]  615 	clr	_EA
+      00115B 75 C7 AA         [24]  616 	mov	_TA,#0xaa
+      00115E 75 C7 55         [24]  617 	mov	_TA,#0x55
+      001161 43 A5 01         [24]  618 	orl	_IAPUEN,#0x01
                                     619 ;	assignBit
-      00108A A2 00            [12]  620 	mov	c,_BIT_TMP
-      00108C 92 AF            [24]  621 	mov	_EA,c
-      00108E                        622 00102$:
+      001164 A2 00            [12]  620 	mov	c,_BIT_TMP
+      001166 92 AF            [24]  621 	mov	_EA,c
+      001168                        622 00102$:
                                     623 ;	../lib/eeprom_iap.c:17: IAPAL = au8IAPAL;
-      00108E 85 19 A6         [24]  624 	mov	_IAPAL,_iap_cmd_PARM_3
+      001168 85 19 A6         [24]  624 	mov	_IAPAL,_iap_cmd_PARM_3
                                     625 ;	../lib/eeprom_iap.c:18: IAPAH = au8IAPAH;
-      001091 85 18 A7         [24]  626 	mov	_IAPAH,_iap_cmd_PARM_2
+      00116B 85 18 A7         [24]  626 	mov	_IAPAH,_iap_cmd_PARM_2
                                     627 ;	../lib/eeprom_iap.c:19: IAPFD = au8IAPFD;
-      001094 85 1A AE         [24]  628 	mov	_IAPFD,_iap_cmd_PARM_4
+      00116E 85 1A AE         [24]  628 	mov	_IAPFD,_iap_cmd_PARM_4
                                     629 ;	../lib/eeprom_iap.c:20: IAPCN = au8IAPCN;
-      001097 8F AF            [24]  630 	mov	_IAPCN,r7
+      001171 8F AF            [24]  630 	mov	_IAPCN,r7
                                     631 ;	../lib/eeprom_iap.c:22: set_IAPGO; // Trig set IAPGO
                                     632 ;	assignBit
-      001099 A2 AF            [12]  633 	mov	c,_EA
-      00109B 92 00            [24]  634 	mov	_BIT_TMP,c
+      001173 A2 AF            [12]  633 	mov	c,_EA
+      001175 92 00            [24]  634 	mov	_BIT_TMP,c
                                     635 ;	assignBit
-      00109D C2 AF            [12]  636 	clr	_EA
-      00109F 75 C7 AA         [24]  637 	mov	_TA,#0xaa
-      0010A2 75 C7 55         [24]  638 	mov	_TA,#0x55
-      0010A5 43 A4 01         [24]  639 	orl	_IAPTRG,#0x01
+      001177 C2 AF            [12]  636 	clr	_EA
+      001179 75 C7 AA         [24]  637 	mov	_TA,#0xaa
+      00117C 75 C7 55         [24]  638 	mov	_TA,#0x55
+      00117F 43 A4 01         [24]  639 	orl	_IAPTRG,#0x01
                                     640 ;	assignBit
-      0010A8 A2 00            [12]  641 	mov	c,_BIT_TMP
-      0010AA 92 AF            [24]  642 	mov	_EA,c
+      001182 A2 00            [12]  641 	mov	c,_BIT_TMP
+      001184 92 AF            [24]  642 	mov	_EA,c
                                     643 ;	../lib/eeprom_iap.c:24: if (au8Flag) {
-      0010AC E5 1B            [12]  644 	mov	a,_iap_cmd_PARM_5
-      0010AE 60 26            [24]  645 	jz	00105$
+      001186 E5 1B            [12]  644 	mov	a,_iap_cmd_PARM_5
+      001188 60 26            [24]  645 	jz	00105$
                                     646 ;	../lib/eeprom_iap.c:25: clr_APUEN;
                                     647 ;	assignBit
-      0010B0 A2 AF            [12]  648 	mov	c,_EA
-      0010B2 92 00            [24]  649 	mov	_BIT_TMP,c
+      00118A A2 AF            [12]  648 	mov	c,_EA
+      00118C 92 00            [24]  649 	mov	_BIT_TMP,c
                                     650 ;	assignBit
-      0010B4 C2 AF            [12]  651 	clr	_EA
-      0010B6 75 C7 AA         [24]  652 	mov	_TA,#0xaa
-      0010B9 75 C7 55         [24]  653 	mov	_TA,#0x55
-      0010BC 53 A5 FE         [24]  654 	anl	_IAPUEN,#0xfe
+      00118E C2 AF            [12]  651 	clr	_EA
+      001190 75 C7 AA         [24]  652 	mov	_TA,#0xaa
+      001193 75 C7 55         [24]  653 	mov	_TA,#0x55
+      001196 53 A5 FE         [24]  654 	anl	_IAPUEN,#0xfe
                                     655 ;	assignBit
-      0010BF A2 00            [12]  656 	mov	c,_BIT_TMP
-      0010C1 92 AF            [24]  657 	mov	_EA,c
+      001199 A2 00            [12]  656 	mov	c,_BIT_TMP
+      00119B 92 AF            [24]  657 	mov	_EA,c
                                     658 ;	../lib/eeprom_iap.c:26: clr_IAPEN;
                                     659 ;	assignBit
-      0010C3 A2 AF            [12]  660 	mov	c,_EA
-      0010C5 92 00            [24]  661 	mov	_BIT_TMP,c
+      00119D A2 AF            [12]  660 	mov	c,_EA
+      00119F 92 00            [24]  661 	mov	_BIT_TMP,c
                                     662 ;	assignBit
-      0010C7 C2 AF            [12]  663 	clr	_EA
-      0010C9 75 C7 AA         [24]  664 	mov	_TA,#0xaa
-      0010CC 75 C7 55         [24]  665 	mov	_TA,#0x55
-      0010CF 53 9F FE         [24]  666 	anl	_CHPCON,#0xfe
+      0011A1 C2 AF            [12]  663 	clr	_EA
+      0011A3 75 C7 AA         [24]  664 	mov	_TA,#0xaa
+      0011A6 75 C7 55         [24]  665 	mov	_TA,#0x55
+      0011A9 53 9F FE         [24]  666 	anl	_CHPCON,#0xfe
                                     667 ;	assignBit
-      0010D2 A2 00            [12]  668 	mov	c,_BIT_TMP
-      0010D4 92 AF            [24]  669 	mov	_EA,c
-      0010D6                        670 00105$:
+      0011AC A2 00            [12]  668 	mov	c,_BIT_TMP
+      0011AE 92 AF            [24]  669 	mov	_EA,c
+      0011B0                        670 00105$:
                                     671 ;	../lib/eeprom_iap.c:28: }
-      0010D6 22               [24]  672 	ret
+      0011B0 22               [24]  672 	ret
                                     673 ;------------------------------------------------------------
                                     674 ;Allocation info for local variables in function 'Erase_APROM_Page'
                                     675 ;------------------------------------------------------------
@@ -679,17 +679,17 @@
                                     679 ;	-----------------------------------------
                                     680 ;	 function Erase_APROM_Page
                                     681 ;	-----------------------------------------
-      0010D7                        682 _Erase_APROM_Page:
-      0010D7 AE 82            [24]  683 	mov	r6,dpl
-      0010D9 AF 83            [24]  684 	mov	r7,dph
+      0011B1                        682 _Erase_APROM_Page:
+      0011B1 AE 82            [24]  683 	mov	r6,dpl
+      0011B3 AF 83            [24]  684 	mov	r7,dph
                                     685 ;	../lib/eeprom_iap.c:33: iap_cmd(0x22, (u16EPAddr>>8)&0xff, u16EPAddr&0xff, 0xFF, 1);
-      0010DB 8F 18            [24]  686 	mov	_iap_cmd_PARM_2,r7
-      0010DD 8E 19            [24]  687 	mov	_iap_cmd_PARM_3,r6
-      0010DF 75 1A FF         [24]  688 	mov	_iap_cmd_PARM_4,#0xff
-      0010E2 75 1B 01         [24]  689 	mov	_iap_cmd_PARM_5,#0x01
-      0010E5 75 82 22         [24]  690 	mov	dpl,#0x22
+      0011B5 8F 18            [24]  686 	mov	_iap_cmd_PARM_2,r7
+      0011B7 8E 19            [24]  687 	mov	_iap_cmd_PARM_3,r6
+      0011B9 75 1A FF         [24]  688 	mov	_iap_cmd_PARM_4,#0xff
+      0011BC 75 1B 01         [24]  689 	mov	_iap_cmd_PARM_5,#0x01
+      0011BF 75 82 22         [24]  690 	mov	dpl,#0x22
                                     691 ;	../lib/eeprom_iap.c:34: }
-      0010E8 02 10 62         [24]  692 	ljmp	_iap_cmd
+      0011C2 02 11 3C         [24]  692 	ljmp	_iap_cmd
                                     693 ;------------------------------------------------------------
                                     694 ;Allocation info for local variables in function 'Write_APROM_BYTE'
                                     695 ;------------------------------------------------------------
@@ -700,17 +700,17 @@
                                     700 ;	-----------------------------------------
                                     701 ;	 function Write_APROM_BYTE
                                     702 ;	-----------------------------------------
-      0010EB                        703 _Write_APROM_BYTE:
-      0010EB AE 82            [24]  704 	mov	r6,dpl
-      0010ED AF 83            [24]  705 	mov	r7,dph
+      0011C5                        703 _Write_APROM_BYTE:
+      0011C5 AE 82            [24]  704 	mov	r6,dpl
+      0011C7 AF 83            [24]  705 	mov	r7,dph
                                     706 ;	../lib/eeprom_iap.c:39: iap_cmd(0x21, (u16EPAddr>>8)&0xff, u16EPAddr&0xff, u8EPData, 1);
-      0010EF 8F 18            [24]  707 	mov	_iap_cmd_PARM_2,r7
-      0010F1 8E 19            [24]  708 	mov	_iap_cmd_PARM_3,r6
-      0010F3 85 10 1A         [24]  709 	mov	_iap_cmd_PARM_4,_Write_APROM_BYTE_PARM_2
-      0010F6 75 1B 01         [24]  710 	mov	_iap_cmd_PARM_5,#0x01
-      0010F9 75 82 21         [24]  711 	mov	dpl,#0x21
+      0011C9 8F 18            [24]  707 	mov	_iap_cmd_PARM_2,r7
+      0011CB 8E 19            [24]  708 	mov	_iap_cmd_PARM_3,r6
+      0011CD 85 10 1A         [24]  709 	mov	_iap_cmd_PARM_4,_Write_APROM_BYTE_PARM_2
+      0011D0 75 1B 01         [24]  710 	mov	_iap_cmd_PARM_5,#0x01
+      0011D3 75 82 21         [24]  711 	mov	dpl,#0x21
                                     712 ;	../lib/eeprom_iap.c:40: }
-      0010FC 02 10 62         [24]  713 	ljmp	_iap_cmd
+      0011D6 02 11 3C         [24]  713 	ljmp	_iap_cmd
                                     714 ;------------------------------------------------------------
                                     715 ;Allocation info for local variables in function 'read_bandgap_value'
                                     716 ;------------------------------------------------------------
@@ -721,64 +721,64 @@
                                     721 ;	-----------------------------------------
                                     722 ;	 function read_bandgap_value
                                     723 ;	-----------------------------------------
-      0010FF                        724 _read_bandgap_value:
+      0011D9                        724 _read_bandgap_value:
                                     725 ;	../lib/eeprom_iap.c:45: iap_cmd(0x04,0x00,0x0c,0,0);
-      0010FF 75 18 00         [24]  726 	mov	_iap_cmd_PARM_2,#0x00
-      001102 75 19 0C         [24]  727 	mov	_iap_cmd_PARM_3,#0x0c
-      001105 75 1A 00         [24]  728 	mov	_iap_cmd_PARM_4,#0x00
-      001108 75 1B 00         [24]  729 	mov	_iap_cmd_PARM_5,#0x00
-      00110B 75 82 04         [24]  730 	mov	dpl,#0x04
-      00110E 12 10 62         [24]  731 	lcall	_iap_cmd
+      0011D9 75 18 00         [24]  726 	mov	_iap_cmd_PARM_2,#0x00
+      0011DC 75 19 0C         [24]  727 	mov	_iap_cmd_PARM_3,#0x0c
+      0011DF 75 1A 00         [24]  728 	mov	_iap_cmd_PARM_4,#0x00
+      0011E2 75 1B 00         [24]  729 	mov	_iap_cmd_PARM_5,#0x00
+      0011E5 75 82 04         [24]  730 	mov	dpl,#0x04
+      0011E8 12 11 3C         [24]  731 	lcall	_iap_cmd
                                     732 ;	../lib/eeprom_iap.c:46: BandgapHigh = IAPFD;
-      001111 AF AE            [24]  733 	mov	r7,_IAPFD
+      0011EB AF AE            [24]  733 	mov	r7,_IAPFD
                                     734 ;	../lib/eeprom_iap.c:47: iap_cmd(0x04,0x00,0x0d,0,0);
-      001113 75 18 00         [24]  735 	mov	_iap_cmd_PARM_2,#0x00
-      001116 75 19 0D         [24]  736 	mov	_iap_cmd_PARM_3,#0x0d
-      001119 75 1A 00         [24]  737 	mov	_iap_cmd_PARM_4,#0x00
-      00111C 75 1B 00         [24]  738 	mov	_iap_cmd_PARM_5,#0x00
-      00111F 75 82 04         [24]  739 	mov	dpl,#0x04
-      001122 C0 07            [24]  740 	push	ar7
-      001124 12 10 62         [24]  741 	lcall	_iap_cmd
-      001127 D0 07            [24]  742 	pop	ar7
+      0011ED 75 18 00         [24]  735 	mov	_iap_cmd_PARM_2,#0x00
+      0011F0 75 19 0D         [24]  736 	mov	_iap_cmd_PARM_3,#0x0d
+      0011F3 75 1A 00         [24]  737 	mov	_iap_cmd_PARM_4,#0x00
+      0011F6 75 1B 00         [24]  738 	mov	_iap_cmd_PARM_5,#0x00
+      0011F9 75 82 04         [24]  739 	mov	dpl,#0x04
+      0011FC C0 07            [24]  740 	push	ar7
+      0011FE 12 11 3C         [24]  741 	lcall	_iap_cmd
+      001201 D0 07            [24]  742 	pop	ar7
                                     743 ;	../lib/eeprom_iap.c:48: BandgapLow = IAPFD;
-      001129 E5 AE            [12]  744 	mov	a,_IAPFD
+      001203 E5 AE            [12]  744 	mov	a,_IAPFD
                                     745 ;	../lib/eeprom_iap.c:49: BandgapLow = BandgapLow&0x0F;
-      00112B 54 0F            [12]  746 	anl	a,#0x0f
-      00112D FE               [12]  747 	mov	r6,a
+      001205 54 0F            [12]  746 	anl	a,#0x0f
+      001207 FE               [12]  747 	mov	r6,a
                                     748 ;	../lib/eeprom_iap.c:50: clr_IAPEN; // Disable IAPEN
                                     749 ;	assignBit
-      00112E A2 AF            [12]  750 	mov	c,_EA
-      001130 92 00            [24]  751 	mov	_BIT_TMP,c
+      001208 A2 AF            [12]  750 	mov	c,_EA
+      00120A 92 00            [24]  751 	mov	_BIT_TMP,c
                                     752 ;	assignBit
-      001132 C2 AF            [12]  753 	clr	_EA
-      001134 75 C7 AA         [24]  754 	mov	_TA,#0xaa
-      001137 75 C7 55         [24]  755 	mov	_TA,#0x55
-      00113A 53 9F FE         [24]  756 	anl	_CHPCON,#0xfe
+      00120C C2 AF            [12]  753 	clr	_EA
+      00120E 75 C7 AA         [24]  754 	mov	_TA,#0xaa
+      001211 75 C7 55         [24]  755 	mov	_TA,#0x55
+      001214 53 9F FE         [24]  756 	anl	_CHPCON,#0xfe
                                     757 ;	assignBit
-      00113D A2 00            [12]  758 	mov	c,_BIT_TMP
-      00113F 92 AF            [24]  759 	mov	_EA,c
+      001217 A2 00            [12]  758 	mov	c,_BIT_TMP
+      001219 92 AF            [24]  759 	mov	_EA,c
                                     760 ;	../lib/eeprom_iap.c:51: return (BandgapHigh<<4)+BandgapLow;
-      001141 E4               [12]  761 	clr	a
-      001142 C4               [12]  762 	swap	a
-      001143 54 F0            [12]  763 	anl	a,#0xf0
-      001145 CF               [12]  764 	xch	a,r7
-      001146 C4               [12]  765 	swap	a
-      001147 CF               [12]  766 	xch	a,r7
-      001148 6F               [12]  767 	xrl	a,r7
-      001149 CF               [12]  768 	xch	a,r7
-      00114A 54 F0            [12]  769 	anl	a,#0xf0
-      00114C CF               [12]  770 	xch	a,r7
-      00114D 6F               [12]  771 	xrl	a,r7
-      00114E FD               [12]  772 	mov	r5,a
-      00114F 7C 00            [12]  773 	mov	r4,#0x00
-      001151 EE               [12]  774 	mov	a,r6
-      001152 2F               [12]  775 	add	a,r7
-      001153 F5 82            [12]  776 	mov	dpl,a
-      001155 EC               [12]  777 	mov	a,r4
-      001156 3D               [12]  778 	addc	a,r5
-      001157 F5 83            [12]  779 	mov	dph,a
+      00121B E4               [12]  761 	clr	a
+      00121C C4               [12]  762 	swap	a
+      00121D 54 F0            [12]  763 	anl	a,#0xf0
+      00121F CF               [12]  764 	xch	a,r7
+      001220 C4               [12]  765 	swap	a
+      001221 CF               [12]  766 	xch	a,r7
+      001222 6F               [12]  767 	xrl	a,r7
+      001223 CF               [12]  768 	xch	a,r7
+      001224 54 F0            [12]  769 	anl	a,#0xf0
+      001226 CF               [12]  770 	xch	a,r7
+      001227 6F               [12]  771 	xrl	a,r7
+      001228 FD               [12]  772 	mov	r5,a
+      001229 7C 00            [12]  773 	mov	r4,#0x00
+      00122B EE               [12]  774 	mov	a,r6
+      00122C 2F               [12]  775 	add	a,r7
+      00122D F5 82            [12]  776 	mov	dpl,a
+      00122F EC               [12]  777 	mov	a,r4
+      001230 3D               [12]  778 	addc	a,r5
+      001231 F5 83            [12]  779 	mov	dph,a
                                     780 ;	../lib/eeprom_iap.c:52: }
-      001159 22               [24]  781 	ret
+      001233 22               [24]  781 	ret
                                     782 ;------------------------------------------------------------
                                     783 ;Allocation info for local variables in function 'read_uid'
                                     784 ;------------------------------------------------------------
@@ -789,31 +789,31 @@
                                     789 ;	-----------------------------------------
                                     790 ;	 function read_uid
                                     791 ;	-----------------------------------------
-      00115A                        792 _read_uid:
-      00115A 85 82 19         [24]  793 	mov	_iap_cmd_PARM_3,dpl
+      001234                        792 _read_uid:
+      001234 85 82 19         [24]  793 	mov	_iap_cmd_PARM_3,dpl
                                     794 ;	../lib/eeprom_iap.c:57: iap_cmd(0x04,0x00,au8Idx,0,0);
-      00115D 75 18 00         [24]  795 	mov	_iap_cmd_PARM_2,#0x00
-      001160 75 1A 00         [24]  796 	mov	_iap_cmd_PARM_4,#0x00
-      001163 75 1B 00         [24]  797 	mov	_iap_cmd_PARM_5,#0x00
-      001166 75 82 04         [24]  798 	mov	dpl,#0x04
-      001169 12 10 62         [24]  799 	lcall	_iap_cmd
+      001237 75 18 00         [24]  795 	mov	_iap_cmd_PARM_2,#0x00
+      00123A 75 1A 00         [24]  796 	mov	_iap_cmd_PARM_4,#0x00
+      00123D 75 1B 00         [24]  797 	mov	_iap_cmd_PARM_5,#0x00
+      001240 75 82 04         [24]  798 	mov	dpl,#0x04
+      001243 12 11 3C         [24]  799 	lcall	_iap_cmd
                                     800 ;	../lib/eeprom_iap.c:58: u8Uid = IAPFD;
-      00116C 85 AE 82         [24]  801 	mov	dpl,_IAPFD
+      001246 85 AE 82         [24]  801 	mov	dpl,_IAPFD
                                     802 ;	../lib/eeprom_iap.c:59: clr_IAPEN; // Disable IAPEN
                                     803 ;	assignBit
-      00116F A2 AF            [12]  804 	mov	c,_EA
-      001171 92 00            [24]  805 	mov	_BIT_TMP,c
+      001249 A2 AF            [12]  804 	mov	c,_EA
+      00124B 92 00            [24]  805 	mov	_BIT_TMP,c
                                     806 ;	assignBit
-      001173 C2 AF            [12]  807 	clr	_EA
-      001175 75 C7 AA         [24]  808 	mov	_TA,#0xaa
-      001178 75 C7 55         [24]  809 	mov	_TA,#0x55
-      00117B 53 9F FE         [24]  810 	anl	_CHPCON,#0xfe
+      00124D C2 AF            [12]  807 	clr	_EA
+      00124F 75 C7 AA         [24]  808 	mov	_TA,#0xaa
+      001252 75 C7 55         [24]  809 	mov	_TA,#0x55
+      001255 53 9F FE         [24]  810 	anl	_CHPCON,#0xfe
                                     811 ;	assignBit
-      00117E A2 00            [12]  812 	mov	c,_BIT_TMP
-      001180 92 AF            [24]  813 	mov	_EA,c
+      001258 A2 00            [12]  812 	mov	c,_BIT_TMP
+      00125A 92 AF            [24]  813 	mov	_EA,c
                                     814 ;	../lib/eeprom_iap.c:60: return u8Uid;
                                     815 ;	../lib/eeprom_iap.c:61: }
-      001182 22               [24]  816 	ret
+      00125C 22               [24]  816 	ret
                                     817 	.area CSEG    (CODE)
                                     818 	.area CONST   (CODE)
                                     819 	.area CABS    (ABS,CODE)

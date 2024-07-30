@@ -1,6 +1,6 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
-; Version 4.2.0 #13081 (Linux)
+; Version 4.0.0 #11528 (Linux)
 ;--------------------------------------------------------
 	.module eeprom_iap
 	.optsdcc -mmcs51 --model-small
@@ -504,7 +504,7 @@ _MOSI	=	0x0080
 _Write_APROM_BYTE_PARM_2:
 	.ds 1
 ;--------------------------------------------------------
-; overlayable items in internal ram
+; overlayable items in internal ram 
 ;--------------------------------------------------------
 	.area	OSEG    (OVR,DATA)
 _iap_cmd_PARM_2:

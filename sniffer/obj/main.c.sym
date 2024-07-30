@@ -291,7 +291,7 @@ Symbol Table
     _InitialUART1_Timer3                                           ****** GX
     _LOAD                                                       =  0000DE G
     _MISO                                                       =  000081 G
- 18 _MODIFY_HIRC_166                                               00027C GR
+ 18 _MODIFY_HIRC_166                                               00028A GR
     _MOSI                                                       =  000080 G
     _OV                                                         =  0000D2 G
     _P                                                          =  0000D0 G
@@ -453,7 +453,7 @@ Symbol Table
     _TR2                                                        =  0000CA G
     _TXD                                                        =  000086 G
     _TXD_1                                                      =  000096 G
- 18 _Timer0_ISR                                                    0001E0 GR
+ 18 _Timer0_ISR                                                    0001E8 GR
     _WDCON                                                      =  0000AA G
     _WKCON                                                      =  00008F G
     _Write_APROM_BYTE                                              ****** GX
@@ -514,25 +514,25 @@ Symbol Table
     __sdcc_gsinit_startup                                          ****** GX
   F __sdcc_program_startup                                         00003E GR
   8 __start__stack                                                 000000 GR
- 18 _chk_manchester                                                000201 GR
- 18 _chk_my_addr                                                   000586 GR
+ 18 _chk_manchester                                                000209 GR
+ 18 _chk_my_addr                                                   000596 GR
   7 _chk_my_addr_PARM_2                                            000000 GR
- 18 _conv_manchester2highnibble                                    000260 GR
- 18 _conv_manchester2nibble                                        000244 GR
+ 18 _conv_manchester2highnibble                                    00026B GR
+ 18 _conv_manchester2nibble                                        00024C GR
  18 _conv_nibble2manchester                                        000017 GR
     _cp_buf2linefipacket                                           ****** GX
     _cp_buf2linefipacket_PARM_2                                    ****** GX
     _cp_buf2linefipacket_PARM_3                                    ****** GX
- 18 _ctrl_rgbled                                                   00055C GR
- 18 _disp_help                                                     0002C8 GR
+ 18 _ctrl_rgbled                                                   00056C GR
+ 18 _disp_help                                                     0002D6 GR
  1B _gpcEEPROM                                                     003700 GR
- 18 _gpio_setup                                                    0003F6 GR
+ 18 _gpio_setup                                                    000404 GR
   D _gpu32UartSpeed                                                000014 GR
   D _gpu8Data                                                      000000 GR
   6 _gu16TimeCnt                                                   000002 GR
   6 _gu8MyAddr                                                     000000 GR
   6 _gu8UART                                                       000001 GR
- 18 _main                                                          000819 GR
+ 18 _main                                                          000829 GR
   6 _main_pu8LineFiRx_65536_128                                    000015 R
   D _main_pu8RxUART_65536_128                                      00004C R
   6 _main_stLineFiPkt_65536_128                                    00000D R
@@ -543,25 +543,24 @@ Hexadecimal [24-Bits]
 
 Symbol Table
 
- 18 _pin_interrupt_isr                                             0001F7 GR
- 18 _preamble                                                      000059 GR
- 18 _print_char                                                    0000E3 GR
- 18 _print_esc                                                     000074 GR
-    _print_linefipacket                                            ****** GX
- 18 _print_one_octet_linefi                                        0007DC GR
+ 18 _pin_interrupt_isr                                             0001FF GR
+ 18 _preamble                                                      000061 GR
+ 18 _print_char                                                    0000EB GR
+ 18 _print_esc                                                     00007C GR
+ 18 _print_one_octet_linefi                                        0007EC GR
     _print_raw_packet                                              ****** GX
     _print_raw_packet_PARM_2                                       ****** GX
     _printf_fast_f                                                 ****** GX
- 18 _process_all_packet                                            0006F3 GR
- 18 _process_my_packet                                             0005A4 GR
+ 18 _process_all_packet                                            000703 GR
+ 18 _process_my_packet                                             0005B4 GR
   6 _process_my_packet_sloc0_1_0                                   000008 R
  18 _putchar                                                       000000 GR
  18 _putchar_manchester                                            00003E GR
- 18 _state_machine                                                 000116 GR
+ 18 _state_machine                                                 00011E GR
   6 _state_machine_PARM_2                                          000004 GR
   6 _state_machine_PARM_3                                          000005 GR
   6 _state_machine_PARM_4                                          000006 GR
- 18 _state_switches                                                000469 GR
+ 18 _state_switches                                                000477 GR
   7 _state_switches_PARM_2                                         000000 GR
   6 _state_switches_su8PrevSW_65536_96                             000007 R
     _uart_setup                                                    ****** GX
@@ -598,12 +597,12 @@ Symbol Table
     b.2                                                         =  0000F2 L
     b.3                                                         =  0000F3 L
     b.4                                                         =  0000F4 L
+    b.5                                                         =  0000F5 L
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 11.
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-    b.5                                                         =  0000F5 L
     b.6                                                         =  0000F6 L
     b.7                                                         =  0000F7 L
     cprl2                                                       =  0000C8 L
@@ -658,12 +657,12 @@ Symbol Table
     p1.1                                                        =  000091 L
     p1.2                                                        =  000092 L
     p1.3                                                        =  000093 L
+    p1.4                                                        =  000094 L
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 12.
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-    p1.4                                                        =  000094 L
     p1.5                                                        =  000095 L
     p1.6                                                        =  000096 L
     p1.7                                                        =  000097 L
@@ -718,12 +717,12 @@ Symbol Table
     scon.3                                                      =  00009B L
     scon.4                                                      =  00009C L
     scon.5                                                      =  00009D L
+    scon.6                                                      =  00009E L
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 13.
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-    scon.6                                                      =  00009E L
     scon.7                                                      =  00009F L
     sm0                                                         =  00009F L
     sm1                                                         =  00009E L
@@ -795,7 +794,7 @@ Area Table
   15 GSINIT5                                    size      0   flags   20
   16 GSINIT                                     size     E5   flags   20
   17 GSFINAL                                    size      3   flags   20
-  18 CSEG                                       size    CBF   flags   20
+  18 CSEG                                       size    CB5   flags   20
   19 CONST                                      size    2E9   flags   20
   1A CABS                                       size      0   flags   28
   1B CABS2                                      size     80   flags   28

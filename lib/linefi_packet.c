@@ -87,15 +87,15 @@ void send_octet_to_linefi(UINT8 au8Data)
 
 void send_linefi_packet(linefi_packet_t * apstLineFiPkt)
 {
-	uint8 u8CRC = calc_crc_linefi_packet_packet(apstLineFiPkt);
-
+	uint8 u8CRC1 = calc_crc_linefi_packet_packet(apstLineFiPkt);
+	apstLineFiPkt->u8CRC = u8CRC1;
 	uint8 * pu8Buf = (uint8 *) apstLineFiPkt;
 	send_octet_to_linefi(*pu8Buf++);
 	send_octet_to_linefi(*pu8Buf++);
 	send_octet_to_linefi(*pu8Buf++);
 	send_octet_to_linefi(*pu8Buf++);
-	//send_octet_to_linefi(*pu8Buf++); //CRC
-	send_octet_to_linefi(u8CRC); //CRC
+	send_octet_to_linefi(*pu8Buf++); //CRC
+	// send_octet_to_linefi(u8CRC); //CRC
 	uint8 i;
 	for (i=0;i<apstLineFiPkt->u8Size;i++) {
 		send_octet_to_linefi(*(apstLineFiPkt->pu8Data+i));

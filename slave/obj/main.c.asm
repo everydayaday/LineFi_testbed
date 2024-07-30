@@ -1,6 +1,6 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
-; Version 4.2.0 #13081 (Linux)
+; Version 4.0.0 #11528 (Linux)
 ;--------------------------------------------------------
 	.module main
 	.optsdcc -mmcs51 --model-small
@@ -12,6 +12,7 @@
 	.globl _state_switches_PARM_2
 	.globl _gpcEEPROM
 	.globl _main
+	.globl _print_one_octet_linefi
 	.globl _process_all_packet
 	.globl _process_my_packet
 	.globl _chk_my_addr
@@ -550,20 +551,22 @@ _state_switches_su8PrevSW_65536_96:
 	.ds 1
 _process_my_packet_sloc0_1_0:
 	.ds 3
-_main_su8Cnt_262145_134:
+_main_su8Cnt_262145_138:
 	.ds 1
-_main_u8RxUART_65536_124:
+_main_u8RxUART_65536_128:
 	.ds 1
-_main_pu8RxUART_65536_124:
+_main_u16Cnt_65536_128:
+	.ds 2
+_main_pu8RxUART_65536_128:
 	.ds 30
-_main_stLineFiPkt_65536_124:
+_main_stLineFiPkt_65536_128:
 	.ds 8
-_main_u8RxBufIdx_65536_124:
+_main_u8RxBufIdx_65536_128:
 	.ds 1
-_main_pu8LineFiRx_65536_124:
+_main_pu8LineFiRx_65536_128:
 	.ds 10
 ;--------------------------------------------------------
-; overlayable items in internal ram
+; overlayable items in internal ram 
 ;--------------------------------------------------------
 	.area	OSEG    (OVR,DATA)
 	.area	OSEG    (OVR,DATA)
@@ -579,7 +582,7 @@ _state_switches_PARM_2:
 _chk_my_addr_PARM_2:
 	.ds 1
 ;--------------------------------------------------------
-; Stack segment in internal ram
+; Stack segment in internal ram 
 ;--------------------------------------------------------
 	.area	SSEG
 __start__stack:
@@ -630,7 +633,7 @@ _gpu32UartSpeed::
 	.area GSFINAL (CODE)
 	.area CSEG    (CODE)
 ;--------------------------------------------------------
-; interrupt vector
+; interrupt vector 
 ;--------------------------------------------------------
 	.area HOME    (CODE)
 __interrupt_vect:
@@ -670,17 +673,17 @@ __interrupt_vect:
 ;i                         Allocated to registers r2 
 ;u8Result                  Allocated to registers r6 
 ;------------------------------------------------------------
-;	src/main.c:473: static UINT8 su8PrevSW = 0;
+;	src/main.c:474: static UINT8 su8PrevSW = 0;
 	mov	_state_switches_su8PrevSW_65536_96,#0x00
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
-;su8Cnt                    Allocated with name '_main_su8Cnt_262145_134'
+;su8Cnt                    Allocated with name '_main_su8Cnt_262145_138'
 ;u8PrevSwitch              Allocated to registers r4 
 ;u8UartRx                  Allocated to registers 
 ;u8RotSense                Allocated to registers 
-;u8RxUART                  Allocated with name '_main_u8RxUART_65536_124'
-;u16Cnt                    Allocated to registers r3 r4 
+;u8RxUART                  Allocated with name '_main_u8RxUART_65536_128'
+;u16Cnt                    Allocated with name '_main_u16Cnt_65536_128'
 ;u8OutputState             Allocated to registers 
 ;u8StateRxCSC              Allocated to registers 
 ;u8LineFiAddr              Allocated to registers 
@@ -689,20 +692,20 @@ __interrupt_vect:
 ;u8LineFiCmd               Allocated to registers 
 ;u8PwrOnFirstFlag          Allocated to registers 
 ;u8StateRxPkt              Allocated to registers r7 
-;pu8RxUART                 Allocated with name '_main_pu8RxUART_65536_124'
-;stLineFiPkt               Allocated with name '_main_stLineFiPkt_65536_124'
+;pu8RxUART                 Allocated with name '_main_pu8RxUART_65536_128'
+;stLineFiPkt               Allocated with name '_main_stLineFiPkt_65536_128'
 ;u8MotorState              Allocated to registers 
-;u8RxBufIdx                Allocated with name '_main_u8RxBufIdx_65536_124'
+;u8RxBufIdx                Allocated with name '_main_u8RxBufIdx_65536_128'
 ;u8RxLineFiLen             Allocated to registers r5 
-;pu8LineFiRx               Allocated with name '_main_pu8LineFiRx_65536_124'
+;pu8LineFiRx               Allocated with name '_main_pu8LineFiRx_65536_128'
 ;u8LineFiRxIdx             Allocated to registers 
 ;u8Count2                  Allocated to registers 
 ;u8RxPktCnt                Allocated to registers 
 ;u8PreambleCnt             Allocated to registers 
 ;i                         Allocated to registers r3 
 ;------------------------------------------------------------
-;	src/main.c:856: static uint8 su8Cnt = 0;
-	mov	_main_su8Cnt_262145_134,#0x00
+;	src/main.c:877: static uint8 su8Cnt = 0;
+	mov	_main_su8Cnt_262145_138,#0x00
 ;	src/main.c:108: UINT8 gu8UART = 0;
 	mov	_gu8UART,#0x00
 ;	src/main.c:109: UINT16 gu16TimeCnt = 0;
@@ -887,9 +890,9 @@ __sdcc_program_startup:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'putchar'
 ;------------------------------------------------------------
-;c                         Allocated to registers r7 
+;c                         Allocated to registers r6 r7 
 ;------------------------------------------------------------
-;	src/main.c:112: void putchar (char c) 
+;	src/main.c:113: int putchar (int c) 
 ;	-----------------------------------------
 ;	 function putchar
 ;	-----------------------------------------
@@ -902,30 +905,30 @@ _putchar:
 	ar2 = 0x02
 	ar1 = 0x01
 	ar0 = 0x00
-	mov	r7,dpl
-;	src/main.c:114: if (gu8UART == 0)  {
+	mov	r6,dpl
+;	src/main.c:115: if (gu8UART == 0)  {
 	mov	a,_gu8UART
 	jnz	00108$
-;	src/main.c:115: TI = 0;
+;	src/main.c:116: TI = 0;
 ;	assignBit
 	clr	_TI
-;	src/main.c:116: SBUF = c;
-	mov	_SBUF,r7
-;	src/main.c:117: while(TI==0);
+;	src/main.c:117: SBUF = c;
+	mov	_SBUF,r6
+;	src/main.c:118: while(TI==0);
 00101$:
 	jb	_TI,00110$
 	sjmp	00101$
 00108$:
-;	src/main.c:120: TI_1 = 0;
+;	src/main.c:121: TI_1 = 0;
 ;	assignBit
 	clr	_TI_1
-;	src/main.c:121: SBUF_1 = c;
-	mov	_SBUF_1,r7
-;	src/main.c:122: while(TI_1==0);
+;	src/main.c:122: SBUF_1 = c;
+	mov	_SBUF_1,r6
+;	src/main.c:123: while(TI_1==0);
 00104$:
 	jnb	_TI_1,00104$
 00110$:
-;	src/main.c:124: }
+;	src/main.c:125: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'conv_nibble2manchester'
@@ -934,113 +937,117 @@ _putchar:
 ;i                         Allocated to registers r5 
 ;u8Manch                   Allocated to registers r4 
 ;------------------------------------------------------------
-;	src/main.c:126: UINT8 conv_nibble2manchester (UINT8 c)
+;	src/main.c:127: UINT8 conv_nibble2manchester (UINT8 c)
 ;	-----------------------------------------
 ;	 function conv_nibble2manchester
 ;	-----------------------------------------
 _conv_nibble2manchester:
 	mov	r7,dpl
-;	src/main.c:136: UINT8 u8Manch = 0;
+;	src/main.c:137: UINT8 u8Manch = 0;
 	mov	r6,#0x00
-;	src/main.c:137: for (i=0;i<4;i++) {
+;	src/main.c:138: for (i=0;i<4;i++) {
 	mov	r5,#0x00
 00105$:
-;	src/main.c:138: u8Manch >>=2;
+;	src/main.c:139: u8Manch >>=2;
 	mov	a,r6
 	rr	a
 	rr	a
 	anl	a,#0x3f
 	mov	r4,a
-;	src/main.c:139: if (c&1) {
+;	src/main.c:140: if (c&1) {
 	mov	a,r7
 	jnb	acc.0,00102$
-;	src/main.c:140: u8Manch |= 0x40; // 1 -> 0
+;	src/main.c:141: u8Manch |= 0x40; // 1 -> 0
 	mov	a,#0x40
 	orl	a,r4
 	mov	r6,a
 	sjmp	00103$
 00102$:
-;	src/main.c:143: u8Manch |= 0x80; // 0 -> 1
+;	src/main.c:144: u8Manch |= 0x80; // 0 -> 1
 	mov	a,#0x80
 	orl	a,r4
 	mov	r6,a
 00103$:
-;	src/main.c:145: c >>= 1;
+;	src/main.c:146: c >>= 1;
 	mov	a,r7
 	clr	c
 	rrc	a
 	mov	r7,a
-;	src/main.c:137: for (i=0;i<4;i++) {
+;	src/main.c:138: for (i=0;i<4;i++) {
 	inc	r5
 	cjne	r5,#0x04,00126$
 00126$:
 	jc	00105$
-;	src/main.c:147: return u8Manch;
+;	src/main.c:148: return u8Manch;
 	mov	dpl,r6
-;	src/main.c:148: }
+;	src/main.c:149: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'putchar_manchester'
 ;------------------------------------------------------------
 ;c                         Allocated to registers r7 
 ;------------------------------------------------------------
-;	src/main.c:150: void putchar_manchester (char c) 
+;	src/main.c:151: void putchar_manchester (char c) 
 ;	-----------------------------------------
 ;	 function putchar_manchester
 ;	-----------------------------------------
 _putchar_manchester:
-;	src/main.c:152: gu8UART = 1;
-;	src/main.c:153: putchar(conv_nibble2manchester(c));
+;	src/main.c:153: gu8UART = 1;
+;	src/main.c:154: putchar(conv_nibble2manchester(c));
 	mov	r7,dpl
 	mov	_gu8UART,#0x01
 	push	ar7
 	lcall	_conv_nibble2manchester
+	mov	r5,#0x00
+	mov	dph,r5
 	lcall	_putchar
 	pop	ar7
-;	src/main.c:154: putchar(conv_nibble2manchester(c>>4));
+;	src/main.c:155: putchar(conv_nibble2manchester(c>>4));
 	mov	a,r7
 	swap	a
 	anl	a,#0x0f
 	mov	dpl,a
 	lcall	_conv_nibble2manchester
-;	src/main.c:155: return;
-;	src/main.c:156: }
+	mov	r6,#0x00
+	mov	dph,r6
+;	src/main.c:156: return;
+;	src/main.c:157: }
 	ljmp	_putchar
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'preamble'
 ;------------------------------------------------------------
-;	src/main.c:158: void preamble() 
+;	src/main.c:159: void preamble() 
 ;	-----------------------------------------
 ;	 function preamble
 ;	-----------------------------------------
 _preamble:
-;	src/main.c:160: gu8UART = 1;
+;	src/main.c:161: gu8UART = 1;
 	mov	_gu8UART,#0x01
-;	src/main.c:161: putchar(0xF0);
-	mov	dpl,#0xf0
-	lcall	_putchar
 ;	src/main.c:162: putchar(0xF0);
-	mov	dpl,#0xf0
+	mov	dptr,#0x00f0
 	lcall	_putchar
 ;	src/main.c:163: putchar(0xF0);
-	mov	dpl,#0xf0
+	mov	dptr,#0x00f0
 	lcall	_putchar
 ;	src/main.c:164: putchar(0xF0);
-	mov	dpl,#0xf0
-;	src/main.c:165: }
+	mov	dptr,#0x00f0
+	lcall	_putchar
+;	src/main.c:165: putchar(0xF0);
+	mov	dptr,#0x00f0
+;	src/main.c:166: }
 	ljmp	_putchar
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'print_esc'
 ;------------------------------------------------------------
 ;au8State                  Allocated to registers r7 
 ;------------------------------------------------------------
-;	src/main.c:199: void print_esc(UINT8 au8State)
+;	src/main.c:200: void print_esc(UINT8 au8State)
 ;	-----------------------------------------
 ;	 function print_esc
 ;	-----------------------------------------
 _print_esc:
 	mov	r7,dpl
-;	src/main.c:201: printf_fast_f("\n\r");
+;	src/main.c:202: printf_fast_f("\n\r");
 	push	ar7
 	mov	a,#___str_0
 	push	acc
@@ -1050,18 +1057,18 @@ _print_esc:
 	dec	sp
 	dec	sp
 	pop	ar7
-;	src/main.c:202: switch(au8State) {
+;	src/main.c:203: switch(au8State) {
 	cjne	r7,#0x00,00119$
 	sjmp	00101$
 00119$:
 	cjne	r7,#0x01,00120$
 	sjmp	00102$
 00120$:
-;	src/main.c:203: case STATE_SELF :
+;	src/main.c:204: case STATE_SELF :
 	cjne	r7,#0x02,00104$
 	sjmp	00103$
 00101$:
-;	src/main.c:204: printf_fast_f("self ");
+;	src/main.c:205: printf_fast_f("self ");
 	mov	a,#___str_1
 	push	acc
 	mov	a,#(___str_1 >> 8)
@@ -1069,11 +1076,11 @@ _print_esc:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:205: break;
-;	src/main.c:206: case STATE_CROSS :
+;	src/main.c:206: break;
+;	src/main.c:207: case STATE_CROSS :
 	sjmp	00104$
 00102$:
-;	src/main.c:207: printf_fast_f("cross");
+;	src/main.c:208: printf_fast_f("cross");
 	mov	a,#___str_2
 	push	acc
 	mov	a,#(___str_2 >> 8)
@@ -1081,11 +1088,11 @@ _print_esc:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:208: break;
-;	src/main.c:209: case STATE_BOTH :
+;	src/main.c:209: break;
+;	src/main.c:210: case STATE_BOTH :
 	sjmp	00104$
 00103$:
-;	src/main.c:210: printf_fast_f("both ");
+;	src/main.c:211: printf_fast_f("both ");
 	mov	a,#___str_3
 	push	acc
 	mov	a,#(___str_3 >> 8)
@@ -1093,9 +1100,9 @@ _print_esc:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:212: }
+;	src/main.c:213: }
 00104$:
-;	src/main.c:213: printf_fast_f(" output:This is UART%d\n\r", gu8UART);
+;	src/main.c:214: printf_fast_f(" output:This is UART%d\n\r", gu8UART);
 	mov	r6,_gu8UART
 	mov	r7,#0x00
 	push	ar6
@@ -1108,29 +1115,29 @@ _print_esc:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	src/main.c:214: }
+;	src/main.c:215: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'print_char'
 ;------------------------------------------------------------
 ;au8Data                   Allocated to registers r7 
 ;------------------------------------------------------------
-;	src/main.c:216: void print_char(char au8Data)
+;	src/main.c:217: void print_char(char au8Data)
 ;	-----------------------------------------
 ;	 function print_char
 ;	-----------------------------------------
 _print_char:
 	mov	r7,dpl
-;	src/main.c:218: switch(au8Data) {
+;	src/main.c:219: switch(au8Data) {
 	cjne	r7,#0x0d,00115$
 	sjmp	00102$
 00115$:
 	cjne	r7,#0x1b,00103$
-;	src/main.c:220: break;
-;	src/main.c:221: case '\r' :
+;	src/main.c:221: break;
+;	src/main.c:222: case '\r' :
 	ret
 00102$:
-;	src/main.c:222: printf_fast_f("\r\n");
+;	src/main.c:223: printf_fast_f("\r\n");
 	mov	a,#___str_5
 	push	acc
 	mov	a,#(___str_5 >> 8)
@@ -1138,11 +1145,11 @@ _print_char:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:223: break;
-;	src/main.c:224: default :
+;	src/main.c:224: break;
+;	src/main.c:225: default :
 	ret
 00103$:
-;	src/main.c:225: printf_fast_f("%c",au8Data);
+;	src/main.c:226: printf_fast_f("%c",au8Data);
 	mov	r6,#0x00
 	push	ar7
 	push	ar6
@@ -1154,8 +1161,8 @@ _print_char:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	src/main.c:226: }
 ;	src/main.c:227: }
+;	src/main.c:228: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'state_machine'
@@ -1165,23 +1172,23 @@ _print_char:
 ;au8OtherID                Allocated with name '_state_machine_PARM_4'
 ;au8State                  Allocated to registers r7 
 ;------------------------------------------------------------
-;	src/main.c:229: UINT8 state_machine(UINT8 au8State, UINT8 au8RxUART, UINT8 au8SelfID, UINT8 au8OtherID)
+;	src/main.c:230: UINT8 state_machine(UINT8 au8State, UINT8 au8RxUART, UINT8 au8SelfID, UINT8 au8OtherID)
 ;	-----------------------------------------
 ;	 function state_machine
 ;	-----------------------------------------
 _state_machine:
 	mov	r7,dpl
-;	src/main.c:231: if(au8RxUART == KEY_ESC) {
+;	src/main.c:232: if(au8RxUART == KEY_ESC) {
 	mov	a,#0x1b
 	cjne	a,_state_machine_PARM_2,00142$
 	sjmp	00143$
 00142$:
 	sjmp	00110$
 00143$:
-;	src/main.c:232: gu8UART = au8SelfID;
+;	src/main.c:233: gu8UART = au8SelfID;
 	mov	r6,_state_machine_PARM_3
 	mov	_gu8UART,r6
-;	src/main.c:233: printf_fast_f("\r\ninput:This is UART%d", gu8UART);
+;	src/main.c:234: printf_fast_f("\r\ninput:This is UART%d", gu8UART);
 	mov	r4,_gu8UART
 	mov	r5,#0x00
 	push	ar7
@@ -1198,7 +1205,7 @@ _state_machine:
 	mov	sp,a
 	pop	ar6
 	pop	ar7
-;	src/main.c:234: switch(au8State) {
+;	src/main.c:235: switch(au8State) {
 	cjne	r7,#0x00,00144$
 	sjmp	00101$
 00144$:
@@ -1209,111 +1216,111 @@ _state_machine:
 	sjmp	00103$
 00146$:
 	ljmp	00111$
-;	src/main.c:235: case STATE_SELF :
+;	src/main.c:236: case STATE_SELF :
 00101$:
-;	src/main.c:236: au8State = STATE_CROSS;
+;	src/main.c:237: au8State = STATE_CROSS;
 	mov	r7,#0x01
-;	src/main.c:237: gu8UART = au8SelfID;
+;	src/main.c:238: gu8UART = au8SelfID;
 	mov	_gu8UART,r6
-;	src/main.c:238: print_esc(au8State);
+;	src/main.c:239: print_esc(au8State);
 	mov	dpl,#0x01
 	push	ar7
 	lcall	_print_esc
-;	src/main.c:239: gu8UART = au8OtherID;
+;	src/main.c:240: gu8UART = au8OtherID;
 	mov	_gu8UART,_state_machine_PARM_4
-;	src/main.c:240: print_esc(au8State);
+;	src/main.c:241: print_esc(au8State);
 	mov	dpl,#0x01
 	lcall	_print_esc
 	pop	ar7
-;	src/main.c:241: break;
-;	src/main.c:242: case STATE_CROSS :
+;	src/main.c:242: break;
+;	src/main.c:243: case STATE_CROSS :
 	sjmp	00111$
 00102$:
-;	src/main.c:243: au8State = STATE_BOTH;
+;	src/main.c:244: au8State = STATE_BOTH;
 	mov	r7,#0x02
-;	src/main.c:244: gu8UART = au8SelfID;
+;	src/main.c:245: gu8UART = au8SelfID;
 	mov	_gu8UART,r6
-;	src/main.c:245: print_esc(au8State);
+;	src/main.c:246: print_esc(au8State);
 	mov	dpl,#0x02
 	push	ar7
 	lcall	_print_esc
-;	src/main.c:246: gu8UART = au8OtherID;
+;	src/main.c:247: gu8UART = au8OtherID;
 	mov	_gu8UART,_state_machine_PARM_4
-;	src/main.c:247: print_esc(au8State);
+;	src/main.c:248: print_esc(au8State);
 	mov	dpl,#0x02
 	lcall	_print_esc
 	pop	ar7
-;	src/main.c:248: break;
-;	src/main.c:249: case STATE_BOTH :
+;	src/main.c:249: break;
+;	src/main.c:250: case STATE_BOTH :
 	sjmp	00111$
 00103$:
-;	src/main.c:250: au8State = STATE_SELF;
+;	src/main.c:251: au8State = STATE_SELF;
 	mov	r7,#0x00
-;	src/main.c:251: gu8UART = au8SelfID;
+;	src/main.c:252: gu8UART = au8SelfID;
 	mov	_gu8UART,r6
-;	src/main.c:252: print_esc(au8State);
+;	src/main.c:253: print_esc(au8State);
 	mov	dpl,#0x00
 	push	ar7
 	lcall	_print_esc
 	pop	ar7
-;	src/main.c:254: }
+;	src/main.c:255: }
 	sjmp	00111$
 00110$:
-;	src/main.c:257: switch(au8State) {
+;	src/main.c:258: switch(au8State) {
 	cjne	r7,#0x00,00147$
 	sjmp	00105$
 00147$:
 	cjne	r7,#0x01,00148$
 	sjmp	00106$
 00148$:
-;	src/main.c:258: case STATE_SELF :
+;	src/main.c:259: case STATE_SELF :
 	cjne	r7,#0x02,00111$
 	sjmp	00107$
 00105$:
-;	src/main.c:259: gu8UART = au8SelfID;
+;	src/main.c:260: gu8UART = au8SelfID;
 	mov	_gu8UART,_state_machine_PARM_3
-;	src/main.c:260: print_char(au8RxUART);
+;	src/main.c:261: print_char(au8RxUART);
 	mov	dpl,_state_machine_PARM_2
 	push	ar7
 	lcall	_print_char
 	pop	ar7
-;	src/main.c:261: break;
-;	src/main.c:262: case STATE_CROSS :
+;	src/main.c:262: break;
+;	src/main.c:263: case STATE_CROSS :
 	sjmp	00111$
 00106$:
-;	src/main.c:263: gu8UART = au8OtherID;
+;	src/main.c:264: gu8UART = au8OtherID;
 	mov	_gu8UART,_state_machine_PARM_4
-;	src/main.c:264: print_char(au8RxUART);
+;	src/main.c:265: print_char(au8RxUART);
 	mov	dpl,_state_machine_PARM_2
 	push	ar7
 	lcall	_print_char
 	pop	ar7
-;	src/main.c:265: break;
-;	src/main.c:266: case STATE_BOTH :
+;	src/main.c:266: break;
+;	src/main.c:267: case STATE_BOTH :
 	sjmp	00111$
 00107$:
-;	src/main.c:267: gu8UART = au8SelfID;
+;	src/main.c:268: gu8UART = au8SelfID;
 	mov	_gu8UART,_state_machine_PARM_3
-;	src/main.c:268: print_char(au8RxUART);
+;	src/main.c:269: print_char(au8RxUART);
 	mov	dpl,_state_machine_PARM_2
 	push	ar7
 	lcall	_print_char
-;	src/main.c:269: gu8UART = au8OtherID;
+;	src/main.c:270: gu8UART = au8OtherID;
 	mov	_gu8UART,_state_machine_PARM_4
-;	src/main.c:270: print_char(au8RxUART);
+;	src/main.c:271: print_char(au8RxUART);
 	mov	dpl,_state_machine_PARM_2
 	lcall	_print_char
 	pop	ar7
-;	src/main.c:272: }
+;	src/main.c:273: }
 00111$:
-;	src/main.c:274: return au8State;
+;	src/main.c:275: return au8State;
 	mov	dpl,r7
-;	src/main.c:275: }
+;	src/main.c:276: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'Timer0_ISR'
 ;------------------------------------------------------------
-;	src/main.c:277: void Timer0_ISR (void) interrupt(1)  //interrupt address is 0x000B
+;	src/main.c:278: void Timer0_ISR (void) interrupt(1)  //interrupt address is 0x000B
 ;	-----------------------------------------
 ;	 function Timer0_ISR
 ;	-----------------------------------------
@@ -1328,17 +1335,17 @@ _Timer0_ISR:
 	ar0 = 0x08
 	push	acc
 	push	psw
-;	src/main.c:279: TH0 = TH0_INIT;
+;	src/main.c:280: TH0 = TH0_INIT;
 	mov	_TH0,#0xff
-;	src/main.c:280: TL0 = TL0_INIT;
+;	src/main.c:281: TL0 = TL0_INIT;
 	mov	_TL0,#0xf3
-;	src/main.c:281: gu16TimeCnt++;
+;	src/main.c:282: gu16TimeCnt++;
 	inc	_gu16TimeCnt
 	clr	a
 	cjne	a,_gu16TimeCnt,00103$
 	inc	(_gu16TimeCnt + 1)
 00103$:
-;	src/main.c:290: } //void Timer0_ISR (void) __interrupt 1  //interrupt address is 0x000B
+;	src/main.c:291: } //void Timer0_ISR (void) __interrupt 1  //interrupt address is 0x000B
 	pop	psw
 	pop	acc
 	reti
@@ -1349,21 +1356,21 @@ _Timer0_ISR:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'pin_interrupt_isr'
 ;------------------------------------------------------------
-;	src/main.c:292: void pin_interrupt_isr(void) interrupt(7)
+;	src/main.c:293: void pin_interrupt_isr(void) interrupt(7)
 ;	-----------------------------------------
 ;	 function pin_interrupt_isr
 ;	-----------------------------------------
 _pin_interrupt_isr:
 	push	acc
-;	src/main.c:294: if (PIF == 0x10) {
+;	src/main.c:295: if (PIF == 0x10) {
 	mov	a,_PIF
-;	src/main.c:296: PIF = 0;
+;	src/main.c:297: PIF = 0;
 	mov	_PIF,#0x00
-;	src/main.c:297: }// void pin_interrupt_isr (void) interrupt(7)
+;	src/main.c:298: }// void pin_interrupt_isr (void) interrupt(7)
 	pop	acc
 	reti
 ;	eliminated unneeded mov psw,# (no regs used in bank)
-;	eliminated unneeded push/pop not_psw
+;	eliminated unneeded push/pop psw
 ;	eliminated unneeded push/pop dpl
 ;	eliminated unneeded push/pop dph
 ;	eliminated unneeded push/pop b
@@ -1373,7 +1380,7 @@ _pin_interrupt_isr:
 ;c                         Allocated to registers r7 
 ;i                         Allocated to registers r6 
 ;------------------------------------------------------------
-;	src/main.c:300: UINT8 chk_manchester(UINT8 c)
+;	src/main.c:301: UINT8 chk_manchester(UINT8 c)
 ;	-----------------------------------------
 ;	 function chk_manchester
 ;	-----------------------------------------
@@ -1387,10 +1394,10 @@ _chk_manchester:
 	ar1 = 0x01
 	ar0 = 0x00
 	mov	r7,dpl
-;	src/main.c:303: for (i=0;i<4;i++) {
+;	src/main.c:304: for (i=0;i<4;i++) {
 	mov	r6,#0x00
 00104$:
-;	src/main.c:304: if (((c>>(2*i)) & 1) == ((c>>((2*i+1)))&1)) {
+;	src/main.c:305: if (((c>>(2*i)) & 1) == ((c>>((2*i+1)))&1)) {
 	mov	a,r6
 	add	a,r6
 	mov	r5,a
@@ -1424,18 +1431,18 @@ _chk_manchester:
 	cjne	a,ar5,00105$
 	mov	a,r3
 	cjne	a,ar2,00105$
-;	src/main.c:306: return 0;
+;	src/main.c:307: return 0;
 	mov	dpl,#0x00
 	ret
 00105$:
-;	src/main.c:303: for (i=0;i<4;i++) {
+;	src/main.c:304: for (i=0;i<4;i++) {
 	inc	r6
 	cjne	r6,#0x04,00126$
 00126$:
 	jc	00104$
-;	src/main.c:309: return 1;
+;	src/main.c:310: return 1;
 	mov	dpl,#0x01
-;	src/main.c:310: }
+;	src/main.c:311: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'conv_manchester2nibble'
@@ -1444,39 +1451,42 @@ _chk_manchester:
 ;i                         Allocated to registers r5 
 ;u8Nibble                  Allocated to registers r6 
 ;------------------------------------------------------------
-;	src/main.c:312: UINT8 conv_manchester2nibble(UINT8 c)
+;	src/main.c:313: UINT8 conv_manchester2nibble(UINT8 c)
 ;	-----------------------------------------
 ;	 function conv_manchester2nibble
 ;	-----------------------------------------
 _conv_manchester2nibble:
 	mov	r7,dpl
-;	src/main.c:315: UINT8 u8Nibble = 0;
+;	src/main.c:316: UINT8 u8Nibble = 0;
 	mov	r6,#0x00
-;	src/main.c:316: for (i=0;i<4;i++) {
+;	src/main.c:317: for (i=0;i<4;i++) {
 	mov	r5,#0x04
 00106$:
-;	src/main.c:317: if (c & 1) {
+;	src/main.c:318: if (c & 1) {
 	mov	a,r7
 	jnb	acc.0,00102$
-;	src/main.c:318: u8Nibble |= 0x80;
+;	src/main.c:319: u8Nibble |= 0x80;
 	orl	ar6,#0x80
 00102$:
-;	src/main.c:320: c >>= 2;
+;	src/main.c:321: c >>= 2;
 	mov	a,r7
 	rr	a
 	rr	a
 	anl	a,#0x3f
 	mov	r7,a
-;	src/main.c:321: u8Nibble >>= 1;
+;	src/main.c:322: u8Nibble >>= 1;
 	mov	a,r6
 	clr	c
 	rrc	a
 	mov	r6,a
-;	src/main.c:316: for (i=0;i<4;i++) {
-	djnz	r5,00106$
-;	src/main.c:323: return u8Nibble;
+	mov	a,r5
+	dec	a
+;	src/main.c:317: for (i=0;i<4;i++) {
+	mov	r5,a
+	jnz	00106$
+;	src/main.c:324: return u8Nibble;
 	mov	dpl,r6
-;	src/main.c:324: }
+;	src/main.c:325: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'conv_manchester2highnibble'
@@ -1485,39 +1495,42 @@ _conv_manchester2nibble:
 ;i                         Allocated to registers r5 
 ;u8Nibble                  Allocated to registers r6 
 ;------------------------------------------------------------
-;	src/main.c:326: UINT8 conv_manchester2highnibble(UINT8 c)
+;	src/main.c:327: UINT8 conv_manchester2highnibble(UINT8 c)
 ;	-----------------------------------------
 ;	 function conv_manchester2highnibble
 ;	-----------------------------------------
 _conv_manchester2highnibble:
 	mov	r7,dpl
-;	src/main.c:329: UINT8 u8Nibble = 0;
+;	src/main.c:330: UINT8 u8Nibble = 0;
 	mov	r6,#0x00
-;	src/main.c:330: for (i=0;i<4;i++) {
+;	src/main.c:331: for (i=0;i<4;i++) {
 	mov	r5,#0x04
 00106$:
-;	src/main.c:331: u8Nibble >>= 1;
+;	src/main.c:332: u8Nibble >>= 1;
 	mov	a,r6
 	clr	c
 	rrc	a
 	mov	r6,a
-;	src/main.c:332: if (c & 1) {
+;	src/main.c:333: if (c & 1) {
 	mov	a,r7
 	jnb	acc.0,00102$
-;	src/main.c:333: u8Nibble |= 0x80;
+;	src/main.c:334: u8Nibble |= 0x80;
 	orl	ar6,#0x80
 00102$:
-;	src/main.c:335: c >>= 2;
+;	src/main.c:336: c >>= 2;
 	mov	a,r7
 	rr	a
 	rr	a
 	anl	a,#0x3f
 	mov	r7,a
-;	src/main.c:330: for (i=0;i<4;i++) {
-	djnz	r5,00106$
-;	src/main.c:337: return u8Nibble;
+	mov	a,r5
+	dec	a
+;	src/main.c:331: for (i=0;i<4;i++) {
+	mov	r5,a
+	jnz	00106$
+;	src/main.c:338: return u8Nibble;
 	mov	dpl,r6
-;	src/main.c:338: }
+;	src/main.c:339: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'MODIFY_HIRC_166'
@@ -1526,22 +1539,22 @@ _conv_manchester2highnibble:
 ;hircmap1                  Allocated to registers r6 
 ;trimvalue16bit            Allocated to registers r7 r5 
 ;------------------------------------------------------------
-;	src/main.c:340: void MODIFY_HIRC_166(void)
+;	src/main.c:341: void MODIFY_HIRC_166(void)
 ;	-----------------------------------------
 ;	 function MODIFY_HIRC_166
 ;	-----------------------------------------
 _MODIFY_HIRC_166:
-;	src/main.c:345: if ((PCON&SET_BIT4)==SET_BIT4) {
+;	src/main.c:346: if ((PCON&SET_BIT4)==SET_BIT4) {
 	mov	r6,_PCON
 	anl	ar6,#0x10
 	mov	r7,#0x00
 	cjne	r6,#0x10,00103$
 	cjne	r7,#0x00,00103$
-;	src/main.c:346: hircmap0 = RCTRIM0;
+;	src/main.c:347: hircmap0 = RCTRIM0;
 	mov	r7,_RCTRIM0
-;	src/main.c:347: hircmap1 = RCTRIM1;
+;	src/main.c:348: hircmap1 = RCTRIM1;
 	mov	r6,_RCTRIM1
-;	src/main.c:348: trimvalue16bit = ((hircmap0<<1)+(hircmap1&0x01));
+;	src/main.c:349: trimvalue16bit = ((hircmap0<<1)+(hircmap1&0x01));
 	mov	r5,#0x00
 	mov	a,r7
 	add	a,r7
@@ -1557,17 +1570,17 @@ _MODIFY_HIRC_166:
 	mov	a,r4
 	addc	a,r5
 	mov	r5,a
-;	src/main.c:349: trimvalue16bit = trimvalue16bit - 15;
+;	src/main.c:350: trimvalue16bit = trimvalue16bit - 15;
 	mov	a,r7
 	add	a,#0xf1
 	mov	r7,a
 	mov	a,r5
 	addc	a,#0xff
 	mov	r5,a
-;	src/main.c:350: hircmap1 = trimvalue16bit&0x01;
+;	src/main.c:351: hircmap1 = trimvalue16bit&0x01;
 	mov	ar6,r7
 	anl	ar6,#0x01
-;	src/main.c:351: hircmap0 = trimvalue16bit>>1;
+;	src/main.c:352: hircmap0 = trimvalue16bit>>1;
 	mov	a,r5
 	clr	c
 	rrc	a
@@ -1575,37 +1588,37 @@ _MODIFY_HIRC_166:
 	rrc	a
 	xch	a,r7
 	mov	r5,a
-;	src/main.c:352: TA=0XAA;
+;	src/main.c:353: TA=0XAA;
 	mov	_TA,#0xaa
-;	src/main.c:353: TA=0X55;
+;	src/main.c:354: TA=0X55;
 	mov	_TA,#0x55
-;	src/main.c:354: RCTRIM0 = hircmap0;
+;	src/main.c:355: RCTRIM0 = hircmap0;
 	mov	_RCTRIM0,r7
-;	src/main.c:355: TA=0XAA;
+;	src/main.c:356: TA=0XAA;
 	mov	_TA,#0xaa
-;	src/main.c:356: TA=0X55;
+;	src/main.c:357: TA=0X55;
 	mov	_TA,#0x55
-;	src/main.c:357: RCTRIM1 = hircmap1;
+;	src/main.c:358: RCTRIM1 = hircmap1;
 	mov	_RCTRIM1,r6
-;	src/main.c:359: PCON &= CLR_BIT4;
+;	src/main.c:360: PCON &= CLR_BIT4;
 	anl	_PCON,#0xef
 00103$:
-;	src/main.c:361: }
+;	src/main.c:362: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'disp_help'
 ;------------------------------------------------------------
 ;au8Code                   Allocated to registers r7 
 ;------------------------------------------------------------
-;	src/main.c:362: void disp_help(UINT8 au8Code)
+;	src/main.c:363: void disp_help(UINT8 au8Code)
 ;	-----------------------------------------
 ;	 function disp_help
 ;	-----------------------------------------
 _disp_help:
 	mov	r7,dpl
-;	src/main.c:364: gu8UART = 1;
+;	src/main.c:365: gu8UART = 1;
 	mov	_gu8UART,#0x01
-;	src/main.c:365: switch(au8Code) {
+;	src/main.c:366: switch(au8Code) {
 	cjne	r7,#0x31,00165$
 	ret
 00165$:
@@ -1643,9 +1656,9 @@ _disp_help:
 	ljmp	00112$
 00176$:
 	ljmp	00113$
-;	src/main.c:370: case '3' :
+;	src/main.c:371: case '3' :
 00103$:
-;	src/main.c:371: printf_fast_f("Idle preamble on/off\r\n");
+;	src/main.c:372: printf_fast_f("Idle preamble on/off\r\n");
 	mov	a,#___str_8
 	push	acc
 	mov	a,#(___str_8 >> 8)
@@ -1653,11 +1666,11 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:372: break;
+;	src/main.c:373: break;
 	ret
-;	src/main.c:375: case 'p' :
+;	src/main.c:376: case 'p' :
 00105$:
-;	src/main.c:376: printf_fast_f("LineFi Power Off\r\n");
+;	src/main.c:377: printf_fast_f("LineFi Power Off\r\n");
 	mov	a,#___str_9
 	push	acc
 	mov	a,#(___str_9 >> 8)
@@ -1665,11 +1678,11 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:377: break;
+;	src/main.c:378: break;
 	ret
-;	src/main.c:378: case 'P' :
+;	src/main.c:379: case 'P' :
 00106$:
-;	src/main.c:379: printf_fast_f("LineFi Power On\r\n");
+;	src/main.c:380: printf_fast_f("LineFi Power On\r\n");
 	mov	a,#___str_10
 	push	acc
 	mov	a,#(___str_10 >> 8)
@@ -1677,11 +1690,11 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:380: break;
+;	src/main.c:381: break;
 	ret
-;	src/main.c:381: case 't' :
+;	src/main.c:382: case 't' :
 00107$:
-;	src/main.c:382: printf_fast_f("LineFi Uart Tx Low\r\n");
+;	src/main.c:383: printf_fast_f("LineFi Uart Tx Low\r\n");
 	mov	a,#___str_11
 	push	acc
 	mov	a,#(___str_11 >> 8)
@@ -1689,11 +1702,11 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:383: break;
+;	src/main.c:384: break;
 	ret
-;	src/main.c:384: case 'T' :
+;	src/main.c:385: case 'T' :
 00108$:
-;	src/main.c:385: printf_fast_f("LineFi Uart Tx High\r\n");
+;	src/main.c:386: printf_fast_f("LineFi Uart Tx High\r\n");
 	mov	a,#___str_12
 	push	acc
 	mov	a,#(___str_12 >> 8)
@@ -1701,11 +1714,11 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:386: break;
+;	src/main.c:387: break;
 	ret
-;	src/main.c:387: case 's' :
+;	src/main.c:388: case 's' :
 00109$:
-;	src/main.c:388: printf_fast_f("LineFi CSC rx FSM Off\r\n");
+;	src/main.c:389: printf_fast_f("LineFi CSC rx FSM Off\r\n");
 	mov	a,#___str_13
 	push	acc
 	mov	a,#(___str_13 >> 8)
@@ -1713,11 +1726,11 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:389: break;
+;	src/main.c:390: break;
 	ret
-;	src/main.c:390: case 'S' :
+;	src/main.c:391: case 'S' :
 00110$:
-;	src/main.c:391: printf_fast_f("LineFi CSC rx FSM ON\r\n");
+;	src/main.c:392: printf_fast_f("LineFi CSC rx FSM ON\r\n");
 	mov	a,#___str_14
 	push	acc
 	mov	a,#(___str_14 >> 8)
@@ -1725,11 +1738,11 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:392: break;
-;	src/main.c:393: case 'v' : case 'V' :
+;	src/main.c:393: break;
+;	src/main.c:394: case 'v' : case 'V' :
 	ret
 00112$:
-;	src/main.c:394: printf_fast_f(__VERSION__);
+;	src/main.c:395: printf_fast_f(__VERSION__);
 	mov	a,#___str_15
 	push	acc
 	mov	a,#(___str_15 >> 8)
@@ -1737,11 +1750,11 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:395: break;
-;	src/main.c:396: default :
+;	src/main.c:396: break;
+;	src/main.c:397: default :
 	ret
 00113$:
-;	src/main.c:397: printf_fast_f("1: downlink packet 1\r\n");
+;	src/main.c:398: printf_fast_f("1: downlink packet 1\r\n");
 	mov	a,#___str_16
 	push	acc
 	mov	a,#(___str_16 >> 8)
@@ -1749,7 +1762,7 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:398: printf_fast_f("2: downlink packet 2\r\n");
+;	src/main.c:399: printf_fast_f("2: downlink packet 2\r\n");
 	mov	a,#___str_17
 	push	acc
 	mov	a,#(___str_17 >> 8)
@@ -1757,7 +1770,7 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:399: printf_fast_f("3: uplink idle preamble on/off\r\n");
+;	src/main.c:400: printf_fast_f("3: uplink idle preamble on/off\r\n");
 	mov	a,#___str_18
 	push	acc
 	mov	a,#(___str_18 >> 8)
@@ -1765,7 +1778,7 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:400: printf_fast_f("p/P: LineFi Power off/on\r\n");
+;	src/main.c:401: printf_fast_f("p/P: LineFi Power off/on\r\n");
 	mov	a,#___str_19
 	push	acc
 	mov	a,#(___str_19 >> 8)
@@ -1773,7 +1786,7 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:401: printf_fast_f("t/T: LineFi Uart Tx Low/High\r\n");
+;	src/main.c:402: printf_fast_f("t/T: LineFi Uart Tx Low/High\r\n");
 	mov	a,#___str_20
 	push	acc
 	mov	a,#(___str_20 >> 8)
@@ -1781,7 +1794,7 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:402: printf_fast_f("s/S: LineFie CSC Rx FSM off/on\r\n");
+;	src/main.c:403: printf_fast_f("s/S: LineFie CSC Rx FSM off/on\r\n");
 	mov	a,#___str_21
 	push	acc
 	mov	a,#(___str_21 >> 8)
@@ -1789,7 +1802,7 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:403: printf_fast_f("test procedure: p -> P -> T -> S -> 1 or 2\r\n");
+;	src/main.c:404: printf_fast_f("test procedure: p -> P -> T -> S -> 1 or 2\r\n");
 	mov	a,#___str_22
 	push	acc
 	mov	a,#(___str_22 >> 8)
@@ -1797,88 +1810,88 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:405: }
 ;	src/main.c:406: }
+;	src/main.c:407: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'gpio_setup'
 ;------------------------------------------------------------
-;	src/main.c:408: void gpio_setup()
+;	src/main.c:409: void gpio_setup()
 ;	-----------------------------------------
 ;	 function gpio_setup
 ;	-----------------------------------------
 _gpio_setup:
-;	src/main.c:427: Set_All_GPIO_Quasi_Mode;
+;	src/main.c:428: Set_All_GPIO_Quasi_Mode;
 	mov	_P0M1,#0x00
 	mov	_P0M2,#0x00
 	mov	_P1M1,#0x00
 	mov	_P1M2,#0x00
 	mov	_P3M1,#0x00
 	mov	_P3M2,#0x00
-;	src/main.c:429: P15_Input_Mode;
+;	src/main.c:430: P15_Input_Mode;
 	orl	_P1M1,#0x20
 	anl	_P1M2,#0xdf
-;	src/main.c:430: P02_Input_Mode;
+;	src/main.c:431: P02_Input_Mode;
 	orl	_P0M1,#0x04
 	anl	_P0M2,#0xfb
-;	src/main.c:431: P07_Input_Mode;
+;	src/main.c:432: P07_Input_Mode;
 	orl	_P0M1,#0x80
 	anl	_P0M2,#0x7f
-;	src/main.c:433: P16_PushPull_Mode;
+;	src/main.c:434: P16_PushPull_Mode;
 	anl	_P1M1,#0xbf
 	orl	_P1M2,#0x40
-;	src/main.c:434: P13_PushPull_Mode;
+;	src/main.c:435: P13_PushPull_Mode;
 	anl	_P1M1,#0xf7
 	orl	_P1M2,#0x08
-;	src/main.c:435: P14_PushPull_Mode;
+;	src/main.c:436: P14_PushPull_Mode;
 	anl	_P1M1,#0xef
 	orl	_P1M2,#0x10
-;	src/main.c:436: P12_PushPull_Mode;
+;	src/main.c:437: P12_PushPull_Mode;
 	anl	_P1M1,#0xfb
 	orl	_P1M2,#0x04
-;	src/main.c:437: P11_PushPull_Mode;
+;	src/main.c:438: P11_PushPull_Mode;
 	anl	_P1M1,#0xfd
 	orl	_P1M2,#0x02
-;	src/main.c:438: P10_PushPull_Mode;
+;	src/main.c:439: P10_PushPull_Mode;
 	anl	_P1M1,#0xfe
 	orl	_P1M2,#0x01
-;	src/main.c:439: P00_PushPull_Mode;
+;	src/main.c:440: P00_PushPull_Mode;
 	anl	_P0M1,#0xfe
 	orl	_P0M2,#0x01
-;	src/main.c:440: P01_PushPull_Mode;
+;	src/main.c:441: P01_PushPull_Mode;
 	anl	_P0M1,#0xfd
 	orl	_P0M2,#0x02
-;	src/main.c:441: P04_PushPull_Mode;
+;	src/main.c:442: P04_PushPull_Mode;
 	anl	_P0M1,#0xef
 	orl	_P0M2,#0x10
-;	src/main.c:442: P03_PushPull_Mode;
+;	src/main.c:443: P03_PushPull_Mode;
 	anl	_P0M1,#0xf7
 	orl	_P0M2,#0x08
-;	src/main.c:444: UART_TX = 0;
+;	src/main.c:445: UART_TX = 0;
 ;	assignBit
 	clr	_P16
-;	src/main.c:445: LED_B = 1;
+;	src/main.c:446: LED_B = 1;
 ;	assignBit
 	setb	_P12
-;	src/main.c:446: LED_G = 1;
+;	src/main.c:447: LED_G = 1;
 ;	assignBit
 	setb	_P13
-;	src/main.c:447: LED_R = 1;
+;	src/main.c:448: LED_R = 1;
 ;	assignBit
 	setb	_P14
-;	src/main.c:449: MOTOR_CW = 0;
+;	src/main.c:450: MOTOR_CW = 0;
 ;	assignBit
 	clr	_P00
-;	src/main.c:450: MOTOR_CCW = 0;
+;	src/main.c:451: MOTOR_CCW = 0;
 ;	assignBit
 	clr	_P01
-;	src/main.c:451: SEL_RX_POL = 0;
+;	src/main.c:452: SEL_RX_POL = 0;
 ;	assignBit
 	clr	_P04
-;	src/main.c:452: PWR_OUT = 0;
+;	src/main.c:453: PWR_OUT = 0;
 ;	assignBit
 	clr	_P03
-;	src/main.c:453: }
+;	src/main.c:454: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'state_switches'
@@ -1889,18 +1902,18 @@ _gpio_setup:
 ;i                         Allocated to registers r2 
 ;u8Result                  Allocated to registers r6 
 ;------------------------------------------------------------
-;	src/main.c:471: UINT8 state_switches(UINT8 au8SW, UINT8 *apu8SwNum)
+;	src/main.c:472: UINT8 state_switches(UINT8 au8SW, UINT8 *apu8SwNum)
 ;	-----------------------------------------
 ;	 function state_switches
 ;	-----------------------------------------
 _state_switches:
 	mov	r7,dpl
-;	src/main.c:476: UINT8 u8Result = SW_NONE;
+;	src/main.c:477: UINT8 u8Result = SW_NONE;
 	mov	r6,#0x04
-;	src/main.c:477: if (su8PrevSW == au8SW) {
+;	src/main.c:478: if (su8PrevSW == au8SW) {
 	mov	a,r7
 	cjne	a,_state_switches_su8PrevSW_65536_96,00102$
-;	src/main.c:478: *apu8SwNum = 0;
+;	src/main.c:479: *apu8SwNum = 0;
 	mov	r3,_state_switches_PARM_2
 	mov	r4,(_state_switches_PARM_2 + 1)
 	mov	r5,(_state_switches_PARM_2 + 2)
@@ -1909,11 +1922,11 @@ _state_switches:
 	mov	b,r5
 	clr	a
 	lcall	__gptrput
-;	src/main.c:479: return SW_NONE;
+;	src/main.c:480: return SW_NONE;
 	mov	dpl,#0x04
 	ret
 00102$:
-;	src/main.c:487: *apu8SwNum = 0;
+;	src/main.c:488: *apu8SwNum = 0;
 	mov	r3,_state_switches_PARM_2
 	mov	r4,(_state_switches_PARM_2 + 1)
 	mov	r5,(_state_switches_PARM_2 + 2)
@@ -1922,10 +1935,10 @@ _state_switches:
 	mov	b,r5
 	clr	a
 	lcall	__gptrput
-;	src/main.c:489: for (i=0;i<5;i++) {
+;	src/main.c:490: for (i=0;i<5;i++) {
 	mov	r2,#0x00
 00113$:
-;	src/main.c:490: switch((su8PrevSW>>i)&1) {
+;	src/main.c:491: switch((su8PrevSW>>i)&1) {
 	mov	b,r2
 	inc	b
 	mov	a,_state_switches_su8PrevSW_65536_96
@@ -1948,7 +1961,7 @@ _state_switches:
 00155$:
 	ljmp	00114$
 00156$:
-;	src/main.c:492: switch((au8SW>>i)&1) {
+;	src/main.c:493: switch((au8SW>>i)&1) {
 	mov	b,r2
 	inc	b
 	mov	a,r7
@@ -1967,9 +1980,9 @@ _state_switches:
 00159$:
 	ljmp	00114$
 00160$:
-;	src/main.c:496: su8PrevSW = au8SW;
+;	src/main.c:497: su8PrevSW = au8SW;
 	mov	_state_switches_su8PrevSW_65536_96,r7
-;	src/main.c:497: *apu8SwNum |= 1<<i;
+;	src/main.c:498: *apu8SwNum |= 1<<i;
 	mov	dpl,r3
 	mov	dph,r4
 	mov	b,r5
@@ -1985,19 +1998,20 @@ _state_switches:
 00163$:
 	djnz	b,00161$
 	mov	r0,a
-	orl	ar1,a
+	mov	a,r1
+	orl	ar0,a
 	mov	dpl,r3
 	mov	dph,r4
 	mov	b,r5
-	mov	a,r1
+	mov	a,r0
 	lcall	__gptrput
-;	src/main.c:498: u8Result = SW_OFF;
+;	src/main.c:499: u8Result = SW_OFF;
 	mov	r6,#0x00
-;	src/main.c:502: break;
-;	src/main.c:503: case SW_OFF :
+;	src/main.c:503: break;
+;	src/main.c:504: case SW_OFF :
 	sjmp	00114$
 00107$:
-;	src/main.c:504: switch((au8SW>>i)&1) {
+;	src/main.c:505: switch((au8SW>>i)&1) {
 	mov	b,r2
 	inc	b
 	mov	a,r7
@@ -2016,9 +2030,9 @@ _state_switches:
 00166$:
 	cjne	r0,#0x01,00114$
 	cjne	r1,#0x00,00114$
-;	src/main.c:506: su8PrevSW = au8SW;
+;	src/main.c:507: su8PrevSW = au8SW;
 	mov	_state_switches_su8PrevSW_65536_96,r7
-;	src/main.c:507: *apu8SwNum |= 1<<i;
+;	src/main.c:508: *apu8SwNum |= 1<<i;
 	mov	dpl,r3
 	mov	dph,r4
 	mov	b,r5
@@ -2034,63 +2048,64 @@ _state_switches:
 00171$:
 	djnz	b,00169$
 	mov	r0,a
-	orl	ar1,a
+	mov	a,r1
+	orl	ar0,a
 	mov	dpl,r3
 	mov	dph,r4
 	mov	b,r5
-	mov	a,r1
+	mov	a,r0
 	lcall	__gptrput
-;	src/main.c:508: u8Result = SW_ON;
+;	src/main.c:509: u8Result = SW_ON;
 	mov	r6,#0x01
-;	src/main.c:516: }
+;	src/main.c:517: }
 00114$:
-;	src/main.c:489: for (i=0;i<5;i++) {
+;	src/main.c:490: for (i=0;i<5;i++) {
 	inc	r2
 	cjne	r2,#0x05,00172$
 00172$:
 	jnc	00173$
 	ljmp	00113$
 00173$:
-;	src/main.c:520: return u8Result;
+;	src/main.c:521: return u8Result;
 	mov	dpl,r6
-;	src/main.c:608: }
+;	src/main.c:609: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'ctrl_rgbled_motor'
 ;------------------------------------------------------------
 ;u8RxUART                  Allocated to registers r7 
 ;------------------------------------------------------------
-;	src/main.c:610: void ctrl_rgbled_motor(UINT8 u8RxUART)
+;	src/main.c:611: void ctrl_rgbled_motor(UINT8 u8RxUART)
 ;	-----------------------------------------
 ;	 function ctrl_rgbled_motor
 ;	-----------------------------------------
 _ctrl_rgbled_motor:
-;	src/main.c:614: if (u8RxUART) {
+;	src/main.c:615: if (u8RxUART) {
 	mov	a,dpl
 	mov	r7,a
 	jz	00117$
-;	src/main.c:615: if (u8RxUART&(1<<0)) {
+;	src/main.c:616: if (u8RxUART&(1<<0)) {
 	mov	a,r7
 	jnb	acc.0,00102$
-;	src/main.c:616: TOGGLE(LED_R);
+;	src/main.c:617: TOGGLE(LED_R);
 	cpl	_P14
 00102$:
-;	src/main.c:619: if (u8RxUART&(1<<1)) {
+;	src/main.c:620: if (u8RxUART&(1<<1)) {
 	mov	a,r7
 	jnb	acc.1,00104$
-;	src/main.c:620: TOGGLE(LED_G);
+;	src/main.c:621: TOGGLE(LED_G);
 	cpl	_P13
 00104$:
-;	src/main.c:623: if (u8RxUART&(1<<2)) {
+;	src/main.c:624: if (u8RxUART&(1<<2)) {
 	mov	a,r7
 	jnb	acc.2,00106$
-;	src/main.c:624: TOGGLE(LED_B);
+;	src/main.c:625: TOGGLE(LED_B);
 	cpl	_P12
 00106$:
-;	src/main.c:627: if (u8RxUART&(1<<3)) {
+;	src/main.c:628: if (u8RxUART&(1<<3)) {
 	mov	a,r7
 	jnb	acc.3,00119$
-;	src/main.c:628: switch(gu8MotorState) {
+;	src/main.c:629: switch(gu8MotorState) {
 	mov	dptr,#_gu8MotorState
 	movx	a,@dptr
 	mov  r7,a
@@ -2098,7 +2113,7 @@ _ctrl_rgbled_motor:
 	jc	00111$
 	mov	a,r7
 	add	a,r7
-;	src/main.c:629: case 0 :
+;	src/main.c:630: case 0 :
 	mov	dptr,#00155$
 	jmp	@a+dptr
 00155$:
@@ -2107,76 +2122,76 @@ _ctrl_rgbled_motor:
 	sjmp	00109$
 	sjmp	00110$
 00107$:
-;	src/main.c:630: MOTOR_CCW = 0;
+;	src/main.c:631: MOTOR_CCW = 0;
 ;	assignBit
 	clr	_P01
-;	src/main.c:631: MOTOR_CW = 0 ;
+;	src/main.c:632: MOTOR_CW = 0 ;
 ;	assignBit
 	clr	_P00
-;	src/main.c:632: break;
-;	src/main.c:633: case 1 :
+;	src/main.c:633: break;
+;	src/main.c:634: case 1 :
 	sjmp	00111$
 00108$:
-;	src/main.c:634: MOTOR_CCW = 1;
+;	src/main.c:635: MOTOR_CCW = 1;
 ;	assignBit
 	setb	_P01
-;	src/main.c:635: MOTOR_CW = 0 ;
+;	src/main.c:636: MOTOR_CW = 0 ;
 ;	assignBit
 	clr	_P00
-;	src/main.c:636: break;
-;	src/main.c:637: case 2 :
+;	src/main.c:637: break;
+;	src/main.c:638: case 2 :
 	sjmp	00111$
 00109$:
-;	src/main.c:638: MOTOR_CCW = 1;
+;	src/main.c:639: MOTOR_CCW = 1;
 ;	assignBit
 	setb	_P01
-;	src/main.c:639: MOTOR_CW = 1 ;
+;	src/main.c:640: MOTOR_CW = 1 ;
 ;	assignBit
 	setb	_P00
-;	src/main.c:640: break;
-;	src/main.c:641: case 3 :
+;	src/main.c:641: break;
+;	src/main.c:642: case 3 :
 	sjmp	00111$
 00110$:
-;	src/main.c:642: MOTOR_CCW = 0;
+;	src/main.c:643: MOTOR_CCW = 0;
 ;	assignBit
 	clr	_P01
-;	src/main.c:643: MOTOR_CW = 1 ;
+;	src/main.c:644: MOTOR_CW = 1 ;
 ;	assignBit
 	setb	_P00
-;	src/main.c:645: }
+;	src/main.c:646: }
 00111$:
-;	src/main.c:646: gu8MotorState ++;
+;	src/main.c:647: gu8MotorState ++;
 	mov	dptr,#_gu8MotorState
 	mov	a,r7
 	inc	a
 	movx	@dptr,a
-;	src/main.c:647: if (gu8MotorState == 4) {
+;	src/main.c:648: if (gu8MotorState == 4) {
 	movx	a,@dptr
 	mov	r7,a
 	cjne	r7,#0x04,00119$
-;	src/main.c:648: gu8MotorState = 0;
+;	src/main.c:649: gu8MotorState = 0;
 	mov	dptr,#_gu8MotorState
 	clr	a
 	movx	@dptr,a
 	ret
 00117$:
-;	src/main.c:653: LED_R = LED_OFF;
+;	src/main.c:654: LED_R = LED_OFF;
 ;	assignBit
 	setb	_P14
-;	src/main.c:654: LED_G = LED_OFF;
+;	src/main.c:655: LED_G = LED_OFF;
 ;	assignBit
 	setb	_P13
-;	src/main.c:655: LED_B = LED_OFF;
+;	src/main.c:656: LED_B = LED_OFF;
 ;	assignBit
 	setb	_P12
-;	src/main.c:656: MOTOR_CCW = 0;
+;	src/main.c:657: MOTOR_CCW = 0;
 ;	assignBit
 	clr	_P01
-;	src/main.c:657: MOTOR_CW = 0 ;
+;	src/main.c:658: MOTOR_CW = 0 ;
 ;	assignBit
 	clr	_P00
 00119$:
-;	src/main.c:659: }
+;	src/main.c:660: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'chk_my_addr'
@@ -2184,13 +2199,13 @@ _ctrl_rgbled_motor:
 ;au8RxData                 Allocated with name '_chk_my_addr_PARM_2'
 ;au8MyAddr                 Allocated to registers r7 
 ;------------------------------------------------------------
-;	src/main.c:661: UINT8 chk_my_addr(UINT8 au8MyAddr, UINT8 au8RxData)
+;	src/main.c:662: UINT8 chk_my_addr(UINT8 au8MyAddr, UINT8 au8RxData)
 ;	-----------------------------------------
 ;	 function chk_my_addr
 ;	-----------------------------------------
 _chk_my_addr:
 	mov	r7,dpl
-;	src/main.c:663: if ( (au8RxData>>4) == (au8MyAddr&0x0F)) {
+;	src/main.c:664: if ( (au8RxData>>4) == (au8MyAddr&0x0F)) {
 	mov	a,_chk_my_addr_PARM_2
 	swap	a
 	anl	a,#0x0f
@@ -2203,13 +2218,13 @@ _chk_my_addr:
 	cjne	a,ar7,00102$
 	mov	a,r4
 	cjne	a,ar5,00102$
-;	src/main.c:664: return 1;
+;	src/main.c:665: return 1;
 	mov	dpl,#0x01
 	ret
 00102$:
-;	src/main.c:666: return 0;
+;	src/main.c:667: return 0;
 	mov	dpl,#0x00
-;	src/main.c:667: }
+;	src/main.c:668: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'process_my_packet'
@@ -2217,7 +2232,7 @@ _chk_my_addr:
 ;apstLineFiPkt             Allocated to registers r5 r6 r7 
 ;sloc0                     Allocated with name '_process_my_packet_sloc0_1_0'
 ;------------------------------------------------------------
-;	src/main.c:669: void process_my_packet(linefi_packet_t * apstLineFiPkt)
+;	src/main.c:670: void process_my_packet(linefi_packet_t * apstLineFiPkt)
 ;	-----------------------------------------
 ;	 function process_my_packet
 ;	-----------------------------------------
@@ -2225,7 +2240,7 @@ _process_my_packet:
 	mov	r5,dpl
 	mov	r6,dph
 	mov	r7,b
-;	src/main.c:671: switch(apstLineFiPkt->u8Type) {
+;	src/main.c:672: switch(apstLineFiPkt->u8Type) {
 	mov	a,#0x01
 	add	a,r5
 	mov	r2,a
@@ -2255,9 +2270,9 @@ _process_my_packet:
 	ljmp	00105$
 	ljmp	00106$
 	ljmp	00107$
-;	src/main.c:680: case Type_SetLED :
+;	src/main.c:681: case Type_SetLED :
 00105$:
-;	src/main.c:681: LED_R = apstLineFiPkt->pu8Data[0];
+;	src/main.c:682: LED_R = apstLineFiPkt->pu8Data[0];
 	mov	a,#0x05
 	add	a,r5
 	mov	_process_my_packet_sloc0_1_0,a
@@ -2283,7 +2298,7 @@ _process_my_packet:
 ;	assignBit
 	add	a,#0xff
 	mov	_P14,c
-;	src/main.c:682: LED_G = apstLineFiPkt->pu8Data[1];
+;	src/main.c:683: LED_G = apstLineFiPkt->pu8Data[1];
 	mov	dpl,_process_my_packet_sloc0_1_0
 	mov	dph,(_process_my_packet_sloc0_1_0 + 1)
 	mov	b,(_process_my_packet_sloc0_1_0 + 2)
@@ -2306,7 +2321,7 @@ _process_my_packet:
 ;	assignBit
 	add	a,#0xff
 	mov	_P13,c
-;	src/main.c:683: LED_B = apstLineFiPkt->pu8Data[2];
+;	src/main.c:684: LED_B = apstLineFiPkt->pu8Data[2];
 	mov	dpl,_process_my_packet_sloc0_1_0
 	mov	dph,(_process_my_packet_sloc0_1_0 + 1)
 	mov	b,(_process_my_packet_sloc0_1_0 + 2)
@@ -2331,11 +2346,11 @@ _process_my_packet:
 ;	assignBit
 	add	a,#0xff
 	mov	_P12,c
-;	src/main.c:684: break;
-;	src/main.c:685: case Type_CtrlMotor :
+;	src/main.c:685: break;
+;	src/main.c:686: case Type_CtrlMotor :
 	ret
 00106$:
-;	src/main.c:687: MOTOR_CW = apstLineFiPkt->pu8Data[1];
+;	src/main.c:688: MOTOR_CW = apstLineFiPkt->pu8Data[1];
 	mov	a,#0x05
 	add	a,r5
 	mov	r5,a
@@ -2364,7 +2379,7 @@ _process_my_packet:
 ;	assignBit
 	add	a,#0xff
 	mov	_P00,c
-;	src/main.c:688: MOTOR_CCW = apstLineFiPkt->pu8Data[2];
+;	src/main.c:689: MOTOR_CCW = apstLineFiPkt->pu8Data[2];
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
@@ -2389,11 +2404,11 @@ _process_my_packet:
 ;	assignBit
 	add	a,#0xff
 	mov	_P01,c
-;	src/main.c:689: break;
-;	src/main.c:690: case Type_ReadAddr :
+;	src/main.c:690: break;
+;	src/main.c:691: case Type_ReadAddr :
 	ret
 00107$:
-;	src/main.c:691: printf_fast_f("My address is 0x%x\r\n", gu8MyAddr);
+;	src/main.c:692: printf_fast_f("My address is 0x%x\r\n", gu8MyAddr);
 	mov	r6,_gu8MyAddr
 	mov	r7,#0x00
 	push	ar6
@@ -2406,16 +2421,16 @@ _process_my_packet:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	src/main.c:693: }
-00109$:
 ;	src/main.c:694: }
+00109$:
+;	src/main.c:695: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'process_all_packet'
 ;------------------------------------------------------------
 ;apstLineFiPkt             Allocated to registers r5 r6 r7 
 ;------------------------------------------------------------
-;	src/main.c:696: void process_all_packet(linefi_packet_t * apstLineFiPkt)
+;	src/main.c:697: void process_all_packet(linefi_packet_t * apstLineFiPkt)
 ;	-----------------------------------------
 ;	 function process_all_packet
 ;	-----------------------------------------
@@ -2423,7 +2438,7 @@ _process_all_packet:
 	mov	r5,dpl
 	mov	r6,dph
 	mov	r7,b
-;	src/main.c:698: switch(apstLineFiPkt->u8Type) {
+;	src/main.c:699: switch(apstLineFiPkt->u8Type) {
 	mov	a,#0x01
 	add	a,r5
 	mov	r2,a
@@ -2435,32 +2450,49 @@ _process_all_packet:
 	mov	dph,r3
 	mov	b,r4
 	lcall	__gptrget
-	mov	r4,a
-	jz	00107$
-	cjne	r4,#0x02,00126$
+	mov  r4,a
+	add	a,#0xff - 0x06
+	jnc	00132$
+	ljmp	00110$
+00132$:
+	mov	a,r4
+	add	a,r4
+	add	a,r4
+	mov	dptr,#00133$
+	jmp	@a+dptr
+00133$:
+	ljmp	00114$
+	ljmp	00106$
+	ljmp	00114$
+	ljmp	00101$
+	ljmp	00110$
+	ljmp	00110$
+	ljmp	00109$
+;	src/main.c:700: case Type_SetAddr :
+00101$:
+;	src/main.c:701: if (SWITCH == SW_ON) {
+	jb	_P15,00134$
 	ret
-00126$:
-	cjne	r4,#0x03,00107$
-;	src/main.c:700: if (SWITCH == SW_ON) {
-	jnb	_P15,00107$
-;	src/main.c:701: printf_fast_f("set address as %d\r\n", apstLineFiPkt->u8Addr);
+00134$:
+;	src/main.c:702: printf_fast_f("set address as %d\r\n", apstLineFiPkt->u8Addr);
 	mov	a,#0x02
 	add	a,r5
-	mov	r5,a
+	mov	r2,a
 	clr	a
 	addc	a,r6
-	mov	r6,a
-	mov	dpl,r5
-	mov	dph,r6
-	mov	b,r7
+	mov	r3,a
+	mov	ar4,r7
+	mov	dpl,r2
+	mov	dph,r3
+	mov	b,r4
 	lcall	__gptrget
-	mov	r4,a
-	mov	r3,#0x00
-	push	ar7
-	push	ar6
-	push	ar5
+	mov	r0,a
+	mov	r1,#0x00
 	push	ar4
 	push	ar3
+	push	ar2
+	push	ar0
+	push	ar1
 	mov	a,#___str_24
 	push	acc
 	mov	a,#(___str_24 >> 8)
@@ -2469,35 +2501,140 @@ _process_all_packet:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-	pop	ar5
-	pop	ar6
-	pop	ar7
-;	src/main.c:702: gu8MyAddr = apstLineFiPkt->u8Addr;
+	pop	ar2
+	pop	ar3
+	pop	ar4
+;	src/main.c:703: gu8MyAddr = apstLineFiPkt->u8Addr;
+	mov	dpl,r2
+	mov	dph,r3
+	mov	b,r4
+	lcall	__gptrget
+	mov	_gu8MyAddr,a
+;	src/main.c:704: Erase_APROM_Page(BASE_ADDRESS);
+	mov	dptr,#0x3700
+	lcall	_Erase_APROM_Page
+;	src/main.c:705: Write_APROM_BYTE(BASE_ADDRESS+0, gu8MyAddr);
+	mov	_Write_APROM_BYTE_PARM_2,_gu8MyAddr
+	mov	dptr,#0x3700
+;	src/main.c:707: break;
+;	src/main.c:712: case Type_Ucast :
+	ljmp	_Write_APROM_BYTE
+00106$:
+;	src/main.c:713: if (gu8MyAddr == apstLineFiPkt->u8Addr) {
+	mov	a,#0x02
+	add	a,r5
+	mov	r2,a
+	clr	a
+	addc	a,r6
+	mov	r3,a
+	mov	ar4,r7
+	mov	dpl,r2
+	mov	dph,r3
+	mov	b,r4
+	lcall	__gptrget
+	mov	r2,a
+	cjne	a,_gu8MyAddr,00114$
+;	src/main.c:714: process_my_packet(apstLineFiPkt);
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
+;	src/main.c:716: break;
+;	src/main.c:717: case Type_ReadAddr :
+	ljmp	_process_my_packet
+00109$:
+;	src/main.c:718: printf_fast_f("My address is %d\r\n", gu8MyAddr);
+	mov	r3,_gu8MyAddr
+	mov	r4,#0x00
+	push	ar3
+	push	ar4
+	mov	a,#___str_25
+	push	acc
+	mov	a,#(___str_25 >> 8)
+	push	acc
+	lcall	_printf_fast_f
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
+;	src/main.c:719: break;
+;	src/main.c:720: default :
+	ret
+00110$:
+;	src/main.c:721: if (gu8MyAddr == apstLineFiPkt->u8Addr) {
+	mov	a,#0x02
+	add	a,r5
+	mov	r2,a
+	clr	a
+	addc	a,r6
+	mov	r3,a
+	mov	ar4,r7
+	mov	dpl,r2
+	mov	dph,r3
+	mov	b,r4
 	lcall	__gptrget
-	mov	_gu8MyAddr,a
-;	src/main.c:703: Erase_APROM_Page(BASE_ADDRESS);
-	mov	dptr,#0x3700
-	lcall	_Erase_APROM_Page
-;	src/main.c:704: Write_APROM_BYTE(BASE_ADDRESS+0, gu8MyAddr);
-	mov	_Write_APROM_BYTE_PARM_2,_gu8MyAddr
-	mov	dptr,#0x3700
-;	src/main.c:711: }
-;	src/main.c:712: }
-	ljmp	_Write_APROM_BYTE
-00107$:
+	mov	r2,a
+	cjne	a,_gu8MyAddr,00114$
+;	src/main.c:722: process_my_packet(apstLineFiPkt);
+	mov	dpl,r5
+	mov	dph,r6
+	mov	b,r7
+;	src/main.c:725: }
+;	src/main.c:726: }
+	ljmp	_process_my_packet
+00114$:
+	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'print_one_octet_linefi'
+;------------------------------------------------------------
+;au8Data                   Allocated to registers r7 
+;------------------------------------------------------------
+;	src/main.c:728: void print_one_octet_linefi(UINT8 au8Data)
+;	-----------------------------------------
+;	 function print_one_octet_linefi
+;	-----------------------------------------
+_print_one_octet_linefi:
+;	src/main.c:730: printf_fast_f("address:%u\r\n", au8Data>>4);
+	mov	a,dpl
+	mov	r7,a
+	swap	a
+	anl	a,#0x0f
+	mov	r6,a
+	mov	r5,#0x00
+	push	ar7
+	push	ar6
+	push	ar5
+	mov	a,#___str_26
+	push	acc
+	mov	a,#(___str_26 >> 8)
+	push	acc
+	lcall	_printf_fast_f
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
+	pop	ar7
+;	src/main.c:731: printf_fast_f("command:%u\r\n", au8Data&0xF);
+	anl	ar7,#0x0f
+	mov	r6,#0x00
+	push	ar7
+	push	ar6
+	mov	a,#___str_27
+	push	acc
+	mov	a,#(___str_27 >> 8)
+	push	acc
+	lcall	_printf_fast_f
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
+;	src/main.c:732: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
-;su8Cnt                    Allocated with name '_main_su8Cnt_262145_134'
+;su8Cnt                    Allocated with name '_main_su8Cnt_262145_138'
 ;u8PrevSwitch              Allocated to registers r4 
 ;u8UartRx                  Allocated to registers 
 ;u8RotSense                Allocated to registers 
-;u8RxUART                  Allocated with name '_main_u8RxUART_65536_124'
-;u16Cnt                    Allocated to registers r3 r4 
+;u8RxUART                  Allocated with name '_main_u8RxUART_65536_128'
+;u16Cnt                    Allocated with name '_main_u16Cnt_65536_128'
 ;u8OutputState             Allocated to registers 
 ;u8StateRxCSC              Allocated to registers 
 ;u8LineFiAddr              Allocated to registers 
@@ -2506,130 +2643,142 @@ _process_all_packet:
 ;u8LineFiCmd               Allocated to registers 
 ;u8PwrOnFirstFlag          Allocated to registers 
 ;u8StateRxPkt              Allocated to registers r7 
-;pu8RxUART                 Allocated with name '_main_pu8RxUART_65536_124'
-;stLineFiPkt               Allocated with name '_main_stLineFiPkt_65536_124'
+;pu8RxUART                 Allocated with name '_main_pu8RxUART_65536_128'
+;stLineFiPkt               Allocated with name '_main_stLineFiPkt_65536_128'
 ;u8MotorState              Allocated to registers 
-;u8RxBufIdx                Allocated with name '_main_u8RxBufIdx_65536_124'
+;u8RxBufIdx                Allocated with name '_main_u8RxBufIdx_65536_128'
 ;u8RxLineFiLen             Allocated to registers r5 
-;pu8LineFiRx               Allocated with name '_main_pu8LineFiRx_65536_124'
+;pu8LineFiRx               Allocated with name '_main_pu8LineFiRx_65536_128'
 ;u8LineFiRxIdx             Allocated to registers 
 ;u8Count2                  Allocated to registers 
 ;u8RxPktCnt                Allocated to registers 
 ;u8PreambleCnt             Allocated to registers 
 ;i                         Allocated to registers r3 
 ;------------------------------------------------------------
-;	src/main.c:717: void main (void)
+;	src/main.c:737: void main (void)
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
-;	src/main.c:738: UINT8 u8StateRxPkt = STATE_RxPKT_INIT;
+;	src/main.c:758: UINT8 u8StateRxPkt = STATE_RxPKT_INIT;
 	mov	r7,#0x00
-;	src/main.c:742: linefi_packet_t stLineFiPkt = {
-	mov	_main_stLineFiPkt_65536_124,#0x01
-	mov	(_main_stLineFiPkt_65536_124 + 0x0001),#0x02
-	mov	(_main_stLineFiPkt_65536_124 + 0x0002),#0x03
-	mov	(_main_stLineFiPkt_65536_124 + 0x0003),#0x04
-	mov	(_main_stLineFiPkt_65536_124 + 0x0004),#0x05
-	mov	((_main_stLineFiPkt_65536_124 + 0x0005) + 0),#_gpu8Data
-	mov	((_main_stLineFiPkt_65536_124 + 0x0005) + 1),#(_gpu8Data >> 8)
-;	1-genFromRTrack replaced	mov	((_main_stLineFiPkt_65536_124 + 0x0005) + 2),#0x00
-	mov	((_main_stLineFiPkt_65536_124 + 0x0005) + 2),r7
-;	src/main.c:754: UINT8 u8RxBufIdx = 0;
-;	1-genFromRTrack replaced	mov	_main_u8RxBufIdx_65536_124,#0x00
-	mov	_main_u8RxBufIdx_65536_124,r7
-;	src/main.c:755: UINT8 u8RxLineFiLen = 0;
+;	src/main.c:762: linefi_packet_t stLineFiPkt = {
+	mov	_main_stLineFiPkt_65536_128,#0x01
+	mov	(_main_stLineFiPkt_65536_128 + 0x0001),#0x02
+	mov	(_main_stLineFiPkt_65536_128 + 0x0002),#0x03
+	mov	(_main_stLineFiPkt_65536_128 + 0x0003),#0x04
+	mov	(_main_stLineFiPkt_65536_128 + 0x0004),#0x05
+	mov	((_main_stLineFiPkt_65536_128 + 0x0005) + 0),#_gpu8Data
+	mov	((_main_stLineFiPkt_65536_128 + 0x0005) + 1),#(_gpu8Data >> 8)
+;	1-genFromRTrack replaced	mov	((_main_stLineFiPkt_65536_128 + 0x0005) + 2),#0x00
+	mov	((_main_stLineFiPkt_65536_128 + 0x0005) + 2),r7
+;	src/main.c:774: UINT8 u8RxBufIdx = 0;
+;	1-genFromRTrack replaced	mov	_main_u8RxBufIdx_65536_128,#0x00
+	mov	_main_u8RxBufIdx_65536_128,r7
+;	src/main.c:775: UINT8 u8RxLineFiLen = 0;
 	mov	r5,#0x00
-;	src/main.c:760: gpio_setup();
+;	src/main.c:780: gpio_setup();
 	push	ar7
 	push	ar5
 	lcall	_gpio_setup
-;	src/main.c:761: uart_setup();
+;	src/main.c:781: uart_setup();
 	lcall	_uart_setup
-;	src/main.c:762: InitialUART1_Timer3(57600);
+;	src/main.c:782: InitialUART1_Timer3(57600);
 	mov	dptr,#0xe100
 	clr	a
 	mov	b,a
 	lcall	_InitialUART1_Timer3
-;	src/main.c:764: MODIFY_HIRC_166();
+;	src/main.c:784: MODIFY_HIRC_166();
 	lcall	_MODIFY_HIRC_166
-;	src/main.c:766: clr_T0M;// 16/12 MHz
+;	src/main.c:786: clr_T0M;// 16/12 MHz
 	anl	_CKCON,#0xf7
-;	src/main.c:769: set_ET0;                                    //enable Timer0 interrupt
+;	src/main.c:789: set_ET0;                                    //enable Timer0 interrupt
 ;	assignBit
 	setb	_ET0
-;	src/main.c:770: set_TR0;                                    //Timer0 run
+;	src/main.c:790: set_TR0;                                    //Timer0 run
 ;	assignBit
 	setb	_TR0
-;	src/main.c:772: gu8UART = 0;
+;	src/main.c:792: gu8UART = 0;
 	mov	_gu8UART,#0x00
-;	src/main.c:773: printf_fast_f("This is UART0\n\r");
-	mov	a,#___str_25
+;	src/main.c:793: printf_fast_f("This is UART0\n\r");
+	mov	a,#___str_28
 	push	acc
-	mov	a,#(___str_25 >> 8)
+	mov	a,#(___str_28 >> 8)
 	push	acc
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:774: gu8UART = 1;
-	mov	_gu8UART,#0x01
-;	src/main.c:775: printf_fast_f("This is UART1\n\r"); //라인파이
-	mov	a,#___str_26
+;	src/main.c:794: printf_fast_f("LineFi Slave Monitor\n\r");
+	mov	a,#___str_29
 	push	acc
-	mov	a,#(___str_26 >> 8)
+	mov	a,#(___str_29 >> 8)
+	push	acc
+	lcall	_printf_fast_f
+	dec	sp
+	dec	sp
+;	src/main.c:795: gu8UART = 1;
+	mov	_gu8UART,#0x01
+;	src/main.c:796: printf_fast_f("This is UART1\n\r"); //라인파이
+	mov	a,#___str_30
+	push	acc
+	mov	a,#(___str_30 >> 8)
 	push	acc
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
 	pop	ar5
 	pop	ar7
-;	src/main.c:780: for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
-	mov	r3,#0x30
-	mov	r4,#0x75
+;	src/main.c:801: for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
+	mov	_main_u16Cnt_65536_128,#0x30
+	mov	(_main_u16Cnt_65536_128 + 1),#0x75
 00148$:
-;	src/main.c:781: nop; nop; nop; nop; nop;
+;	src/main.c:802: nop; nop; nop; nop; nop;
 	NOP
 	NOP
 	NOP
 	NOP
 	NOP
-	dec	r3
-	cjne	r3,#0xff,00268$
-	dec	r4
-00268$:
-;	src/main.c:780: for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
-	mov	a,r3
+	mov	a,_main_u16Cnt_65536_128
+	add	a,#0xff
+	mov	r2,a
+	mov	a,(_main_u16Cnt_65536_128 + 1)
+	addc	a,#0xff
+	mov	r4,a
+	mov	_main_u16Cnt_65536_128,r2
+	mov	(_main_u16Cnt_65536_128 + 1),r4
+;	src/main.c:801: for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
+	mov	a,r2
 	orl	a,r4
-;	src/main.c:783: gu8UART = 0;
+;	src/main.c:804: gu8UART = 0;
 	jnz	00148$
 	mov	_gu8UART,a
-;	src/main.c:785: u8UartRx = UART_RX;
+;	src/main.c:806: u8UartRx = UART_RX;
 	mov	c,_P02
-;	src/main.c:786: u8PrevSwitch = SWITCH;
+;	src/main.c:807: u8PrevSwitch = SWITCH;
 	mov	c,_P15
 	clr	a
 	rlc	a
 	mov	r4,a
-;	src/main.c:788: set_EPI;
+;	src/main.c:809: set_EPI;
 	orl	_EIE,#0x02
-;	src/main.c:789: set_EA;
+;	src/main.c:810: set_EA;
 ;	assignBit
 	setb	_EA
-;	src/main.c:791: if (UART_RX == 0) {
+;	src/main.c:812: if (UART_RX == 0) {
 	jb	_P02,00103$
-;	src/main.c:792: SEL_RX_POL = 1;
+;	src/main.c:813: SEL_RX_POL = 1;
 ;	assignBit
 	setb	_P04
 00103$:
-;	src/main.c:796: gu8MyAddr = gpcEEPROM[0]; // 0x00이면 펌웨어 쓴 직후
+;	src/main.c:817: gu8MyAddr = gpcEEPROM[0]; // 0x00이면 펌웨어 쓴 직후
 	mov	dptr,#_gpcEEPROM
 	clr	a
 	movc	a,@a+dptr
 	mov	_gu8MyAddr,a
-;	src/main.c:798: while(1) {
+;	src/main.c:819: while(1) {
 00144$:
-;	src/main.c:801: if (Receive_Data_From_UART0_nb(&u8RxUART)) {
-	mov	dptr,#_main_u8RxUART_65536_124
+;	src/main.c:822: if (Receive_Data_From_UART0_nb(&u8RxUART)) {
+	mov	dptr,#_main_u8RxUART_65536_128
 	mov	b,#0x40
 	push	ar7
 	push	ar5
@@ -2639,160 +2788,52 @@ _main:
 	pop	ar4
 	pop	ar5
 	pop	ar7
-	jnz	00271$
+	jnz	00269$
 	ljmp	00115$
-00271$:
-;	src/main.c:802: switch(u8RxUART) {
+00269$:
+;	src/main.c:823: switch(u8RxUART) {
 	mov	a,#0x31
-	cjne	a,_main_u8RxUART_65536_124,00272$
+	cjne	a,_main_u8RxUART_65536_128,00270$
 	sjmp	00104$
-00272$:
+00270$:
 	mov	a,#0x32
-	cjne	a,_main_u8RxUART_65536_124,00273$
+	cjne	a,_main_u8RxUART_65536_128,00271$
 	sjmp	00105$
-00273$:
+00271$:
 	mov	a,#0x33
-	cjne	a,_main_u8RxUART_65536_124,00274$
+	cjne	a,_main_u8RxUART_65536_128,00272$
 	ljmp	00106$
-00274$:
+00272$:
 	mov	a,#0x34
-	cjne	a,_main_u8RxUART_65536_124,00275$
+	cjne	a,_main_u8RxUART_65536_128,00273$
 	ljmp	00107$
-00275$:
+00273$:
 	mov	a,#0x35
-	cjne	a,_main_u8RxUART_65536_124,00276$
+	cjne	a,_main_u8RxUART_65536_128,00274$
 	ljmp	00108$
-00276$:
+00274$:
 	mov	a,#0x36
-	cjne	a,_main_u8RxUART_65536_124,00277$
+	cjne	a,_main_u8RxUART_65536_128,00275$
 	ljmp	00109$
-00277$:
+00275$:
 	mov	a,#0x37
-	cjne	a,_main_u8RxUART_65536_124,00278$
+	cjne	a,_main_u8RxUART_65536_128,00276$
 	ljmp	00110$
-00278$:
+00276$:
 	mov	a,#0x38
-	cjne	a,_main_u8RxUART_65536_124,00279$
+	cjne	a,_main_u8RxUART_65536_128,00277$
 	ljmp	00111$
-00279$:
+00277$:
 	mov	a,#0x74
-	cjne	a,_main_u8RxUART_65536_124,00280$
+	cjne	a,_main_u8RxUART_65536_128,00278$
 	ljmp	00112$
-00280$:
+00278$:
 	ljmp	00115$
-;	src/main.c:803: case '1' :
+;	src/main.c:824: case '1' :
 00104$:
-;	src/main.c:804: TOGGLE(UART_TX);
+;	src/main.c:825: TOGGLE(UART_TX);
 	cpl	_P16
-;	src/main.c:805: printf_fast_f("UART_TX=");
-	push	ar7
-	push	ar5
-	push	ar4
-	mov	a,#___str_27
-	push	acc
-	mov	a,#(___str_27 >> 8)
-	push	acc
-	lcall	_printf_fast_f
-	dec	sp
-	dec	sp
-;	src/main.c:806: printf_fast_f("%d\n\r", UART_TX);
-	mov	c,_P16
-	clr	a
-	rlc	a
-	mov	r2,a
-	mov	r3,#0x00
-	push	ar2
-	push	ar3
-	mov	a,#___str_28
-	push	acc
-	mov	a,#(___str_28 >> 8)
-	push	acc
-	lcall	_printf_fast_f
-	mov	a,sp
-	add	a,#0xfc
-	mov	sp,a
-	pop	ar4
-	pop	ar5
-	pop	ar7
-;	src/main.c:807: break;
-	ljmp	00115$
-;	src/main.c:808: case '2' :
-00105$:
-;	src/main.c:809: TOGGLE(LED_R);
-	cpl	_P14
-;	src/main.c:810: printf_fast_f("LED_R=");
-	push	ar7
-	push	ar5
-	push	ar4
-	mov	a,#___str_29
-	push	acc
-	mov	a,#(___str_29 >> 8)
-	push	acc
-	lcall	_printf_fast_f
-	dec	sp
-	dec	sp
-;	src/main.c:811: printf_fast_f("%d\n\r", LED_R);
-	mov	c,_P14
-	clr	a
-	rlc	a
-	mov	r2,a
-	mov	r3,#0x00
-	push	ar2
-	push	ar3
-	mov	a,#___str_28
-	push	acc
-	mov	a,#(___str_28 >> 8)
-	push	acc
-	lcall	_printf_fast_f
-	mov	a,sp
-	add	a,#0xfc
-	mov	sp,a
-	pop	ar4
-	pop	ar5
-	pop	ar7
-;	src/main.c:812: break;
-	ljmp	00115$
-;	src/main.c:813: case '3' :
-00106$:
-;	src/main.c:814: TOGGLE(LED_G);
-	cpl	_P13
-;	src/main.c:815: printf_fast_f("LED_G=");
-	push	ar7
-	push	ar5
-	push	ar4
-	mov	a,#___str_30
-	push	acc
-	mov	a,#(___str_30 >> 8)
-	push	acc
-	lcall	_printf_fast_f
-	dec	sp
-	dec	sp
-;	src/main.c:816: printf_fast_f("%d\n\r", LED_G);
-	mov	c,_P13
-	clr	a
-	rlc	a
-	mov	r2,a
-	mov	r3,#0x00
-	push	ar2
-	push	ar3
-	mov	a,#___str_28
-	push	acc
-	mov	a,#(___str_28 >> 8)
-	push	acc
-	lcall	_printf_fast_f
-	mov	a,sp
-	add	a,#0xfc
-	mov	sp,a
-	pop	ar4
-	pop	ar5
-	pop	ar7
-;	src/main.c:817: break;
-	ljmp	00115$
-;	src/main.c:818: case '4' :
-00107$:
-;	src/main.c:819: TOGGLE(LED_B);
-	cpl	_P12
-;	src/main.c:820: printf_fast_f("LED_B=");
+;	src/main.c:826: printf_fast_f("UART_TX=");
 	push	ar7
 	push	ar5
 	push	ar4
@@ -2803,17 +2844,17 @@ _main:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:821: printf_fast_f("%d\n\r", LED_B);
-	mov	c,_P12
+;	src/main.c:827: printf_fast_f("%d\n\r", UART_TX);
+	mov	c,_P16
 	clr	a
 	rlc	a
 	mov	r2,a
 	mov	r3,#0x00
 	push	ar2
 	push	ar3
-	mov	a,#___str_28
+	mov	a,#___str_32
 	push	acc
-	mov	a,#(___str_28 >> 8)
+	mov	a,#(___str_32 >> 8)
 	push	acc
 	lcall	_printf_fast_f
 	mov	a,sp
@@ -2822,31 +2863,13 @@ _main:
 	pop	ar4
 	pop	ar5
 	pop	ar7
-;	src/main.c:822: break;
-	ljmp	00115$
-;	src/main.c:823: case '5' :
-00108$:
-;	src/main.c:827: printf_fast_f("no MOTOR_EN\r\n");
-	push	ar7
-	push	ar5
-	push	ar4
-	mov	a,#___str_32
-	push	acc
-	mov	a,#(___str_32 >> 8)
-	push	acc
-	lcall	_printf_fast_f
-	dec	sp
-	dec	sp
-	pop	ar4
-	pop	ar5
-	pop	ar7
 ;	src/main.c:828: break;
 	ljmp	00115$
-;	src/main.c:829: case '6' :
-00109$:
-;	src/main.c:830: TOGGLE(MOTOR_CW);
-	cpl	_P00
-;	src/main.c:831: printf_fast_f("MOTOR_CW=");
+;	src/main.c:829: case '2' :
+00105$:
+;	src/main.c:830: TOGGLE(LED_R);
+	cpl	_P14
+;	src/main.c:831: printf_fast_f("LED_R=");
 	push	ar7
 	push	ar5
 	push	ar4
@@ -2857,17 +2880,17 @@ _main:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:832: printf_fast_f("%d\n\r", MOTOR_CW);
-	mov	c,_P00
+;	src/main.c:832: printf_fast_f("%d\n\r", LED_R);
+	mov	c,_P14
 	clr	a
 	rlc	a
 	mov	r2,a
 	mov	r3,#0x00
 	push	ar2
 	push	ar3
-	mov	a,#___str_28
+	mov	a,#___str_32
 	push	acc
-	mov	a,#(___str_28 >> 8)
+	mov	a,#(___str_32 >> 8)
 	push	acc
 	lcall	_printf_fast_f
 	mov	a,sp
@@ -2878,11 +2901,11 @@ _main:
 	pop	ar7
 ;	src/main.c:833: break;
 	ljmp	00115$
-;	src/main.c:834: case '7' :
-00110$:
-;	src/main.c:835: TOGGLE(MOTOR_CCW);
-	cpl	_P01
-;	src/main.c:836: printf_fast_f("MOTOR_CCW=");
+;	src/main.c:834: case '3' :
+00106$:
+;	src/main.c:835: TOGGLE(LED_G);
+	cpl	_P13
+;	src/main.c:836: printf_fast_f("LED_G=");
 	push	ar7
 	push	ar5
 	push	ar4
@@ -2893,17 +2916,17 @@ _main:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:837: printf_fast_f("%d\n\r", MOTOR_CCW);
-	mov	c,_P01
+;	src/main.c:837: printf_fast_f("%d\n\r", LED_G);
+	mov	c,_P13
 	clr	a
 	rlc	a
 	mov	r2,a
 	mov	r3,#0x00
 	push	ar2
 	push	ar3
-	mov	a,#___str_28
+	mov	a,#___str_32
 	push	acc
-	mov	a,#(___str_28 >> 8)
+	mov	a,#(___str_32 >> 8)
 	push	acc
 	lcall	_printf_fast_f
 	mov	a,sp
@@ -2913,12 +2936,12 @@ _main:
 	pop	ar5
 	pop	ar7
 ;	src/main.c:838: break;
-;	src/main.c:839: case '8' :
-	sjmp	00115$
-00111$:
-;	src/main.c:840: TOGGLE(SEL_RX_POL);
-	cpl	_P04
-;	src/main.c:841: printf_fast_f("SEL_RX_POL=");
+	ljmp	00115$
+;	src/main.c:839: case '4' :
+00107$:
+;	src/main.c:840: TOGGLE(LED_B);
+	cpl	_P12
+;	src/main.c:841: printf_fast_f("LED_B=");
 	push	ar7
 	push	ar5
 	push	ar4
@@ -2929,17 +2952,17 @@ _main:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:842: printf_fast_f("%d\n\r", SEL_RX_POL);
-	mov	c,_P04
+;	src/main.c:842: printf_fast_f("%d\n\r", LED_B);
+	mov	c,_P12
 	clr	a
 	rlc	a
 	mov	r2,a
 	mov	r3,#0x00
 	push	ar2
 	push	ar3
-	mov	a,#___str_28
+	mov	a,#___str_32
 	push	acc
-	mov	a,#(___str_28 >> 8)
+	mov	a,#(___str_32 >> 8)
 	push	acc
 	lcall	_printf_fast_f
 	mov	a,sp
@@ -2949,18 +2972,51 @@ _main:
 	pop	ar5
 	pop	ar7
 ;	src/main.c:843: break;
-;	src/main.c:844: case 't' :
-	sjmp	00115$
-00112$:
-;	src/main.c:845: printf_fast_f("count:%d\r\n", gu16TimeCnt);
+	ljmp	00115$
+;	src/main.c:844: case '5' :
+00108$:
+;	src/main.c:848: printf_fast_f("no MOTOR_EN\r\n");
 	push	ar7
 	push	ar5
 	push	ar4
-	push	_gu16TimeCnt
-	push	(_gu16TimeCnt + 1)
 	mov	a,#___str_36
 	push	acc
 	mov	a,#(___str_36 >> 8)
+	push	acc
+	lcall	_printf_fast_f
+	dec	sp
+	dec	sp
+	pop	ar4
+	pop	ar5
+	pop	ar7
+;	src/main.c:849: break;
+	ljmp	00115$
+;	src/main.c:850: case '6' :
+00109$:
+;	src/main.c:851: TOGGLE(MOTOR_CW);
+	cpl	_P00
+;	src/main.c:852: printf_fast_f("MOTOR_CW=");
+	push	ar7
+	push	ar5
+	push	ar4
+	mov	a,#___str_37
+	push	acc
+	mov	a,#(___str_37 >> 8)
+	push	acc
+	lcall	_printf_fast_f
+	dec	sp
+	dec	sp
+;	src/main.c:853: printf_fast_f("%d\n\r", MOTOR_CW);
+	mov	c,_P00
+	clr	a
+	rlc	a
+	mov	r2,a
+	mov	r3,#0x00
+	push	ar2
+	push	ar3
+	mov	a,#___str_32
+	push	acc
+	mov	a,#(___str_32 >> 8)
 	push	acc
 	lcall	_printf_fast_f
 	mov	a,sp
@@ -2969,23 +3025,116 @@ _main:
 	pop	ar4
 	pop	ar5
 	pop	ar7
-;	src/main.c:846: gu16TimeCnt = 0;
+;	src/main.c:854: break;
+	ljmp	00115$
+;	src/main.c:855: case '7' :
+00110$:
+;	src/main.c:856: TOGGLE(MOTOR_CCW);
+	cpl	_P01
+;	src/main.c:857: printf_fast_f("MOTOR_CCW=");
+	push	ar7
+	push	ar5
+	push	ar4
+	mov	a,#___str_38
+	push	acc
+	mov	a,#(___str_38 >> 8)
+	push	acc
+	lcall	_printf_fast_f
+	dec	sp
+	dec	sp
+;	src/main.c:858: printf_fast_f("%d\n\r", MOTOR_CCW);
+	mov	c,_P01
+	clr	a
+	rlc	a
+	mov	r2,a
+	mov	r3,#0x00
+	push	ar2
+	push	ar3
+	mov	a,#___str_32
+	push	acc
+	mov	a,#(___str_32 >> 8)
+	push	acc
+	lcall	_printf_fast_f
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
+	pop	ar4
+	pop	ar5
+	pop	ar7
+;	src/main.c:859: break;
+;	src/main.c:860: case '8' :
+	sjmp	00115$
+00111$:
+;	src/main.c:861: TOGGLE(SEL_RX_POL);
+	cpl	_P04
+;	src/main.c:862: printf_fast_f("SEL_RX_POL=");
+	push	ar7
+	push	ar5
+	push	ar4
+	mov	a,#___str_39
+	push	acc
+	mov	a,#(___str_39 >> 8)
+	push	acc
+	lcall	_printf_fast_f
+	dec	sp
+	dec	sp
+;	src/main.c:863: printf_fast_f("%d\n\r", SEL_RX_POL);
+	mov	c,_P04
+	clr	a
+	rlc	a
+	mov	r2,a
+	mov	r3,#0x00
+	push	ar2
+	push	ar3
+	mov	a,#___str_32
+	push	acc
+	mov	a,#(___str_32 >> 8)
+	push	acc
+	lcall	_printf_fast_f
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
+	pop	ar4
+	pop	ar5
+	pop	ar7
+;	src/main.c:864: break;
+;	src/main.c:865: case 't' :
+	sjmp	00115$
+00112$:
+;	src/main.c:866: printf_fast_f("count:%d\r\n", gu16TimeCnt);
+	push	ar7
+	push	ar5
+	push	ar4
+	push	_gu16TimeCnt
+	push	(_gu16TimeCnt + 1)
+	mov	a,#___str_40
+	push	acc
+	mov	a,#(___str_40 >> 8)
+	push	acc
+	lcall	_printf_fast_f
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
+	pop	ar4
+	pop	ar5
+	pop	ar7
+;	src/main.c:867: gu16TimeCnt = 0;
 	clr	a
 	mov	_gu16TimeCnt,a
 	mov	(_gu16TimeCnt + 1),a
-;	src/main.c:848: }
+;	src/main.c:869: }
 00115$:
-;	src/main.c:851: if (u8PrevSwitch != SWITCH) { // 스위치 스테이트가 변하면..
+;	src/main.c:872: if (u8PrevSwitch != SWITCH) { // 스위치 스테이트가 변하면..
 	mov	ar3,r4
 	mov	c,_P15
 	clr	a
 	rlc	a
 	mov	r2,a
 	mov	a,r3
-	cjne	a,ar2,00281$
+	cjne	a,ar2,00279$
 	sjmp	00120$
-00281$:
-;	src/main.c:852: printf_fast_f("SWITCH:%d\n\r", SWITCH);
+00279$:
+;	src/main.c:873: printf_fast_f("SWITCH:%d\n\r", SWITCH);
 	mov	c,_P15
 	clr	a
 	rlc	a
@@ -2995,9 +3144,9 @@ _main:
 	push	ar5
 	push	ar2
 	push	ar3
-	mov	a,#___str_37
+	mov	a,#___str_41
 	push	acc
-	mov	a,#(___str_37 >> 8)
+	mov	a,#(___str_41 >> 8)
 	push	acc
 	lcall	_printf_fast_f
 	mov	a,sp
@@ -3005,77 +3154,68 @@ _main:
 	mov	sp,a
 	pop	ar5
 	pop	ar7
-;	src/main.c:853: if (SWITCH) { //눌렸을 때
+;	src/main.c:874: if (SWITCH) { //눌렸을 때
 	jb	_P15,00118$
-;	src/main.c:857: su8Cnt++;
-	inc	_main_su8Cnt_262145_134
-;	src/main.c:858: LED_R = su8Cnt&1;
-	mov	a,_main_su8Cnt_262145_134
+;	src/main.c:878: su8Cnt++;
+	inc	_main_su8Cnt_262145_138
+;	src/main.c:879: LED_R = su8Cnt&1;
+	mov	a,_main_su8Cnt_262145_138
 	anl	a,#0x01
-;	assignBit
 	add	a,#0xff
 	mov	_P14,c
-;	src/main.c:859: LED_G = (su8Cnt>>1)&1;
-	mov	a,_main_su8Cnt_262145_134
+;	src/main.c:880: LED_G = (su8Cnt>>1)&1;
+	mov	a,_main_su8Cnt_262145_138
 	rr	a
 	anl	a,#0x01
-;	assignBit
-	add	a,#0xff
-	clr	a
-	rlc	a
 ;	assignBit
 	mov	r3,a
 	add	a,#0xff
 	mov	_P13,c
-;	src/main.c:860: LED_B = (su8Cnt>>2)&1;
-	mov	a,_main_su8Cnt_262145_134
+;	src/main.c:881: LED_B = (su8Cnt>>2)&1;
+	mov	a,_main_su8Cnt_262145_138
 	rr	a
 	rr	a
 	anl	a,#0x01
 ;	assignBit
-	add	a,#0xff
-	clr	a
-	rlc	a
-;	assignBit
 	mov	r2,a
 	add	a,#0xff
 	mov	_P12,c
-;	src/main.c:863: MOTOR_CW = (su8Cnt>>1)&1;
+;	src/main.c:884: MOTOR_CW = (su8Cnt>>1)&1;
 ;	assignBit
 	mov	a,r3
 	add	a,#0xff
 	mov	_P00,c
-;	src/main.c:864: MOTOR_CCW = (su8Cnt>>2)&1;
+;	src/main.c:885: MOTOR_CCW = (su8Cnt>>2)&1;
 ;	assignBit
 	mov	a,r2
 	add	a,#0xff
 	mov	_P01,c
 00118$:
-;	src/main.c:867: u8PrevSwitch = SWITCH;
+;	src/main.c:888: u8PrevSwitch = SWITCH;
 	mov	c,_P15
 	clr	a
 	rlc	a
 	mov	r4,a
 00120$:
-;	src/main.c:870: if (SWITCH) {
+;	src/main.c:891: if (SWITCH) {
 	mov	c,_P15
-;	src/main.c:873: if (u8UartRx != UART_RX) {
+;	src/main.c:894: if (u8UartRx != UART_RX) {
 	mov	c,_P02
-;	src/main.c:878: switch(u8StateRxPkt) {
-	cjne	r7,#0x00,00283$
+;	src/main.c:899: switch(u8StateRxPkt) {
+	cjne	r7,#0x00,00281$
 	sjmp	00121$
-00283$:
-	cjne	r7,#0x01,00284$
+00281$:
+	cjne	r7,#0x01,00282$
 	sjmp	00124$
-00284$:
-	cjne	r7,#0x02,00285$
+00282$:
+	cjne	r7,#0x02,00283$
 	sjmp	00130$
-00285$:
+00283$:
 	ljmp	00144$
-;	src/main.c:879: case STATE_RxPKT_INIT :
+;	src/main.c:900: case STATE_RxPKT_INIT :
 00121$:
-;	src/main.c:880: if (get_octet_from_linefi(&u8RxUART)) {
-	mov	dptr,#_main_u8RxUART_65536_124
+;	src/main.c:901: if (get_octet_from_linefi(&u8RxUART)) {
+	mov	dptr,#_main_u8RxUART_65536_128
 	mov	b,#0x40
 	push	ar7
 	push	ar5
@@ -3085,24 +3225,24 @@ _main:
 	pop	ar4
 	pop	ar5
 	pop	ar7
-	jnz	00286$
+	jnz	00284$
 	ljmp	00144$
-00286$:
-;	src/main.c:881: gu16TimeCnt = 0;
+00284$:
+;	src/main.c:902: gu16TimeCnt = 0;
 	clr	a
 	mov	_gu16TimeCnt,a
 	mov	(_gu16TimeCnt + 1),a
-;	src/main.c:883: pu8RxUART[u8RxBufIdx++] = u8RxUART;
-	mov	_main_u8RxBufIdx_65536_124,#0x01
-	mov	_main_pu8RxUART_65536_124,_main_u8RxUART_65536_124
-;	src/main.c:884: u8StateRxPkt = STATE_RxPKT_START;
+;	src/main.c:904: pu8RxUART[u8RxBufIdx++] = u8RxUART;
+	mov	_main_u8RxBufIdx_65536_128,#0x01
+	mov	_main_pu8RxUART_65536_128,_main_u8RxUART_65536_128
+;	src/main.c:905: u8StateRxPkt = STATE_RxPKT_START;
 	mov	r7,#0x01
-;	src/main.c:886: break;
+;	src/main.c:907: break;
 	ljmp	00144$
-;	src/main.c:887: case STATE_RxPKT_START :
+;	src/main.c:908: case STATE_RxPKT_START :
 00124$:
-;	src/main.c:888: if (get_octet_from_linefi(&u8RxUART)) {
-	mov	dptr,#_main_u8RxUART_65536_124
+;	src/main.c:909: if (get_octet_from_linefi(&u8RxUART)) {
+	mov	dptr,#_main_u8RxUART_65536_128
 	mov	b,#0x40
 	push	ar7
 	push	ar5
@@ -3113,40 +3253,40 @@ _main:
 	pop	ar5
 	pop	ar7
 	jz	00128$
-;	src/main.c:889: gu16TimeCnt = 0;
+;	src/main.c:910: gu16TimeCnt = 0;
 	clr	a
 	mov	_gu16TimeCnt,a
 	mov	(_gu16TimeCnt + 1),a
-;	src/main.c:890: pu8RxUART[u8RxBufIdx++] = u8RxUART;
-	mov	r3,_main_u8RxBufIdx_65536_124
-	inc	_main_u8RxBufIdx_65536_124
+;	src/main.c:911: pu8RxUART[u8RxBufIdx++] = u8RxUART;
+	mov	r3,_main_u8RxBufIdx_65536_128
+	inc	_main_u8RxBufIdx_65536_128
 	mov	a,r3
-	add	a,#_main_pu8RxUART_65536_124
+	add	a,#_main_pu8RxUART_65536_128
 	mov	r0,a
-	mov	@r0,_main_u8RxUART_65536_124
+	mov	@r0,_main_u8RxUART_65536_128
 	ljmp	00144$
 00128$:
-;	src/main.c:892: else if (gu16TimeCnt > 1000) { // 1msec넘으면
+;	src/main.c:913: else if (gu16TimeCnt > 1000) { // 1msec넘으면
 	clr	c
 	mov	a,#0xe8
 	subb	a,_gu16TimeCnt
 	mov	a,#0x03
 	subb	a,(_gu16TimeCnt + 1)
-	jc	00288$
+	jc	00286$
 	ljmp	00144$
-00288$:
-;	src/main.c:893: u8RxLineFiLen = u8RxBufIdx;
-	mov	r5,_main_u8RxBufIdx_65536_124
-;	src/main.c:894: u8StateRxPkt = STATE_RxPKT_END;
+00286$:
+;	src/main.c:914: u8RxLineFiLen = u8RxBufIdx;
+	mov	r5,_main_u8RxBufIdx_65536_128
+;	src/main.c:915: u8StateRxPkt = STATE_RxPKT_END;
 	mov	r7,#0x02
-;	src/main.c:896: break;
+;	src/main.c:917: break;
 	ljmp	00144$
-;	src/main.c:898: case STATE_RxPKT_END :
+;	src/main.c:919: case STATE_RxPKT_END :
 00130$:
-;	src/main.c:899: switch(u8RxLineFiLen) {
+;	src/main.c:920: switch(u8RxLineFiLen) {
 	cjne	r5,#0x01,00134$
-;	src/main.c:901: if (chk_my_addr(MY_ADDR, pu8RxUART[0])) {
-	mov	_chk_my_addr_PARM_2,_main_pu8RxUART_65536_124
+;	src/main.c:922: if (chk_my_addr(MY_ADDR, pu8RxUART[0])) {
+	mov	_chk_my_addr_PARM_2,_main_pu8RxUART_65536_128
 	mov	dpl,#0x03
 	push	ar5
 	push	ar4
@@ -3155,47 +3295,50 @@ _main:
 	pop	ar4
 	pop	ar5
 	jz	00133$
-;	src/main.c:903: printf_fast_f("Rx:%d\n\r", pu8RxUART[0]);
-	mov	r2,_main_pu8RxUART_65536_124
+;	src/main.c:924: printf_fast_f("Rx:%d\n\r", pu8RxUART[0]);
+	mov	r2,_main_pu8RxUART_65536_128
 	mov	r3,#0x00
 	push	ar5
 	push	ar4
 	push	ar2
 	push	ar3
-	mov	a,#___str_38
+	mov	a,#___str_42
 	push	acc
-	mov	a,#(___str_38 >> 8)
+	mov	a,#(___str_42 >> 8)
 	push	acc
 	lcall	_printf_fast_f
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	src/main.c:904: ctrl_rgbled_motor(u8RxUART);
-	mov	dpl,_main_u8RxUART_65536_124
+;	src/main.c:925: print_one_octet_linefi(pu8RxUART[0]);
+	mov	dpl,_main_pu8RxUART_65536_128
+	lcall	_print_one_octet_linefi
+;	src/main.c:926: ctrl_rgbled_motor(u8RxUART);
+	mov	dpl,_main_u8RxUART_65536_128
 	lcall	_ctrl_rgbled_motor
 	pop	ar4
 	pop	ar5
 00133$:
-;	src/main.c:906: u8StateRxPkt = STATE_RxPKT_INIT;
+;	src/main.c:928: u8StateRxPkt = STATE_RxPKT_INIT;
 	mov	r7,#0x00
-;	src/main.c:907: break;
+;	src/main.c:929: break;
 	ljmp	00144$
-;	src/main.c:908: default : // 가변 옥텟(8  이상) 길이의  라이인파이 패킷 수신
+;	src/main.c:930: default : // 가변 옥텟(8  이상) 길이의  라이인파이 패킷 수신
 00134$:
-;	src/main.c:909: if ( u8RxLineFiLen < 8) { // 
-	cjne	r5,#0x08,00292$
-00292$:
+;	src/main.c:931: if ( u8RxLineFiLen < 8) { // 
+	cjne	r5,#0x08,00290$
+00290$:
 	jnc	00139$
-;	src/main.c:911: printf_fast_f("Rx size:%d\n\r", u8RxLineFiLen);
+;	src/main.c:933: printf_fast_f("Rx size:%d\n\r", u8RxLineFiLen);
 	mov	ar2,r5
 	mov	r3,#0x00
 	push	ar5
 	push	ar4
 	push	ar2
 	push	ar3
-	mov	a,#___str_39
+	mov	a,#___str_43
 	push	acc
-	mov	a,#(___str_39 >> 8)
+	mov	a,#(___str_43 >> 8)
 	push	acc
 	lcall	_printf_fast_f
 	mov	a,sp
@@ -3203,16 +3346,16 @@ _main:
 	mov	sp,a
 	pop	ar4
 	pop	ar5
-;	src/main.c:912: for (i=0; i<u8RxLineFiLen;i++) {
+;	src/main.c:934: for (i=0; i<u8RxLineFiLen;i++) {
 	mov	r3,#0x00
 00150$:
 	clr	c
 	mov	a,r3
 	subb	a,r5
 	jnc	00135$
-;	src/main.c:913: printf_fast_f("0x%x ", pu8RxUART[i]);
+;	src/main.c:935: printf_fast_f("0x%x ", pu8RxUART[i]);
 	mov	a,r3
-	add	a,#_main_pu8RxUART_65536_124
+	add	a,#_main_pu8RxUART_65536_128
 	mov	r1,a
 	mov	ar2,@r1
 	mov	r6,#0x00
@@ -3221,9 +3364,9 @@ _main:
 	push	ar3
 	push	ar2
 	push	ar6
-	mov	a,#___str_40
+	mov	a,#___str_44
 	push	acc
-	mov	a,#(___str_40 >> 8)
+	mov	a,#(___str_44 >> 8)
 	push	acc
 	lcall	_printf_fast_f
 	mov	a,sp
@@ -3232,11 +3375,11 @@ _main:
 	pop	ar3
 	pop	ar4
 	pop	ar5
-;	src/main.c:912: for (i=0; i<u8RxLineFiLen;i++) {
+;	src/main.c:934: for (i=0; i<u8RxLineFiLen;i++) {
 	inc	r3
 	sjmp	00150$
 00135$:
-;	src/main.c:915: printf_fast_f("\n\r");
+;	src/main.c:937: printf_fast_f("\n\r");
 	push	ar5
 	push	ar4
 	mov	a,#___str_0
@@ -3250,28 +3393,28 @@ _main:
 	pop	ar5
 	sjmp	00140$
 00139$:
-;	src/main.c:918: cp_buf2linefipacket(u8RxLineFiLen, pu8RxUART, &stLineFiPkt);
-	mov	_cp_buf2linefipacket_PARM_2,#_main_pu8RxUART_65536_124
+;	src/main.c:940: cp_buf2linefipacket(u8RxLineFiLen, pu8RxUART, &stLineFiPkt);
+	mov	_cp_buf2linefipacket_PARM_2,#_main_pu8RxUART_65536_128
 	mov	(_cp_buf2linefipacket_PARM_2 + 1),#0x00
 	mov	(_cp_buf2linefipacket_PARM_2 + 2),#0x40
-	mov	_cp_buf2linefipacket_PARM_3,#_main_stLineFiPkt_65536_124
+	mov	_cp_buf2linefipacket_PARM_3,#_main_stLineFiPkt_65536_128
 	mov	(_cp_buf2linefipacket_PARM_3 + 1),#0x00
 	mov	(_cp_buf2linefipacket_PARM_3 + 2),#0x40
 	mov	dpl,r5
 	push	ar5
 	push	ar4
 	lcall	_cp_buf2linefipacket
-;	src/main.c:919: process_all_packet(&stLineFiPkt);
-	mov	dptr,#_main_stLineFiPkt_65536_124
+;	src/main.c:941: process_all_packet(&stLineFiPkt);
+	mov	dptr,#_main_stLineFiPkt_65536_128
 	mov	b,#0x40
 	lcall	_process_all_packet
 	pop	ar4
 	pop	ar5
-;	src/main.c:921: if (gu8MyAddr == stLineFiPkt.u8Addr) {
-	mov	a,(_main_stLineFiPkt_65536_124 + 0x0002)
+;	src/main.c:943: if (gu8MyAddr == stLineFiPkt.u8Addr) {
+	mov	a,(_main_stLineFiPkt_65536_128 + 0x0002)
 	cjne	a,_gu8MyAddr,00140$
-;	src/main.c:922: process_my_packet(&stLineFiPkt);
-	mov	dptr,#_main_stLineFiPkt_65536_124
+;	src/main.c:944: process_my_packet(&stLineFiPkt);
+	mov	dptr,#_main_stLineFiPkt_65536_128
 	mov	b,#0x40
 	push	ar5
 	push	ar4
@@ -3279,10 +3422,10 @@ _main:
 	pop	ar4
 	pop	ar5
 00140$:
-;	src/main.c:926: u8StateRxPkt = STATE_RxPKT_INIT;
+;	src/main.c:948: u8StateRxPkt = STATE_RxPKT_INIT;
 	mov	r7,#0x00
-;	src/main.c:931: } //switch(u8StateRxPkt)
-;	src/main.c:933: }
+;	src/main.c:953: } //switch(u8StateRxPkt)
+;	src/main.c:955: }
 	ljmp	00144$
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
@@ -3453,97 +3596,125 @@ ___str_24:
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_25:
+	.ascii "My address is %d"
+	.db 0x0d
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_26:
+	.ascii "address:%u"
+	.db 0x0d
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_27:
+	.ascii "command:%u"
+	.db 0x0d
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_28:
 	.ascii "This is UART0"
 	.db 0x0a
 	.db 0x0d
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_26:
+___str_29:
+	.ascii "LineFi Slave Monitor"
+	.db 0x0a
+	.db 0x0d
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_30:
 	.ascii "This is UART1"
 	.db 0x0a
 	.db 0x0d
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_27:
+___str_31:
 	.ascii "UART_TX="
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_28:
+___str_32:
 	.ascii "%d"
 	.db 0x0a
 	.db 0x0d
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_29:
+___str_33:
 	.ascii "LED_R="
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_30:
+___str_34:
 	.ascii "LED_G="
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_31:
+___str_35:
 	.ascii "LED_B="
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_32:
+___str_36:
 	.ascii "no MOTOR_EN"
 	.db 0x0d
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_33:
+___str_37:
 	.ascii "MOTOR_CW="
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_34:
+___str_38:
 	.ascii "MOTOR_CCW="
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_35:
+___str_39:
 	.ascii "SEL_RX_POL="
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_36:
+___str_40:
 	.ascii "count:%d"
 	.db 0x0d
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_37:
+___str_41:
 	.ascii "SWITCH:%d"
 	.db 0x0a
 	.db 0x0d
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_38:
+___str_42:
 	.ascii "Rx:%d"
 	.db 0x0a
 	.db 0x0d
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_39:
+___str_43:
 	.ascii "Rx size:%d"
 	.db 0x0a
 	.db 0x0d
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_40:
+___str_44:
 	.ascii "0x%x "
 	.db 0x00
 	.area CSEG    (CODE)

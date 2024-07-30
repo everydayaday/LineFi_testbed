@@ -1,6 +1,6 @@
                                       1 ;--------------------------------------------------------
                                       2 ; File Created by SDCC : free open source ANSI-C Compiler
-                                      3 ; Version 4.2.0 #13081 (Linux)
+                                      3 ; Version 4.0.0 #11528 (Linux)
                                       4 ;--------------------------------------------------------
                                       5 	.module Common
                                       6 	.optsdcc -mmcs51 --model-small
@@ -493,7 +493,7 @@
                                     493 ;--------------------------------------------------------
                                     494 	.area DSEG    (DATA)
                                     495 ;--------------------------------------------------------
-                                    496 ; overlayable items in internal ram
+                                    496 ; overlayable items in internal ram 
                                     497 ;--------------------------------------------------------
                                     498 ;--------------------------------------------------------
                                     499 ; indirectly addressable internal ram data
@@ -556,7 +556,7 @@
                                     556 ;	-----------------------------------------
                                     557 ;	 function _sdcc_external_startup
                                     558 ;	-----------------------------------------
-      000F09                        559 __sdcc_external_startup:
+      000FE3                        559 __sdcc_external_startup:
                            000007   560 	ar7 = 0x07
                            000006   561 	ar6 = 0x06
                            000005   562 	ar5 = 0x05
@@ -566,16 +566,16 @@
                            000001   566 	ar1 = 0x01
                            000000   567 	ar0 = 0x00
                                     568 ;	../lib/Common.c:39: __endasm;
-      000F09 75 C7 AA         [24]  569 	mov	0xC7, #0xAA
-      000F0C 75 C7 55         [24]  570 	mov	0xC7, #0x55
-      000F0F 75 FD 5A         [24]  571 	mov	0xFD, #0x5A
-      000F12 75 C7 AA         [24]  572 	mov	0xC7, #0xAA
-      000F15 75 C7 55         [24]  573 	mov	0xC7, #0x55
-      000F18 75 FD A5         [24]  574 	mov	0xFD, #0xA5
+      000FE3 75 C7 AA         [24]  569 	mov	0xC7, #0xAA
+      000FE6 75 C7 55         [24]  570 	mov	0xC7, #0x55
+      000FE9 75 FD 5A         [24]  571 	mov	0xFD, #0x5A
+      000FEC 75 C7 AA         [24]  572 	mov	0xC7, #0xAA
+      000FEF 75 C7 55         [24]  573 	mov	0xC7, #0x55
+      000FF2 75 FD A5         [24]  574 	mov	0xFD, #0xA5
                                     575 ;	../lib/Common.c:40: return 0;
-      000F1B 75 82 00         [24]  576 	mov	dpl,#0x00
+      000FF5 75 82 00         [24]  576 	mov	dpl,#0x00
                                     577 ;	../lib/Common.c:41: }
-      000F1E 22               [24]  578 	ret
+      000FF8 22               [24]  578 	ret
                                     579 	.area CSEG    (CODE)
                                     580 	.area CONST   (CODE)
                                     581 	.area CABS    (ABS,CODE)

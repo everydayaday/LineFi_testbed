@@ -67,13 +67,21 @@
 #define LINEFI_EN2	P12
 #define LINEFI_TX	P16
 
-#define MAX_STATE_UART0_INPUT 4
+#define MAX_STATE_UART0_INPUT 5
+
+#define PLC 1 // PLC team modification 
+#define ybchoi 1 // ybchoi modification
+
+#if ybchoi
+uint8 __xdata pu8buff[30]; 
+#endif
 
 const char * __xdata  gcUartInputMode[MAX_STATE_UART0_INPUT] = {
 	"UART0_INPUT_MODE0:one key control",
 	"UART0_INPUT_MODE1:string input",
 	"UART0_INPUT_MODE2:mimic 5keys on board",
-	"UART0_INPUT_MODE3:data setting"
+	"UART0_INPUT_MODE3:data setting",
+	"UART0_INPUT_MODE4:periodic function",
 };
 
 enum {
@@ -81,7 +89,8 @@ enum {
 	UART0_INPUT_MODE1,
 	UART0_INPUT_MODE2,
 	UART0_INPUT_MODE3,
-	UART0_INPUT_MODE4
+	UART0_INPUT_MODE4,
+	UART0_INPUT_MODE5
 
 };
 UINT8 __xdata gpu8Data[20] = {
@@ -99,10 +108,20 @@ UINT8 __xdata gpu8Data2[20] = {
 	3,3,3,3,
 	5,5,5,5,
 };
+UINT8 __xdata gpu8Data3[28] = {
+	2,2,2,2,
+	1,1,1,1,
+	4,4,4,4,
+	3,3,3,3,
+	5,5,5,5,
+	5,5,5,5,
+	5,5,5,5,
+};
 
-#define LINEFI_DEFAULT_RATE	3
-
+#define LINEFI_DEFAULT_RATE	4
+// uint8 __xdata u8buff[];
 uint16 __xdata gu16TimeCnt;
+uint16 __xdata gu16TimeCntMilliSec;
 UINT32 __xdata gpu32UartSpeed[] = {
 	2400, // 0
 	28800, // 1
@@ -123,7 +142,7 @@ UINT32 __xdata gpu32UartSpeed[] = {
 UINT8 gu8UART = 0;
 
 /* Needed for printf */
-void putchar (char c) 
+int putchar (int c) 
 {
 	if (gu8UART == 0)  {
 		TI = 0;
@@ -135,6 +154,7 @@ void putchar (char c)
 		SBUF_1 = c;
 		while(TI_1==0);
 	}
+	return 0;
 }
 
 enum {
@@ -235,6 +255,7 @@ void Timer0_ISR (void) interrupt(1)  //interrupt address is 0x000B
 	TH0 = TH0_INIT;
 	TL0 = TL0_INIT;
 	gu16TimeCnt++;
+	gu16TimeCntMilliSec++; // For periodic function
 #if 0
 	if (P06) {
 		P06 = 0;
@@ -696,6 +717,7 @@ void act_by_one_key(uint8 au8RxUART, uint8 * apu8LineFiCmd, uint8 * apu8LineFiAd
 		case 'u' :
 			printf_fast_f("uart speed: %lu:\n\r", gpu32UartSpeed[*apu8LineFiAddr]);
 			InitialUART1_Timer3(gpu32UartSpeed[*apu8LineFiAddr]);
+			printf_fast_f("Setting uart speed as: %lu:\n\r", gpu32UartSpeed[*apu8LineFiAddr]);
 			break;
 
 		case 'S' :
@@ -726,6 +748,56 @@ void act_by_one_key(uint8 au8RxUART, uint8 * apu8LineFiCmd, uint8 * apu8LineFiAd
 	} //switch(au8RxUART)
 }
 
+enum {
+	STATE_PS_INIT,
+	STATE_PS_SENDING,
+	STATE_PS_END,
+	CMD_PS_START,
+	CMD_PS_END
+};
+
+// linefi_packet_t to uint8
+#if PLC
+void struct_to_uint8(linefi_packet_t * apcPkt)
+{
+	uint8 cntIdx = 0;  
+	pu8buff[cntIdx++] = apcPkt->u8Ver;
+	pu8buff[cntIdx++] = apcPkt->u8Type;
+	pu8buff[cntIdx++] = apcPkt->u8Addr;
+	pu8buff[cntIdx++] = apcPkt->u8Size;
+	pu8buff[cntIdx++] = apcPkt->u8CRC;
+	uint8 i;
+	for (i=0; i<apcPkt->u8Size; i++) {
+		pu8buff[cntIdx++] = apcPkt->pu8Data[i];
+	} 
+	// return pu8buff;
+}
+#endif
+
+/*
+	주기적으로 패킷 보내는 코드
+*/
+#if PLC
+void periodic_func(linefi_packet_t * apcStr)
+{
+	static UINT8 su8Cnt = 0;
+	uint8 total_size = size_linefi_packet(apcStr);
+	// uint8 *packet_data = (uint8*)apcStr;
+	
+	apcStr->u8Ver = su8Cnt++; // For index increment
+	// add_crc_linefi_packet_packet(apcStr);
+	send_linefi_packet(apcStr);
+	// display on master
+	struct_to_uint8(apcStr); // packet struct to array type
+	print_raw_packet(total_size, pu8buff); 
+	// print_linefipacket(apcStr); 
+	// printf_fast_f("%d\r\n", su8Cnt++);
+	// printf_fast_f("%s\r\n", apcStr);
+}
+#endif
+
+
+
 /************************************************************************************************************
  *    Main function 
  ************************************************************************************************************/
@@ -742,6 +814,9 @@ void main (void)
 	UINT8 u8LineFiCmd = 1;
 	UINT8 u8PwrOnFirstFlag = 1;
 	UINT8 u8SwNum;
+
+	UINT8 u8StatePeriodicSend = STATE_PS_INIT;
+	UINT8 u8PSCmd = STATE_PS_INIT;
 
 	uint8 u8StateUart0InputMode = UART0_INPUT_MODE0;
 
@@ -766,6 +841,15 @@ void main (void)
 		10, //UINT8 u8Size;
 		5, //UINT8 u8CRC;
 		gpu8Data //UINT8 * pu8Data;
+	};
+
+	linefi_packet_t __xdata stLineFiPkt_test = { // For sending periodic packet
+		1, //UINT8 u8Ver;
+		2, //UINT8 u8Type;
+		1, //UINT8 u8Addr;
+		20, //UINT8 u8Size;
+		5, //UINT8 u8CRC;
+		gpu8Data3 //UINT8 * pu8Data;
 	};
 
 	gpio_setup();
@@ -801,13 +885,13 @@ void main (void)
 
 	InitialUART1_Timer3(gpu32UartSpeed[0]);
 	send_octet_to_linefi(((LINEFI_DEFAULT_RATE<<4)&0xF0) | (1)&0x0F);
-
+	// 위에 코드가 하는 역할은?
 	for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
 		nop; nop; nop; nop; nop;
 	}
 
 	InitialUART1_Timer3(gpu32UartSpeed[LINEFI_DEFAULT_RATE]);
-
+	// 현재 4로 세팅되어 있음
 	for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
 		nop; nop; nop; nop; nop;
 	}
@@ -927,7 +1011,20 @@ void main (void)
 									}
 									break;
 							}
-						case UART0_INPUT_MODE4 :
+						case UART0_INPUT_MODE4 : // 주기적으로 하향 패킷 생성 스테이트머신 제어용 CLI
+							switch(u8RxUART) {
+								case 's' : // 주기적으로 패킷 생성 시작 
+									printf_fast_f("START periodic packet generating..\r\n");
+									u8PSCmd = CMD_PS_START;
+									break;
+								case 'e' : // 종료
+									printf_fast_f("STOP  periodic packet generating..\r\n");
+									u8PSCmd = CMD_PS_END;
+									break;
+							}
+
+
+
 							break;
 					} //switch(u8StateUart0InputMode)
 					break;
@@ -1175,5 +1272,42 @@ void main (void)
 			printf_fast_f("P17 = 0\n\r");
 		}
 #endif
+		switch(u8StatePeriodicSend) {
+			case STATE_PS_INIT :
+				if (u8PSCmd == CMD_PS_START) {
+					u8StatePeriodicSend = STATE_PS_SENDING;
+					gu16TimeCntMilliSec = 0;
+					printf_fast_f("starting...\r\n");
+				}
+				break;
+			case STATE_PS_SENDING :
+				if (gu16TimeCntMilliSec > 100) { // 1sec 넘으면
+					gu16TimeCntMilliSec = 0;
+					periodic_func(&stLineFiPkt_test);
+					// print packet size
+					// printf_fast_f("Size of packet: %d\r\n", sizeof(linefi_packet_t)); 
+					// printf_fast_f("Size of packet: %d\r\n", sizeof(stLineFiPkt.u8Ver));
+					
+					// printf_fast_f("Size of packet: %d\r\n", sizeof(stLineFiPkt.u8CRC)); 
+					// printf_fast_f("Size of packet: %d\r\n", sizeof(stLineFiPkt.pu8Data)); 
+					// printf_fast_f("%lx\r\n",(void*)&stLineFiPkt.u8Ver);
+					// printf_fast_f("%lx\r\n",(void*)&stLineFiPkt.u8Type);
+					// printf_fast_f("%lx\r\n",(void*)&stLineFiPkt.u8Addr);
+					// printf_fast_f("%lx\r\n",(void*)&stLineFiPkt.u8Size);
+					// printf_fast_f("%lx\r\n",(void*)&stLineFiPkt.u8CRC);
+					// printf_fast_f("data %lx\r\n",(void*)&stLineFiPkt.pu8Data);
+					// printf_fast_f("%lx\r\n",(void*)&stLineFiPkt.pu8Data[1]);
+					// printf_fast_f("%lx\r\n",(void*)&stLineFiPkt.pu8Data[2]);
+					// printf_fast_f("%lx\r\n",(void*)&stLineFiPkt.pu8Data[3]);
+				}
+				if (u8PSCmd == CMD_PS_END) {
+					u8StatePeriodicSend = STATE_PS_INIT;
+					printf_fast_f("stopping...");
+				}
+				break;
+		}
+
+
+
 	} //while(1)
 }

@@ -39,7 +39,7 @@ __code __at (BASE_ADDRESS) char gpcEEPROM[128] = "";
 
 #define __VERSION__ "Version 1.4 on 20231026\r\n"
 
-#define MY_ADDR (3)
+#define MY_ADDR (3) // add3
 
 #if 0 // 정량펌프
 
@@ -109,7 +109,8 @@ UINT8 gu8UART = 0;
 UINT16 gu16TimeCnt = 0;
 
 /* Needed for printf */
-void putchar (char c) 
+// void putchar (char c)
+int putchar (int c) 
 {
 	if (gu8UART == 0)  {
 		TI = 0;
@@ -708,7 +709,26 @@ void process_all_packet(linefi_packet_t * apstLineFiPkt)
 			break;
 		case Type_Mcast :
 			break;
+		case Type_Ucast :
+			if (gu8MyAddr == apstLineFiPkt->u8Addr) {
+				process_my_packet(apstLineFiPkt);
+			}
+			break;
+		case Type_ReadAddr :
+			printf_fast_f("My address is %d\r\n", gu8MyAddr);
+			break;
+		default :
+			if (gu8MyAddr == apstLineFiPkt->u8Addr) {
+				process_my_packet(apstLineFiPkt);
+			}
+			break;
 	}
+}
+
+void print_one_octet_linefi(UINT8 au8Data)
+{
+	printf_fast_f("address:%u\r\n", au8Data>>4);
+	printf_fast_f("command:%u\r\n", au8Data&0xF);
 }
 
 /************************************************************************************************************
@@ -771,6 +791,7 @@ void main (void)
 
 	gu8UART = 0;
 	printf_fast_f("This is UART0\n\r");
+	printf_fast_f("LineFi Slave Monitor\n\r");
 	gu8UART = 1;
 	printf_fast_f("This is UART1\n\r"); //라인파이
 	UINT16 u8Count2 = 0;
@@ -901,6 +922,7 @@ void main (void)
 					if (chk_my_addr(MY_ADDR, pu8RxUART[0])) {
 						//				rot_motor(u8RxUART);
 						printf_fast_f("Rx:%d\n\r", pu8RxUART[0]);
+						print_one_octet_linefi(pu8RxUART[0]);
 						ctrl_rgbled_motor(u8RxUART);
 					}
 					u8StateRxPkt = STATE_RxPKT_INIT;

@@ -108,7 +108,8 @@ UINT8 gu8UART = 0;
 UINT16 gu16TimeCnt = 0;
 
 /* Needed for printf */
-void putchar (char c) 
+// void putchar (char c) 
+int putchar (int c) 
 {
 	if (gu8UART == 0)  {
 		TI = 0;
@@ -747,7 +748,7 @@ void main (void)
 
 	gpio_setup();
 	uart_setup();
-	InitialUART1_Timer3(57600);
+	InitialUART1_Timer3(115200); // RX에서 받는 타이밍? interrupt하는 주기?
 
 	MODIFY_HIRC_166();
 
@@ -877,16 +878,18 @@ void main (void)
 					gu16TimeCnt = 0;
 					pu8RxUART[u8RxIdx++] = u8RxUART;
 				}
-				else if (gu16TimeCnt > 1000) { // 1msec넘으면
+				else if (gu16TimeCnt > 100) { // 1sec넘으면
 					u8StateRxLFP = STATE_RxLFP_END;
 				}
 				break;
 
 			case STATE_RxLFP_END :
 				print_raw_packet(u8RxIdx, pu8RxUART);
+				// print the RX packet size
+				// printf_fast_f("Receive Packet Size: %d\r\n", sizeof(pu8RxUART));
 				switch(cp_buf2linefipacket(u8RxIdx, pu8RxUART, &stLineFiPkt)) {
 					case CONV_OK :
-						print_linefipacket(&stLineFiPkt);
+						// print_linefipacket(&stLineFiPkt);
 						break;
 					case CONV_ERR_CRC :
 						printf_fast_f("ERROR: CRC!!\r\n");

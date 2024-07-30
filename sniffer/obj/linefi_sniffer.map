@@ -82,9 +82,9 @@ C:   00000272  l_GSINIT
 C:   000002C6  s_GSFINAL                       
 C:   000002C9  s_CSEG                          
 C:   000005BB  l_CONST                         
-C:   00001DC6  l_CSEG                          
-C:   0000208F  s_CONST                         
-C:   0000264A  s_XINIT                         
+C:   00001DE9  l_CSEG                          
+C:   000020B2  s_CONST                         
+C:   0000266D  s_XINIT                         
 C:   00003700  _gpcEEPROM                         main
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
@@ -526,87 +526,87 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                000002C9    00001DC6 =        7622. bytes (REL,CON,CODE)
+CSEG                                000002C9    00001DE9 =        7657. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
 C:   000002C9  _putchar                           main
 C:   000002E0  _conv_nibble2manchester            main
 C:   00000307  _putchar_manchester                main
-C:   00000322  _preamble                          main
-C:   0000033D  _print_esc                         main
-C:   000003AC  _print_char                        main
-C:   000003DF  _state_machine                     main
-C:   000004A9  _Timer0_ISR                        main
-C:   000004C0  _pin_interrupt_isr                 main
-C:   000004CA  _chk_manchester                    main
-C:   0000050D  _conv_manchester2nibble            main
-C:   00000529  _conv_manchester2highnibble        main
-C:   00000545  _MODIFY_HIRC_166                   main
-C:   00000591  _disp_help                         main
-C:   000006BF  _gpio_setup                        main
-C:   00000732  _state_switches                    main
-C:   00000825  _ctrl_rgbled                       main
-C:   0000084F  _chk_my_addr                       main
-C:   0000086D  _process_my_packet                 main
-C:   000009BC  _process_all_packet                main
-C:   00000AA5  _print_one_octet_linefi            main
-C:   00000AE2  _main                              main
-C:   00000F88  __sdcc_external_startup            Common
-C:   00000F9E  _Timer0_Delay100us                 Delay
-C:   00000FD0  _Timer0_Delay1ms                   Delay
-C:   00001002  _Timer1_Delay10ms                  Delay
-C:   00001034  _Timer2_Delay500us                 Delay
-C:   00001069  _Timer3_Delay100ms                 Delay
-C:   000010A5  _Timer3_Delay10us                  Delay
-C:   000010E1  _iap_cmd                           eeprom_iap
-C:   00001156  _Erase_APROM_Page                  eeprom_iap
-C:   0000116A  _Write_APROM_BYTE                  eeprom_iap
-C:   0000117E  _read_bandgap_value                eeprom_iap
-C:   000011D9  _read_uid                          eeprom_iap
-C:   00001202  _size_linefi_packet                linefi_packet
-C:   0000121D  _calc_crc_linefi_packet_packet     linefi_packet
-C:   0000127F  _add_crc_linefi_packet_packet      linefi_packet
-C:   000012A7  _chk_crc_linefi_packet_packet      linefi_packet
-C:   000012D9  _get_octet_from_linefi             linefi_packet
-C:   000012DC  _send_octet_to_linefi              linefi_packet
-C:   000012DF  _send_linefi_packet                linefi_packet
-C:   00001412  _cp_buf2linefipacket               linefi_packet
-C:   00001582  _print_linefipacket                linefi_packet
-C:   00001798  _crc8                              linefi_packet
-C:   000017C8  _print_raw_packet                  linefi_packet
-C:   000018D4  _sht75_crc_table                   linefi_packet
-C:   000019D4  _InitialUART0_Timer1               uart
-C:   00001A14  _InitialUART0_Timer3               uart
-C:   00001A65  _Receive_Data_From_UART0           uart
-C:   00001A6E  _Receive_Data_From_UART0_nb        uart
+C:   0000032A  _preamble                          main
+C:   00000345  _print_esc                         main
+C:   000003B4  _print_char                        main
+C:   000003E7  _state_machine                     main
+C:   000004B1  _Timer0_ISR                        main
+C:   000004C8  _pin_interrupt_isr                 main
+C:   000004D2  _chk_manchester                    main
+C:   00000515  _conv_manchester2nibble            main
+C:   00000534  _conv_manchester2highnibble        main
+C:   00000553  _MODIFY_HIRC_166                   main
+C:   0000059F  _disp_help                         main
+C:   000006CD  _gpio_setup                        main
+C:   00000740  _state_switches                    main
+C:   00000835  _ctrl_rgbled                       main
+C:   0000085F  _chk_my_addr                       main
+C:   0000087D  _process_my_packet                 main
+C:   000009CC  _process_all_packet                main
+C:   00000AB5  _print_one_octet_linefi            main
+C:   00000AF2  _main                              main
+C:   00000F7E  __sdcc_external_startup            Common
+C:   00000F94  _Timer0_Delay100us                 Delay
+C:   00000FC6  _Timer0_Delay1ms                   Delay
+C:   00000FF8  _Timer1_Delay10ms                  Delay
+C:   0000102A  _Timer2_Delay500us                 Delay
+C:   0000105F  _Timer3_Delay100ms                 Delay
+C:   0000109B  _Timer3_Delay10us                  Delay
+C:   000010D7  _iap_cmd                           eeprom_iap
+C:   0000114C  _Erase_APROM_Page                  eeprom_iap
+C:   00001160  _Write_APROM_BYTE                  eeprom_iap
+C:   00001174  _read_bandgap_value                eeprom_iap
+C:   000011CF  _read_uid                          eeprom_iap
+C:   000011F8  _size_linefi_packet                linefi_packet
+C:   00001213  _calc_crc_linefi_packet_packet     linefi_packet
+C:   00001275  _add_crc_linefi_packet_packet      linefi_packet
+C:   0000129D  _chk_crc_linefi_packet_packet      linefi_packet
+C:   000012CF  _get_octet_from_linefi             linefi_packet
+C:   000012D2  _send_octet_to_linefi              linefi_packet
+C:   000012D5  _send_linefi_packet                linefi_packet
+C:   00001435  _cp_buf2linefipacket               linefi_packet
+C:   000015A5  _print_linefipacket                linefi_packet
+C:   000017BB  _crc8                              linefi_packet
+C:   000017EB  _print_raw_packet                  linefi_packet
+C:   000018F7  _sht75_crc_table                   linefi_packet
+C:   000019F7  _InitialUART0_Timer1               uart
+C:   00001A37  _InitialUART0_Timer3               uart
+C:   00001A88  _Receive_Data_From_UART0           uart
+C:   00001A91  _Receive_Data_From_UART0_nb        uart
 ASxxxx Linker V03.00 + NoICE + sdld,  page 22.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                000002C9    00001DC6 =        7622. bytes (REL,CON,CODE)
+CSEG                                000002C9    00001DE9 =        7657. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00001A8C  _Send_Data_To_UART0                uart
-C:   00001A96  _InitialUART1_Timer3               uart
-C:   00001AE2  _Receive_Data_From_UART1           uart
-C:   00001AEB  _Receive_Data_From_UART1_nb        uart
-C:   00001B09  _Send_Data_To_UART1                uart
-C:   00001B13  _uart_setup                        uart
-C:   00001B2F  _printf_fast_f                     printf_fast_f
-C:   00001FB0  __divulong                         _divulong
-C:   00002015  fs_rshift_a                        _fsrshift
-C:   00002058  __gptrput                          _gptrput
-C:   00002073  __gptrget                          _gptrget
+C:   00001AAF  _Send_Data_To_UART0                uart
+C:   00001AB9  _InitialUART1_Timer3               uart
+C:   00001B05  _Receive_Data_From_UART1           uart
+C:   00001B0E  _Receive_Data_From_UART1_nb        uart
+C:   00001B2C  _Send_Data_To_UART1                uart
+C:   00001B36  _uart_setup                        uart
+C:   00001B52  _printf_fast_f                     printf_fast_f
+C:   00001FD3  __divulong                         _divulong
+C:   00002038  fs_rshift_a                        _fsrshift
+C:   0000207B  __gptrput                          _gptrput
+C:   00002096  __gptrget                          _gptrget
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 23.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CONST                               0000208F    000005BB =        1467. bytes (REL,CON,CODE)
+CONST                               000020B2    000005BB =        1467. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------

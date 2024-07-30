@@ -1,6 +1,6 @@
                                       1 ;--------------------------------------------------------
                                       2 ; File Created by SDCC : free open source ANSI-C Compiler
-                                      3 ; Version 4.2.0 #13081 (Linux)
+                                      3 ; Version 4.0.0 #11528 (Linux)
                                       4 ;--------------------------------------------------------
                                       5 	.module Delay
                                       6 	.optsdcc -mmcs51 --model-small
@@ -499,7 +499,7 @@
                                     499 ;--------------------------------------------------------
                                     500 	.area DSEG    (DATA)
                                     501 ;--------------------------------------------------------
-                                    502 ; overlayable items in internal ram
+                                    502 ; overlayable items in internal ram 
                                     503 ;--------------------------------------------------------
                                     504 	.area	OSEG    (OVR,DATA)
                                     505 	.area	OSEG    (OVR,DATA)
@@ -572,7 +572,7 @@
                                     572 ;	-----------------------------------------
                                     573 ;	 function Timer0_Delay100us
                                     574 ;	-----------------------------------------
-      000F9E                        575 _Timer0_Delay100us:
+      000F94                        575 _Timer0_Delay100us:
                            000007   576 	ar7 = 0x07
                            000006   577 	ar6 = 0x06
                            000005   578 	ar5 = 0x05
@@ -581,51 +581,51 @@
                            000002   581 	ar2 = 0x02
                            000001   582 	ar1 = 0x01
                            000000   583 	ar0 = 0x00
-      000F9E AC 82            [24]  584 	mov	r4,dpl
-      000FA0 AD 83            [24]  585 	mov	r5,dph
-      000FA2 AE F0            [24]  586 	mov	r6,b
-      000FA4 FF               [12]  587 	mov	r7,a
+      000F94 AC 82            [24]  584 	mov	r4,dpl
+      000F96 AD 83            [24]  585 	mov	r5,dph
+      000F98 AE F0            [24]  586 	mov	r6,b
+      000F9A FF               [12]  587 	mov	r7,a
                                     588 ;	../lib/Delay.c:24: clr_T0M;                                		//T0M=0, Timer0 Clock = Fsys/12
-      000FA5 53 8E F7         [24]  589 	anl	_CKCON,#0xf7
+      000F9B 53 8E F7         [24]  589 	anl	_CKCON,#0xf7
                                     590 ;	../lib/Delay.c:25: TMOD |= 0x01;                         		  //Timer0 is 16-bit mode
-      000FA8 43 89 01         [24]  591 	orl	_TMOD,#0x01
+      000F9E 43 89 01         [24]  591 	orl	_TMOD,#0x01
                                     592 ;	../lib/Delay.c:26: set_TR0;                            		    //Start Timer0
                                     593 ;	assignBit
-      000FAB D2 8C            [12]  594 	setb	_TR0
+      000FA1 D2 8C            [12]  594 	setb	_TR0
                                     595 ;	../lib/Delay.c:27: while (u32CNT != 0)
-      000FAD                        596 00104$:
-      000FAD EC               [12]  597 	mov	a,r4
-      000FAE 4D               [12]  598 	orl	a,r5
-      000FAF 4E               [12]  599 	orl	a,r6
-      000FB0 4F               [12]  600 	orl	a,r7
-      000FB1 60 1A            [24]  601 	jz	00106$
+      000FA3                        596 00104$:
+      000FA3 EC               [12]  597 	mov	a,r4
+      000FA4 4D               [12]  598 	orl	a,r5
+      000FA5 4E               [12]  599 	orl	a,r6
+      000FA6 4F               [12]  600 	orl	a,r7
+      000FA7 60 1A            [24]  601 	jz	00106$
                                     602 ;	../lib/Delay.c:29: TL0 = LOBYTE(TIMER_DIV12_VALUE_100us);	//Find  define in "Function_define.h" "TIMER VALUE"
-      000FB3 75 8A 76         [24]  603 	mov	_TL0,#0x76
+      000FA9 75 8A 76         [24]  603 	mov	_TL0,#0x76
                                     604 ;	../lib/Delay.c:30: TH0 = HIBYTE(TIMER_DIV12_VALUE_100us);
-      000FB6 75 8C FF         [24]  605 	mov	_TH0,#0xff
+      000FAC 75 8C FF         [24]  605 	mov	_TH0,#0xff
                                     606 ;	../lib/Delay.c:31: while (TF0 != 1);       		            //Check Timer0 Time-Out Flag
-      000FB9                        607 00101$:
+      000FAF                        607 00101$:
                                     608 ;	../lib/Delay.c:32: clr_TF0;
                                     609 ;	assignBit
-      000FB9 10 8D 02         [24]  610 	jbc	_TF0,00127$
-      000FBC 80 FB            [24]  611 	sjmp	00101$
-      000FBE                        612 00127$:
+      000FAF 10 8D 02         [24]  610 	jbc	_TF0,00127$
+      000FB2 80 FB            [24]  611 	sjmp	00101$
+      000FB4                        612 00127$:
                                     613 ;	../lib/Delay.c:33: u32CNT --;
-      000FBE 1C               [12]  614 	dec	r4
-      000FBF BC FF 09         [24]  615 	cjne	r4,#0xff,00128$
-      000FC2 1D               [12]  616 	dec	r5
-      000FC3 BD FF 05         [24]  617 	cjne	r5,#0xff,00128$
-      000FC6 1E               [12]  618 	dec	r6
-      000FC7 BE FF 01         [24]  619 	cjne	r6,#0xff,00128$
-      000FCA 1F               [12]  620 	dec	r7
-      000FCB                        621 00128$:
-      000FCB 80 E0            [24]  622 	sjmp	00104$
-      000FCD                        623 00106$:
+      000FB4 1C               [12]  614 	dec	r4
+      000FB5 BC FF 09         [24]  615 	cjne	r4,#0xff,00128$
+      000FB8 1D               [12]  616 	dec	r5
+      000FB9 BD FF 05         [24]  617 	cjne	r5,#0xff,00128$
+      000FBC 1E               [12]  618 	dec	r6
+      000FBD BE FF 01         [24]  619 	cjne	r6,#0xff,00128$
+      000FC0 1F               [12]  620 	dec	r7
+      000FC1                        621 00128$:
+      000FC1 80 E0            [24]  622 	sjmp	00104$
+      000FC3                        623 00106$:
                                     624 ;	../lib/Delay.c:35: clr_TR0;                       			        //Stop Timer0
                                     625 ;	assignBit
-      000FCD C2 8C            [12]  626 	clr	_TR0
+      000FC3 C2 8C            [12]  626 	clr	_TR0
                                     627 ;	../lib/Delay.c:36: }
-      000FCF 22               [24]  628 	ret
+      000FC5 22               [24]  628 	ret
                                     629 ;------------------------------------------------------------
                                     630 ;Allocation info for local variables in function 'Timer0_Delay1ms'
                                     631 ;------------------------------------------------------------
@@ -635,52 +635,52 @@
                                     635 ;	-----------------------------------------
                                     636 ;	 function Timer0_Delay1ms
                                     637 ;	-----------------------------------------
-      000FD0                        638 _Timer0_Delay1ms:
-      000FD0 AC 82            [24]  639 	mov	r4,dpl
-      000FD2 AD 83            [24]  640 	mov	r5,dph
-      000FD4 AE F0            [24]  641 	mov	r6,b
-      000FD6 FF               [12]  642 	mov	r7,a
+      000FC6                        638 _Timer0_Delay1ms:
+      000FC6 AC 82            [24]  639 	mov	r4,dpl
+      000FC8 AD 83            [24]  640 	mov	r5,dph
+      000FCA AE F0            [24]  641 	mov	r6,b
+      000FCC FF               [12]  642 	mov	r7,a
                                     643 ;	../lib/Delay.c:40: clr_T0M;                                		//T0M=0, Timer0 Clock = Fsys/12
-      000FD7 53 8E F7         [24]  644 	anl	_CKCON,#0xf7
+      000FCD 53 8E F7         [24]  644 	anl	_CKCON,#0xf7
                                     645 ;	../lib/Delay.c:41: TMOD |= 0x01;                           		//Timer0 is 16-bit mode
-      000FDA 43 89 01         [24]  646 	orl	_TMOD,#0x01
+      000FD0 43 89 01         [24]  646 	orl	_TMOD,#0x01
                                     647 ;	../lib/Delay.c:42: set_TR0;                              		  //Start Timer0
                                     648 ;	assignBit
-      000FDD D2 8C            [12]  649 	setb	_TR0
+      000FD3 D2 8C            [12]  649 	setb	_TR0
                                     650 ;	../lib/Delay.c:43: while (u32CNT != 0)
-      000FDF                        651 00104$:
-      000FDF EC               [12]  652 	mov	a,r4
-      000FE0 4D               [12]  653 	orl	a,r5
-      000FE1 4E               [12]  654 	orl	a,r6
-      000FE2 4F               [12]  655 	orl	a,r7
-      000FE3 60 1A            [24]  656 	jz	00106$
+      000FD5                        651 00104$:
+      000FD5 EC               [12]  652 	mov	a,r4
+      000FD6 4D               [12]  653 	orl	a,r5
+      000FD7 4E               [12]  654 	orl	a,r6
+      000FD8 4F               [12]  655 	orl	a,r7
+      000FD9 60 1A            [24]  656 	jz	00106$
                                     657 ;	../lib/Delay.c:45: TL0 = LOBYTE(TIMER_DIV12_VALUE_1ms); 		//Find  define in "Function_define.h" "TIMER VALUE"
-      000FE5 75 8A 98         [24]  658 	mov	_TL0,#0x98
+      000FDB 75 8A 98         [24]  658 	mov	_TL0,#0x98
                                     659 ;	../lib/Delay.c:46: TH0 = HIBYTE(TIMER_DIV12_VALUE_1ms);
-      000FE8 75 8C FA         [24]  660 	mov	_TH0,#0xfa
+      000FDE 75 8C FA         [24]  660 	mov	_TH0,#0xfa
                                     661 ;	../lib/Delay.c:47: while (TF0 != 1);                   		//Check Timer0 Time-Out Flag
-      000FEB                        662 00101$:
+      000FE1                        662 00101$:
                                     663 ;	../lib/Delay.c:48: clr_TF0;
                                     664 ;	assignBit
-      000FEB 10 8D 02         [24]  665 	jbc	_TF0,00127$
-      000FEE 80 FB            [24]  666 	sjmp	00101$
-      000FF0                        667 00127$:
+      000FE1 10 8D 02         [24]  665 	jbc	_TF0,00127$
+      000FE4 80 FB            [24]  666 	sjmp	00101$
+      000FE6                        667 00127$:
                                     668 ;	../lib/Delay.c:49: u32CNT --;
-      000FF0 1C               [12]  669 	dec	r4
-      000FF1 BC FF 09         [24]  670 	cjne	r4,#0xff,00128$
-      000FF4 1D               [12]  671 	dec	r5
-      000FF5 BD FF 05         [24]  672 	cjne	r5,#0xff,00128$
-      000FF8 1E               [12]  673 	dec	r6
-      000FF9 BE FF 01         [24]  674 	cjne	r6,#0xff,00128$
-      000FFC 1F               [12]  675 	dec	r7
-      000FFD                        676 00128$:
-      000FFD 80 E0            [24]  677 	sjmp	00104$
-      000FFF                        678 00106$:
+      000FE6 1C               [12]  669 	dec	r4
+      000FE7 BC FF 09         [24]  670 	cjne	r4,#0xff,00128$
+      000FEA 1D               [12]  671 	dec	r5
+      000FEB BD FF 05         [24]  672 	cjne	r5,#0xff,00128$
+      000FEE 1E               [12]  673 	dec	r6
+      000FEF BE FF 01         [24]  674 	cjne	r6,#0xff,00128$
+      000FF2 1F               [12]  675 	dec	r7
+      000FF3                        676 00128$:
+      000FF3 80 E0            [24]  677 	sjmp	00104$
+      000FF5                        678 00106$:
                                     679 ;	../lib/Delay.c:51: clr_TR0;                              		  //Stop Timer0
                                     680 ;	assignBit
-      000FFF C2 8C            [12]  681 	clr	_TR0
+      000FF5 C2 8C            [12]  681 	clr	_TR0
                                     682 ;	../lib/Delay.c:52: }
-      001001 22               [24]  683 	ret
+      000FF7 22               [24]  683 	ret
                                     684 ;------------------------------------------------------------
                                     685 ;Allocation info for local variables in function 'Timer1_Delay10ms'
                                     686 ;------------------------------------------------------------
@@ -690,52 +690,52 @@
                                     690 ;	-----------------------------------------
                                     691 ;	 function Timer1_Delay10ms
                                     692 ;	-----------------------------------------
-      001002                        693 _Timer1_Delay10ms:
-      001002 AC 82            [24]  694 	mov	r4,dpl
-      001004 AD 83            [24]  695 	mov	r5,dph
-      001006 AE F0            [24]  696 	mov	r6,b
-      001008 FF               [12]  697 	mov	r7,a
+      000FF8                        693 _Timer1_Delay10ms:
+      000FF8 AC 82            [24]  694 	mov	r4,dpl
+      000FFA AD 83            [24]  695 	mov	r5,dph
+      000FFC AE F0            [24]  696 	mov	r6,b
+      000FFE FF               [12]  697 	mov	r7,a
                                     698 ;	../lib/Delay.c:57: clr_T1M;																		//T1M=0, Timer1 Clock = Fsys/12
-      001009 53 8E EF         [24]  699 	anl	_CKCON,#0xef
+      000FFF 53 8E EF         [24]  699 	anl	_CKCON,#0xef
                                     700 ;	../lib/Delay.c:58: TMOD |= 0x10;																//Timer1 is 16-bit mode
-      00100C 43 89 10         [24]  701 	orl	_TMOD,#0x10
+      001002 43 89 10         [24]  701 	orl	_TMOD,#0x10
                                     702 ;	../lib/Delay.c:59: set_TR1;																		//Start Timer1
                                     703 ;	assignBit
-      00100F D2 8E            [12]  704 	setb	_TR1
+      001005 D2 8E            [12]  704 	setb	_TR1
                                     705 ;	../lib/Delay.c:60: while (u32CNT != 0)
-      001011                        706 00104$:
-      001011 EC               [12]  707 	mov	a,r4
-      001012 4D               [12]  708 	orl	a,r5
-      001013 4E               [12]  709 	orl	a,r6
-      001014 4F               [12]  710 	orl	a,r7
-      001015 60 1A            [24]  711 	jz	00106$
+      001007                        706 00104$:
+      001007 EC               [12]  707 	mov	a,r4
+      001008 4D               [12]  708 	orl	a,r5
+      001009 4E               [12]  709 	orl	a,r6
+      00100A 4F               [12]  710 	orl	a,r7
+      00100B 60 1A            [24]  711 	jz	00106$
                                     712 ;	../lib/Delay.c:62: TL1 = LOBYTE(TIMER_DIV12_VALUE_10ms);		//Find  define in "Function_define.h" "TIMER VALUE"
-      001017 75 8B F6         [24]  713 	mov	_TL1,#0xf6
+      00100D 75 8B F6         [24]  713 	mov	_TL1,#0xf6
                                     714 ;	../lib/Delay.c:63: TH1 = HIBYTE(TIMER_DIV12_VALUE_10ms);
-      00101A 75 8D C9         [24]  715 	mov	_TH1,#0xc9
+      001010 75 8D C9         [24]  715 	mov	_TH1,#0xc9
                                     716 ;	../lib/Delay.c:64: while (TF1 != 1);												//Check Timer1 Time-Out Flag
-      00101D                        717 00101$:
+      001013                        717 00101$:
                                     718 ;	../lib/Delay.c:65: clr_TF1;
                                     719 ;	assignBit
-      00101D 10 8F 02         [24]  720 	jbc	_TF1,00127$
-      001020 80 FB            [24]  721 	sjmp	00101$
-      001022                        722 00127$:
+      001013 10 8F 02         [24]  720 	jbc	_TF1,00127$
+      001016 80 FB            [24]  721 	sjmp	00101$
+      001018                        722 00127$:
                                     723 ;	../lib/Delay.c:66: u32CNT --;
-      001022 1C               [12]  724 	dec	r4
-      001023 BC FF 09         [24]  725 	cjne	r4,#0xff,00128$
-      001026 1D               [12]  726 	dec	r5
-      001027 BD FF 05         [24]  727 	cjne	r5,#0xff,00128$
-      00102A 1E               [12]  728 	dec	r6
-      00102B BE FF 01         [24]  729 	cjne	r6,#0xff,00128$
-      00102E 1F               [12]  730 	dec	r7
-      00102F                        731 00128$:
-      00102F 80 E0            [24]  732 	sjmp	00104$
-      001031                        733 00106$:
+      001018 1C               [12]  724 	dec	r4
+      001019 BC FF 09         [24]  725 	cjne	r4,#0xff,00128$
+      00101C 1D               [12]  726 	dec	r5
+      00101D BD FF 05         [24]  727 	cjne	r5,#0xff,00128$
+      001020 1E               [12]  728 	dec	r6
+      001021 BE FF 01         [24]  729 	cjne	r6,#0xff,00128$
+      001024 1F               [12]  730 	dec	r7
+      001025                        731 00128$:
+      001025 80 E0            [24]  732 	sjmp	00104$
+      001027                        733 00106$:
                                     734 ;	../lib/Delay.c:68: clr_TR1;                               			//Stop Timer1
                                     735 ;	assignBit
-      001031 C2 8E            [12]  736 	clr	_TR1
+      001027 C2 8E            [12]  736 	clr	_TR1
                                     737 ;	../lib/Delay.c:69: }
-      001033 22               [24]  738 	ret
+      001029 22               [24]  738 	ret
                                     739 ;------------------------------------------------------------
                                     740 ;Allocation info for local variables in function 'Timer2_Delay500us'
                                     741 ;------------------------------------------------------------
@@ -745,54 +745,54 @@
                                     745 ;	-----------------------------------------
                                     746 ;	 function Timer2_Delay500us
                                     747 ;	-----------------------------------------
-      001034                        748 _Timer2_Delay500us:
-      001034 AC 82            [24]  749 	mov	r4,dpl
-      001036 AD 83            [24]  750 	mov	r5,dph
-      001038 AE F0            [24]  751 	mov	r6,b
-      00103A FF               [12]  752 	mov	r7,a
+      00102A                        748 _Timer2_Delay500us:
+      00102A AC 82            [24]  749 	mov	r4,dpl
+      00102C AD 83            [24]  750 	mov	r5,dph
+      00102E AE F0            [24]  751 	mov	r6,b
+      001030 FF               [12]  752 	mov	r7,a
                                     753 ;	../lib/Delay.c:73: clr_T2DIV2;																	//Timer2 Clock = Fsys/4 
-      00103B 53 C9 BF         [24]  754 	anl	_T2MOD,#0xbf
+      001031 53 C9 BF         [24]  754 	anl	_T2MOD,#0xbf
                                     755 ;	../lib/Delay.c:74: clr_T2DIV1;
-      00103E 53 C9 DF         [24]  756 	anl	_T2MOD,#0xdf
+      001034 53 C9 DF         [24]  756 	anl	_T2MOD,#0xdf
                                     757 ;	../lib/Delay.c:75: set_T2DIV0;
-      001041 43 C9 10         [24]  758 	orl	_T2MOD,#0x10
+      001037 43 C9 10         [24]  758 	orl	_T2MOD,#0x10
                                     759 ;	../lib/Delay.c:76: set_TR2;                                		//Start Timer2
                                     760 ;	assignBit
-      001044 D2 CA            [12]  761 	setb	_TR2
+      00103A D2 CA            [12]  761 	setb	_TR2
                                     762 ;	../lib/Delay.c:77: while (u32CNT != 0)
-      001046                        763 00104$:
-      001046 EC               [12]  764 	mov	a,r4
-      001047 4D               [12]  765 	orl	a,r5
-      001048 4E               [12]  766 	orl	a,r6
-      001049 4F               [12]  767 	orl	a,r7
-      00104A 60 1A            [24]  768 	jz	00106$
+      00103C                        763 00104$:
+      00103C EC               [12]  764 	mov	a,r4
+      00103D 4D               [12]  765 	orl	a,r5
+      00103E 4E               [12]  766 	orl	a,r6
+      00103F 4F               [12]  767 	orl	a,r7
+      001040 60 1A            [24]  768 	jz	00106$
                                     769 ;	../lib/Delay.c:79: TL2 = LOBYTE(TIMER_DIV4_VALUE_500us);		//Find  define in "Function_define.h" "TIMER VALUE"
-      00104C 75 CC E5         [24]  770 	mov	_TL2,#0xe5
+      001042 75 CC E5         [24]  770 	mov	_TL2,#0xe5
                                     771 ;	../lib/Delay.c:80: TH2 = HIBYTE(TIMER_DIV4_VALUE_500us);
-      00104F 75 CD F7         [24]  772 	mov	_TH2,#0xf7
+      001045 75 CD F7         [24]  772 	mov	_TH2,#0xf7
                                     773 ;	../lib/Delay.c:81: while (TF2 != 1);                   		//Check Timer2 Time-Out Flag
-      001052                        774 00101$:
+      001048                        774 00101$:
                                     775 ;	../lib/Delay.c:82: clr_TF2;
                                     776 ;	assignBit
-      001052 10 CF 02         [24]  777 	jbc	_TF2,00127$
-      001055 80 FB            [24]  778 	sjmp	00101$
-      001057                        779 00127$:
+      001048 10 CF 02         [24]  777 	jbc	_TF2,00127$
+      00104B 80 FB            [24]  778 	sjmp	00101$
+      00104D                        779 00127$:
                                     780 ;	../lib/Delay.c:83: u32CNT --;
-      001057 1C               [12]  781 	dec	r4
-      001058 BC FF 09         [24]  782 	cjne	r4,#0xff,00128$
-      00105B 1D               [12]  783 	dec	r5
-      00105C BD FF 05         [24]  784 	cjne	r5,#0xff,00128$
-      00105F 1E               [12]  785 	dec	r6
-      001060 BE FF 01         [24]  786 	cjne	r6,#0xff,00128$
-      001063 1F               [12]  787 	dec	r7
-      001064                        788 00128$:
-      001064 80 E0            [24]  789 	sjmp	00104$
-      001066                        790 00106$:
+      00104D 1C               [12]  781 	dec	r4
+      00104E BC FF 09         [24]  782 	cjne	r4,#0xff,00128$
+      001051 1D               [12]  783 	dec	r5
+      001052 BD FF 05         [24]  784 	cjne	r5,#0xff,00128$
+      001055 1E               [12]  785 	dec	r6
+      001056 BE FF 01         [24]  786 	cjne	r6,#0xff,00128$
+      001059 1F               [12]  787 	dec	r7
+      00105A                        788 00128$:
+      00105A 80 E0            [24]  789 	sjmp	00104$
+      00105C                        790 00106$:
                                     791 ;	../lib/Delay.c:85: clr_TR2;                                		//Stop Timer2
                                     792 ;	assignBit
-      001066 C2 CA            [12]  793 	clr	_TR2
+      00105C C2 CA            [12]  793 	clr	_TR2
                                     794 ;	../lib/Delay.c:86: }
-      001068 22               [24]  795 	ret
+      00105E 22               [24]  795 	ret
                                     796 ;------------------------------------------------------------
                                     797 ;Allocation info for local variables in function 'Timer3_Delay100ms'
                                     798 ;------------------------------------------------------------
@@ -802,50 +802,50 @@
                                     802 ;	-----------------------------------------
                                     803 ;	 function Timer3_Delay100ms
                                     804 ;	-----------------------------------------
-      001069                        805 _Timer3_Delay100ms:
-      001069 AC 82            [24]  806 	mov	r4,dpl
-      00106B AD 83            [24]  807 	mov	r5,dph
-      00106D AE F0            [24]  808 	mov	r6,b
-      00106F FF               [12]  809 	mov	r7,a
+      00105F                        805 _Timer3_Delay100ms:
+      00105F AC 82            [24]  806 	mov	r4,dpl
+      001061 AD 83            [24]  807 	mov	r5,dph
+      001063 AE F0            [24]  808 	mov	r6,b
+      001065 FF               [12]  809 	mov	r7,a
                                     810 ;	../lib/Delay.c:90: T3CON = 0x07;                           		//Timer3 Clock = Fsys/128
-      001070 75 C4 07         [24]  811 	mov	_T3CON,#0x07
+      001066 75 C4 07         [24]  811 	mov	_T3CON,#0x07
                                     812 ;	../lib/Delay.c:91: set_TR3;                                		//Trigger Timer3
-      001073 43 C4 08         [24]  813 	orl	_T3CON,#0x08
+      001069 43 C4 08         [24]  813 	orl	_T3CON,#0x08
                                     814 ;	../lib/Delay.c:92: while (u32CNT != 0)
-      001076                        815 00104$:
-      001076 EC               [12]  816 	mov	a,r4
-      001077 4D               [12]  817 	orl	a,r5
-      001078 4E               [12]  818 	orl	a,r6
-      001079 4F               [12]  819 	orl	a,r7
-      00107A 60 25            [24]  820 	jz	00106$
+      00106C                        815 00104$:
+      00106C EC               [12]  816 	mov	a,r4
+      00106D 4D               [12]  817 	orl	a,r5
+      00106E 4E               [12]  818 	orl	a,r6
+      00106F 4F               [12]  819 	orl	a,r7
+      001070 60 25            [24]  820 	jz	00106$
                                     821 ;	../lib/Delay.c:94: RL3 = LOBYTE(TIMER_DIV128_VALUE_100ms); //Find  define in "Function_define.h" "TIMER VALUE"
-      00107C 75 C5 57         [24]  822 	mov	_RL3,#0x57
+      001072 75 C5 57         [24]  822 	mov	_RL3,#0x57
                                     823 ;	../lib/Delay.c:95: RH3 = HIBYTE(TIMER_DIV128_VALUE_100ms);
-      00107F 75 C6 CD         [24]  824 	mov	_RH3,#0xcd
+      001075 75 C6 CD         [24]  824 	mov	_RH3,#0xcd
                                     825 ;	../lib/Delay.c:96: while ((T3CON&SET_BIT4) != SET_BIT4);		//Check Timer3 Time-Out Flag
-      001082                        826 00101$:
-      001082 AA C4            [24]  827 	mov	r2,_T3CON
-      001084 53 02 10         [24]  828 	anl	ar2,#0x10
-      001087 7B 00            [12]  829 	mov	r3,#0x00
-      001089 BA 10 F6         [24]  830 	cjne	r2,#0x10,00101$
-      00108C BB 00 F3         [24]  831 	cjne	r3,#0x00,00101$
+      001078                        826 00101$:
+      001078 AA C4            [24]  827 	mov	r2,_T3CON
+      00107A 53 02 10         [24]  828 	anl	ar2,#0x10
+      00107D 7B 00            [12]  829 	mov	r3,#0x00
+      00107F BA 10 F6         [24]  830 	cjne	r2,#0x10,00101$
+      001082 BB 00 F3         [24]  831 	cjne	r3,#0x00,00101$
                                     832 ;	../lib/Delay.c:97: clr_TF3;
-      00108F 53 C4 EF         [24]  833 	anl	_T3CON,#0xef
+      001085 53 C4 EF         [24]  833 	anl	_T3CON,#0xef
                                     834 ;	../lib/Delay.c:98: u32CNT --;
-      001092 1C               [12]  835 	dec	r4
-      001093 BC FF 09         [24]  836 	cjne	r4,#0xff,00129$
-      001096 1D               [12]  837 	dec	r5
-      001097 BD FF 05         [24]  838 	cjne	r5,#0xff,00129$
-      00109A 1E               [12]  839 	dec	r6
-      00109B BE FF 01         [24]  840 	cjne	r6,#0xff,00129$
-      00109E 1F               [12]  841 	dec	r7
-      00109F                        842 00129$:
-      00109F 80 D5            [24]  843 	sjmp	00104$
-      0010A1                        844 00106$:
+      001088 1C               [12]  835 	dec	r4
+      001089 BC FF 09         [24]  836 	cjne	r4,#0xff,00129$
+      00108C 1D               [12]  837 	dec	r5
+      00108D BD FF 05         [24]  838 	cjne	r5,#0xff,00129$
+      001090 1E               [12]  839 	dec	r6
+      001091 BE FF 01         [24]  840 	cjne	r6,#0xff,00129$
+      001094 1F               [12]  841 	dec	r7
+      001095                        842 00129$:
+      001095 80 D5            [24]  843 	sjmp	00104$
+      001097                        844 00106$:
                                     845 ;	../lib/Delay.c:100: clr_TR3;                                		//Stop Timer3
-      0010A1 53 C4 F7         [24]  846 	anl	_T3CON,#0xf7
+      001097 53 C4 F7         [24]  846 	anl	_T3CON,#0xf7
                                     847 ;	../lib/Delay.c:101: }
-      0010A4 22               [24]  848 	ret
+      00109A 22               [24]  848 	ret
                                     849 ;------------------------------------------------------------
                                     850 ;Allocation info for local variables in function 'Timer3_Delay10us'
                                     851 ;------------------------------------------------------------
@@ -855,50 +855,50 @@
                                     855 ;	-----------------------------------------
                                     856 ;	 function Timer3_Delay10us
                                     857 ;	-----------------------------------------
-      0010A5                        858 _Timer3_Delay10us:
-      0010A5 AC 82            [24]  859 	mov	r4,dpl
-      0010A7 AD 83            [24]  860 	mov	r5,dph
-      0010A9 AE F0            [24]  861 	mov	r6,b
-      0010AB FF               [12]  862 	mov	r7,a
+      00109B                        858 _Timer3_Delay10us:
+      00109B AC 82            [24]  859 	mov	r4,dpl
+      00109D AD 83            [24]  860 	mov	r5,dph
+      00109F AE F0            [24]  861 	mov	r6,b
+      0010A1 FF               [12]  862 	mov	r7,a
                                     863 ;	../lib/Delay.c:105: T3CON = 0x07;                           		//Timer3 Clock = Fsys/128
-      0010AC 75 C4 07         [24]  864 	mov	_T3CON,#0x07
+      0010A2 75 C4 07         [24]  864 	mov	_T3CON,#0x07
                                     865 ;	../lib/Delay.c:106: set_TR3;                                		//Trigger Timer3
-      0010AF 43 C4 08         [24]  866 	orl	_T3CON,#0x08
+      0010A5 43 C4 08         [24]  866 	orl	_T3CON,#0x08
                                     867 ;	../lib/Delay.c:107: while (u32CNT != 0)
-      0010B2                        868 00104$:
-      0010B2 EC               [12]  869 	mov	a,r4
-      0010B3 4D               [12]  870 	orl	a,r5
-      0010B4 4E               [12]  871 	orl	a,r6
-      0010B5 4F               [12]  872 	orl	a,r7
-      0010B6 60 25            [24]  873 	jz	00106$
+      0010A8                        868 00104$:
+      0010A8 EC               [12]  869 	mov	a,r4
+      0010A9 4D               [12]  870 	orl	a,r5
+      0010AA 4E               [12]  871 	orl	a,r6
+      0010AB 4F               [12]  872 	orl	a,r7
+      0010AC 60 25            [24]  873 	jz	00106$
                                     874 ;	../lib/Delay.c:109: RL3 = LOBYTE(TIMER_DIV4_VALUE_10us); //Find  define in "Function_define.h" "TIMER VALUE"
-      0010B8 75 C5 D7         [24]  875 	mov	_RL3,#0xd7
+      0010AE 75 C5 D7         [24]  875 	mov	_RL3,#0xd7
                                     876 ;	../lib/Delay.c:110: RH3 = HIBYTE(TIMER_DIV4_VALUE_10us);
-      0010BB 75 C6 FF         [24]  877 	mov	_RH3,#0xff
+      0010B1 75 C6 FF         [24]  877 	mov	_RH3,#0xff
                                     878 ;	../lib/Delay.c:111: while ((T3CON&SET_BIT4) != SET_BIT4);		//Check Timer3 Time-Out Flag
-      0010BE                        879 00101$:
-      0010BE AA C4            [24]  880 	mov	r2,_T3CON
-      0010C0 53 02 10         [24]  881 	anl	ar2,#0x10
-      0010C3 7B 00            [12]  882 	mov	r3,#0x00
-      0010C5 BA 10 F6         [24]  883 	cjne	r2,#0x10,00101$
-      0010C8 BB 00 F3         [24]  884 	cjne	r3,#0x00,00101$
+      0010B4                        879 00101$:
+      0010B4 AA C4            [24]  880 	mov	r2,_T3CON
+      0010B6 53 02 10         [24]  881 	anl	ar2,#0x10
+      0010B9 7B 00            [12]  882 	mov	r3,#0x00
+      0010BB BA 10 F6         [24]  883 	cjne	r2,#0x10,00101$
+      0010BE BB 00 F3         [24]  884 	cjne	r3,#0x00,00101$
                                     885 ;	../lib/Delay.c:112: clr_TF3;
-      0010CB 53 C4 EF         [24]  886 	anl	_T3CON,#0xef
+      0010C1 53 C4 EF         [24]  886 	anl	_T3CON,#0xef
                                     887 ;	../lib/Delay.c:113: u32CNT --;
-      0010CE 1C               [12]  888 	dec	r4
-      0010CF BC FF 09         [24]  889 	cjne	r4,#0xff,00129$
-      0010D2 1D               [12]  890 	dec	r5
-      0010D3 BD FF 05         [24]  891 	cjne	r5,#0xff,00129$
-      0010D6 1E               [12]  892 	dec	r6
-      0010D7 BE FF 01         [24]  893 	cjne	r6,#0xff,00129$
-      0010DA 1F               [12]  894 	dec	r7
-      0010DB                        895 00129$:
-      0010DB 80 D5            [24]  896 	sjmp	00104$
-      0010DD                        897 00106$:
+      0010C4 1C               [12]  888 	dec	r4
+      0010C5 BC FF 09         [24]  889 	cjne	r4,#0xff,00129$
+      0010C8 1D               [12]  890 	dec	r5
+      0010C9 BD FF 05         [24]  891 	cjne	r5,#0xff,00129$
+      0010CC 1E               [12]  892 	dec	r6
+      0010CD BE FF 01         [24]  893 	cjne	r6,#0xff,00129$
+      0010D0 1F               [12]  894 	dec	r7
+      0010D1                        895 00129$:
+      0010D1 80 D5            [24]  896 	sjmp	00104$
+      0010D3                        897 00106$:
                                     898 ;	../lib/Delay.c:115: clr_TR3;                                		//Stop Timer3
-      0010DD 53 C4 F7         [24]  899 	anl	_T3CON,#0xf7
+      0010D3 53 C4 F7         [24]  899 	anl	_T3CON,#0xf7
                                     900 ;	../lib/Delay.c:116: }
-      0010E0 22               [24]  901 	ret
+      0010D6 22               [24]  901 	ret
                                     902 	.area CSEG    (CODE)
                                     903 	.area CONST   (CODE)
                                     904 	.area CABS    (ABS,CODE)

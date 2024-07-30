@@ -12,7 +12,7 @@ LIBDIR  = ../lib
 
 # ------------------------------------------------------
 # Target and Source
-TARGET = $(HEXDIR)/linefi_slave
+TARGET = $(HEXDIR)/linefi_slave_1
 
 #C_SRC = $(SRCDIR)/helloworld.c
 C_SRC := $(wildcard $(SRCDIR)/*.c $(LIBDIR)/*.c)
@@ -77,7 +77,7 @@ all: $(TARGET).hex
 
 $(HEXDIR)/%.hex: $(OBJDIR)/%.ihx
 	$(S) packihx $^ > $@
-	cp hex/*.hex ~/
+	cp hex/*.hex ~/kjh
 
 $(OBJDIR)/%.ihx: $(OBJ)
 	$(S) $(CC) -o $@ $(LFLAGS) $^

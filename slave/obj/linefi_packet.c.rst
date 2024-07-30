@@ -1,6 +1,6 @@
                                       1 ;--------------------------------------------------------
                                       2 ; File Created by SDCC : free open source ANSI-C Compiler
-                                      3 ; Version 4.2.0 #13081 (Linux)
+                                      3 ; Version 4.0.0 #11528 (Linux)
                                       4 ;--------------------------------------------------------
                                       5 	.module linefi_packet
                                       6 	.optsdcc -mmcs51 --model-small
@@ -513,24 +513,24 @@
                                     513 ; internal ram data
                                     514 ;--------------------------------------------------------
                                     515 	.area DSEG    (DATA)
-      00005F                        516 _gu16Cnt::
-      00005F                        517 	.ds 2
-      000061                        518 _send_linefi_packet_i_65537_54:
-      000061                        519 	.ds 1
-      000062                        520 _cp_buf2linefipacket_PARM_2:
-      000062                        521 	.ds 3
-      000065                        522 _cp_buf2linefipacket_PARM_3:
-      000065                        523 	.ds 3
-      000068                        524 _cp_buf2linefipacket_i_65538_61:
-      000068                        525 	.ds 1
-      000069                        526 _cp_buf2linefipacket_sloc0_1_0:
-      000069                        527 	.ds 3
-      00006C                        528 _print_linefipacket_i_65537_67:
-      00006C                        529 	.ds 1
-      00006D                        530 _print_raw_packet_PARM_2:
-      00006D                        531 	.ds 3
+      000061                        516 _gu16Cnt::
+      000061                        517 	.ds 2
+      000063                        518 _send_linefi_packet_i_65538_55:
+      000063                        519 	.ds 1
+      000064                        520 _cp_buf2linefipacket_PARM_2:
+      000064                        521 	.ds 3
+      000067                        522 _cp_buf2linefipacket_PARM_3:
+      000067                        523 	.ds 3
+      00006A                        524 _cp_buf2linefipacket_i_65538_62:
+      00006A                        525 	.ds 1
+      00006B                        526 _cp_buf2linefipacket_sloc0_1_0:
+      00006B                        527 	.ds 3
+      00006E                        528 _print_linefipacket_i_65537_68:
+      00006E                        529 	.ds 1
+      00006F                        530 _print_raw_packet_PARM_2:
+      00006F                        531 	.ds 3
                                     532 ;--------------------------------------------------------
-                                    533 ; overlayable items in internal ram
+                                    533 ; overlayable items in internal ram 
                                     534 ;--------------------------------------------------------
                                     535 	.area	OSEG    (OVR,DATA)
                                     536 	.area	OSEG    (OVR,DATA)
@@ -587,256 +587,256 @@
                                     587 	.area GSINIT  (CODE)
                                     588 ;	../lib/linefi_packet.c:15: uint16 gu16Cnt = 0;
       00013D E4               [12]  589 	clr	a
-      00013E F5 5F            [12]  590 	mov	_gu16Cnt,a
-      000140 F5 60            [12]  591 	mov	(_gu16Cnt + 1),a
+      00013E F5 61            [12]  590 	mov	_gu16Cnt,a
+      000140 F5 62            [12]  591 	mov	(_gu16Cnt + 1),a
                                     592 ;	../lib/linefi_packet.c:17: const char * __xdata gpcTypeStr[] = {
       000142 90 00 4E         [24]  593 	mov	dptr,#_gpcTypeStr
-      000145 74 46            [12]  594 	mov	a,#___str_14
+      000145 74 91            [12]  594 	mov	a,#___str_14
       000147 F0               [24]  595 	movx	@dptr,a
-      000148 74 23            [12]  596 	mov	a,#(___str_14 >> 8)
+      000148 74 24            [12]  596 	mov	a,#(___str_14 >> 8)
       00014A A3               [24]  597 	inc	dptr
       00014B F0               [24]  598 	movx	@dptr,a
       00014C 74 80            [12]  599 	mov	a,#0x80
       00014E A3               [24]  600 	inc	dptr
       00014F F0               [24]  601 	movx	@dptr,a
       000150 90 00 51         [24]  602 	mov	dptr,#(_gpcTypeStr + 0x0003)
-      000153 74 51            [12]  603 	mov	a,#___str_15
+      000153 74 9C            [12]  603 	mov	a,#___str_15
       000155 F0               [24]  604 	movx	@dptr,a
-      000156 74 23            [12]  605 	mov	a,#(___str_15 >> 8)
+      000156 74 24            [12]  605 	mov	a,#(___str_15 >> 8)
       000158 A3               [24]  606 	inc	dptr
       000159 F0               [24]  607 	movx	@dptr,a
       00015A 74 80            [12]  608 	mov	a,#0x80
       00015C A3               [24]  609 	inc	dptr
       00015D F0               [24]  610 	movx	@dptr,a
       00015E 90 00 54         [24]  611 	mov	dptr,#(_gpcTypeStr + 0x0006)
-      000161 74 5C            [12]  612 	mov	a,#___str_16
+      000161 74 A7            [12]  612 	mov	a,#___str_16
       000163 F0               [24]  613 	movx	@dptr,a
-      000164 74 23            [12]  614 	mov	a,#(___str_16 >> 8)
+      000164 74 24            [12]  614 	mov	a,#(___str_16 >> 8)
       000166 A3               [24]  615 	inc	dptr
       000167 F0               [24]  616 	movx	@dptr,a
       000168 74 80            [12]  617 	mov	a,#0x80
       00016A A3               [24]  618 	inc	dptr
       00016B F0               [24]  619 	movx	@dptr,a
       00016C 90 00 57         [24]  620 	mov	dptr,#(_gpcTypeStr + 0x0009)
-      00016F 74 67            [12]  621 	mov	a,#___str_17
+      00016F 74 B2            [12]  621 	mov	a,#___str_17
       000171 F0               [24]  622 	movx	@dptr,a
-      000172 74 23            [12]  623 	mov	a,#(___str_17 >> 8)
+      000172 74 24            [12]  623 	mov	a,#(___str_17 >> 8)
       000174 A3               [24]  624 	inc	dptr
       000175 F0               [24]  625 	movx	@dptr,a
       000176 74 80            [12]  626 	mov	a,#0x80
       000178 A3               [24]  627 	inc	dptr
       000179 F0               [24]  628 	movx	@dptr,a
       00017A 90 00 5A         [24]  629 	mov	dptr,#(_gpcTypeStr + 0x000c)
-      00017D 74 74            [12]  630 	mov	a,#___str_18
+      00017D 74 BF            [12]  630 	mov	a,#___str_18
       00017F F0               [24]  631 	movx	@dptr,a
-      000180 74 23            [12]  632 	mov	a,#(___str_18 >> 8)
+      000180 74 24            [12]  632 	mov	a,#(___str_18 >> 8)
       000182 A3               [24]  633 	inc	dptr
       000183 F0               [24]  634 	movx	@dptr,a
       000184 74 80            [12]  635 	mov	a,#0x80
       000186 A3               [24]  636 	inc	dptr
       000187 F0               [24]  637 	movx	@dptr,a
       000188 90 00 5D         [24]  638 	mov	dptr,#(_gpcTypeStr + 0x000f)
-      00018B 74 80            [12]  639 	mov	a,#___str_19
+      00018B 74 CB            [12]  639 	mov	a,#___str_19
       00018D F0               [24]  640 	movx	@dptr,a
-      00018E 74 23            [12]  641 	mov	a,#(___str_19 >> 8)
+      00018E 74 24            [12]  641 	mov	a,#(___str_19 >> 8)
       000190 A3               [24]  642 	inc	dptr
       000191 F0               [24]  643 	movx	@dptr,a
       000192 74 80            [12]  644 	mov	a,#0x80
       000194 A3               [24]  645 	inc	dptr
       000195 F0               [24]  646 	movx	@dptr,a
       000196 90 00 60         [24]  647 	mov	dptr,#(_gpcTypeStr + 0x0012)
-      000199 74 8F            [12]  648 	mov	a,#___str_20
+      000199 74 DA            [12]  648 	mov	a,#___str_20
       00019B F0               [24]  649 	movx	@dptr,a
-      00019C 74 23            [12]  650 	mov	a,#(___str_20 >> 8)
+      00019C 74 24            [12]  650 	mov	a,#(___str_20 >> 8)
       00019E A3               [24]  651 	inc	dptr
       00019F F0               [24]  652 	movx	@dptr,a
       0001A0 74 80            [12]  653 	mov	a,#0x80
       0001A2 A3               [24]  654 	inc	dptr
       0001A3 F0               [24]  655 	movx	@dptr,a
       0001A4 90 00 63         [24]  656 	mov	dptr,#(_gpcTypeStr + 0x0015)
-      0001A7 74 9D            [12]  657 	mov	a,#___str_21
+      0001A7 74 E8            [12]  657 	mov	a,#___str_21
       0001A9 F0               [24]  658 	movx	@dptr,a
-      0001AA 74 23            [12]  659 	mov	a,#(___str_21 >> 8)
+      0001AA 74 24            [12]  659 	mov	a,#(___str_21 >> 8)
       0001AC A3               [24]  660 	inc	dptr
       0001AD F0               [24]  661 	movx	@dptr,a
       0001AE 74 80            [12]  662 	mov	a,#0x80
       0001B0 A3               [24]  663 	inc	dptr
       0001B1 F0               [24]  664 	movx	@dptr,a
       0001B2 90 00 66         [24]  665 	mov	dptr,#(_gpcTypeStr + 0x0018)
-      0001B5 74 9D            [12]  666 	mov	a,#___str_21
+      0001B5 74 E8            [12]  666 	mov	a,#___str_21
       0001B7 F0               [24]  667 	movx	@dptr,a
-      0001B8 74 23            [12]  668 	mov	a,#(___str_21 >> 8)
+      0001B8 74 24            [12]  668 	mov	a,#(___str_21 >> 8)
       0001BA A3               [24]  669 	inc	dptr
       0001BB F0               [24]  670 	movx	@dptr,a
       0001BC 74 80            [12]  671 	mov	a,#0x80
       0001BE A3               [24]  672 	inc	dptr
       0001BF F0               [24]  673 	movx	@dptr,a
       0001C0 90 00 69         [24]  674 	mov	dptr,#(_gpcTypeStr + 0x001b)
-      0001C3 74 9D            [12]  675 	mov	a,#___str_21
+      0001C3 74 E8            [12]  675 	mov	a,#___str_21
       0001C5 F0               [24]  676 	movx	@dptr,a
-      0001C6 74 23            [12]  677 	mov	a,#(___str_21 >> 8)
+      0001C6 74 24            [12]  677 	mov	a,#(___str_21 >> 8)
       0001C8 A3               [24]  678 	inc	dptr
       0001C9 F0               [24]  679 	movx	@dptr,a
       0001CA 74 80            [12]  680 	mov	a,#0x80
       0001CC A3               [24]  681 	inc	dptr
       0001CD F0               [24]  682 	movx	@dptr,a
       0001CE 90 00 6C         [24]  683 	mov	dptr,#(_gpcTypeStr + 0x001e)
-      0001D1 74 9D            [12]  684 	mov	a,#___str_21
+      0001D1 74 E8            [12]  684 	mov	a,#___str_21
       0001D3 F0               [24]  685 	movx	@dptr,a
-      0001D4 74 23            [12]  686 	mov	a,#(___str_21 >> 8)
+      0001D4 74 24            [12]  686 	mov	a,#(___str_21 >> 8)
       0001D6 A3               [24]  687 	inc	dptr
       0001D7 F0               [24]  688 	movx	@dptr,a
       0001D8 74 80            [12]  689 	mov	a,#0x80
       0001DA A3               [24]  690 	inc	dptr
       0001DB F0               [24]  691 	movx	@dptr,a
       0001DC 90 00 6F         [24]  692 	mov	dptr,#(_gpcTypeStr + 0x0021)
-      0001DF 74 9D            [12]  693 	mov	a,#___str_21
+      0001DF 74 E8            [12]  693 	mov	a,#___str_21
       0001E1 F0               [24]  694 	movx	@dptr,a
-      0001E2 74 23            [12]  695 	mov	a,#(___str_21 >> 8)
+      0001E2 74 24            [12]  695 	mov	a,#(___str_21 >> 8)
       0001E4 A3               [24]  696 	inc	dptr
       0001E5 F0               [24]  697 	movx	@dptr,a
       0001E6 74 80            [12]  698 	mov	a,#0x80
       0001E8 A3               [24]  699 	inc	dptr
       0001E9 F0               [24]  700 	movx	@dptr,a
       0001EA 90 00 72         [24]  701 	mov	dptr,#(_gpcTypeStr + 0x0024)
-      0001ED 74 9D            [12]  702 	mov	a,#___str_21
+      0001ED 74 E8            [12]  702 	mov	a,#___str_21
       0001EF F0               [24]  703 	movx	@dptr,a
-      0001F0 74 23            [12]  704 	mov	a,#(___str_21 >> 8)
+      0001F0 74 24            [12]  704 	mov	a,#(___str_21 >> 8)
       0001F2 A3               [24]  705 	inc	dptr
       0001F3 F0               [24]  706 	movx	@dptr,a
       0001F4 74 80            [12]  707 	mov	a,#0x80
       0001F6 A3               [24]  708 	inc	dptr
       0001F7 F0               [24]  709 	movx	@dptr,a
       0001F8 90 00 75         [24]  710 	mov	dptr,#(_gpcTypeStr + 0x0027)
-      0001FB 74 9D            [12]  711 	mov	a,#___str_21
+      0001FB 74 E8            [12]  711 	mov	a,#___str_21
       0001FD F0               [24]  712 	movx	@dptr,a
-      0001FE 74 23            [12]  713 	mov	a,#(___str_21 >> 8)
+      0001FE 74 24            [12]  713 	mov	a,#(___str_21 >> 8)
       000200 A3               [24]  714 	inc	dptr
       000201 F0               [24]  715 	movx	@dptr,a
       000202 74 80            [12]  716 	mov	a,#0x80
       000204 A3               [24]  717 	inc	dptr
       000205 F0               [24]  718 	movx	@dptr,a
       000206 90 00 78         [24]  719 	mov	dptr,#(_gpcTypeStr + 0x002a)
-      000209 74 9D            [12]  720 	mov	a,#___str_21
+      000209 74 E8            [12]  720 	mov	a,#___str_21
       00020B F0               [24]  721 	movx	@dptr,a
-      00020C 74 23            [12]  722 	mov	a,#(___str_21 >> 8)
+      00020C 74 24            [12]  722 	mov	a,#(___str_21 >> 8)
       00020E A3               [24]  723 	inc	dptr
       00020F F0               [24]  724 	movx	@dptr,a
       000210 74 80            [12]  725 	mov	a,#0x80
       000212 A3               [24]  726 	inc	dptr
       000213 F0               [24]  727 	movx	@dptr,a
       000214 90 00 7B         [24]  728 	mov	dptr,#(_gpcTypeStr + 0x002d)
-      000217 74 9D            [12]  729 	mov	a,#___str_21
+      000217 74 E8            [12]  729 	mov	a,#___str_21
       000219 F0               [24]  730 	movx	@dptr,a
-      00021A 74 23            [12]  731 	mov	a,#(___str_21 >> 8)
+      00021A 74 24            [12]  731 	mov	a,#(___str_21 >> 8)
       00021C A3               [24]  732 	inc	dptr
       00021D F0               [24]  733 	movx	@dptr,a
       00021E 74 80            [12]  734 	mov	a,#0x80
       000220 A3               [24]  735 	inc	dptr
       000221 F0               [24]  736 	movx	@dptr,a
       000222 90 00 7E         [24]  737 	mov	dptr,#(_gpcTypeStr + 0x0030)
-      000225 74 9D            [12]  738 	mov	a,#___str_21
+      000225 74 E8            [12]  738 	mov	a,#___str_21
       000227 F0               [24]  739 	movx	@dptr,a
-      000228 74 23            [12]  740 	mov	a,#(___str_21 >> 8)
+      000228 74 24            [12]  740 	mov	a,#(___str_21 >> 8)
       00022A A3               [24]  741 	inc	dptr
       00022B F0               [24]  742 	movx	@dptr,a
       00022C 74 80            [12]  743 	mov	a,#0x80
       00022E A3               [24]  744 	inc	dptr
       00022F F0               [24]  745 	movx	@dptr,a
       000230 90 00 81         [24]  746 	mov	dptr,#(_gpcTypeStr + 0x0033)
-      000233 74 9D            [12]  747 	mov	a,#___str_21
+      000233 74 E8            [12]  747 	mov	a,#___str_21
       000235 F0               [24]  748 	movx	@dptr,a
-      000236 74 23            [12]  749 	mov	a,#(___str_21 >> 8)
+      000236 74 24            [12]  749 	mov	a,#(___str_21 >> 8)
       000238 A3               [24]  750 	inc	dptr
       000239 F0               [24]  751 	movx	@dptr,a
       00023A 74 80            [12]  752 	mov	a,#0x80
       00023C A3               [24]  753 	inc	dptr
       00023D F0               [24]  754 	movx	@dptr,a
       00023E 90 00 84         [24]  755 	mov	dptr,#(_gpcTypeStr + 0x0036)
-      000241 74 9D            [12]  756 	mov	a,#___str_21
+      000241 74 E8            [12]  756 	mov	a,#___str_21
       000243 F0               [24]  757 	movx	@dptr,a
-      000244 74 23            [12]  758 	mov	a,#(___str_21 >> 8)
+      000244 74 24            [12]  758 	mov	a,#(___str_21 >> 8)
       000246 A3               [24]  759 	inc	dptr
       000247 F0               [24]  760 	movx	@dptr,a
       000248 74 80            [12]  761 	mov	a,#0x80
       00024A A3               [24]  762 	inc	dptr
       00024B F0               [24]  763 	movx	@dptr,a
       00024C 90 00 87         [24]  764 	mov	dptr,#(_gpcTypeStr + 0x0039)
-      00024F 74 9D            [12]  765 	mov	a,#___str_21
+      00024F 74 E8            [12]  765 	mov	a,#___str_21
       000251 F0               [24]  766 	movx	@dptr,a
-      000252 74 23            [12]  767 	mov	a,#(___str_21 >> 8)
+      000252 74 24            [12]  767 	mov	a,#(___str_21 >> 8)
       000254 A3               [24]  768 	inc	dptr
       000255 F0               [24]  769 	movx	@dptr,a
       000256 74 80            [12]  770 	mov	a,#0x80
       000258 A3               [24]  771 	inc	dptr
       000259 F0               [24]  772 	movx	@dptr,a
       00025A 90 00 8A         [24]  773 	mov	dptr,#(_gpcTypeStr + 0x003c)
-      00025D 74 9D            [12]  774 	mov	a,#___str_21
+      00025D 74 E8            [12]  774 	mov	a,#___str_21
       00025F F0               [24]  775 	movx	@dptr,a
-      000260 74 23            [12]  776 	mov	a,#(___str_21 >> 8)
+      000260 74 24            [12]  776 	mov	a,#(___str_21 >> 8)
       000262 A3               [24]  777 	inc	dptr
       000263 F0               [24]  778 	movx	@dptr,a
       000264 74 80            [12]  779 	mov	a,#0x80
       000266 A3               [24]  780 	inc	dptr
       000267 F0               [24]  781 	movx	@dptr,a
       000268 90 00 8D         [24]  782 	mov	dptr,#(_gpcTypeStr + 0x003f)
-      00026B 74 9D            [12]  783 	mov	a,#___str_21
+      00026B 74 E8            [12]  783 	mov	a,#___str_21
       00026D F0               [24]  784 	movx	@dptr,a
-      00026E 74 23            [12]  785 	mov	a,#(___str_21 >> 8)
+      00026E 74 24            [12]  785 	mov	a,#(___str_21 >> 8)
       000270 A3               [24]  786 	inc	dptr
       000271 F0               [24]  787 	movx	@dptr,a
       000272 74 80            [12]  788 	mov	a,#0x80
       000274 A3               [24]  789 	inc	dptr
       000275 F0               [24]  790 	movx	@dptr,a
       000276 90 00 90         [24]  791 	mov	dptr,#(_gpcTypeStr + 0x0042)
-      000279 74 9D            [12]  792 	mov	a,#___str_21
+      000279 74 E8            [12]  792 	mov	a,#___str_21
       00027B F0               [24]  793 	movx	@dptr,a
-      00027C 74 23            [12]  794 	mov	a,#(___str_21 >> 8)
+      00027C 74 24            [12]  794 	mov	a,#(___str_21 >> 8)
       00027E A3               [24]  795 	inc	dptr
       00027F F0               [24]  796 	movx	@dptr,a
       000280 74 80            [12]  797 	mov	a,#0x80
       000282 A3               [24]  798 	inc	dptr
       000283 F0               [24]  799 	movx	@dptr,a
       000284 90 00 93         [24]  800 	mov	dptr,#(_gpcTypeStr + 0x0045)
-      000287 74 9D            [12]  801 	mov	a,#___str_21
+      000287 74 E8            [12]  801 	mov	a,#___str_21
       000289 F0               [24]  802 	movx	@dptr,a
-      00028A 74 23            [12]  803 	mov	a,#(___str_21 >> 8)
+      00028A 74 24            [12]  803 	mov	a,#(___str_21 >> 8)
       00028C A3               [24]  804 	inc	dptr
       00028D F0               [24]  805 	movx	@dptr,a
       00028E 74 80            [12]  806 	mov	a,#0x80
       000290 A3               [24]  807 	inc	dptr
       000291 F0               [24]  808 	movx	@dptr,a
       000292 90 00 96         [24]  809 	mov	dptr,#(_gpcTypeStr + 0x0048)
-      000295 74 9D            [12]  810 	mov	a,#___str_21
+      000295 74 E8            [12]  810 	mov	a,#___str_21
       000297 F0               [24]  811 	movx	@dptr,a
-      000298 74 23            [12]  812 	mov	a,#(___str_21 >> 8)
+      000298 74 24            [12]  812 	mov	a,#(___str_21 >> 8)
       00029A A3               [24]  813 	inc	dptr
       00029B F0               [24]  814 	movx	@dptr,a
       00029C 74 80            [12]  815 	mov	a,#0x80
       00029E A3               [24]  816 	inc	dptr
       00029F F0               [24]  817 	movx	@dptr,a
       0002A0 90 00 99         [24]  818 	mov	dptr,#(_gpcTypeStr + 0x004b)
-      0002A3 74 9D            [12]  819 	mov	a,#___str_21
+      0002A3 74 E8            [12]  819 	mov	a,#___str_21
       0002A5 F0               [24]  820 	movx	@dptr,a
-      0002A6 74 23            [12]  821 	mov	a,#(___str_21 >> 8)
+      0002A6 74 24            [12]  821 	mov	a,#(___str_21 >> 8)
       0002A8 A3               [24]  822 	inc	dptr
       0002A9 F0               [24]  823 	movx	@dptr,a
       0002AA 74 80            [12]  824 	mov	a,#0x80
       0002AC A3               [24]  825 	inc	dptr
       0002AD F0               [24]  826 	movx	@dptr,a
       0002AE 90 00 9C         [24]  827 	mov	dptr,#(_gpcTypeStr + 0x004e)
-      0002B1 74 9D            [12]  828 	mov	a,#___str_21
+      0002B1 74 E8            [12]  828 	mov	a,#___str_21
       0002B3 F0               [24]  829 	movx	@dptr,a
-      0002B4 74 23            [12]  830 	mov	a,#(___str_21 >> 8)
+      0002B4 74 24            [12]  830 	mov	a,#(___str_21 >> 8)
       0002B6 A3               [24]  831 	inc	dptr
       0002B7 F0               [24]  832 	movx	@dptr,a
       0002B8 74 80            [12]  833 	mov	a,#0x80
       0002BA A3               [24]  834 	inc	dptr
       0002BB F0               [24]  835 	movx	@dptr,a
       0002BC 90 00 9F         [24]  836 	mov	dptr,#(_gpcTypeStr + 0x0051)
-      0002BF 74 9D            [12]  837 	mov	a,#___str_21
+      0002BF 74 E8            [12]  837 	mov	a,#___str_21
       0002C1 F0               [24]  838 	movx	@dptr,a
-      0002C2 74 23            [12]  839 	mov	a,#(___str_21 >> 8)
+      0002C2 74 24            [12]  839 	mov	a,#(___str_21 >> 8)
       0002C4 A3               [24]  840 	inc	dptr
       0002C5 F0               [24]  841 	movx	@dptr,a
       0002C6 74 80            [12]  842 	mov	a,#0x80
@@ -860,7 +860,7 @@
                                     860 ;	-----------------------------------------
                                     861 ;	 function size_linefi_packet
                                     862 ;	-----------------------------------------
-      001183                        863 _size_linefi_packet:
+      00125D                        863 _size_linefi_packet:
                            000007   864 	ar7 = 0x07
                            000006   865 	ar6 = 0x06
                            000005   866 	ar5 = 0x05
@@ -869,24 +869,24 @@
                            000002   869 	ar2 = 0x02
                            000001   870 	ar1 = 0x01
                            000000   871 	ar0 = 0x00
-      001183 AD 82            [24]  872 	mov	r5,dpl
-      001185 AE 83            [24]  873 	mov	r6,dph
-      001187 AF F0            [24]  874 	mov	r7,b
+      00125D AD 82            [24]  872 	mov	r5,dpl
+      00125F AE 83            [24]  873 	mov	r6,dph
+      001261 AF F0            [24]  874 	mov	r7,b
                                     875 ;	../lib/linefi_packet.c:50: return apstLineFiPkt->u8Size + sizeof(linefi_packet_t) - sizeof(uint8 *);
-      001189 74 03            [12]  876 	mov	a,#0x03
-      00118B 2D               [12]  877 	add	a,r5
-      00118C FD               [12]  878 	mov	r5,a
-      00118D E4               [12]  879 	clr	a
-      00118E 3E               [12]  880 	addc	a,r6
-      00118F FE               [12]  881 	mov	r6,a
-      001190 8D 82            [24]  882 	mov	dpl,r5
-      001192 8E 83            [24]  883 	mov	dph,r6
-      001194 8F F0            [24]  884 	mov	b,r7
-      001196 12 1F F4         [24]  885 	lcall	__gptrget
-      001199 24 05            [12]  886 	add	a,#0x05
-      00119B F5 82            [12]  887 	mov	dpl,a
+      001263 74 03            [12]  876 	mov	a,#0x03
+      001265 2D               [12]  877 	add	a,r5
+      001266 FD               [12]  878 	mov	r5,a
+      001267 E4               [12]  879 	clr	a
+      001268 3E               [12]  880 	addc	a,r6
+      001269 FE               [12]  881 	mov	r6,a
+      00126A 8D 82            [24]  882 	mov	dpl,r5
+      00126C 8E 83            [24]  883 	mov	dph,r6
+      00126E 8F F0            [24]  884 	mov	b,r7
+      001270 12 20 FB         [24]  885 	lcall	__gptrget
+      001273 24 05            [12]  886 	add	a,#0x05
+      001275 F5 82            [12]  887 	mov	dpl,a
                                     888 ;	../lib/linefi_packet.c:51: }
-      00119D 22               [24]  889 	ret
+      001277 22               [24]  889 	ret
                                     890 ;------------------------------------------------------------
                                     891 ;Allocation info for local variables in function 'calc_crc_linefi_packet_packet'
                                     892 ;------------------------------------------------------------
@@ -897,63 +897,63 @@
                                     897 ;	-----------------------------------------
                                     898 ;	 function calc_crc_linefi_packet_packet
                                     899 ;	-----------------------------------------
-      00119E                        900 _calc_crc_linefi_packet_packet:
-      00119E AD 82            [24]  901 	mov	r5,dpl
-      0011A0 AE 83            [24]  902 	mov	r6,dph
-      0011A2 AF F0            [24]  903 	mov	r7,b
+      001278                        900 _calc_crc_linefi_packet_packet:
+      001278 AD 82            [24]  901 	mov	r5,dpl
+      00127A AE 83            [24]  902 	mov	r6,dph
+      00127C AF F0            [24]  903 	mov	r7,b
                                     904 ;	../lib/linefi_packet.c:55: uint8 u8CRC = crc8((uint8 *)apstLineFiPkt, 4, 0xFF);
-      0011A4 8D 02            [24]  905 	mov	ar2,r5
-      0011A6 8E 03            [24]  906 	mov	ar3,r6
-      0011A8 8F 04            [24]  907 	mov	ar4,r7
-      0011AA 75 18 04         [24]  908 	mov	_crc8_PARM_2,#0x04
-      0011AD 75 19 FF         [24]  909 	mov	_crc8_PARM_3,#0xff
-      0011B0 8A 82            [24]  910 	mov	dpl,r2
-      0011B2 8B 83            [24]  911 	mov	dph,r3
-      0011B4 8C F0            [24]  912 	mov	b,r4
-      0011B6 C0 07            [24]  913 	push	ar7
-      0011B8 C0 06            [24]  914 	push	ar6
-      0011BA C0 05            [24]  915 	push	ar5
-      0011BC 12 17 19         [24]  916 	lcall	_crc8
-      0011BF 85 82 19         [24]  917 	mov	_crc8_PARM_3,dpl
-      0011C2 D0 05            [24]  918 	pop	ar5
-      0011C4 D0 06            [24]  919 	pop	ar6
-      0011C6 D0 07            [24]  920 	pop	ar7
+      00127E 8D 02            [24]  905 	mov	ar2,r5
+      001280 8E 03            [24]  906 	mov	ar3,r6
+      001282 8F 04            [24]  907 	mov	ar4,r7
+      001284 75 18 04         [24]  908 	mov	_crc8_PARM_2,#0x04
+      001287 75 19 FF         [24]  909 	mov	_crc8_PARM_3,#0xff
+      00128A 8A 82            [24]  910 	mov	dpl,r2
+      00128C 8B 83            [24]  911 	mov	dph,r3
+      00128E 8C F0            [24]  912 	mov	b,r4
+      001290 C0 07            [24]  913 	push	ar7
+      001292 C0 06            [24]  914 	push	ar6
+      001294 C0 05            [24]  915 	push	ar5
+      001296 12 18 20         [24]  916 	lcall	_crc8
+      001299 85 82 19         [24]  917 	mov	_crc8_PARM_3,dpl
+      00129C D0 05            [24]  918 	pop	ar5
+      00129E D0 06            [24]  919 	pop	ar6
+      0012A0 D0 07            [24]  920 	pop	ar7
                                     921 ;	../lib/linefi_packet.c:56: u8CRC = crc8((uint8 *)(apstLineFiPkt->pu8Data), apstLineFiPkt->u8Size, u8CRC);
-      0011C8 74 05            [12]  922 	mov	a,#0x05
-      0011CA 2D               [12]  923 	add	a,r5
-      0011CB FA               [12]  924 	mov	r2,a
-      0011CC E4               [12]  925 	clr	a
-      0011CD 3E               [12]  926 	addc	a,r6
-      0011CE FB               [12]  927 	mov	r3,a
-      0011CF 8F 04            [24]  928 	mov	ar4,r7
-      0011D1 8A 82            [24]  929 	mov	dpl,r2
-      0011D3 8B 83            [24]  930 	mov	dph,r3
-      0011D5 8C F0            [24]  931 	mov	b,r4
-      0011D7 12 1F F4         [24]  932 	lcall	__gptrget
-      0011DA FA               [12]  933 	mov	r2,a
-      0011DB A3               [24]  934 	inc	dptr
-      0011DC 12 1F F4         [24]  935 	lcall	__gptrget
-      0011DF FB               [12]  936 	mov	r3,a
-      0011E0 A3               [24]  937 	inc	dptr
-      0011E1 12 1F F4         [24]  938 	lcall	__gptrget
-      0011E4 FC               [12]  939 	mov	r4,a
-      0011E5 74 03            [12]  940 	mov	a,#0x03
-      0011E7 2D               [12]  941 	add	a,r5
-      0011E8 FD               [12]  942 	mov	r5,a
-      0011E9 E4               [12]  943 	clr	a
-      0011EA 3E               [12]  944 	addc	a,r6
-      0011EB FE               [12]  945 	mov	r6,a
-      0011EC 8D 82            [24]  946 	mov	dpl,r5
-      0011EE 8E 83            [24]  947 	mov	dph,r6
-      0011F0 8F F0            [24]  948 	mov	b,r7
-      0011F2 12 1F F4         [24]  949 	lcall	__gptrget
-      0011F5 F5 18            [12]  950 	mov	_crc8_PARM_2,a
-      0011F7 8A 82            [24]  951 	mov	dpl,r2
-      0011F9 8B 83            [24]  952 	mov	dph,r3
-      0011FB 8C F0            [24]  953 	mov	b,r4
+      0012A2 74 05            [12]  922 	mov	a,#0x05
+      0012A4 2D               [12]  923 	add	a,r5
+      0012A5 FA               [12]  924 	mov	r2,a
+      0012A6 E4               [12]  925 	clr	a
+      0012A7 3E               [12]  926 	addc	a,r6
+      0012A8 FB               [12]  927 	mov	r3,a
+      0012A9 8F 04            [24]  928 	mov	ar4,r7
+      0012AB 8A 82            [24]  929 	mov	dpl,r2
+      0012AD 8B 83            [24]  930 	mov	dph,r3
+      0012AF 8C F0            [24]  931 	mov	b,r4
+      0012B1 12 20 FB         [24]  932 	lcall	__gptrget
+      0012B4 FA               [12]  933 	mov	r2,a
+      0012B5 A3               [24]  934 	inc	dptr
+      0012B6 12 20 FB         [24]  935 	lcall	__gptrget
+      0012B9 FB               [12]  936 	mov	r3,a
+      0012BA A3               [24]  937 	inc	dptr
+      0012BB 12 20 FB         [24]  938 	lcall	__gptrget
+      0012BE FC               [12]  939 	mov	r4,a
+      0012BF 74 03            [12]  940 	mov	a,#0x03
+      0012C1 2D               [12]  941 	add	a,r5
+      0012C2 FD               [12]  942 	mov	r5,a
+      0012C3 E4               [12]  943 	clr	a
+      0012C4 3E               [12]  944 	addc	a,r6
+      0012C5 FE               [12]  945 	mov	r6,a
+      0012C6 8D 82            [24]  946 	mov	dpl,r5
+      0012C8 8E 83            [24]  947 	mov	dph,r6
+      0012CA 8F F0            [24]  948 	mov	b,r7
+      0012CC 12 20 FB         [24]  949 	lcall	__gptrget
+      0012CF F5 18            [12]  950 	mov	_crc8_PARM_2,a
+      0012D1 8A 82            [24]  951 	mov	dpl,r2
+      0012D3 8B 83            [24]  952 	mov	dph,r3
+      0012D5 8C F0            [24]  953 	mov	b,r4
                                     954 ;	../lib/linefi_packet.c:58: return u8CRC;
                                     955 ;	../lib/linefi_packet.c:59: }
-      0011FD 02 17 19         [24]  956 	ljmp	_crc8
+      0012D7 02 18 20         [24]  956 	ljmp	_crc8
                                     957 ;------------------------------------------------------------
                                     958 ;Allocation info for local variables in function 'add_crc_linefi_packet_packet'
                                     959 ;------------------------------------------------------------
@@ -964,32 +964,32 @@
                                     964 ;	-----------------------------------------
                                     965 ;	 function add_crc_linefi_packet_packet
                                     966 ;	-----------------------------------------
-      001200                        967 _add_crc_linefi_packet_packet:
+      0012DA                        967 _add_crc_linefi_packet_packet:
                                     968 ;	../lib/linefi_packet.c:63: uint8 u8CRC = calc_crc_linefi_packet_packet(apstLineFiPkt);
-      001200 AD 82            [24]  969 	mov	r5,dpl
-      001202 AE 83            [24]  970 	mov	r6,dph
-      001204 AF F0            [24]  971 	mov	r7,b
-      001206 C0 07            [24]  972 	push	ar7
-      001208 C0 06            [24]  973 	push	ar6
-      00120A C0 05            [24]  974 	push	ar5
-      00120C 12 11 9E         [24]  975 	lcall	_calc_crc_linefi_packet_packet
-      00120F AC 82            [24]  976 	mov	r4,dpl
-      001211 D0 05            [24]  977 	pop	ar5
-      001213 D0 06            [24]  978 	pop	ar6
-      001215 D0 07            [24]  979 	pop	ar7
+      0012DA AD 82            [24]  969 	mov	r5,dpl
+      0012DC AE 83            [24]  970 	mov	r6,dph
+      0012DE AF F0            [24]  971 	mov	r7,b
+      0012E0 C0 07            [24]  972 	push	ar7
+      0012E2 C0 06            [24]  973 	push	ar6
+      0012E4 C0 05            [24]  974 	push	ar5
+      0012E6 12 12 78         [24]  975 	lcall	_calc_crc_linefi_packet_packet
+      0012E9 AC 82            [24]  976 	mov	r4,dpl
+      0012EB D0 05            [24]  977 	pop	ar5
+      0012ED D0 06            [24]  978 	pop	ar6
+      0012EF D0 07            [24]  979 	pop	ar7
                                     980 ;	../lib/linefi_packet.c:64: apstLineFiPkt->u8CRC = u8CRC;
-      001217 74 04            [12]  981 	mov	a,#0x04
-      001219 2D               [12]  982 	add	a,r5
-      00121A FD               [12]  983 	mov	r5,a
-      00121B E4               [12]  984 	clr	a
-      00121C 3E               [12]  985 	addc	a,r6
-      00121D FE               [12]  986 	mov	r6,a
-      00121E 8D 82            [24]  987 	mov	dpl,r5
-      001220 8E 83            [24]  988 	mov	dph,r6
-      001222 8F F0            [24]  989 	mov	b,r7
-      001224 EC               [12]  990 	mov	a,r4
+      0012F1 74 04            [12]  981 	mov	a,#0x04
+      0012F3 2D               [12]  982 	add	a,r5
+      0012F4 FD               [12]  983 	mov	r5,a
+      0012F5 E4               [12]  984 	clr	a
+      0012F6 3E               [12]  985 	addc	a,r6
+      0012F7 FE               [12]  986 	mov	r6,a
+      0012F8 8D 82            [24]  987 	mov	dpl,r5
+      0012FA 8E 83            [24]  988 	mov	dph,r6
+      0012FC 8F F0            [24]  989 	mov	b,r7
+      0012FE EC               [12]  990 	mov	a,r4
                                     991 ;	../lib/linefi_packet.c:65: }
-      001225 02 1F D9         [24]  992 	ljmp	__gptrput
+      0012FF 02 20 E0         [24]  992 	ljmp	__gptrput
                                     993 ;------------------------------------------------------------
                                     994 ;Allocation info for local variables in function 'chk_crc_linefi_packet_packet'
                                     995 ;------------------------------------------------------------
@@ -1000,39 +1000,39 @@
                                    1000 ;	-----------------------------------------
                                    1001 ;	 function chk_crc_linefi_packet_packet
                                    1002 ;	-----------------------------------------
-      001228                       1003 _chk_crc_linefi_packet_packet:
+      001302                       1003 _chk_crc_linefi_packet_packet:
                                    1004 ;	../lib/linefi_packet.c:69: uint8 u8CRC = calc_crc_linefi_packet_packet(apstLineFiPkt);
-      001228 AD 82            [24] 1005 	mov	r5,dpl
-      00122A AE 83            [24] 1006 	mov	r6,dph
-      00122C AF F0            [24] 1007 	mov	r7,b
-      00122E C0 07            [24] 1008 	push	ar7
-      001230 C0 06            [24] 1009 	push	ar6
-      001232 C0 05            [24] 1010 	push	ar5
-      001234 12 11 9E         [24] 1011 	lcall	_calc_crc_linefi_packet_packet
-      001237 AC 82            [24] 1012 	mov	r4,dpl
-      001239 D0 05            [24] 1013 	pop	ar5
-      00123B D0 06            [24] 1014 	pop	ar6
-      00123D D0 07            [24] 1015 	pop	ar7
+      001302 AD 82            [24] 1005 	mov	r5,dpl
+      001304 AE 83            [24] 1006 	mov	r6,dph
+      001306 AF F0            [24] 1007 	mov	r7,b
+      001308 C0 07            [24] 1008 	push	ar7
+      00130A C0 06            [24] 1009 	push	ar6
+      00130C C0 05            [24] 1010 	push	ar5
+      00130E 12 12 78         [24] 1011 	lcall	_calc_crc_linefi_packet_packet
+      001311 AC 82            [24] 1012 	mov	r4,dpl
+      001313 D0 05            [24] 1013 	pop	ar5
+      001315 D0 06            [24] 1014 	pop	ar6
+      001317 D0 07            [24] 1015 	pop	ar7
                                    1016 ;	../lib/linefi_packet.c:71: if (apstLineFiPkt->u8CRC == u8CRC) {
-      00123F 74 04            [12] 1017 	mov	a,#0x04
-      001241 2D               [12] 1018 	add	a,r5
-      001242 FD               [12] 1019 	mov	r5,a
-      001243 E4               [12] 1020 	clr	a
-      001244 3E               [12] 1021 	addc	a,r6
-      001245 FE               [12] 1022 	mov	r6,a
-      001246 8D 82            [24] 1023 	mov	dpl,r5
-      001248 8E 83            [24] 1024 	mov	dph,r6
-      00124A 8F F0            [24] 1025 	mov	b,r7
-      00124C 12 1F F4         [24] 1026 	lcall	__gptrget
-      00124F B5 04 04         [24] 1027 	cjne	a,ar4,00102$
+      001319 74 04            [12] 1017 	mov	a,#0x04
+      00131B 2D               [12] 1018 	add	a,r5
+      00131C FD               [12] 1019 	mov	r5,a
+      00131D E4               [12] 1020 	clr	a
+      00131E 3E               [12] 1021 	addc	a,r6
+      00131F FE               [12] 1022 	mov	r6,a
+      001320 8D 82            [24] 1023 	mov	dpl,r5
+      001322 8E 83            [24] 1024 	mov	dph,r6
+      001324 8F F0            [24] 1025 	mov	b,r7
+      001326 12 20 FB         [24] 1026 	lcall	__gptrget
+      001329 B5 04 04         [24] 1027 	cjne	a,ar4,00102$
                                    1028 ;	../lib/linefi_packet.c:72: return CRC_OK;
-      001252 75 82 01         [24] 1029 	mov	dpl,#0x01
-      001255 22               [24] 1030 	ret
-      001256                       1031 00102$:
+      00132C 75 82 01         [24] 1029 	mov	dpl,#0x01
+      00132F 22               [24] 1030 	ret
+      001330                       1031 00102$:
                                    1032 ;	../lib/linefi_packet.c:74: return CRC_NOT_OK;
-      001256 75 82 00         [24] 1033 	mov	dpl,#0x00
+      001330 75 82 00         [24] 1033 	mov	dpl,#0x00
                                    1034 ;	../lib/linefi_packet.c:75: }
-      001259 22               [24] 1035 	ret
+      001333 22               [24] 1035 	ret
                                    1036 ;------------------------------------------------------------
                                    1037 ;Allocation info for local variables in function 'get_octet_from_linefi'
                                    1038 ;------------------------------------------------------------
@@ -1042,10 +1042,10 @@
                                    1042 ;	-----------------------------------------
                                    1043 ;	 function get_octet_from_linefi
                                    1044 ;	-----------------------------------------
-      00125A                       1045 _get_octet_from_linefi:
+      001334                       1045 _get_octet_from_linefi:
                                    1046 ;	../lib/linefi_packet.c:80: return Receive_Data_From_UART1_nb(apu8Tmp);
                                    1047 ;	../lib/linefi_packet.c:81: }
-      00125A 02 1A 6C         [24] 1048 	ljmp	_Receive_Data_From_UART1_nb
+      001334 02 1B 73         [24] 1048 	ljmp	_Receive_Data_From_UART1_nb
                                    1049 ;------------------------------------------------------------
                                    1050 ;Allocation info for local variables in function 'send_octet_to_linefi'
                                    1051 ;------------------------------------------------------------
@@ -1055,1370 +1055,1397 @@
                                    1055 ;	-----------------------------------------
                                    1056 ;	 function send_octet_to_linefi
                                    1057 ;	-----------------------------------------
-      00125D                       1058 _send_octet_to_linefi:
+      001337                       1058 _send_octet_to_linefi:
                                    1059 ;	../lib/linefi_packet.c:85: return Send_Data_To_UART1(au8Data);
                                    1060 ;	../lib/linefi_packet.c:86: }
-      00125D 02 1A 8A         [24] 1061 	ljmp	_Send_Data_To_UART1
+      001337 02 1B 91         [24] 1061 	ljmp	_Send_Data_To_UART1
                                    1062 ;------------------------------------------------------------
                                    1063 ;Allocation info for local variables in function 'send_linefi_packet'
                                    1064 ;------------------------------------------------------------
                                    1065 ;apstLineFiPkt             Allocated to registers r5 r6 r7 
-                                   1066 ;u8CRC                     Allocated to registers r4 
-                                   1067 ;pu8Buf                    Allocated to registers r1 r2 r3 
-                                   1068 ;i                         Allocated with name '_send_linefi_packet_i_65537_54'
+                                   1066 ;u8CRC1                    Allocated to registers r4 
+                                   1067 ;pu8Buf                    Allocated to registers r2 r3 r4 
+                                   1068 ;i                         Allocated with name '_send_linefi_packet_i_65538_55'
                                    1069 ;------------------------------------------------------------
                                    1070 ;	../lib/linefi_packet.c:88: void send_linefi_packet(linefi_packet_t * apstLineFiPkt)
                                    1071 ;	-----------------------------------------
                                    1072 ;	 function send_linefi_packet
                                    1073 ;	-----------------------------------------
-      001260                       1074 _send_linefi_packet:
-                                   1075 ;	../lib/linefi_packet.c:90: uint8 u8CRC = calc_crc_linefi_packet_packet(apstLineFiPkt);
-      001260 AD 82            [24] 1076 	mov	r5,dpl
-      001262 AE 83            [24] 1077 	mov	r6,dph
-      001264 AF F0            [24] 1078 	mov	r7,b
-      001266 C0 07            [24] 1079 	push	ar7
-      001268 C0 06            [24] 1080 	push	ar6
-      00126A C0 05            [24] 1081 	push	ar5
-      00126C 12 11 9E         [24] 1082 	lcall	_calc_crc_linefi_packet_packet
-      00126F AC 82            [24] 1083 	mov	r4,dpl
-      001271 D0 05            [24] 1084 	pop	ar5
-      001273 D0 06            [24] 1085 	pop	ar6
-      001275 D0 07            [24] 1086 	pop	ar7
-                                   1087 ;	../lib/linefi_packet.c:92: uint8 * pu8Buf = (uint8 *) apstLineFiPkt;
-      001277 8D 01            [24] 1088 	mov	ar1,r5
-      001279 8E 02            [24] 1089 	mov	ar2,r6
-      00127B 8F 03            [24] 1090 	mov	ar3,r7
-                                   1091 ;	../lib/linefi_packet.c:93: send_octet_to_linefi(*pu8Buf++);
-      00127D 89 82            [24] 1092 	mov	dpl,r1
-      00127F 8A 83            [24] 1093 	mov	dph,r2
-      001281 8B F0            [24] 1094 	mov	b,r3
-      001283 12 1F F4         [24] 1095 	lcall	__gptrget
-      001286 F5 82            [12] 1096 	mov	dpl,a
-      001288 09               [12] 1097 	inc	r1
-      001289 B9 00 01         [24] 1098 	cjne	r1,#0x00,00118$
-      00128C 0A               [12] 1099 	inc	r2
-      00128D                       1100 00118$:
-      00128D C0 07            [24] 1101 	push	ar7
-      00128F C0 06            [24] 1102 	push	ar6
-      001291 C0 05            [24] 1103 	push	ar5
-      001293 C0 04            [24] 1104 	push	ar4
-      001295 C0 03            [24] 1105 	push	ar3
-      001297 C0 02            [24] 1106 	push	ar2
-      001299 C0 01            [24] 1107 	push	ar1
-      00129B 12 12 5D         [24] 1108 	lcall	_send_octet_to_linefi
-      00129E D0 01            [24] 1109 	pop	ar1
-      0012A0 D0 02            [24] 1110 	pop	ar2
-      0012A2 D0 03            [24] 1111 	pop	ar3
-      0012A4 D0 04            [24] 1112 	pop	ar4
-      0012A6 D0 05            [24] 1113 	pop	ar5
-      0012A8 D0 06            [24] 1114 	pop	ar6
-      0012AA D0 07            [24] 1115 	pop	ar7
-                                   1116 ;	../lib/linefi_packet.c:94: send_octet_to_linefi(*pu8Buf++);
-      0012AC 89 82            [24] 1117 	mov	dpl,r1
-      0012AE 8A 83            [24] 1118 	mov	dph,r2
-      0012B0 8B F0            [24] 1119 	mov	b,r3
-      0012B2 12 1F F4         [24] 1120 	lcall	__gptrget
-      0012B5 F5 82            [12] 1121 	mov	dpl,a
-      0012B7 09               [12] 1122 	inc	r1
-      0012B8 B9 00 01         [24] 1123 	cjne	r1,#0x00,00119$
-      0012BB 0A               [12] 1124 	inc	r2
-      0012BC                       1125 00119$:
-      0012BC C0 07            [24] 1126 	push	ar7
-      0012BE C0 06            [24] 1127 	push	ar6
-      0012C0 C0 05            [24] 1128 	push	ar5
-      0012C2 C0 04            [24] 1129 	push	ar4
-      0012C4 C0 03            [24] 1130 	push	ar3
-      0012C6 C0 02            [24] 1131 	push	ar2
-      0012C8 C0 01            [24] 1132 	push	ar1
-      0012CA 12 12 5D         [24] 1133 	lcall	_send_octet_to_linefi
-      0012CD D0 01            [24] 1134 	pop	ar1
-      0012CF D0 02            [24] 1135 	pop	ar2
-      0012D1 D0 03            [24] 1136 	pop	ar3
-      0012D3 D0 04            [24] 1137 	pop	ar4
-      0012D5 D0 05            [24] 1138 	pop	ar5
-      0012D7 D0 06            [24] 1139 	pop	ar6
-      0012D9 D0 07            [24] 1140 	pop	ar7
-                                   1141 ;	../lib/linefi_packet.c:95: send_octet_to_linefi(*pu8Buf++);
-      0012DB 89 82            [24] 1142 	mov	dpl,r1
-      0012DD 8A 83            [24] 1143 	mov	dph,r2
-      0012DF 8B F0            [24] 1144 	mov	b,r3
-      0012E1 12 1F F4         [24] 1145 	lcall	__gptrget
-      0012E4 F8               [12] 1146 	mov	r0,a
-      0012E5 09               [12] 1147 	inc	r1
-      0012E6 B9 00 01         [24] 1148 	cjne	r1,#0x00,00120$
-      0012E9 0A               [12] 1149 	inc	r2
-      0012EA                       1150 00120$:
-      0012EA 88 82            [24] 1151 	mov	dpl,r0
-      0012EC C0 07            [24] 1152 	push	ar7
-      0012EE C0 06            [24] 1153 	push	ar6
-      0012F0 C0 05            [24] 1154 	push	ar5
-      0012F2 C0 04            [24] 1155 	push	ar4
-      0012F4 C0 03            [24] 1156 	push	ar3
-      0012F6 C0 02            [24] 1157 	push	ar2
-      0012F8 C0 01            [24] 1158 	push	ar1
-      0012FA 12 12 5D         [24] 1159 	lcall	_send_octet_to_linefi
-      0012FD D0 01            [24] 1160 	pop	ar1
-      0012FF D0 02            [24] 1161 	pop	ar2
-      001301 D0 03            [24] 1162 	pop	ar3
-                                   1163 ;	../lib/linefi_packet.c:96: send_octet_to_linefi(*pu8Buf++);
-      001303 89 82            [24] 1164 	mov	dpl,r1
-      001305 8A 83            [24] 1165 	mov	dph,r2
-      001307 8B F0            [24] 1166 	mov	b,r3
-      001309 12 1F F4         [24] 1167 	lcall	__gptrget
-      00130C F5 82            [12] 1168 	mov	dpl,a
-      00130E 12 12 5D         [24] 1169 	lcall	_send_octet_to_linefi
-      001311 D0 04            [24] 1170 	pop	ar4
-                                   1171 ;	../lib/linefi_packet.c:98: send_octet_to_linefi(u8CRC); //CRC
-      001313 8C 82            [24] 1172 	mov	dpl,r4
-      001315 12 12 5D         [24] 1173 	lcall	_send_octet_to_linefi
-      001318 D0 05            [24] 1174 	pop	ar5
-      00131A D0 06            [24] 1175 	pop	ar6
-      00131C D0 07            [24] 1176 	pop	ar7
-                                   1177 ;	../lib/linefi_packet.c:100: for (i=0;i<apstLineFiPkt->u8Size;i++) {
-      00131E 74 05            [12] 1178 	mov	a,#0x05
-      001320 2D               [12] 1179 	add	a,r5
-      001321 FA               [12] 1180 	mov	r2,a
-      001322 E4               [12] 1181 	clr	a
-      001323 3E               [12] 1182 	addc	a,r6
-      001324 FB               [12] 1183 	mov	r3,a
-      001325 8F 04            [24] 1184 	mov	ar4,r7
-      001327 74 03            [12] 1185 	mov	a,#0x03
-      001329 2D               [12] 1186 	add	a,r5
-      00132A FD               [12] 1187 	mov	r5,a
-      00132B E4               [12] 1188 	clr	a
-      00132C 3E               [12] 1189 	addc	a,r6
-      00132D FE               [12] 1190 	mov	r6,a
-      00132E 75 61 00         [24] 1191 	mov	_send_linefi_packet_i_65537_54,#0x00
-      001331                       1192 00103$:
-      001331 8D 82            [24] 1193 	mov	dpl,r5
-      001333 8E 83            [24] 1194 	mov	dph,r6
-      001335 8F F0            [24] 1195 	mov	b,r7
-      001337 12 1F F4         [24] 1196 	lcall	__gptrget
-      00133A F8               [12] 1197 	mov	r0,a
-      00133B C3               [12] 1198 	clr	c
-      00133C E5 61            [12] 1199 	mov	a,_send_linefi_packet_i_65537_54
-      00133E 98               [12] 1200 	subb	a,r0
-      00133F 50 51            [24] 1201 	jnc	00105$
-                                   1202 ;	../lib/linefi_packet.c:101: send_octet_to_linefi(*(apstLineFiPkt->pu8Data+i));
-      001341 C0 05            [24] 1203 	push	ar5
-      001343 C0 06            [24] 1204 	push	ar6
-      001345 C0 07            [24] 1205 	push	ar7
-      001347 8A 82            [24] 1206 	mov	dpl,r2
-      001349 8B 83            [24] 1207 	mov	dph,r3
-      00134B 8C F0            [24] 1208 	mov	b,r4
-      00134D 12 1F F4         [24] 1209 	lcall	__gptrget
-      001350 F8               [12] 1210 	mov	r0,a
-      001351 A3               [24] 1211 	inc	dptr
-      001352 12 1F F4         [24] 1212 	lcall	__gptrget
-      001355 F9               [12] 1213 	mov	r1,a
-      001356 A3               [24] 1214 	inc	dptr
-      001357 12 1F F4         [24] 1215 	lcall	__gptrget
-      00135A FF               [12] 1216 	mov	r7,a
-      00135B E5 61            [12] 1217 	mov	a,_send_linefi_packet_i_65537_54
-      00135D 28               [12] 1218 	add	a,r0
-      00135E F8               [12] 1219 	mov	r0,a
-      00135F E4               [12] 1220 	clr	a
-      001360 39               [12] 1221 	addc	a,r1
-      001361 F9               [12] 1222 	mov	r1,a
-      001362 88 82            [24] 1223 	mov	dpl,r0
-      001364 89 83            [24] 1224 	mov	dph,r1
-      001366 8F F0            [24] 1225 	mov	b,r7
-      001368 12 1F F4         [24] 1226 	lcall	__gptrget
-      00136B F5 82            [12] 1227 	mov	dpl,a
-      00136D C0 07            [24] 1228 	push	ar7
-      00136F C0 06            [24] 1229 	push	ar6
-      001371 C0 05            [24] 1230 	push	ar5
-      001373 C0 04            [24] 1231 	push	ar4
-      001375 C0 03            [24] 1232 	push	ar3
-      001377 C0 02            [24] 1233 	push	ar2
-      001379 12 12 5D         [24] 1234 	lcall	_send_octet_to_linefi
-      00137C D0 02            [24] 1235 	pop	ar2
-      00137E D0 03            [24] 1236 	pop	ar3
-      001380 D0 04            [24] 1237 	pop	ar4
-      001382 D0 05            [24] 1238 	pop	ar5
-      001384 D0 06            [24] 1239 	pop	ar6
-      001386 D0 07            [24] 1240 	pop	ar7
-                                   1241 ;	../lib/linefi_packet.c:100: for (i=0;i<apstLineFiPkt->u8Size;i++) {
-      001388 05 61            [12] 1242 	inc	_send_linefi_packet_i_65537_54
-      00138A D0 07            [24] 1243 	pop	ar7
-      00138C D0 06            [24] 1244 	pop	ar6
-      00138E D0 05            [24] 1245 	pop	ar5
-      001390 80 9F            [24] 1246 	sjmp	00103$
-      001392                       1247 00105$:
-                                   1248 ;	../lib/linefi_packet.c:103: }
-      001392 22               [24] 1249 	ret
-                                   1250 ;------------------------------------------------------------
-                                   1251 ;Allocation info for local variables in function 'cp_buf2linefipacket'
-                                   1252 ;------------------------------------------------------------
-                                   1253 ;apu8RxBuf                 Allocated with name '_cp_buf2linefipacket_PARM_2'
-                                   1254 ;apstLineFiPkt             Allocated with name '_cp_buf2linefipacket_PARM_3'
-                                   1255 ;au8Size                   Allocated to registers r7 
-                                   1256 ;pu8Buf                    Allocated to registers r5 r6 r7 
-                                   1257 ;i                         Allocated with name '_cp_buf2linefipacket_i_65538_61'
-                                   1258 ;sloc0                     Allocated with name '_cp_buf2linefipacket_sloc0_1_0'
-                                   1259 ;------------------------------------------------------------
-                                   1260 ;	../lib/linefi_packet.c:105: uint8 cp_buf2linefipacket(uint8 au8Size, uint8 * apu8RxBuf, linefi_packet_t * apstLineFiPkt)
-                                   1261 ;	-----------------------------------------
-                                   1262 ;	 function cp_buf2linefipacket
-                                   1263 ;	-----------------------------------------
-      001393                       1264 _cp_buf2linefipacket:
-      001393 AF 82            [24] 1265 	mov	r7,dpl
-                                   1266 ;	../lib/linefi_packet.c:107: if (au8Size < 5) {
-      001395 BF 05 00         [24] 1267 	cjne	r7,#0x05,00132$
-      001398                       1268 00132$:
-      001398 50 04            [24] 1269 	jnc	00102$
-                                   1270 ;	../lib/linefi_packet.c:108: return CONV_ERR_TOO_SMALLSIZE;
-      00139A 75 82 03         [24] 1271 	mov	dpl,#0x03
-      00139D 22               [24] 1272 	ret
-      00139E                       1273 00102$:
-                                   1274 ;	../lib/linefi_packet.c:111: uint8 * pu8Buf = (uint8 *) apstLineFiPkt;
-      00139E AD 65            [24] 1275 	mov	r5,_cp_buf2linefipacket_PARM_3
-      0013A0 AE 66            [24] 1276 	mov	r6,(_cp_buf2linefipacket_PARM_3 + 1)
-      0013A2 AF 67            [24] 1277 	mov	r7,(_cp_buf2linefipacket_PARM_3 + 2)
-                                   1278 ;	../lib/linefi_packet.c:112: *pu8Buf++ = *apu8RxBuf++;
-      0013A4 AA 62            [24] 1279 	mov	r2,_cp_buf2linefipacket_PARM_2
-      0013A6 AB 63            [24] 1280 	mov	r3,(_cp_buf2linefipacket_PARM_2 + 1)
-      0013A8 AC 64            [24] 1281 	mov	r4,(_cp_buf2linefipacket_PARM_2 + 2)
-      0013AA 8A 82            [24] 1282 	mov	dpl,r2
-      0013AC 8B 83            [24] 1283 	mov	dph,r3
-      0013AE 8C F0            [24] 1284 	mov	b,r4
-      0013B0 12 1F F4         [24] 1285 	lcall	__gptrget
-      0013B3 F9               [12] 1286 	mov	r1,a
-      0013B4 74 01            [12] 1287 	mov	a,#0x01
-      0013B6 2A               [12] 1288 	add	a,r2
-      0013B7 F5 62            [12] 1289 	mov	_cp_buf2linefipacket_PARM_2,a
-      0013B9 E4               [12] 1290 	clr	a
-      0013BA 3B               [12] 1291 	addc	a,r3
-      0013BB F5 63            [12] 1292 	mov	(_cp_buf2linefipacket_PARM_2 + 1),a
-      0013BD 8C 64            [24] 1293 	mov	(_cp_buf2linefipacket_PARM_2 + 2),r4
-      0013BF 8D 82            [24] 1294 	mov	dpl,r5
-      0013C1 8E 83            [24] 1295 	mov	dph,r6
-      0013C3 8F F0            [24] 1296 	mov	b,r7
-      0013C5 E9               [12] 1297 	mov	a,r1
-      0013C6 12 1F D9         [24] 1298 	lcall	__gptrput
-      0013C9 0D               [12] 1299 	inc	r5
-      0013CA BD 00 01         [24] 1300 	cjne	r5,#0x00,00134$
-      0013CD 0E               [12] 1301 	inc	r6
-      0013CE                       1302 00134$:
-                                   1303 ;	../lib/linefi_packet.c:113: *pu8Buf++ = *apu8RxBuf++;
-      0013CE AA 62            [24] 1304 	mov	r2,_cp_buf2linefipacket_PARM_2
-      0013D0 AB 63            [24] 1305 	mov	r3,(_cp_buf2linefipacket_PARM_2 + 1)
-      0013D2 AC 64            [24] 1306 	mov	r4,(_cp_buf2linefipacket_PARM_2 + 2)
-      0013D4 8A 82            [24] 1307 	mov	dpl,r2
-      0013D6 8B 83            [24] 1308 	mov	dph,r3
-      0013D8 8C F0            [24] 1309 	mov	b,r4
-      0013DA 12 1F F4         [24] 1310 	lcall	__gptrget
-      0013DD F9               [12] 1311 	mov	r1,a
-      0013DE 74 01            [12] 1312 	mov	a,#0x01
-      0013E0 2A               [12] 1313 	add	a,r2
-      0013E1 F5 62            [12] 1314 	mov	_cp_buf2linefipacket_PARM_2,a
-      0013E3 E4               [12] 1315 	clr	a
-      0013E4 3B               [12] 1316 	addc	a,r3
-      0013E5 F5 63            [12] 1317 	mov	(_cp_buf2linefipacket_PARM_2 + 1),a
-      0013E7 8C 64            [24] 1318 	mov	(_cp_buf2linefipacket_PARM_2 + 2),r4
-      0013E9 8D 82            [24] 1319 	mov	dpl,r5
-      0013EB 8E 83            [24] 1320 	mov	dph,r6
-      0013ED 8F F0            [24] 1321 	mov	b,r7
-      0013EF E9               [12] 1322 	mov	a,r1
-      0013F0 12 1F D9         [24] 1323 	lcall	__gptrput
-      0013F3 0D               [12] 1324 	inc	r5
-      0013F4 BD 00 01         [24] 1325 	cjne	r5,#0x00,00135$
-      0013F7 0E               [12] 1326 	inc	r6
-      0013F8                       1327 00135$:
-                                   1328 ;	../lib/linefi_packet.c:114: *pu8Buf++ = *apu8RxBuf++;
-      0013F8 AA 62            [24] 1329 	mov	r2,_cp_buf2linefipacket_PARM_2
-      0013FA AB 63            [24] 1330 	mov	r3,(_cp_buf2linefipacket_PARM_2 + 1)
-      0013FC AC 64            [24] 1331 	mov	r4,(_cp_buf2linefipacket_PARM_2 + 2)
-      0013FE 8A 82            [24] 1332 	mov	dpl,r2
-      001400 8B 83            [24] 1333 	mov	dph,r3
-      001402 8C F0            [24] 1334 	mov	b,r4
-      001404 12 1F F4         [24] 1335 	lcall	__gptrget
-      001407 F9               [12] 1336 	mov	r1,a
-      001408 74 01            [12] 1337 	mov	a,#0x01
-      00140A 2A               [12] 1338 	add	a,r2
-      00140B F5 62            [12] 1339 	mov	_cp_buf2linefipacket_PARM_2,a
-      00140D E4               [12] 1340 	clr	a
-      00140E 3B               [12] 1341 	addc	a,r3
-      00140F F5 63            [12] 1342 	mov	(_cp_buf2linefipacket_PARM_2 + 1),a
-      001411 8C 64            [24] 1343 	mov	(_cp_buf2linefipacket_PARM_2 + 2),r4
-      001413 8D 82            [24] 1344 	mov	dpl,r5
-      001415 8E 83            [24] 1345 	mov	dph,r6
-      001417 8F F0            [24] 1346 	mov	b,r7
-      001419 E9               [12] 1347 	mov	a,r1
-      00141A 12 1F D9         [24] 1348 	lcall	__gptrput
-      00141D 0D               [12] 1349 	inc	r5
-      00141E BD 00 01         [24] 1350 	cjne	r5,#0x00,00136$
-      001421 0E               [12] 1351 	inc	r6
-      001422                       1352 00136$:
-                                   1353 ;	../lib/linefi_packet.c:115: *pu8Buf++ = *apu8RxBuf++;
-      001422 AA 62            [24] 1354 	mov	r2,_cp_buf2linefipacket_PARM_2
-      001424 AB 63            [24] 1355 	mov	r3,(_cp_buf2linefipacket_PARM_2 + 1)
-      001426 AC 64            [24] 1356 	mov	r4,(_cp_buf2linefipacket_PARM_2 + 2)
-      001428 8A 82            [24] 1357 	mov	dpl,r2
-      00142A 8B 83            [24] 1358 	mov	dph,r3
-      00142C 8C F0            [24] 1359 	mov	b,r4
-      00142E 12 1F F4         [24] 1360 	lcall	__gptrget
-      001431 F9               [12] 1361 	mov	r1,a
-      001432 74 01            [12] 1362 	mov	a,#0x01
-      001434 2A               [12] 1363 	add	a,r2
-      001435 F5 62            [12] 1364 	mov	_cp_buf2linefipacket_PARM_2,a
-      001437 E4               [12] 1365 	clr	a
-      001438 3B               [12] 1366 	addc	a,r3
-      001439 F5 63            [12] 1367 	mov	(_cp_buf2linefipacket_PARM_2 + 1),a
-      00143B 8C 64            [24] 1368 	mov	(_cp_buf2linefipacket_PARM_2 + 2),r4
-      00143D 8D 82            [24] 1369 	mov	dpl,r5
-      00143F 8E 83            [24] 1370 	mov	dph,r6
-      001441 8F F0            [24] 1371 	mov	b,r7
-      001443 E9               [12] 1372 	mov	a,r1
-      001444 12 1F D9         [24] 1373 	lcall	__gptrput
-      001447 0D               [12] 1374 	inc	r5
-      001448 BD 00 01         [24] 1375 	cjne	r5,#0x00,00137$
-      00144B 0E               [12] 1376 	inc	r6
-      00144C                       1377 00137$:
-                                   1378 ;	../lib/linefi_packet.c:116: *pu8Buf++ = *apu8RxBuf++;
-      00144C AA 62            [24] 1379 	mov	r2,_cp_buf2linefipacket_PARM_2
-      00144E AB 63            [24] 1380 	mov	r3,(_cp_buf2linefipacket_PARM_2 + 1)
-      001450 AC 64            [24] 1381 	mov	r4,(_cp_buf2linefipacket_PARM_2 + 2)
-      001452 8A 82            [24] 1382 	mov	dpl,r2
-      001454 8B 83            [24] 1383 	mov	dph,r3
-      001456 8C F0            [24] 1384 	mov	b,r4
-      001458 12 1F F4         [24] 1385 	lcall	__gptrget
-      00145B F9               [12] 1386 	mov	r1,a
-      00145C 74 01            [12] 1387 	mov	a,#0x01
-      00145E 2A               [12] 1388 	add	a,r2
-      00145F F5 62            [12] 1389 	mov	_cp_buf2linefipacket_PARM_2,a
-      001461 E4               [12] 1390 	clr	a
-      001462 3B               [12] 1391 	addc	a,r3
-      001463 F5 63            [12] 1392 	mov	(_cp_buf2linefipacket_PARM_2 + 1),a
-      001465 8C 64            [24] 1393 	mov	(_cp_buf2linefipacket_PARM_2 + 2),r4
-      001467 8D 82            [24] 1394 	mov	dpl,r5
-      001469 8E 83            [24] 1395 	mov	dph,r6
-      00146B 8F F0            [24] 1396 	mov	b,r7
-      00146D E9               [12] 1397 	mov	a,r1
-      00146E 12 1F D9         [24] 1398 	lcall	__gptrput
-                                   1399 ;	../lib/linefi_packet.c:118: for (i=0;i<apstLineFiPkt->u8Size;i++) {
-      001471 AD 65            [24] 1400 	mov	r5,_cp_buf2linefipacket_PARM_3
-      001473 AE 66            [24] 1401 	mov	r6,(_cp_buf2linefipacket_PARM_3 + 1)
-      001475 AF 67            [24] 1402 	mov	r7,(_cp_buf2linefipacket_PARM_3 + 2)
-      001477 74 03            [12] 1403 	mov	a,#0x03
-      001479 2D               [12] 1404 	add	a,r5
-      00147A FA               [12] 1405 	mov	r2,a
-      00147B E4               [12] 1406 	clr	a
-      00147C 3E               [12] 1407 	addc	a,r6
-      00147D FB               [12] 1408 	mov	r3,a
-      00147E 8F 04            [24] 1409 	mov	ar4,r7
-      001480 85 62 69         [24] 1410 	mov	_cp_buf2linefipacket_sloc0_1_0,_cp_buf2linefipacket_PARM_2
-      001483 85 63 6A         [24] 1411 	mov	(_cp_buf2linefipacket_sloc0_1_0 + 1),(_cp_buf2linefipacket_PARM_2 + 1)
-      001486 85 64 6B         [24] 1412 	mov	(_cp_buf2linefipacket_sloc0_1_0 + 2),(_cp_buf2linefipacket_PARM_2 + 2)
-      001489 75 68 00         [24] 1413 	mov	_cp_buf2linefipacket_i_65538_61,#0x00
-      00148C                       1414 00107$:
-      00148C 8A 82            [24] 1415 	mov	dpl,r2
-      00148E 8B 83            [24] 1416 	mov	dph,r3
-      001490 8C F0            [24] 1417 	mov	b,r4
-      001492 12 1F F4         [24] 1418 	lcall	__gptrget
-      001495 F8               [12] 1419 	mov	r0,a
-      001496 C3               [12] 1420 	clr	c
-      001497 E5 68            [12] 1421 	mov	a,_cp_buf2linefipacket_i_65538_61
-      001499 98               [12] 1422 	subb	a,r0
-      00149A 50 52            [24] 1423 	jnc	00103$
-                                   1424 ;	../lib/linefi_packet.c:119: apstLineFiPkt->pu8Data[i] = *apu8RxBuf++;
-      00149C C0 02            [24] 1425 	push	ar2
-      00149E C0 03            [24] 1426 	push	ar3
-      0014A0 C0 04            [24] 1427 	push	ar4
-      0014A2 74 05            [12] 1428 	mov	a,#0x05
-      0014A4 2D               [12] 1429 	add	a,r5
-      0014A5 F8               [12] 1430 	mov	r0,a
-      0014A6 E4               [12] 1431 	clr	a
-      0014A7 3E               [12] 1432 	addc	a,r6
-      0014A8 F9               [12] 1433 	mov	r1,a
-      0014A9 8F 04            [24] 1434 	mov	ar4,r7
-      0014AB 88 82            [24] 1435 	mov	dpl,r0
-      0014AD 89 83            [24] 1436 	mov	dph,r1
-      0014AF 8C F0            [24] 1437 	mov	b,r4
-      0014B1 12 1F F4         [24] 1438 	lcall	__gptrget
-      0014B4 F8               [12] 1439 	mov	r0,a
-      0014B5 A3               [24] 1440 	inc	dptr
-      0014B6 12 1F F4         [24] 1441 	lcall	__gptrget
-      0014B9 F9               [12] 1442 	mov	r1,a
-      0014BA A3               [24] 1443 	inc	dptr
-      0014BB 12 1F F4         [24] 1444 	lcall	__gptrget
-      0014BE FC               [12] 1445 	mov	r4,a
-      0014BF E5 68            [12] 1446 	mov	a,_cp_buf2linefipacket_i_65538_61
-      0014C1 28               [12] 1447 	add	a,r0
-      0014C2 F8               [12] 1448 	mov	r0,a
-      0014C3 E4               [12] 1449 	clr	a
-      0014C4 39               [12] 1450 	addc	a,r1
-      0014C5 F9               [12] 1451 	mov	r1,a
-      0014C6 85 69 82         [24] 1452 	mov	dpl,_cp_buf2linefipacket_sloc0_1_0
-      0014C9 85 6A 83         [24] 1453 	mov	dph,(_cp_buf2linefipacket_sloc0_1_0 + 1)
-      0014CC 85 6B F0         [24] 1454 	mov	b,(_cp_buf2linefipacket_sloc0_1_0 + 2)
-      0014CF 12 1F F4         [24] 1455 	lcall	__gptrget
-      0014D2 FB               [12] 1456 	mov	r3,a
-      0014D3 A3               [24] 1457 	inc	dptr
-      0014D4 85 82 69         [24] 1458 	mov	_cp_buf2linefipacket_sloc0_1_0,dpl
-      0014D7 85 83 6A         [24] 1459 	mov	(_cp_buf2linefipacket_sloc0_1_0 + 1),dph
-      0014DA 88 82            [24] 1460 	mov	dpl,r0
-      0014DC 89 83            [24] 1461 	mov	dph,r1
-      0014DE 8C F0            [24] 1462 	mov	b,r4
-      0014E0 EB               [12] 1463 	mov	a,r3
-      0014E1 12 1F D9         [24] 1464 	lcall	__gptrput
-                                   1465 ;	../lib/linefi_packet.c:118: for (i=0;i<apstLineFiPkt->u8Size;i++) {
-      0014E4 05 68            [12] 1466 	inc	_cp_buf2linefipacket_i_65538_61
-      0014E6 D0 04            [24] 1467 	pop	ar4
-      0014E8 D0 03            [24] 1468 	pop	ar3
-      0014EA D0 02            [24] 1469 	pop	ar2
-      0014EC 80 9E            [24] 1470 	sjmp	00107$
-      0014EE                       1471 00103$:
-                                   1472 ;	../lib/linefi_packet.c:122: if (chk_crc_linefi_packet_packet(apstLineFiPkt) == CRC_NOT_OK) {
-      0014EE 8D 82            [24] 1473 	mov	dpl,r5
-      0014F0 8E 83            [24] 1474 	mov	dph,r6
-      0014F2 8F F0            [24] 1475 	mov	b,r7
-      0014F4 12 12 28         [24] 1476 	lcall	_chk_crc_linefi_packet_packet
-      0014F7 E5 82            [12] 1477 	mov	a,dpl
-      0014F9 70 04            [24] 1478 	jnz	00105$
-                                   1479 ;	../lib/linefi_packet.c:123: return CONV_ERR_CRC;
-      0014FB 75 82 04         [24] 1480 	mov	dpl,#0x04
-      0014FE 22               [24] 1481 	ret
-      0014FF                       1482 00105$:
-                                   1483 ;	../lib/linefi_packet.c:125: return CONV_OK;
-      0014FF 75 82 02         [24] 1484 	mov	dpl,#0x02
-                                   1485 ;	../lib/linefi_packet.c:126: }
-      001502 22               [24] 1486 	ret
-                                   1487 ;------------------------------------------------------------
-                                   1488 ;Allocation info for local variables in function 'print_linefipacket'
-                                   1489 ;------------------------------------------------------------
-                                   1490 ;apstLineFiPkt             Allocated to registers r5 r6 r7 
-                                   1491 ;i                         Allocated with name '_print_linefipacket_i_65537_67'
-                                   1492 ;------------------------------------------------------------
-                                   1493 ;	../lib/linefi_packet.c:128: void print_linefipacket(linefi_packet_t * apstLineFiPkt)
-                                   1494 ;	-----------------------------------------
-                                   1495 ;	 function print_linefipacket
-                                   1496 ;	-----------------------------------------
-      001503                       1497 _print_linefipacket:
-      001503 AD 82            [24] 1498 	mov	r5,dpl
-      001505 AE 83            [24] 1499 	mov	r6,dph
-      001507 AF F0            [24] 1500 	mov	r7,b
-                                   1501 ;	../lib/linefi_packet.c:130: printf_fast_f("-------------------------------\r\n");
-      001509 C0 07            [24] 1502 	push	ar7
-      00150B C0 06            [24] 1503 	push	ar6
-      00150D C0 05            [24] 1504 	push	ar5
-      00150F 74 AF            [12] 1505 	mov	a,#___str_0
-      001511 C0 E0            [24] 1506 	push	acc
-      001513 74 22            [12] 1507 	mov	a,#(___str_0 >> 8)
-      001515 C0 E0            [24] 1508 	push	acc
-      001517 12 1A B0         [24] 1509 	lcall	_printf_fast_f
-      00151A 15 81            [12] 1510 	dec	sp
-      00151C 15 81            [12] 1511 	dec	sp
-      00151E D0 05            [24] 1512 	pop	ar5
-      001520 D0 06            [24] 1513 	pop	ar6
-      001522 D0 07            [24] 1514 	pop	ar7
-                                   1515 ;	../lib/linefi_packet.c:131: printf_fast_f("Ver : %d\r\n", apstLineFiPkt->u8Ver);
-      001524 8D 82            [24] 1516 	mov	dpl,r5
-      001526 8E 83            [24] 1517 	mov	dph,r6
-      001528 8F F0            [24] 1518 	mov	b,r7
-      00152A 12 1F F4         [24] 1519 	lcall	__gptrget
-      00152D FC               [12] 1520 	mov	r4,a
-      00152E 7B 00            [12] 1521 	mov	r3,#0x00
-      001530 C0 07            [24] 1522 	push	ar7
-      001532 C0 06            [24] 1523 	push	ar6
-      001534 C0 05            [24] 1524 	push	ar5
-      001536 C0 04            [24] 1525 	push	ar4
-      001538 C0 03            [24] 1526 	push	ar3
-      00153A 74 D1            [12] 1527 	mov	a,#___str_1
-      00153C C0 E0            [24] 1528 	push	acc
-      00153E 74 22            [12] 1529 	mov	a,#(___str_1 >> 8)
-      001540 C0 E0            [24] 1530 	push	acc
-      001542 12 1A B0         [24] 1531 	lcall	_printf_fast_f
-      001545 E5 81            [12] 1532 	mov	a,sp
-      001547 24 FC            [12] 1533 	add	a,#0xfc
-      001549 F5 81            [12] 1534 	mov	sp,a
-      00154B D0 05            [24] 1535 	pop	ar5
-      00154D D0 06            [24] 1536 	pop	ar6
-      00154F D0 07            [24] 1537 	pop	ar7
-                                   1538 ;	../lib/linefi_packet.c:132: printf_fast_f("Type: %d(%s)\r\n", apstLineFiPkt->u8Type, gpcTypeStr[apstLineFiPkt->u8Type]);
-      001551 74 01            [12] 1539 	mov	a,#0x01
-      001553 2D               [12] 1540 	add	a,r5
-      001554 FA               [12] 1541 	mov	r2,a
-      001555 E4               [12] 1542 	clr	a
-      001556 3E               [12] 1543 	addc	a,r6
-      001557 FB               [12] 1544 	mov	r3,a
-      001558 8F 04            [24] 1545 	mov	ar4,r7
-      00155A 8A 82            [24] 1546 	mov	dpl,r2
-      00155C 8B 83            [24] 1547 	mov	dph,r3
-      00155E 8C F0            [24] 1548 	mov	b,r4
-      001560 12 1F F4         [24] 1549 	lcall	__gptrget
-      001563 FA               [12] 1550 	mov	r2,a
-      001564 75 F0 03         [24] 1551 	mov	b,#0x03
-      001567 A4               [48] 1552 	mul	ab
-      001568 24 4E            [12] 1553 	add	a,#_gpcTypeStr
-      00156A F5 82            [12] 1554 	mov	dpl,a
-      00156C 74 00            [12] 1555 	mov	a,#(_gpcTypeStr >> 8)
-      00156E 35 F0            [12] 1556 	addc	a,b
-      001570 F5 83            [12] 1557 	mov	dph,a
-      001572 E0               [24] 1558 	movx	a,@dptr
-      001573 F9               [12] 1559 	mov	r1,a
-      001574 A3               [24] 1560 	inc	dptr
-      001575 E0               [24] 1561 	movx	a,@dptr
-      001576 FB               [12] 1562 	mov	r3,a
-      001577 A3               [24] 1563 	inc	dptr
-      001578 E0               [24] 1564 	movx	a,@dptr
-      001579 FC               [12] 1565 	mov	r4,a
-      00157A 8A 00            [24] 1566 	mov	ar0,r2
-      00157C 7A 00            [12] 1567 	mov	r2,#0x00
-      00157E C0 07            [24] 1568 	push	ar7
-      001580 C0 06            [24] 1569 	push	ar6
-      001582 C0 05            [24] 1570 	push	ar5
-      001584 C0 01            [24] 1571 	push	ar1
-      001586 C0 03            [24] 1572 	push	ar3
-      001588 C0 04            [24] 1573 	push	ar4
-      00158A C0 00            [24] 1574 	push	ar0
-      00158C C0 02            [24] 1575 	push	ar2
-      00158E 74 DC            [12] 1576 	mov	a,#___str_2
-      001590 C0 E0            [24] 1577 	push	acc
-      001592 74 22            [12] 1578 	mov	a,#(___str_2 >> 8)
-      001594 C0 E0            [24] 1579 	push	acc
-      001596 12 1A B0         [24] 1580 	lcall	_printf_fast_f
-      001599 E5 81            [12] 1581 	mov	a,sp
-      00159B 24 F9            [12] 1582 	add	a,#0xf9
-      00159D F5 81            [12] 1583 	mov	sp,a
-      00159F D0 05            [24] 1584 	pop	ar5
-      0015A1 D0 06            [24] 1585 	pop	ar6
-      0015A3 D0 07            [24] 1586 	pop	ar7
-                                   1587 ;	../lib/linefi_packet.c:135: printf_fast_f("Addr: %d\r\n", apstLineFiPkt->u8Addr);
-      0015A5 74 02            [12] 1588 	mov	a,#0x02
-      0015A7 2D               [12] 1589 	add	a,r5
-      0015A8 FA               [12] 1590 	mov	r2,a
-      0015A9 E4               [12] 1591 	clr	a
-      0015AA 3E               [12] 1592 	addc	a,r6
-      0015AB FB               [12] 1593 	mov	r3,a
-      0015AC 8F 04            [24] 1594 	mov	ar4,r7
-      0015AE 8A 82            [24] 1595 	mov	dpl,r2
-      0015B0 8B 83            [24] 1596 	mov	dph,r3
-      0015B2 8C F0            [24] 1597 	mov	b,r4
-      0015B4 12 1F F4         [24] 1598 	lcall	__gptrget
-      0015B7 FA               [12] 1599 	mov	r2,a
-      0015B8 7C 00            [12] 1600 	mov	r4,#0x00
-      0015BA C0 07            [24] 1601 	push	ar7
-      0015BC C0 06            [24] 1602 	push	ar6
-      0015BE C0 05            [24] 1603 	push	ar5
-      0015C0 C0 02            [24] 1604 	push	ar2
-      0015C2 C0 04            [24] 1605 	push	ar4
-      0015C4 74 EB            [12] 1606 	mov	a,#___str_3
-      0015C6 C0 E0            [24] 1607 	push	acc
-      0015C8 74 22            [12] 1608 	mov	a,#(___str_3 >> 8)
-      0015CA C0 E0            [24] 1609 	push	acc
-      0015CC 12 1A B0         [24] 1610 	lcall	_printf_fast_f
-      0015CF E5 81            [12] 1611 	mov	a,sp
-      0015D1 24 FC            [12] 1612 	add	a,#0xfc
-      0015D3 F5 81            [12] 1613 	mov	sp,a
-      0015D5 D0 05            [24] 1614 	pop	ar5
-      0015D7 D0 06            [24] 1615 	pop	ar6
-      0015D9 D0 07            [24] 1616 	pop	ar7
-                                   1617 ;	../lib/linefi_packet.c:136: printf_fast_f("Size: %d\r\n", apstLineFiPkt->u8Size);
-      0015DB 74 03            [12] 1618 	mov	a,#0x03
-      0015DD 2D               [12] 1619 	add	a,r5
-      0015DE FA               [12] 1620 	mov	r2,a
-      0015DF E4               [12] 1621 	clr	a
-      0015E0 3E               [12] 1622 	addc	a,r6
-      0015E1 FB               [12] 1623 	mov	r3,a
-      0015E2 8F 04            [24] 1624 	mov	ar4,r7
-      0015E4 8A 82            [24] 1625 	mov	dpl,r2
-      0015E6 8B 83            [24] 1626 	mov	dph,r3
-      0015E8 8C F0            [24] 1627 	mov	b,r4
-      0015EA 12 1F F4         [24] 1628 	lcall	__gptrget
-      0015ED FA               [12] 1629 	mov	r2,a
-      0015EE 7C 00            [12] 1630 	mov	r4,#0x00
-      0015F0 C0 07            [24] 1631 	push	ar7
-      0015F2 C0 06            [24] 1632 	push	ar6
-      0015F4 C0 05            [24] 1633 	push	ar5
-      0015F6 C0 02            [24] 1634 	push	ar2
-      0015F8 C0 04            [24] 1635 	push	ar4
-      0015FA 74 F6            [12] 1636 	mov	a,#___str_4
-      0015FC C0 E0            [24] 1637 	push	acc
-      0015FE 74 22            [12] 1638 	mov	a,#(___str_4 >> 8)
-      001600 C0 E0            [24] 1639 	push	acc
-      001602 12 1A B0         [24] 1640 	lcall	_printf_fast_f
-      001605 E5 81            [12] 1641 	mov	a,sp
-      001607 24 FC            [12] 1642 	add	a,#0xfc
-      001609 F5 81            [12] 1643 	mov	sp,a
-      00160B D0 05            [24] 1644 	pop	ar5
-      00160D D0 06            [24] 1645 	pop	ar6
-      00160F D0 07            [24] 1646 	pop	ar7
-                                   1647 ;	../lib/linefi_packet.c:137: printf_fast_f("CRC comp : %d %d\r\n", apstLineFiPkt->u8CRC, calc_crc_linefi_packet_packet(apstLineFiPkt));
-      001611 8D 82            [24] 1648 	mov	dpl,r5
-      001613 8E 83            [24] 1649 	mov	dph,r6
-      001615 8F F0            [24] 1650 	mov	b,r7
-      001617 C0 07            [24] 1651 	push	ar7
-      001619 C0 06            [24] 1652 	push	ar6
-      00161B C0 05            [24] 1653 	push	ar5
-      00161D 12 11 9E         [24] 1654 	lcall	_calc_crc_linefi_packet_packet
-      001620 AC 82            [24] 1655 	mov	r4,dpl
-      001622 D0 05            [24] 1656 	pop	ar5
-      001624 D0 06            [24] 1657 	pop	ar6
-      001626 D0 07            [24] 1658 	pop	ar7
-      001628 7B 00            [12] 1659 	mov	r3,#0x00
-      00162A 74 04            [12] 1660 	mov	a,#0x04
-      00162C 2D               [12] 1661 	add	a,r5
-      00162D F8               [12] 1662 	mov	r0,a
-      00162E E4               [12] 1663 	clr	a
-      00162F 3E               [12] 1664 	addc	a,r6
-      001630 F9               [12] 1665 	mov	r1,a
-      001631 8F 02            [24] 1666 	mov	ar2,r7
-      001633 88 82            [24] 1667 	mov	dpl,r0
-      001635 89 83            [24] 1668 	mov	dph,r1
-      001637 8A F0            [24] 1669 	mov	b,r2
-      001639 12 1F F4         [24] 1670 	lcall	__gptrget
-      00163C F8               [12] 1671 	mov	r0,a
-      00163D 7A 00            [12] 1672 	mov	r2,#0x00
-      00163F C0 07            [24] 1673 	push	ar7
-      001641 C0 06            [24] 1674 	push	ar6
-      001643 C0 05            [24] 1675 	push	ar5
-      001645 C0 04            [24] 1676 	push	ar4
-      001647 C0 03            [24] 1677 	push	ar3
-      001649 C0 00            [24] 1678 	push	ar0
-      00164B C0 02            [24] 1679 	push	ar2
-      00164D 74 01            [12] 1680 	mov	a,#___str_5
-      00164F C0 E0            [24] 1681 	push	acc
-      001651 74 23            [12] 1682 	mov	a,#(___str_5 >> 8)
-      001653 C0 E0            [24] 1683 	push	acc
-      001655 12 1A B0         [24] 1684 	lcall	_printf_fast_f
-      001658 E5 81            [12] 1685 	mov	a,sp
-      00165A 24 FA            [12] 1686 	add	a,#0xfa
-      00165C F5 81            [12] 1687 	mov	sp,a
-                                   1688 ;	../lib/linefi_packet.c:138: printf_fast_f("DATA: ");
-      00165E 74 14            [12] 1689 	mov	a,#___str_6
-      001660 C0 E0            [24] 1690 	push	acc
-      001662 74 23            [12] 1691 	mov	a,#(___str_6 >> 8)
-      001664 C0 E0            [24] 1692 	push	acc
-      001666 12 1A B0         [24] 1693 	lcall	_printf_fast_f
-      001669 15 81            [12] 1694 	dec	sp
-      00166B 15 81            [12] 1695 	dec	sp
-      00166D D0 05            [24] 1696 	pop	ar5
-      00166F D0 06            [24] 1697 	pop	ar6
-      001671 D0 07            [24] 1698 	pop	ar7
-                                   1699 ;	../lib/linefi_packet.c:140: for (i=0;i<apstLineFiPkt->u8Size;i++) {
-      001673 74 05            [12] 1700 	mov	a,#0x05
-      001675 2D               [12] 1701 	add	a,r5
-      001676 FA               [12] 1702 	mov	r2,a
-      001677 E4               [12] 1703 	clr	a
-      001678 3E               [12] 1704 	addc	a,r6
-      001679 FB               [12] 1705 	mov	r3,a
-      00167A 8F 04            [24] 1706 	mov	ar4,r7
-      00167C 74 03            [12] 1707 	mov	a,#0x03
-      00167E 2D               [12] 1708 	add	a,r5
-      00167F FD               [12] 1709 	mov	r5,a
-      001680 E4               [12] 1710 	clr	a
-      001681 3E               [12] 1711 	addc	a,r6
-      001682 FE               [12] 1712 	mov	r6,a
-      001683 75 6C 00         [24] 1713 	mov	_print_linefipacket_i_65537_67,#0x00
-      001686                       1714 00103$:
-      001686 8D 82            [24] 1715 	mov	dpl,r5
-      001688 8E 83            [24] 1716 	mov	dph,r6
-      00168A 8F F0            [24] 1717 	mov	b,r7
-      00168C 12 1F F4         [24] 1718 	lcall	__gptrget
-      00168F F8               [12] 1719 	mov	r0,a
-      001690 C3               [12] 1720 	clr	c
-      001691 E5 6C            [12] 1721 	mov	a,_print_linefipacket_i_65537_67
-      001693 98               [12] 1722 	subb	a,r0
-      001694 50 64            [24] 1723 	jnc	00101$
-                                   1724 ;	../lib/linefi_packet.c:141: printf_fast_f("0x%x ", apstLineFiPkt->pu8Data[i]);
-      001696 C0 05            [24] 1725 	push	ar5
-      001698 C0 06            [24] 1726 	push	ar6
-      00169A C0 07            [24] 1727 	push	ar7
-      00169C 8A 82            [24] 1728 	mov	dpl,r2
-      00169E 8B 83            [24] 1729 	mov	dph,r3
-      0016A0 8C F0            [24] 1730 	mov	b,r4
-      0016A2 12 1F F4         [24] 1731 	lcall	__gptrget
-      0016A5 F8               [12] 1732 	mov	r0,a
-      0016A6 A3               [24] 1733 	inc	dptr
-      0016A7 12 1F F4         [24] 1734 	lcall	__gptrget
-      0016AA F9               [12] 1735 	mov	r1,a
-      0016AB A3               [24] 1736 	inc	dptr
-      0016AC 12 1F F4         [24] 1737 	lcall	__gptrget
-      0016AF FF               [12] 1738 	mov	r7,a
-      0016B0 E5 6C            [12] 1739 	mov	a,_print_linefipacket_i_65537_67
-      0016B2 28               [12] 1740 	add	a,r0
-      0016B3 F8               [12] 1741 	mov	r0,a
-      0016B4 E4               [12] 1742 	clr	a
-      0016B5 39               [12] 1743 	addc	a,r1
-      0016B6 F9               [12] 1744 	mov	r1,a
-      0016B7 88 82            [24] 1745 	mov	dpl,r0
-      0016B9 89 83            [24] 1746 	mov	dph,r1
-      0016BB 8F F0            [24] 1747 	mov	b,r7
-      0016BD 12 1F F4         [24] 1748 	lcall	__gptrget
-      0016C0 F8               [12] 1749 	mov	r0,a
-      0016C1 7F 00            [12] 1750 	mov	r7,#0x00
-      0016C3 C0 07            [24] 1751 	push	ar7
-      0016C5 C0 06            [24] 1752 	push	ar6
-      0016C7 C0 05            [24] 1753 	push	ar5
-      0016C9 C0 04            [24] 1754 	push	ar4
-      0016CB C0 03            [24] 1755 	push	ar3
-      0016CD C0 02            [24] 1756 	push	ar2
-      0016CF C0 00            [24] 1757 	push	ar0
-      0016D1 C0 07            [24] 1758 	push	ar7
-      0016D3 74 1B            [12] 1759 	mov	a,#___str_7
-      0016D5 C0 E0            [24] 1760 	push	acc
-      0016D7 74 23            [12] 1761 	mov	a,#(___str_7 >> 8)
-      0016D9 C0 E0            [24] 1762 	push	acc
-      0016DB 12 1A B0         [24] 1763 	lcall	_printf_fast_f
-      0016DE E5 81            [12] 1764 	mov	a,sp
-      0016E0 24 FC            [12] 1765 	add	a,#0xfc
-      0016E2 F5 81            [12] 1766 	mov	sp,a
-      0016E4 D0 02            [24] 1767 	pop	ar2
-      0016E6 D0 03            [24] 1768 	pop	ar3
-      0016E8 D0 04            [24] 1769 	pop	ar4
-      0016EA D0 05            [24] 1770 	pop	ar5
-      0016EC D0 06            [24] 1771 	pop	ar6
-      0016EE D0 07            [24] 1772 	pop	ar7
-                                   1773 ;	../lib/linefi_packet.c:140: for (i=0;i<apstLineFiPkt->u8Size;i++) {
-      0016F0 05 6C            [12] 1774 	inc	_print_linefipacket_i_65537_67
-      0016F2 D0 07            [24] 1775 	pop	ar7
-      0016F4 D0 06            [24] 1776 	pop	ar6
-      0016F6 D0 05            [24] 1777 	pop	ar5
-      0016F8 80 8C            [24] 1778 	sjmp	00103$
-      0016FA                       1779 00101$:
-                                   1780 ;	../lib/linefi_packet.c:143: printf_fast_f("\r\n");
-      0016FA 74 21            [12] 1781 	mov	a,#___str_8
-      0016FC C0 E0            [24] 1782 	push	acc
-      0016FE 74 23            [12] 1783 	mov	a,#(___str_8 >> 8)
-      001700 C0 E0            [24] 1784 	push	acc
-      001702 12 1A B0         [24] 1785 	lcall	_printf_fast_f
-      001705 15 81            [12] 1786 	dec	sp
-      001707 15 81            [12] 1787 	dec	sp
-                                   1788 ;	../lib/linefi_packet.c:144: printf_fast_f("-------------------------------\r\n");
-      001709 74 AF            [12] 1789 	mov	a,#___str_0
-      00170B C0 E0            [24] 1790 	push	acc
-      00170D 74 22            [12] 1791 	mov	a,#(___str_0 >> 8)
-      00170F C0 E0            [24] 1792 	push	acc
-      001711 12 1A B0         [24] 1793 	lcall	_printf_fast_f
-      001714 15 81            [12] 1794 	dec	sp
-      001716 15 81            [12] 1795 	dec	sp
-                                   1796 ;	../lib/linefi_packet.c:145: }
-      001718 22               [24] 1797 	ret
-                                   1798 ;------------------------------------------------------------
-                                   1799 ;Allocation info for local variables in function 'crc8'
-                                   1800 ;------------------------------------------------------------
-                                   1801 ;num_bytes                 Allocated with name '_crc8_PARM_2'
-                                   1802 ;au8CRC                    Allocated with name '_crc8_PARM_3'
-                                   1803 ;input_str                 Allocated to registers r5 r6 r7 
-                                   1804 ;a                         Allocated to registers r3 
-                                   1805 ;crc                       Allocated to registers r4 
-                                   1806 ;ptr                       Allocated to registers r5 r6 r7 
-                                   1807 ;------------------------------------------------------------
-                                   1808 ;	../lib/linefi_packet.c:166: uint8 crc8( uint8 *input_str, uint8 num_bytes, uint8 au8CRC) 
-                                   1809 ;	-----------------------------------------
-                                   1810 ;	 function crc8
-                                   1811 ;	-----------------------------------------
-      001719                       1812 _crc8:
-      001719 AD 82            [24] 1813 	mov	r5,dpl
-      00171B AE 83            [24] 1814 	mov	r6,dph
-      00171D AF F0            [24] 1815 	mov	r7,b
-                                   1816 ;	../lib/linefi_packet.c:172: crc = au8CRC;
-      00171F AC 19            [24] 1817 	mov	r4,_crc8_PARM_3
-                                   1818 ;	../lib/linefi_packet.c:175: if ( ptr != NULL )
-      001721 ED               [12] 1819 	mov	a,r5
-      001722 4E               [12] 1820 	orl	a,r6
-      001723 60 21            [24] 1821 	jz	00103$
-                                   1822 ;	../lib/linefi_packet.c:176: for (a=0; a<num_bytes; a++) {
-      001725 7B 00            [12] 1823 	mov	r3,#0x00
-      001727                       1824 00105$:
-      001727 C3               [12] 1825 	clr	c
-      001728 EB               [12] 1826 	mov	a,r3
-      001729 95 18            [12] 1827 	subb	a,_crc8_PARM_2
-      00172B 50 19            [24] 1828 	jnc	00103$
-                                   1829 ;	../lib/linefi_packet.c:178: crc = sht75_crc_table[(*ptr++) ^ crc];
-      00172D 8D 82            [24] 1830 	mov	dpl,r5
-      00172F 8E 83            [24] 1831 	mov	dph,r6
-      001731 8F F0            [24] 1832 	mov	b,r7
-      001733 12 1F F4         [24] 1833 	lcall	__gptrget
-      001736 FA               [12] 1834 	mov	r2,a
-      001737 A3               [24] 1835 	inc	dptr
-      001738 AD 82            [24] 1836 	mov	r5,dpl
-      00173A AE 83            [24] 1837 	mov	r6,dph
-      00173C EC               [12] 1838 	mov	a,r4
-      00173D 6A               [12] 1839 	xrl	a,r2
-      00173E 90 18 55         [24] 1840 	mov	dptr,#_sht75_crc_table
-      001741 93               [24] 1841 	movc	a,@a+dptr
-      001742 FC               [12] 1842 	mov	r4,a
-                                   1843 ;	../lib/linefi_packet.c:176: for (a=0; a<num_bytes; a++) {
-      001743 0B               [12] 1844 	inc	r3
-      001744 80 E1            [24] 1845 	sjmp	00105$
-      001746                       1846 00103$:
-                                   1847 ;	../lib/linefi_packet.c:181: return crc;
-      001746 8C 82            [24] 1848 	mov	dpl,r4
-                                   1849 ;	../lib/linefi_packet.c:182: }  /* crc_8 */
-      001748 22               [24] 1850 	ret
-                                   1851 ;------------------------------------------------------------
-                                   1852 ;Allocation info for local variables in function 'print_raw_packet'
-                                   1853 ;------------------------------------------------------------
-                                   1854 ;apu8Data                  Allocated with name '_print_raw_packet_PARM_2'
-                                   1855 ;au8Size                   Allocated to registers r7 
-                                   1856 ;i                         Allocated to registers r6 
-                                   1857 ;------------------------------------------------------------
-                                   1858 ;	../lib/linefi_packet.c:184: void print_raw_packet(uint8 au8Size, uint8 * apu8Data)
-                                   1859 ;	-----------------------------------------
-                                   1860 ;	 function print_raw_packet
-                                   1861 ;	-----------------------------------------
-      001749                       1862 _print_raw_packet:
-      001749 AF 82            [24] 1863 	mov	r7,dpl
-                                   1864 ;	../lib/linefi_packet.c:187: printf_fast_f("#%d\r\n", gu16Cnt++);
-      00174B AD 5F            [24] 1865 	mov	r5,_gu16Cnt
-      00174D AE 60            [24] 1866 	mov	r6,(_gu16Cnt + 1)
-      00174F 05 5F            [12] 1867 	inc	_gu16Cnt
-      001751 E4               [12] 1868 	clr	a
-      001752 B5 5F 02         [24] 1869 	cjne	a,_gu16Cnt,00136$
-      001755 05 60            [12] 1870 	inc	(_gu16Cnt + 1)
-      001757                       1871 00136$:
-      001757 C0 07            [24] 1872 	push	ar7
-      001759 C0 05            [24] 1873 	push	ar5
-      00175B C0 06            [24] 1874 	push	ar6
-      00175D 74 24            [12] 1875 	mov	a,#___str_9
-      00175F C0 E0            [24] 1876 	push	acc
-      001761 74 23            [12] 1877 	mov	a,#(___str_9 >> 8)
-      001763 C0 E0            [24] 1878 	push	acc
-      001765 12 1A B0         [24] 1879 	lcall	_printf_fast_f
-      001768 E5 81            [12] 1880 	mov	a,sp
-      00176A 24 FC            [12] 1881 	add	a,#0xfc
-      00176C F5 81            [12] 1882 	mov	sp,a
-                                   1883 ;	../lib/linefi_packet.c:188: printf_fast_f("raw :  ");
-      00176E 74 2A            [12] 1884 	mov	a,#___str_10
-      001770 C0 E0            [24] 1885 	push	acc
-      001772 74 23            [12] 1886 	mov	a,#(___str_10 >> 8)
-      001774 C0 E0            [24] 1887 	push	acc
-      001776 12 1A B0         [24] 1888 	lcall	_printf_fast_f
-      001779 15 81            [12] 1889 	dec	sp
-      00177B 15 81            [12] 1890 	dec	sp
-      00177D D0 07            [24] 1891 	pop	ar7
-                                   1892 ;	../lib/linefi_packet.c:189: for (i=0;i<au8Size;i++) {
-      00177F 7E 00            [12] 1893 	mov	r6,#0x00
-      001781                       1894 00107$:
-      001781 C3               [12] 1895 	clr	c
-      001782 EE               [12] 1896 	mov	a,r6
-      001783 9F               [12] 1897 	subb	a,r7
-      001784 50 24            [24] 1898 	jnc	00101$
-                                   1899 ;	../lib/linefi_packet.c:190: printf_fast_f("%2d   ", i);
-      001786 8E 04            [24] 1900 	mov	ar4,r6
-      001788 7D 00            [12] 1901 	mov	r5,#0x00
-      00178A C0 07            [24] 1902 	push	ar7
-      00178C C0 06            [24] 1903 	push	ar6
-      00178E C0 04            [24] 1904 	push	ar4
-      001790 C0 05            [24] 1905 	push	ar5
-      001792 74 32            [12] 1906 	mov	a,#___str_11
-      001794 C0 E0            [24] 1907 	push	acc
-      001796 74 23            [12] 1908 	mov	a,#(___str_11 >> 8)
-      001798 C0 E0            [24] 1909 	push	acc
-      00179A 12 1A B0         [24] 1910 	lcall	_printf_fast_f
-      00179D E5 81            [12] 1911 	mov	a,sp
-      00179F 24 FC            [12] 1912 	add	a,#0xfc
-      0017A1 F5 81            [12] 1913 	mov	sp,a
-      0017A3 D0 06            [24] 1914 	pop	ar6
-      0017A5 D0 07            [24] 1915 	pop	ar7
-                                   1916 ;	../lib/linefi_packet.c:189: for (i=0;i<au8Size;i++) {
-      0017A7 0E               [12] 1917 	inc	r6
-      0017A8 80 D7            [24] 1918 	sjmp	00107$
-      0017AA                       1919 00101$:
-                                   1920 ;	../lib/linefi_packet.c:192: printf_fast_f("\r\n");
-      0017AA C0 07            [24] 1921 	push	ar7
-      0017AC 74 21            [12] 1922 	mov	a,#___str_8
-      0017AE C0 E0            [24] 1923 	push	acc
-      0017B0 74 23            [12] 1924 	mov	a,#(___str_8 >> 8)
-      0017B2 C0 E0            [24] 1925 	push	acc
-      0017B4 12 1A B0         [24] 1926 	lcall	_printf_fast_f
-      0017B7 15 81            [12] 1927 	dec	sp
-      0017B9 15 81            [12] 1928 	dec	sp
-                                   1929 ;	../lib/linefi_packet.c:193: printf_fast_f("data:");
-      0017BB 74 39            [12] 1930 	mov	a,#___str_12
-      0017BD C0 E0            [24] 1931 	push	acc
-      0017BF 74 23            [12] 1932 	mov	a,#(___str_12 >> 8)
-      0017C1 C0 E0            [24] 1933 	push	acc
-      0017C3 12 1A B0         [24] 1934 	lcall	_printf_fast_f
-      0017C6 15 81            [12] 1935 	dec	sp
-      0017C8 15 81            [12] 1936 	dec	sp
-      0017CA D0 07            [24] 1937 	pop	ar7
-                                   1938 ;	../lib/linefi_packet.c:194: for (i=0;i<au8Size;i++) {
-      0017CC 7E 00            [12] 1939 	mov	r6,#0x00
-      0017CE                       1940 00110$:
-      0017CE C3               [12] 1941 	clr	c
-      0017CF EE               [12] 1942 	mov	a,r6
-      0017D0 9F               [12] 1943 	subb	a,r7
-      0017D1 50 72            [24] 1944 	jnc	00105$
-                                   1945 ;	../lib/linefi_packet.c:195: if (*apu8Data < 0x10) {
-      0017D3 AB 6D            [24] 1946 	mov	r3,_print_raw_packet_PARM_2
-      0017D5 AC 6E            [24] 1947 	mov	r4,(_print_raw_packet_PARM_2 + 1)
-      0017D7 AD 6F            [24] 1948 	mov	r5,(_print_raw_packet_PARM_2 + 2)
-      0017D9 8B 82            [24] 1949 	mov	dpl,r3
-      0017DB 8C 83            [24] 1950 	mov	dph,r4
-      0017DD 8D F0            [24] 1951 	mov	b,r5
-      0017DF 12 1F F4         [24] 1952 	lcall	__gptrget
-      0017E2 FA               [12] 1953 	mov	r2,a
-      0017E3 BA 10 00         [24] 1954 	cjne	r2,#0x10,00139$
-      0017E6                       1955 00139$:
-      0017E6 50 30            [24] 1956 	jnc	00103$
-                                   1957 ;	../lib/linefi_packet.c:196: printf_fast_f("0x0%x ", *apu8Data++);
-      0017E8 8A 01            [24] 1958 	mov	ar1,r2
-      0017EA 74 01            [12] 1959 	mov	a,#0x01
-      0017EC 2B               [12] 1960 	add	a,r3
-      0017ED F5 6D            [12] 1961 	mov	_print_raw_packet_PARM_2,a
-      0017EF E4               [12] 1962 	clr	a
-      0017F0 3C               [12] 1963 	addc	a,r4
-      0017F1 F5 6E            [12] 1964 	mov	(_print_raw_packet_PARM_2 + 1),a
-      0017F3 8D 6F            [24] 1965 	mov	(_print_raw_packet_PARM_2 + 2),r5
-      0017F5 89 00            [24] 1966 	mov	ar0,r1
-      0017F7 79 00            [12] 1967 	mov	r1,#0x00
-      0017F9 C0 07            [24] 1968 	push	ar7
-      0017FB C0 06            [24] 1969 	push	ar6
-      0017FD C0 00            [24] 1970 	push	ar0
-      0017FF C0 01            [24] 1971 	push	ar1
-      001801 74 3F            [12] 1972 	mov	a,#___str_13
-      001803 C0 E0            [24] 1973 	push	acc
-      001805 74 23            [12] 1974 	mov	a,#(___str_13 >> 8)
-      001807 C0 E0            [24] 1975 	push	acc
-      001809 12 1A B0         [24] 1976 	lcall	_printf_fast_f
-      00180C E5 81            [12] 1977 	mov	a,sp
-      00180E 24 FC            [12] 1978 	add	a,#0xfc
-      001810 F5 81            [12] 1979 	mov	sp,a
-      001812 D0 06            [24] 1980 	pop	ar6
-      001814 D0 07            [24] 1981 	pop	ar7
-      001816 80 2A            [24] 1982 	sjmp	00111$
-      001818                       1983 00103$:
-                                   1984 ;	../lib/linefi_packet.c:199: printf_fast_f("0x%x ", *apu8Data++);
-      001818 74 01            [12] 1985 	mov	a,#0x01
-      00181A 2B               [12] 1986 	add	a,r3
-      00181B F5 6D            [12] 1987 	mov	_print_raw_packet_PARM_2,a
-      00181D E4               [12] 1988 	clr	a
-      00181E 3C               [12] 1989 	addc	a,r4
-      00181F F5 6E            [12] 1990 	mov	(_print_raw_packet_PARM_2 + 1),a
-      001821 8D 6F            [24] 1991 	mov	(_print_raw_packet_PARM_2 + 2),r5
-      001823 7D 00            [12] 1992 	mov	r5,#0x00
-      001825 C0 07            [24] 1993 	push	ar7
-      001827 C0 06            [24] 1994 	push	ar6
-      001829 C0 02            [24] 1995 	push	ar2
-      00182B C0 05            [24] 1996 	push	ar5
-      00182D 74 1B            [12] 1997 	mov	a,#___str_7
-      00182F C0 E0            [24] 1998 	push	acc
-      001831 74 23            [12] 1999 	mov	a,#(___str_7 >> 8)
-      001833 C0 E0            [24] 2000 	push	acc
-      001835 12 1A B0         [24] 2001 	lcall	_printf_fast_f
-      001838 E5 81            [12] 2002 	mov	a,sp
-      00183A 24 FC            [12] 2003 	add	a,#0xfc
-      00183C F5 81            [12] 2004 	mov	sp,a
-      00183E D0 06            [24] 2005 	pop	ar6
-      001840 D0 07            [24] 2006 	pop	ar7
-      001842                       2007 00111$:
-                                   2008 ;	../lib/linefi_packet.c:194: for (i=0;i<au8Size;i++) {
-      001842 0E               [12] 2009 	inc	r6
-      001843 80 89            [24] 2010 	sjmp	00110$
-      001845                       2011 00105$:
-                                   2012 ;	../lib/linefi_packet.c:202: printf_fast_f("\r\n");
-      001845 74 21            [12] 2013 	mov	a,#___str_8
-      001847 C0 E0            [24] 2014 	push	acc
-      001849 74 23            [12] 2015 	mov	a,#(___str_8 >> 8)
-      00184B C0 E0            [24] 2016 	push	acc
-      00184D 12 1A B0         [24] 2017 	lcall	_printf_fast_f
-      001850 15 81            [12] 2018 	dec	sp
-      001852 15 81            [12] 2019 	dec	sp
-                                   2020 ;	../lib/linefi_packet.c:203: }
-      001854 22               [24] 2021 	ret
-                                   2022 	.area CSEG    (CODE)
-                                   2023 	.area CONST   (CODE)
-                                   2024 	.area CONST   (CODE)
-      0022AF                       2025 ___str_0:
-      0022AF 2D 2D 2D 2D 2D 2D 2D  2026 	.ascii "-------------------------------"
+      00133A                       1074 _send_linefi_packet:
+                                   1075 ;	../lib/linefi_packet.c:90: uint8 u8CRC1 = calc_crc_linefi_packet_packet(apstLineFiPkt);
+      00133A AD 82            [24] 1076 	mov	r5,dpl
+      00133C AE 83            [24] 1077 	mov	r6,dph
+      00133E AF F0            [24] 1078 	mov	r7,b
+      001340 C0 07            [24] 1079 	push	ar7
+      001342 C0 06            [24] 1080 	push	ar6
+      001344 C0 05            [24] 1081 	push	ar5
+      001346 12 12 78         [24] 1082 	lcall	_calc_crc_linefi_packet_packet
+      001349 AC 82            [24] 1083 	mov	r4,dpl
+      00134B D0 05            [24] 1084 	pop	ar5
+      00134D D0 06            [24] 1085 	pop	ar6
+      00134F D0 07            [24] 1086 	pop	ar7
+                                   1087 ;	../lib/linefi_packet.c:91: apstLineFiPkt->u8CRC = u8CRC1;
+      001351 74 04            [12] 1088 	mov	a,#0x04
+      001353 2D               [12] 1089 	add	a,r5
+      001354 F9               [12] 1090 	mov	r1,a
+      001355 E4               [12] 1091 	clr	a
+      001356 3E               [12] 1092 	addc	a,r6
+      001357 FA               [12] 1093 	mov	r2,a
+      001358 8F 03            [24] 1094 	mov	ar3,r7
+      00135A 89 82            [24] 1095 	mov	dpl,r1
+      00135C 8A 83            [24] 1096 	mov	dph,r2
+      00135E 8B F0            [24] 1097 	mov	b,r3
+      001360 EC               [12] 1098 	mov	a,r4
+      001361 12 20 E0         [24] 1099 	lcall	__gptrput
+                                   1100 ;	../lib/linefi_packet.c:92: uint8 * pu8Buf = (uint8 *) apstLineFiPkt;
+      001364 8D 02            [24] 1101 	mov	ar2,r5
+      001366 8E 03            [24] 1102 	mov	ar3,r6
+      001368 8F 04            [24] 1103 	mov	ar4,r7
+                                   1104 ;	../lib/linefi_packet.c:93: send_octet_to_linefi(*pu8Buf++);
+      00136A 8A 82            [24] 1105 	mov	dpl,r2
+      00136C 8B 83            [24] 1106 	mov	dph,r3
+      00136E 8C F0            [24] 1107 	mov	b,r4
+      001370 12 20 FB         [24] 1108 	lcall	__gptrget
+      001373 F5 82            [12] 1109 	mov	dpl,a
+      001375 0A               [12] 1110 	inc	r2
+      001376 BA 00 01         [24] 1111 	cjne	r2,#0x00,00118$
+      001379 0B               [12] 1112 	inc	r3
+      00137A                       1113 00118$:
+      00137A C0 07            [24] 1114 	push	ar7
+      00137C C0 06            [24] 1115 	push	ar6
+      00137E C0 05            [24] 1116 	push	ar5
+      001380 C0 04            [24] 1117 	push	ar4
+      001382 C0 03            [24] 1118 	push	ar3
+      001384 C0 02            [24] 1119 	push	ar2
+      001386 12 13 37         [24] 1120 	lcall	_send_octet_to_linefi
+      001389 D0 02            [24] 1121 	pop	ar2
+      00138B D0 03            [24] 1122 	pop	ar3
+      00138D D0 04            [24] 1123 	pop	ar4
+      00138F D0 05            [24] 1124 	pop	ar5
+      001391 D0 06            [24] 1125 	pop	ar6
+      001393 D0 07            [24] 1126 	pop	ar7
+                                   1127 ;	../lib/linefi_packet.c:94: send_octet_to_linefi(*pu8Buf++);
+      001395 8A 82            [24] 1128 	mov	dpl,r2
+      001397 8B 83            [24] 1129 	mov	dph,r3
+      001399 8C F0            [24] 1130 	mov	b,r4
+      00139B 12 20 FB         [24] 1131 	lcall	__gptrget
+      00139E F5 82            [12] 1132 	mov	dpl,a
+      0013A0 0A               [12] 1133 	inc	r2
+      0013A1 BA 00 01         [24] 1134 	cjne	r2,#0x00,00119$
+      0013A4 0B               [12] 1135 	inc	r3
+      0013A5                       1136 00119$:
+      0013A5 C0 07            [24] 1137 	push	ar7
+      0013A7 C0 06            [24] 1138 	push	ar6
+      0013A9 C0 05            [24] 1139 	push	ar5
+      0013AB C0 04            [24] 1140 	push	ar4
+      0013AD C0 03            [24] 1141 	push	ar3
+      0013AF C0 02            [24] 1142 	push	ar2
+      0013B1 12 13 37         [24] 1143 	lcall	_send_octet_to_linefi
+      0013B4 D0 02            [24] 1144 	pop	ar2
+      0013B6 D0 03            [24] 1145 	pop	ar3
+      0013B8 D0 04            [24] 1146 	pop	ar4
+      0013BA D0 05            [24] 1147 	pop	ar5
+      0013BC D0 06            [24] 1148 	pop	ar6
+      0013BE D0 07            [24] 1149 	pop	ar7
+                                   1150 ;	../lib/linefi_packet.c:95: send_octet_to_linefi(*pu8Buf++);
+      0013C0 8A 82            [24] 1151 	mov	dpl,r2
+      0013C2 8B 83            [24] 1152 	mov	dph,r3
+      0013C4 8C F0            [24] 1153 	mov	b,r4
+      0013C6 12 20 FB         [24] 1154 	lcall	__gptrget
+      0013C9 F9               [12] 1155 	mov	r1,a
+      0013CA 0A               [12] 1156 	inc	r2
+      0013CB BA 00 01         [24] 1157 	cjne	r2,#0x00,00120$
+      0013CE 0B               [12] 1158 	inc	r3
+      0013CF                       1159 00120$:
+      0013CF 89 82            [24] 1160 	mov	dpl,r1
+      0013D1 C0 07            [24] 1161 	push	ar7
+      0013D3 C0 06            [24] 1162 	push	ar6
+      0013D5 C0 05            [24] 1163 	push	ar5
+      0013D7 C0 04            [24] 1164 	push	ar4
+      0013D9 C0 03            [24] 1165 	push	ar3
+      0013DB C0 02            [24] 1166 	push	ar2
+      0013DD 12 13 37         [24] 1167 	lcall	_send_octet_to_linefi
+      0013E0 D0 02            [24] 1168 	pop	ar2
+      0013E2 D0 03            [24] 1169 	pop	ar3
+      0013E4 D0 04            [24] 1170 	pop	ar4
+      0013E6 D0 05            [24] 1171 	pop	ar5
+      0013E8 D0 06            [24] 1172 	pop	ar6
+      0013EA D0 07            [24] 1173 	pop	ar7
+                                   1174 ;	../lib/linefi_packet.c:96: send_octet_to_linefi(*pu8Buf++);
+      0013EC 8A 82            [24] 1175 	mov	dpl,r2
+      0013EE 8B 83            [24] 1176 	mov	dph,r3
+      0013F0 8C F0            [24] 1177 	mov	b,r4
+      0013F2 12 20 FB         [24] 1178 	lcall	__gptrget
+      0013F5 F5 82            [12] 1179 	mov	dpl,a
+      0013F7 0A               [12] 1180 	inc	r2
+      0013F8 BA 00 01         [24] 1181 	cjne	r2,#0x00,00121$
+      0013FB 0B               [12] 1182 	inc	r3
+      0013FC                       1183 00121$:
+      0013FC C0 07            [24] 1184 	push	ar7
+      0013FE C0 06            [24] 1185 	push	ar6
+      001400 C0 05            [24] 1186 	push	ar5
+      001402 C0 04            [24] 1187 	push	ar4
+      001404 C0 03            [24] 1188 	push	ar3
+      001406 C0 02            [24] 1189 	push	ar2
+      001408 12 13 37         [24] 1190 	lcall	_send_octet_to_linefi
+      00140B D0 02            [24] 1191 	pop	ar2
+      00140D D0 03            [24] 1192 	pop	ar3
+      00140F D0 04            [24] 1193 	pop	ar4
+                                   1194 ;	../lib/linefi_packet.c:97: send_octet_to_linefi(*pu8Buf++); //CRC
+      001411 8A 82            [24] 1195 	mov	dpl,r2
+      001413 8B 83            [24] 1196 	mov	dph,r3
+      001415 8C F0            [24] 1197 	mov	b,r4
+      001417 12 20 FB         [24] 1198 	lcall	__gptrget
+      00141A F5 82            [12] 1199 	mov	dpl,a
+      00141C 12 13 37         [24] 1200 	lcall	_send_octet_to_linefi
+      00141F D0 05            [24] 1201 	pop	ar5
+      001421 D0 06            [24] 1202 	pop	ar6
+      001423 D0 07            [24] 1203 	pop	ar7
+                                   1204 ;	../lib/linefi_packet.c:100: for (i=0;i<apstLineFiPkt->u8Size;i++) {
+      001425 74 05            [12] 1205 	mov	a,#0x05
+      001427 2D               [12] 1206 	add	a,r5
+      001428 FA               [12] 1207 	mov	r2,a
+      001429 E4               [12] 1208 	clr	a
+      00142A 3E               [12] 1209 	addc	a,r6
+      00142B FB               [12] 1210 	mov	r3,a
+      00142C 8F 04            [24] 1211 	mov	ar4,r7
+      00142E 74 03            [12] 1212 	mov	a,#0x03
+      001430 2D               [12] 1213 	add	a,r5
+      001431 FD               [12] 1214 	mov	r5,a
+      001432 E4               [12] 1215 	clr	a
+      001433 3E               [12] 1216 	addc	a,r6
+      001434 FE               [12] 1217 	mov	r6,a
+      001435 75 63 00         [24] 1218 	mov	_send_linefi_packet_i_65538_55,#0x00
+      001438                       1219 00103$:
+      001438 8D 82            [24] 1220 	mov	dpl,r5
+      00143A 8E 83            [24] 1221 	mov	dph,r6
+      00143C 8F F0            [24] 1222 	mov	b,r7
+      00143E 12 20 FB         [24] 1223 	lcall	__gptrget
+      001441 F8               [12] 1224 	mov	r0,a
+      001442 C3               [12] 1225 	clr	c
+      001443 E5 63            [12] 1226 	mov	a,_send_linefi_packet_i_65538_55
+      001445 98               [12] 1227 	subb	a,r0
+      001446 50 51            [24] 1228 	jnc	00105$
+                                   1229 ;	../lib/linefi_packet.c:101: send_octet_to_linefi(*(apstLineFiPkt->pu8Data+i));
+      001448 C0 05            [24] 1230 	push	ar5
+      00144A C0 06            [24] 1231 	push	ar6
+      00144C C0 07            [24] 1232 	push	ar7
+      00144E 8A 82            [24] 1233 	mov	dpl,r2
+      001450 8B 83            [24] 1234 	mov	dph,r3
+      001452 8C F0            [24] 1235 	mov	b,r4
+      001454 12 20 FB         [24] 1236 	lcall	__gptrget
+      001457 F8               [12] 1237 	mov	r0,a
+      001458 A3               [24] 1238 	inc	dptr
+      001459 12 20 FB         [24] 1239 	lcall	__gptrget
+      00145C F9               [12] 1240 	mov	r1,a
+      00145D A3               [24] 1241 	inc	dptr
+      00145E 12 20 FB         [24] 1242 	lcall	__gptrget
+      001461 FF               [12] 1243 	mov	r7,a
+      001462 E5 63            [12] 1244 	mov	a,_send_linefi_packet_i_65538_55
+      001464 28               [12] 1245 	add	a,r0
+      001465 F8               [12] 1246 	mov	r0,a
+      001466 E4               [12] 1247 	clr	a
+      001467 39               [12] 1248 	addc	a,r1
+      001468 F9               [12] 1249 	mov	r1,a
+      001469 88 82            [24] 1250 	mov	dpl,r0
+      00146B 89 83            [24] 1251 	mov	dph,r1
+      00146D 8F F0            [24] 1252 	mov	b,r7
+      00146F 12 20 FB         [24] 1253 	lcall	__gptrget
+      001472 F5 82            [12] 1254 	mov	dpl,a
+      001474 C0 07            [24] 1255 	push	ar7
+      001476 C0 06            [24] 1256 	push	ar6
+      001478 C0 05            [24] 1257 	push	ar5
+      00147A C0 04            [24] 1258 	push	ar4
+      00147C C0 03            [24] 1259 	push	ar3
+      00147E C0 02            [24] 1260 	push	ar2
+      001480 12 13 37         [24] 1261 	lcall	_send_octet_to_linefi
+      001483 D0 02            [24] 1262 	pop	ar2
+      001485 D0 03            [24] 1263 	pop	ar3
+      001487 D0 04            [24] 1264 	pop	ar4
+      001489 D0 05            [24] 1265 	pop	ar5
+      00148B D0 06            [24] 1266 	pop	ar6
+      00148D D0 07            [24] 1267 	pop	ar7
+                                   1268 ;	../lib/linefi_packet.c:100: for (i=0;i<apstLineFiPkt->u8Size;i++) {
+      00148F 05 63            [12] 1269 	inc	_send_linefi_packet_i_65538_55
+      001491 D0 07            [24] 1270 	pop	ar7
+      001493 D0 06            [24] 1271 	pop	ar6
+      001495 D0 05            [24] 1272 	pop	ar5
+      001497 80 9F            [24] 1273 	sjmp	00103$
+      001499                       1274 00105$:
+                                   1275 ;	../lib/linefi_packet.c:103: }
+      001499 22               [24] 1276 	ret
+                                   1277 ;------------------------------------------------------------
+                                   1278 ;Allocation info for local variables in function 'cp_buf2linefipacket'
+                                   1279 ;------------------------------------------------------------
+                                   1280 ;apu8RxBuf                 Allocated with name '_cp_buf2linefipacket_PARM_2'
+                                   1281 ;apstLineFiPkt             Allocated with name '_cp_buf2linefipacket_PARM_3'
+                                   1282 ;au8Size                   Allocated to registers r7 
+                                   1283 ;pu8Buf                    Allocated to registers r5 r6 r7 
+                                   1284 ;i                         Allocated with name '_cp_buf2linefipacket_i_65538_62'
+                                   1285 ;sloc0                     Allocated with name '_cp_buf2linefipacket_sloc0_1_0'
+                                   1286 ;------------------------------------------------------------
+                                   1287 ;	../lib/linefi_packet.c:105: uint8 cp_buf2linefipacket(uint8 au8Size, uint8 * apu8RxBuf, linefi_packet_t * apstLineFiPkt)
+                                   1288 ;	-----------------------------------------
+                                   1289 ;	 function cp_buf2linefipacket
+                                   1290 ;	-----------------------------------------
+      00149A                       1291 _cp_buf2linefipacket:
+      00149A AF 82            [24] 1292 	mov	r7,dpl
+                                   1293 ;	../lib/linefi_packet.c:107: if (au8Size < 5) {
+      00149C BF 05 00         [24] 1294 	cjne	r7,#0x05,00132$
+      00149F                       1295 00132$:
+      00149F 50 04            [24] 1296 	jnc	00102$
+                                   1297 ;	../lib/linefi_packet.c:108: return CONV_ERR_TOO_SMALLSIZE;
+      0014A1 75 82 03         [24] 1298 	mov	dpl,#0x03
+      0014A4 22               [24] 1299 	ret
+      0014A5                       1300 00102$:
+                                   1301 ;	../lib/linefi_packet.c:111: uint8 * pu8Buf = (uint8 *) apstLineFiPkt;
+      0014A5 AD 67            [24] 1302 	mov	r5,_cp_buf2linefipacket_PARM_3
+      0014A7 AE 68            [24] 1303 	mov	r6,(_cp_buf2linefipacket_PARM_3 + 1)
+      0014A9 AF 69            [24] 1304 	mov	r7,(_cp_buf2linefipacket_PARM_3 + 2)
+                                   1305 ;	../lib/linefi_packet.c:112: *pu8Buf++ = *apu8RxBuf++;
+      0014AB AA 64            [24] 1306 	mov	r2,_cp_buf2linefipacket_PARM_2
+      0014AD AB 65            [24] 1307 	mov	r3,(_cp_buf2linefipacket_PARM_2 + 1)
+      0014AF AC 66            [24] 1308 	mov	r4,(_cp_buf2linefipacket_PARM_2 + 2)
+      0014B1 8A 82            [24] 1309 	mov	dpl,r2
+      0014B3 8B 83            [24] 1310 	mov	dph,r3
+      0014B5 8C F0            [24] 1311 	mov	b,r4
+      0014B7 12 20 FB         [24] 1312 	lcall	__gptrget
+      0014BA F9               [12] 1313 	mov	r1,a
+      0014BB 74 01            [12] 1314 	mov	a,#0x01
+      0014BD 2A               [12] 1315 	add	a,r2
+      0014BE F5 64            [12] 1316 	mov	_cp_buf2linefipacket_PARM_2,a
+      0014C0 E4               [12] 1317 	clr	a
+      0014C1 3B               [12] 1318 	addc	a,r3
+      0014C2 F5 65            [12] 1319 	mov	(_cp_buf2linefipacket_PARM_2 + 1),a
+      0014C4 8C 66            [24] 1320 	mov	(_cp_buf2linefipacket_PARM_2 + 2),r4
+      0014C6 8D 82            [24] 1321 	mov	dpl,r5
+      0014C8 8E 83            [24] 1322 	mov	dph,r6
+      0014CA 8F F0            [24] 1323 	mov	b,r7
+      0014CC E9               [12] 1324 	mov	a,r1
+      0014CD 12 20 E0         [24] 1325 	lcall	__gptrput
+      0014D0 0D               [12] 1326 	inc	r5
+      0014D1 BD 00 01         [24] 1327 	cjne	r5,#0x00,00134$
+      0014D4 0E               [12] 1328 	inc	r6
+      0014D5                       1329 00134$:
+                                   1330 ;	../lib/linefi_packet.c:113: *pu8Buf++ = *apu8RxBuf++;
+      0014D5 AA 64            [24] 1331 	mov	r2,_cp_buf2linefipacket_PARM_2
+      0014D7 AB 65            [24] 1332 	mov	r3,(_cp_buf2linefipacket_PARM_2 + 1)
+      0014D9 AC 66            [24] 1333 	mov	r4,(_cp_buf2linefipacket_PARM_2 + 2)
+      0014DB 8A 82            [24] 1334 	mov	dpl,r2
+      0014DD 8B 83            [24] 1335 	mov	dph,r3
+      0014DF 8C F0            [24] 1336 	mov	b,r4
+      0014E1 12 20 FB         [24] 1337 	lcall	__gptrget
+      0014E4 F9               [12] 1338 	mov	r1,a
+      0014E5 74 01            [12] 1339 	mov	a,#0x01
+      0014E7 2A               [12] 1340 	add	a,r2
+      0014E8 F5 64            [12] 1341 	mov	_cp_buf2linefipacket_PARM_2,a
+      0014EA E4               [12] 1342 	clr	a
+      0014EB 3B               [12] 1343 	addc	a,r3
+      0014EC F5 65            [12] 1344 	mov	(_cp_buf2linefipacket_PARM_2 + 1),a
+      0014EE 8C 66            [24] 1345 	mov	(_cp_buf2linefipacket_PARM_2 + 2),r4
+      0014F0 8D 82            [24] 1346 	mov	dpl,r5
+      0014F2 8E 83            [24] 1347 	mov	dph,r6
+      0014F4 8F F0            [24] 1348 	mov	b,r7
+      0014F6 E9               [12] 1349 	mov	a,r1
+      0014F7 12 20 E0         [24] 1350 	lcall	__gptrput
+      0014FA 0D               [12] 1351 	inc	r5
+      0014FB BD 00 01         [24] 1352 	cjne	r5,#0x00,00135$
+      0014FE 0E               [12] 1353 	inc	r6
+      0014FF                       1354 00135$:
+                                   1355 ;	../lib/linefi_packet.c:114: *pu8Buf++ = *apu8RxBuf++;
+      0014FF AA 64            [24] 1356 	mov	r2,_cp_buf2linefipacket_PARM_2
+      001501 AB 65            [24] 1357 	mov	r3,(_cp_buf2linefipacket_PARM_2 + 1)
+      001503 AC 66            [24] 1358 	mov	r4,(_cp_buf2linefipacket_PARM_2 + 2)
+      001505 8A 82            [24] 1359 	mov	dpl,r2
+      001507 8B 83            [24] 1360 	mov	dph,r3
+      001509 8C F0            [24] 1361 	mov	b,r4
+      00150B 12 20 FB         [24] 1362 	lcall	__gptrget
+      00150E F9               [12] 1363 	mov	r1,a
+      00150F 74 01            [12] 1364 	mov	a,#0x01
+      001511 2A               [12] 1365 	add	a,r2
+      001512 F5 64            [12] 1366 	mov	_cp_buf2linefipacket_PARM_2,a
+      001514 E4               [12] 1367 	clr	a
+      001515 3B               [12] 1368 	addc	a,r3
+      001516 F5 65            [12] 1369 	mov	(_cp_buf2linefipacket_PARM_2 + 1),a
+      001518 8C 66            [24] 1370 	mov	(_cp_buf2linefipacket_PARM_2 + 2),r4
+      00151A 8D 82            [24] 1371 	mov	dpl,r5
+      00151C 8E 83            [24] 1372 	mov	dph,r6
+      00151E 8F F0            [24] 1373 	mov	b,r7
+      001520 E9               [12] 1374 	mov	a,r1
+      001521 12 20 E0         [24] 1375 	lcall	__gptrput
+      001524 0D               [12] 1376 	inc	r5
+      001525 BD 00 01         [24] 1377 	cjne	r5,#0x00,00136$
+      001528 0E               [12] 1378 	inc	r6
+      001529                       1379 00136$:
+                                   1380 ;	../lib/linefi_packet.c:115: *pu8Buf++ = *apu8RxBuf++;
+      001529 AA 64            [24] 1381 	mov	r2,_cp_buf2linefipacket_PARM_2
+      00152B AB 65            [24] 1382 	mov	r3,(_cp_buf2linefipacket_PARM_2 + 1)
+      00152D AC 66            [24] 1383 	mov	r4,(_cp_buf2linefipacket_PARM_2 + 2)
+      00152F 8A 82            [24] 1384 	mov	dpl,r2
+      001531 8B 83            [24] 1385 	mov	dph,r3
+      001533 8C F0            [24] 1386 	mov	b,r4
+      001535 12 20 FB         [24] 1387 	lcall	__gptrget
+      001538 F9               [12] 1388 	mov	r1,a
+      001539 74 01            [12] 1389 	mov	a,#0x01
+      00153B 2A               [12] 1390 	add	a,r2
+      00153C F5 64            [12] 1391 	mov	_cp_buf2linefipacket_PARM_2,a
+      00153E E4               [12] 1392 	clr	a
+      00153F 3B               [12] 1393 	addc	a,r3
+      001540 F5 65            [12] 1394 	mov	(_cp_buf2linefipacket_PARM_2 + 1),a
+      001542 8C 66            [24] 1395 	mov	(_cp_buf2linefipacket_PARM_2 + 2),r4
+      001544 8D 82            [24] 1396 	mov	dpl,r5
+      001546 8E 83            [24] 1397 	mov	dph,r6
+      001548 8F F0            [24] 1398 	mov	b,r7
+      00154A E9               [12] 1399 	mov	a,r1
+      00154B 12 20 E0         [24] 1400 	lcall	__gptrput
+      00154E 0D               [12] 1401 	inc	r5
+      00154F BD 00 01         [24] 1402 	cjne	r5,#0x00,00137$
+      001552 0E               [12] 1403 	inc	r6
+      001553                       1404 00137$:
+                                   1405 ;	../lib/linefi_packet.c:116: *pu8Buf++ = *apu8RxBuf++;
+      001553 AA 64            [24] 1406 	mov	r2,_cp_buf2linefipacket_PARM_2
+      001555 AB 65            [24] 1407 	mov	r3,(_cp_buf2linefipacket_PARM_2 + 1)
+      001557 AC 66            [24] 1408 	mov	r4,(_cp_buf2linefipacket_PARM_2 + 2)
+      001559 8A 82            [24] 1409 	mov	dpl,r2
+      00155B 8B 83            [24] 1410 	mov	dph,r3
+      00155D 8C F0            [24] 1411 	mov	b,r4
+      00155F 12 20 FB         [24] 1412 	lcall	__gptrget
+      001562 F9               [12] 1413 	mov	r1,a
+      001563 74 01            [12] 1414 	mov	a,#0x01
+      001565 2A               [12] 1415 	add	a,r2
+      001566 F5 64            [12] 1416 	mov	_cp_buf2linefipacket_PARM_2,a
+      001568 E4               [12] 1417 	clr	a
+      001569 3B               [12] 1418 	addc	a,r3
+      00156A F5 65            [12] 1419 	mov	(_cp_buf2linefipacket_PARM_2 + 1),a
+      00156C 8C 66            [24] 1420 	mov	(_cp_buf2linefipacket_PARM_2 + 2),r4
+      00156E 8D 82            [24] 1421 	mov	dpl,r5
+      001570 8E 83            [24] 1422 	mov	dph,r6
+      001572 8F F0            [24] 1423 	mov	b,r7
+      001574 E9               [12] 1424 	mov	a,r1
+      001575 12 20 E0         [24] 1425 	lcall	__gptrput
+                                   1426 ;	../lib/linefi_packet.c:118: for (i=0;i<apstLineFiPkt->u8Size;i++) {
+      001578 AD 67            [24] 1427 	mov	r5,_cp_buf2linefipacket_PARM_3
+      00157A AE 68            [24] 1428 	mov	r6,(_cp_buf2linefipacket_PARM_3 + 1)
+      00157C AF 69            [24] 1429 	mov	r7,(_cp_buf2linefipacket_PARM_3 + 2)
+      00157E 74 03            [12] 1430 	mov	a,#0x03
+      001580 2D               [12] 1431 	add	a,r5
+      001581 FA               [12] 1432 	mov	r2,a
+      001582 E4               [12] 1433 	clr	a
+      001583 3E               [12] 1434 	addc	a,r6
+      001584 FB               [12] 1435 	mov	r3,a
+      001585 8F 04            [24] 1436 	mov	ar4,r7
+      001587 85 64 6B         [24] 1437 	mov	_cp_buf2linefipacket_sloc0_1_0,_cp_buf2linefipacket_PARM_2
+      00158A 85 65 6C         [24] 1438 	mov	(_cp_buf2linefipacket_sloc0_1_0 + 1),(_cp_buf2linefipacket_PARM_2 + 1)
+      00158D 85 66 6D         [24] 1439 	mov	(_cp_buf2linefipacket_sloc0_1_0 + 2),(_cp_buf2linefipacket_PARM_2 + 2)
+      001590 75 6A 00         [24] 1440 	mov	_cp_buf2linefipacket_i_65538_62,#0x00
+      001593                       1441 00107$:
+      001593 8A 82            [24] 1442 	mov	dpl,r2
+      001595 8B 83            [24] 1443 	mov	dph,r3
+      001597 8C F0            [24] 1444 	mov	b,r4
+      001599 12 20 FB         [24] 1445 	lcall	__gptrget
+      00159C F8               [12] 1446 	mov	r0,a
+      00159D C3               [12] 1447 	clr	c
+      00159E E5 6A            [12] 1448 	mov	a,_cp_buf2linefipacket_i_65538_62
+      0015A0 98               [12] 1449 	subb	a,r0
+      0015A1 50 52            [24] 1450 	jnc	00103$
+                                   1451 ;	../lib/linefi_packet.c:119: apstLineFiPkt->pu8Data[i] = *apu8RxBuf++;
+      0015A3 C0 02            [24] 1452 	push	ar2
+      0015A5 C0 03            [24] 1453 	push	ar3
+      0015A7 C0 04            [24] 1454 	push	ar4
+      0015A9 74 05            [12] 1455 	mov	a,#0x05
+      0015AB 2D               [12] 1456 	add	a,r5
+      0015AC F8               [12] 1457 	mov	r0,a
+      0015AD E4               [12] 1458 	clr	a
+      0015AE 3E               [12] 1459 	addc	a,r6
+      0015AF F9               [12] 1460 	mov	r1,a
+      0015B0 8F 04            [24] 1461 	mov	ar4,r7
+      0015B2 88 82            [24] 1462 	mov	dpl,r0
+      0015B4 89 83            [24] 1463 	mov	dph,r1
+      0015B6 8C F0            [24] 1464 	mov	b,r4
+      0015B8 12 20 FB         [24] 1465 	lcall	__gptrget
+      0015BB F8               [12] 1466 	mov	r0,a
+      0015BC A3               [24] 1467 	inc	dptr
+      0015BD 12 20 FB         [24] 1468 	lcall	__gptrget
+      0015C0 F9               [12] 1469 	mov	r1,a
+      0015C1 A3               [24] 1470 	inc	dptr
+      0015C2 12 20 FB         [24] 1471 	lcall	__gptrget
+      0015C5 FC               [12] 1472 	mov	r4,a
+      0015C6 E5 6A            [12] 1473 	mov	a,_cp_buf2linefipacket_i_65538_62
+      0015C8 28               [12] 1474 	add	a,r0
+      0015C9 F8               [12] 1475 	mov	r0,a
+      0015CA E4               [12] 1476 	clr	a
+      0015CB 39               [12] 1477 	addc	a,r1
+      0015CC F9               [12] 1478 	mov	r1,a
+      0015CD 85 6B 82         [24] 1479 	mov	dpl,_cp_buf2linefipacket_sloc0_1_0
+      0015D0 85 6C 83         [24] 1480 	mov	dph,(_cp_buf2linefipacket_sloc0_1_0 + 1)
+      0015D3 85 6D F0         [24] 1481 	mov	b,(_cp_buf2linefipacket_sloc0_1_0 + 2)
+      0015D6 12 20 FB         [24] 1482 	lcall	__gptrget
+      0015D9 FB               [12] 1483 	mov	r3,a
+      0015DA A3               [24] 1484 	inc	dptr
+      0015DB 85 82 6B         [24] 1485 	mov	_cp_buf2linefipacket_sloc0_1_0,dpl
+      0015DE 85 83 6C         [24] 1486 	mov	(_cp_buf2linefipacket_sloc0_1_0 + 1),dph
+      0015E1 88 82            [24] 1487 	mov	dpl,r0
+      0015E3 89 83            [24] 1488 	mov	dph,r1
+      0015E5 8C F0            [24] 1489 	mov	b,r4
+      0015E7 EB               [12] 1490 	mov	a,r3
+      0015E8 12 20 E0         [24] 1491 	lcall	__gptrput
+                                   1492 ;	../lib/linefi_packet.c:118: for (i=0;i<apstLineFiPkt->u8Size;i++) {
+      0015EB 05 6A            [12] 1493 	inc	_cp_buf2linefipacket_i_65538_62
+      0015ED D0 04            [24] 1494 	pop	ar4
+      0015EF D0 03            [24] 1495 	pop	ar3
+      0015F1 D0 02            [24] 1496 	pop	ar2
+      0015F3 80 9E            [24] 1497 	sjmp	00107$
+      0015F5                       1498 00103$:
+                                   1499 ;	../lib/linefi_packet.c:122: if (chk_crc_linefi_packet_packet(apstLineFiPkt) == CRC_NOT_OK) {
+      0015F5 8D 82            [24] 1500 	mov	dpl,r5
+      0015F7 8E 83            [24] 1501 	mov	dph,r6
+      0015F9 8F F0            [24] 1502 	mov	b,r7
+      0015FB 12 13 02         [24] 1503 	lcall	_chk_crc_linefi_packet_packet
+      0015FE E5 82            [12] 1504 	mov	a,dpl
+      001600 70 04            [24] 1505 	jnz	00105$
+                                   1506 ;	../lib/linefi_packet.c:123: return CONV_ERR_CRC;
+      001602 75 82 04         [24] 1507 	mov	dpl,#0x04
+      001605 22               [24] 1508 	ret
+      001606                       1509 00105$:
+                                   1510 ;	../lib/linefi_packet.c:125: return CONV_OK;
+      001606 75 82 02         [24] 1511 	mov	dpl,#0x02
+                                   1512 ;	../lib/linefi_packet.c:126: }
+      001609 22               [24] 1513 	ret
+                                   1514 ;------------------------------------------------------------
+                                   1515 ;Allocation info for local variables in function 'print_linefipacket'
+                                   1516 ;------------------------------------------------------------
+                                   1517 ;apstLineFiPkt             Allocated to registers r5 r6 r7 
+                                   1518 ;i                         Allocated with name '_print_linefipacket_i_65537_68'
+                                   1519 ;------------------------------------------------------------
+                                   1520 ;	../lib/linefi_packet.c:128: void print_linefipacket(linefi_packet_t * apstLineFiPkt)
+                                   1521 ;	-----------------------------------------
+                                   1522 ;	 function print_linefipacket
+                                   1523 ;	-----------------------------------------
+      00160A                       1524 _print_linefipacket:
+      00160A AD 82            [24] 1525 	mov	r5,dpl
+      00160C AE 83            [24] 1526 	mov	r6,dph
+      00160E AF F0            [24] 1527 	mov	r7,b
+                                   1528 ;	../lib/linefi_packet.c:130: printf_fast_f("-------------------------------\r\n");
+      001610 C0 07            [24] 1529 	push	ar7
+      001612 C0 06            [24] 1530 	push	ar6
+      001614 C0 05            [24] 1531 	push	ar5
+      001616 74 FA            [12] 1532 	mov	a,#___str_0
+      001618 C0 E0            [24] 1533 	push	acc
+      00161A 74 23            [12] 1534 	mov	a,#(___str_0 >> 8)
+      00161C C0 E0            [24] 1535 	push	acc
+      00161E 12 1B B7         [24] 1536 	lcall	_printf_fast_f
+      001621 15 81            [12] 1537 	dec	sp
+      001623 15 81            [12] 1538 	dec	sp
+      001625 D0 05            [24] 1539 	pop	ar5
+      001627 D0 06            [24] 1540 	pop	ar6
+      001629 D0 07            [24] 1541 	pop	ar7
+                                   1542 ;	../lib/linefi_packet.c:131: printf_fast_f("Ver : %d\r\n", apstLineFiPkt->u8Ver);
+      00162B 8D 82            [24] 1543 	mov	dpl,r5
+      00162D 8E 83            [24] 1544 	mov	dph,r6
+      00162F 8F F0            [24] 1545 	mov	b,r7
+      001631 12 20 FB         [24] 1546 	lcall	__gptrget
+      001634 FC               [12] 1547 	mov	r4,a
+      001635 7B 00            [12] 1548 	mov	r3,#0x00
+      001637 C0 07            [24] 1549 	push	ar7
+      001639 C0 06            [24] 1550 	push	ar6
+      00163B C0 05            [24] 1551 	push	ar5
+      00163D C0 04            [24] 1552 	push	ar4
+      00163F C0 03            [24] 1553 	push	ar3
+      001641 74 1C            [12] 1554 	mov	a,#___str_1
+      001643 C0 E0            [24] 1555 	push	acc
+      001645 74 24            [12] 1556 	mov	a,#(___str_1 >> 8)
+      001647 C0 E0            [24] 1557 	push	acc
+      001649 12 1B B7         [24] 1558 	lcall	_printf_fast_f
+      00164C E5 81            [12] 1559 	mov	a,sp
+      00164E 24 FC            [12] 1560 	add	a,#0xfc
+      001650 F5 81            [12] 1561 	mov	sp,a
+      001652 D0 05            [24] 1562 	pop	ar5
+      001654 D0 06            [24] 1563 	pop	ar6
+      001656 D0 07            [24] 1564 	pop	ar7
+                                   1565 ;	../lib/linefi_packet.c:132: printf_fast_f("Type: %d(%s)\r\n", apstLineFiPkt->u8Type, gpcTypeStr[apstLineFiPkt->u8Type]);
+      001658 74 01            [12] 1566 	mov	a,#0x01
+      00165A 2D               [12] 1567 	add	a,r5
+      00165B FA               [12] 1568 	mov	r2,a
+      00165C E4               [12] 1569 	clr	a
+      00165D 3E               [12] 1570 	addc	a,r6
+      00165E FB               [12] 1571 	mov	r3,a
+      00165F 8F 04            [24] 1572 	mov	ar4,r7
+      001661 8A 82            [24] 1573 	mov	dpl,r2
+      001663 8B 83            [24] 1574 	mov	dph,r3
+      001665 8C F0            [24] 1575 	mov	b,r4
+      001667 12 20 FB         [24] 1576 	lcall	__gptrget
+      00166A FA               [12] 1577 	mov	r2,a
+      00166B 75 F0 03         [24] 1578 	mov	b,#0x03
+      00166E A4               [48] 1579 	mul	ab
+      00166F 24 4E            [12] 1580 	add	a,#_gpcTypeStr
+      001671 F5 82            [12] 1581 	mov	dpl,a
+      001673 74 00            [12] 1582 	mov	a,#(_gpcTypeStr >> 8)
+      001675 35 F0            [12] 1583 	addc	a,b
+      001677 F5 83            [12] 1584 	mov	dph,a
+      001679 E0               [24] 1585 	movx	a,@dptr
+      00167A F9               [12] 1586 	mov	r1,a
+      00167B A3               [24] 1587 	inc	dptr
+      00167C E0               [24] 1588 	movx	a,@dptr
+      00167D FB               [12] 1589 	mov	r3,a
+      00167E A3               [24] 1590 	inc	dptr
+      00167F E0               [24] 1591 	movx	a,@dptr
+      001680 FC               [12] 1592 	mov	r4,a
+      001681 8A 00            [24] 1593 	mov	ar0,r2
+      001683 7A 00            [12] 1594 	mov	r2,#0x00
+      001685 C0 07            [24] 1595 	push	ar7
+      001687 C0 06            [24] 1596 	push	ar6
+      001689 C0 05            [24] 1597 	push	ar5
+      00168B C0 01            [24] 1598 	push	ar1
+      00168D C0 03            [24] 1599 	push	ar3
+      00168F C0 04            [24] 1600 	push	ar4
+      001691 C0 00            [24] 1601 	push	ar0
+      001693 C0 02            [24] 1602 	push	ar2
+      001695 74 27            [12] 1603 	mov	a,#___str_2
+      001697 C0 E0            [24] 1604 	push	acc
+      001699 74 24            [12] 1605 	mov	a,#(___str_2 >> 8)
+      00169B C0 E0            [24] 1606 	push	acc
+      00169D 12 1B B7         [24] 1607 	lcall	_printf_fast_f
+      0016A0 E5 81            [12] 1608 	mov	a,sp
+      0016A2 24 F9            [12] 1609 	add	a,#0xf9
+      0016A4 F5 81            [12] 1610 	mov	sp,a
+      0016A6 D0 05            [24] 1611 	pop	ar5
+      0016A8 D0 06            [24] 1612 	pop	ar6
+      0016AA D0 07            [24] 1613 	pop	ar7
+                                   1614 ;	../lib/linefi_packet.c:135: printf_fast_f("Addr: %d\r\n", apstLineFiPkt->u8Addr);
+      0016AC 74 02            [12] 1615 	mov	a,#0x02
+      0016AE 2D               [12] 1616 	add	a,r5
+      0016AF FA               [12] 1617 	mov	r2,a
+      0016B0 E4               [12] 1618 	clr	a
+      0016B1 3E               [12] 1619 	addc	a,r6
+      0016B2 FB               [12] 1620 	mov	r3,a
+      0016B3 8F 04            [24] 1621 	mov	ar4,r7
+      0016B5 8A 82            [24] 1622 	mov	dpl,r2
+      0016B7 8B 83            [24] 1623 	mov	dph,r3
+      0016B9 8C F0            [24] 1624 	mov	b,r4
+      0016BB 12 20 FB         [24] 1625 	lcall	__gptrget
+      0016BE FA               [12] 1626 	mov	r2,a
+      0016BF 7C 00            [12] 1627 	mov	r4,#0x00
+      0016C1 C0 07            [24] 1628 	push	ar7
+      0016C3 C0 06            [24] 1629 	push	ar6
+      0016C5 C0 05            [24] 1630 	push	ar5
+      0016C7 C0 02            [24] 1631 	push	ar2
+      0016C9 C0 04            [24] 1632 	push	ar4
+      0016CB 74 36            [12] 1633 	mov	a,#___str_3
+      0016CD C0 E0            [24] 1634 	push	acc
+      0016CF 74 24            [12] 1635 	mov	a,#(___str_3 >> 8)
+      0016D1 C0 E0            [24] 1636 	push	acc
+      0016D3 12 1B B7         [24] 1637 	lcall	_printf_fast_f
+      0016D6 E5 81            [12] 1638 	mov	a,sp
+      0016D8 24 FC            [12] 1639 	add	a,#0xfc
+      0016DA F5 81            [12] 1640 	mov	sp,a
+      0016DC D0 05            [24] 1641 	pop	ar5
+      0016DE D0 06            [24] 1642 	pop	ar6
+      0016E0 D0 07            [24] 1643 	pop	ar7
+                                   1644 ;	../lib/linefi_packet.c:136: printf_fast_f("Size: %d\r\n", apstLineFiPkt->u8Size);
+      0016E2 74 03            [12] 1645 	mov	a,#0x03
+      0016E4 2D               [12] 1646 	add	a,r5
+      0016E5 FA               [12] 1647 	mov	r2,a
+      0016E6 E4               [12] 1648 	clr	a
+      0016E7 3E               [12] 1649 	addc	a,r6
+      0016E8 FB               [12] 1650 	mov	r3,a
+      0016E9 8F 04            [24] 1651 	mov	ar4,r7
+      0016EB 8A 82            [24] 1652 	mov	dpl,r2
+      0016ED 8B 83            [24] 1653 	mov	dph,r3
+      0016EF 8C F0            [24] 1654 	mov	b,r4
+      0016F1 12 20 FB         [24] 1655 	lcall	__gptrget
+      0016F4 FA               [12] 1656 	mov	r2,a
+      0016F5 7C 00            [12] 1657 	mov	r4,#0x00
+      0016F7 C0 07            [24] 1658 	push	ar7
+      0016F9 C0 06            [24] 1659 	push	ar6
+      0016FB C0 05            [24] 1660 	push	ar5
+      0016FD C0 02            [24] 1661 	push	ar2
+      0016FF C0 04            [24] 1662 	push	ar4
+      001701 74 41            [12] 1663 	mov	a,#___str_4
+      001703 C0 E0            [24] 1664 	push	acc
+      001705 74 24            [12] 1665 	mov	a,#(___str_4 >> 8)
+      001707 C0 E0            [24] 1666 	push	acc
+      001709 12 1B B7         [24] 1667 	lcall	_printf_fast_f
+      00170C E5 81            [12] 1668 	mov	a,sp
+      00170E 24 FC            [12] 1669 	add	a,#0xfc
+      001710 F5 81            [12] 1670 	mov	sp,a
+      001712 D0 05            [24] 1671 	pop	ar5
+      001714 D0 06            [24] 1672 	pop	ar6
+      001716 D0 07            [24] 1673 	pop	ar7
+                                   1674 ;	../lib/linefi_packet.c:137: printf_fast_f("CRC comp : %d %d\r\n", apstLineFiPkt->u8CRC, calc_crc_linefi_packet_packet(apstLineFiPkt));
+      001718 8D 82            [24] 1675 	mov	dpl,r5
+      00171A 8E 83            [24] 1676 	mov	dph,r6
+      00171C 8F F0            [24] 1677 	mov	b,r7
+      00171E C0 07            [24] 1678 	push	ar7
+      001720 C0 06            [24] 1679 	push	ar6
+      001722 C0 05            [24] 1680 	push	ar5
+      001724 12 12 78         [24] 1681 	lcall	_calc_crc_linefi_packet_packet
+      001727 AC 82            [24] 1682 	mov	r4,dpl
+      001729 D0 05            [24] 1683 	pop	ar5
+      00172B D0 06            [24] 1684 	pop	ar6
+      00172D D0 07            [24] 1685 	pop	ar7
+      00172F 7B 00            [12] 1686 	mov	r3,#0x00
+      001731 74 04            [12] 1687 	mov	a,#0x04
+      001733 2D               [12] 1688 	add	a,r5
+      001734 F8               [12] 1689 	mov	r0,a
+      001735 E4               [12] 1690 	clr	a
+      001736 3E               [12] 1691 	addc	a,r6
+      001737 F9               [12] 1692 	mov	r1,a
+      001738 8F 02            [24] 1693 	mov	ar2,r7
+      00173A 88 82            [24] 1694 	mov	dpl,r0
+      00173C 89 83            [24] 1695 	mov	dph,r1
+      00173E 8A F0            [24] 1696 	mov	b,r2
+      001740 12 20 FB         [24] 1697 	lcall	__gptrget
+      001743 F8               [12] 1698 	mov	r0,a
+      001744 7A 00            [12] 1699 	mov	r2,#0x00
+      001746 C0 07            [24] 1700 	push	ar7
+      001748 C0 06            [24] 1701 	push	ar6
+      00174A C0 05            [24] 1702 	push	ar5
+      00174C C0 04            [24] 1703 	push	ar4
+      00174E C0 03            [24] 1704 	push	ar3
+      001750 C0 00            [24] 1705 	push	ar0
+      001752 C0 02            [24] 1706 	push	ar2
+      001754 74 4C            [12] 1707 	mov	a,#___str_5
+      001756 C0 E0            [24] 1708 	push	acc
+      001758 74 24            [12] 1709 	mov	a,#(___str_5 >> 8)
+      00175A C0 E0            [24] 1710 	push	acc
+      00175C 12 1B B7         [24] 1711 	lcall	_printf_fast_f
+      00175F E5 81            [12] 1712 	mov	a,sp
+      001761 24 FA            [12] 1713 	add	a,#0xfa
+      001763 F5 81            [12] 1714 	mov	sp,a
+                                   1715 ;	../lib/linefi_packet.c:138: printf_fast_f("DATA: ");
+      001765 74 5F            [12] 1716 	mov	a,#___str_6
+      001767 C0 E0            [24] 1717 	push	acc
+      001769 74 24            [12] 1718 	mov	a,#(___str_6 >> 8)
+      00176B C0 E0            [24] 1719 	push	acc
+      00176D 12 1B B7         [24] 1720 	lcall	_printf_fast_f
+      001770 15 81            [12] 1721 	dec	sp
+      001772 15 81            [12] 1722 	dec	sp
+      001774 D0 05            [24] 1723 	pop	ar5
+      001776 D0 06            [24] 1724 	pop	ar6
+      001778 D0 07            [24] 1725 	pop	ar7
+                                   1726 ;	../lib/linefi_packet.c:140: for (i=0;i<apstLineFiPkt->u8Size;i++) {
+      00177A 74 05            [12] 1727 	mov	a,#0x05
+      00177C 2D               [12] 1728 	add	a,r5
+      00177D FA               [12] 1729 	mov	r2,a
+      00177E E4               [12] 1730 	clr	a
+      00177F 3E               [12] 1731 	addc	a,r6
+      001780 FB               [12] 1732 	mov	r3,a
+      001781 8F 04            [24] 1733 	mov	ar4,r7
+      001783 74 03            [12] 1734 	mov	a,#0x03
+      001785 2D               [12] 1735 	add	a,r5
+      001786 FD               [12] 1736 	mov	r5,a
+      001787 E4               [12] 1737 	clr	a
+      001788 3E               [12] 1738 	addc	a,r6
+      001789 FE               [12] 1739 	mov	r6,a
+      00178A 75 6E 00         [24] 1740 	mov	_print_linefipacket_i_65537_68,#0x00
+      00178D                       1741 00103$:
+      00178D 8D 82            [24] 1742 	mov	dpl,r5
+      00178F 8E 83            [24] 1743 	mov	dph,r6
+      001791 8F F0            [24] 1744 	mov	b,r7
+      001793 12 20 FB         [24] 1745 	lcall	__gptrget
+      001796 F8               [12] 1746 	mov	r0,a
+      001797 C3               [12] 1747 	clr	c
+      001798 E5 6E            [12] 1748 	mov	a,_print_linefipacket_i_65537_68
+      00179A 98               [12] 1749 	subb	a,r0
+      00179B 50 64            [24] 1750 	jnc	00101$
+                                   1751 ;	../lib/linefi_packet.c:141: printf_fast_f("0x%x ", apstLineFiPkt->pu8Data[i]);
+      00179D C0 05            [24] 1752 	push	ar5
+      00179F C0 06            [24] 1753 	push	ar6
+      0017A1 C0 07            [24] 1754 	push	ar7
+      0017A3 8A 82            [24] 1755 	mov	dpl,r2
+      0017A5 8B 83            [24] 1756 	mov	dph,r3
+      0017A7 8C F0            [24] 1757 	mov	b,r4
+      0017A9 12 20 FB         [24] 1758 	lcall	__gptrget
+      0017AC F8               [12] 1759 	mov	r0,a
+      0017AD A3               [24] 1760 	inc	dptr
+      0017AE 12 20 FB         [24] 1761 	lcall	__gptrget
+      0017B1 F9               [12] 1762 	mov	r1,a
+      0017B2 A3               [24] 1763 	inc	dptr
+      0017B3 12 20 FB         [24] 1764 	lcall	__gptrget
+      0017B6 FF               [12] 1765 	mov	r7,a
+      0017B7 E5 6E            [12] 1766 	mov	a,_print_linefipacket_i_65537_68
+      0017B9 28               [12] 1767 	add	a,r0
+      0017BA F8               [12] 1768 	mov	r0,a
+      0017BB E4               [12] 1769 	clr	a
+      0017BC 39               [12] 1770 	addc	a,r1
+      0017BD F9               [12] 1771 	mov	r1,a
+      0017BE 88 82            [24] 1772 	mov	dpl,r0
+      0017C0 89 83            [24] 1773 	mov	dph,r1
+      0017C2 8F F0            [24] 1774 	mov	b,r7
+      0017C4 12 20 FB         [24] 1775 	lcall	__gptrget
+      0017C7 F8               [12] 1776 	mov	r0,a
+      0017C8 7F 00            [12] 1777 	mov	r7,#0x00
+      0017CA C0 07            [24] 1778 	push	ar7
+      0017CC C0 06            [24] 1779 	push	ar6
+      0017CE C0 05            [24] 1780 	push	ar5
+      0017D0 C0 04            [24] 1781 	push	ar4
+      0017D2 C0 03            [24] 1782 	push	ar3
+      0017D4 C0 02            [24] 1783 	push	ar2
+      0017D6 C0 00            [24] 1784 	push	ar0
+      0017D8 C0 07            [24] 1785 	push	ar7
+      0017DA 74 66            [12] 1786 	mov	a,#___str_7
+      0017DC C0 E0            [24] 1787 	push	acc
+      0017DE 74 24            [12] 1788 	mov	a,#(___str_7 >> 8)
+      0017E0 C0 E0            [24] 1789 	push	acc
+      0017E2 12 1B B7         [24] 1790 	lcall	_printf_fast_f
+      0017E5 E5 81            [12] 1791 	mov	a,sp
+      0017E7 24 FC            [12] 1792 	add	a,#0xfc
+      0017E9 F5 81            [12] 1793 	mov	sp,a
+      0017EB D0 02            [24] 1794 	pop	ar2
+      0017ED D0 03            [24] 1795 	pop	ar3
+      0017EF D0 04            [24] 1796 	pop	ar4
+      0017F1 D0 05            [24] 1797 	pop	ar5
+      0017F3 D0 06            [24] 1798 	pop	ar6
+      0017F5 D0 07            [24] 1799 	pop	ar7
+                                   1800 ;	../lib/linefi_packet.c:140: for (i=0;i<apstLineFiPkt->u8Size;i++) {
+      0017F7 05 6E            [12] 1801 	inc	_print_linefipacket_i_65537_68
+      0017F9 D0 07            [24] 1802 	pop	ar7
+      0017FB D0 06            [24] 1803 	pop	ar6
+      0017FD D0 05            [24] 1804 	pop	ar5
+      0017FF 80 8C            [24] 1805 	sjmp	00103$
+      001801                       1806 00101$:
+                                   1807 ;	../lib/linefi_packet.c:143: printf_fast_f("\r\n");
+      001801 74 6C            [12] 1808 	mov	a,#___str_8
+      001803 C0 E0            [24] 1809 	push	acc
+      001805 74 24            [12] 1810 	mov	a,#(___str_8 >> 8)
+      001807 C0 E0            [24] 1811 	push	acc
+      001809 12 1B B7         [24] 1812 	lcall	_printf_fast_f
+      00180C 15 81            [12] 1813 	dec	sp
+      00180E 15 81            [12] 1814 	dec	sp
+                                   1815 ;	../lib/linefi_packet.c:144: printf_fast_f("-------------------------------\r\n");
+      001810 74 FA            [12] 1816 	mov	a,#___str_0
+      001812 C0 E0            [24] 1817 	push	acc
+      001814 74 23            [12] 1818 	mov	a,#(___str_0 >> 8)
+      001816 C0 E0            [24] 1819 	push	acc
+      001818 12 1B B7         [24] 1820 	lcall	_printf_fast_f
+      00181B 15 81            [12] 1821 	dec	sp
+      00181D 15 81            [12] 1822 	dec	sp
+                                   1823 ;	../lib/linefi_packet.c:145: }
+      00181F 22               [24] 1824 	ret
+                                   1825 ;------------------------------------------------------------
+                                   1826 ;Allocation info for local variables in function 'crc8'
+                                   1827 ;------------------------------------------------------------
+                                   1828 ;num_bytes                 Allocated with name '_crc8_PARM_2'
+                                   1829 ;au8CRC                    Allocated with name '_crc8_PARM_3'
+                                   1830 ;input_str                 Allocated to registers r5 r6 r7 
+                                   1831 ;a                         Allocated to registers r3 
+                                   1832 ;crc                       Allocated to registers r4 
+                                   1833 ;ptr                       Allocated to registers r5 r6 r7 
+                                   1834 ;------------------------------------------------------------
+                                   1835 ;	../lib/linefi_packet.c:166: uint8 crc8( uint8 *input_str, uint8 num_bytes, uint8 au8CRC) 
+                                   1836 ;	-----------------------------------------
+                                   1837 ;	 function crc8
+                                   1838 ;	-----------------------------------------
+      001820                       1839 _crc8:
+      001820 AD 82            [24] 1840 	mov	r5,dpl
+      001822 AE 83            [24] 1841 	mov	r6,dph
+      001824 AF F0            [24] 1842 	mov	r7,b
+                                   1843 ;	../lib/linefi_packet.c:172: crc = au8CRC;
+      001826 AC 19            [24] 1844 	mov	r4,_crc8_PARM_3
+                                   1845 ;	../lib/linefi_packet.c:175: if ( ptr != NULL )
+      001828 ED               [12] 1846 	mov	a,r5
+      001829 4E               [12] 1847 	orl	a,r6
+      00182A 60 21            [24] 1848 	jz	00103$
+                                   1849 ;	../lib/linefi_packet.c:176: for (a=0; a<num_bytes; a++) {
+      00182C 7B 00            [12] 1850 	mov	r3,#0x00
+      00182E                       1851 00105$:
+      00182E C3               [12] 1852 	clr	c
+      00182F EB               [12] 1853 	mov	a,r3
+      001830 95 18            [12] 1854 	subb	a,_crc8_PARM_2
+      001832 50 19            [24] 1855 	jnc	00103$
+                                   1856 ;	../lib/linefi_packet.c:178: crc = sht75_crc_table[(*ptr++) ^ crc];
+      001834 8D 82            [24] 1857 	mov	dpl,r5
+      001836 8E 83            [24] 1858 	mov	dph,r6
+      001838 8F F0            [24] 1859 	mov	b,r7
+      00183A 12 20 FB         [24] 1860 	lcall	__gptrget
+      00183D FA               [12] 1861 	mov	r2,a
+      00183E A3               [24] 1862 	inc	dptr
+      00183F AD 82            [24] 1863 	mov	r5,dpl
+      001841 AE 83            [24] 1864 	mov	r6,dph
+      001843 EC               [12] 1865 	mov	a,r4
+      001844 6A               [12] 1866 	xrl	a,r2
+      001845 90 19 5C         [24] 1867 	mov	dptr,#_sht75_crc_table
+      001848 93               [24] 1868 	movc	a,@a+dptr
+      001849 FC               [12] 1869 	mov	r4,a
+                                   1870 ;	../lib/linefi_packet.c:176: for (a=0; a<num_bytes; a++) {
+      00184A 0B               [12] 1871 	inc	r3
+      00184B 80 E1            [24] 1872 	sjmp	00105$
+      00184D                       1873 00103$:
+                                   1874 ;	../lib/linefi_packet.c:181: return crc;
+      00184D 8C 82            [24] 1875 	mov	dpl,r4
+                                   1876 ;	../lib/linefi_packet.c:182: }  /* crc_8 */
+      00184F 22               [24] 1877 	ret
+                                   1878 ;------------------------------------------------------------
+                                   1879 ;Allocation info for local variables in function 'print_raw_packet'
+                                   1880 ;------------------------------------------------------------
+                                   1881 ;apu8Data                  Allocated with name '_print_raw_packet_PARM_2'
+                                   1882 ;au8Size                   Allocated to registers r7 
+                                   1883 ;i                         Allocated to registers r6 
+                                   1884 ;------------------------------------------------------------
+                                   1885 ;	../lib/linefi_packet.c:184: void print_raw_packet(uint8 au8Size, uint8 * apu8Data)
+                                   1886 ;	-----------------------------------------
+                                   1887 ;	 function print_raw_packet
+                                   1888 ;	-----------------------------------------
+      001850                       1889 _print_raw_packet:
+      001850 AF 82            [24] 1890 	mov	r7,dpl
+                                   1891 ;	../lib/linefi_packet.c:187: printf_fast_f("#%d\r\n", gu16Cnt++);
+      001852 AD 61            [24] 1892 	mov	r5,_gu16Cnt
+      001854 AE 62            [24] 1893 	mov	r6,(_gu16Cnt + 1)
+      001856 05 61            [12] 1894 	inc	_gu16Cnt
+      001858 E4               [12] 1895 	clr	a
+      001859 B5 61 02         [24] 1896 	cjne	a,_gu16Cnt,00136$
+      00185C 05 62            [12] 1897 	inc	(_gu16Cnt + 1)
+      00185E                       1898 00136$:
+      00185E C0 07            [24] 1899 	push	ar7
+      001860 C0 05            [24] 1900 	push	ar5
+      001862 C0 06            [24] 1901 	push	ar6
+      001864 74 6F            [12] 1902 	mov	a,#___str_9
+      001866 C0 E0            [24] 1903 	push	acc
+      001868 74 24            [12] 1904 	mov	a,#(___str_9 >> 8)
+      00186A C0 E0            [24] 1905 	push	acc
+      00186C 12 1B B7         [24] 1906 	lcall	_printf_fast_f
+      00186F E5 81            [12] 1907 	mov	a,sp
+      001871 24 FC            [12] 1908 	add	a,#0xfc
+      001873 F5 81            [12] 1909 	mov	sp,a
+                                   1910 ;	../lib/linefi_packet.c:188: printf_fast_f("raw :  ");
+      001875 74 75            [12] 1911 	mov	a,#___str_10
+      001877 C0 E0            [24] 1912 	push	acc
+      001879 74 24            [12] 1913 	mov	a,#(___str_10 >> 8)
+      00187B C0 E0            [24] 1914 	push	acc
+      00187D 12 1B B7         [24] 1915 	lcall	_printf_fast_f
+      001880 15 81            [12] 1916 	dec	sp
+      001882 15 81            [12] 1917 	dec	sp
+      001884 D0 07            [24] 1918 	pop	ar7
+                                   1919 ;	../lib/linefi_packet.c:189: for (i=0;i<au8Size;i++) {
+      001886 7E 00            [12] 1920 	mov	r6,#0x00
+      001888                       1921 00107$:
+      001888 C3               [12] 1922 	clr	c
+      001889 EE               [12] 1923 	mov	a,r6
+      00188A 9F               [12] 1924 	subb	a,r7
+      00188B 50 24            [24] 1925 	jnc	00101$
+                                   1926 ;	../lib/linefi_packet.c:190: printf_fast_f("%2d   ", i);
+      00188D 8E 04            [24] 1927 	mov	ar4,r6
+      00188F 7D 00            [12] 1928 	mov	r5,#0x00
+      001891 C0 07            [24] 1929 	push	ar7
+      001893 C0 06            [24] 1930 	push	ar6
+      001895 C0 04            [24] 1931 	push	ar4
+      001897 C0 05            [24] 1932 	push	ar5
+      001899 74 7D            [12] 1933 	mov	a,#___str_11
+      00189B C0 E0            [24] 1934 	push	acc
+      00189D 74 24            [12] 1935 	mov	a,#(___str_11 >> 8)
+      00189F C0 E0            [24] 1936 	push	acc
+      0018A1 12 1B B7         [24] 1937 	lcall	_printf_fast_f
+      0018A4 E5 81            [12] 1938 	mov	a,sp
+      0018A6 24 FC            [12] 1939 	add	a,#0xfc
+      0018A8 F5 81            [12] 1940 	mov	sp,a
+      0018AA D0 06            [24] 1941 	pop	ar6
+      0018AC D0 07            [24] 1942 	pop	ar7
+                                   1943 ;	../lib/linefi_packet.c:189: for (i=0;i<au8Size;i++) {
+      0018AE 0E               [12] 1944 	inc	r6
+      0018AF 80 D7            [24] 1945 	sjmp	00107$
+      0018B1                       1946 00101$:
+                                   1947 ;	../lib/linefi_packet.c:192: printf_fast_f("\r\n");
+      0018B1 C0 07            [24] 1948 	push	ar7
+      0018B3 74 6C            [12] 1949 	mov	a,#___str_8
+      0018B5 C0 E0            [24] 1950 	push	acc
+      0018B7 74 24            [12] 1951 	mov	a,#(___str_8 >> 8)
+      0018B9 C0 E0            [24] 1952 	push	acc
+      0018BB 12 1B B7         [24] 1953 	lcall	_printf_fast_f
+      0018BE 15 81            [12] 1954 	dec	sp
+      0018C0 15 81            [12] 1955 	dec	sp
+                                   1956 ;	../lib/linefi_packet.c:193: printf_fast_f("data:");
+      0018C2 74 84            [12] 1957 	mov	a,#___str_12
+      0018C4 C0 E0            [24] 1958 	push	acc
+      0018C6 74 24            [12] 1959 	mov	a,#(___str_12 >> 8)
+      0018C8 C0 E0            [24] 1960 	push	acc
+      0018CA 12 1B B7         [24] 1961 	lcall	_printf_fast_f
+      0018CD 15 81            [12] 1962 	dec	sp
+      0018CF 15 81            [12] 1963 	dec	sp
+      0018D1 D0 07            [24] 1964 	pop	ar7
+                                   1965 ;	../lib/linefi_packet.c:194: for (i=0;i<au8Size;i++) {
+      0018D3 7E 00            [12] 1966 	mov	r6,#0x00
+      0018D5                       1967 00110$:
+      0018D5 C3               [12] 1968 	clr	c
+      0018D6 EE               [12] 1969 	mov	a,r6
+      0018D7 9F               [12] 1970 	subb	a,r7
+      0018D8 50 72            [24] 1971 	jnc	00105$
+                                   1972 ;	../lib/linefi_packet.c:195: if (*apu8Data < 0x10) {
+      0018DA AB 6F            [24] 1973 	mov	r3,_print_raw_packet_PARM_2
+      0018DC AC 70            [24] 1974 	mov	r4,(_print_raw_packet_PARM_2 + 1)
+      0018DE AD 71            [24] 1975 	mov	r5,(_print_raw_packet_PARM_2 + 2)
+      0018E0 8B 82            [24] 1976 	mov	dpl,r3
+      0018E2 8C 83            [24] 1977 	mov	dph,r4
+      0018E4 8D F0            [24] 1978 	mov	b,r5
+      0018E6 12 20 FB         [24] 1979 	lcall	__gptrget
+      0018E9 FA               [12] 1980 	mov	r2,a
+      0018EA BA 10 00         [24] 1981 	cjne	r2,#0x10,00139$
+      0018ED                       1982 00139$:
+      0018ED 50 30            [24] 1983 	jnc	00103$
+                                   1984 ;	../lib/linefi_packet.c:196: printf_fast_f("0x0%x ", *apu8Data++);
+      0018EF 8A 01            [24] 1985 	mov	ar1,r2
+      0018F1 74 01            [12] 1986 	mov	a,#0x01
+      0018F3 2B               [12] 1987 	add	a,r3
+      0018F4 F5 6F            [12] 1988 	mov	_print_raw_packet_PARM_2,a
+      0018F6 E4               [12] 1989 	clr	a
+      0018F7 3C               [12] 1990 	addc	a,r4
+      0018F8 F5 70            [12] 1991 	mov	(_print_raw_packet_PARM_2 + 1),a
+      0018FA 8D 71            [24] 1992 	mov	(_print_raw_packet_PARM_2 + 2),r5
+      0018FC 89 00            [24] 1993 	mov	ar0,r1
+      0018FE 79 00            [12] 1994 	mov	r1,#0x00
+      001900 C0 07            [24] 1995 	push	ar7
+      001902 C0 06            [24] 1996 	push	ar6
+      001904 C0 00            [24] 1997 	push	ar0
+      001906 C0 01            [24] 1998 	push	ar1
+      001908 74 8A            [12] 1999 	mov	a,#___str_13
+      00190A C0 E0            [24] 2000 	push	acc
+      00190C 74 24            [12] 2001 	mov	a,#(___str_13 >> 8)
+      00190E C0 E0            [24] 2002 	push	acc
+      001910 12 1B B7         [24] 2003 	lcall	_printf_fast_f
+      001913 E5 81            [12] 2004 	mov	a,sp
+      001915 24 FC            [12] 2005 	add	a,#0xfc
+      001917 F5 81            [12] 2006 	mov	sp,a
+      001919 D0 06            [24] 2007 	pop	ar6
+      00191B D0 07            [24] 2008 	pop	ar7
+      00191D 80 2A            [24] 2009 	sjmp	00111$
+      00191F                       2010 00103$:
+                                   2011 ;	../lib/linefi_packet.c:199: printf_fast_f("0x%x ", *apu8Data++);
+      00191F 74 01            [12] 2012 	mov	a,#0x01
+      001921 2B               [12] 2013 	add	a,r3
+      001922 F5 6F            [12] 2014 	mov	_print_raw_packet_PARM_2,a
+      001924 E4               [12] 2015 	clr	a
+      001925 3C               [12] 2016 	addc	a,r4
+      001926 F5 70            [12] 2017 	mov	(_print_raw_packet_PARM_2 + 1),a
+      001928 8D 71            [24] 2018 	mov	(_print_raw_packet_PARM_2 + 2),r5
+      00192A 7D 00            [12] 2019 	mov	r5,#0x00
+      00192C C0 07            [24] 2020 	push	ar7
+      00192E C0 06            [24] 2021 	push	ar6
+      001930 C0 02            [24] 2022 	push	ar2
+      001932 C0 05            [24] 2023 	push	ar5
+      001934 74 66            [12] 2024 	mov	a,#___str_7
+      001936 C0 E0            [24] 2025 	push	acc
+      001938 74 24            [12] 2026 	mov	a,#(___str_7 >> 8)
+      00193A C0 E0            [24] 2027 	push	acc
+      00193C 12 1B B7         [24] 2028 	lcall	_printf_fast_f
+      00193F E5 81            [12] 2029 	mov	a,sp
+      001941 24 FC            [12] 2030 	add	a,#0xfc
+      001943 F5 81            [12] 2031 	mov	sp,a
+      001945 D0 06            [24] 2032 	pop	ar6
+      001947 D0 07            [24] 2033 	pop	ar7
+      001949                       2034 00111$:
+                                   2035 ;	../lib/linefi_packet.c:194: for (i=0;i<au8Size;i++) {
+      001949 0E               [12] 2036 	inc	r6
+      00194A 80 89            [24] 2037 	sjmp	00110$
+      00194C                       2038 00105$:
+                                   2039 ;	../lib/linefi_packet.c:202: printf_fast_f("\r\n");
+      00194C 74 6C            [12] 2040 	mov	a,#___str_8
+      00194E C0 E0            [24] 2041 	push	acc
+      001950 74 24            [12] 2042 	mov	a,#(___str_8 >> 8)
+      001952 C0 E0            [24] 2043 	push	acc
+      001954 12 1B B7         [24] 2044 	lcall	_printf_fast_f
+      001957 15 81            [12] 2045 	dec	sp
+      001959 15 81            [12] 2046 	dec	sp
+                                   2047 ;	../lib/linefi_packet.c:203: }
+      00195B 22               [24] 2048 	ret
+                                   2049 	.area CSEG    (CODE)
+                                   2050 	.area CONST   (CODE)
+                                   2051 	.area CONST   (CODE)
+      0023FA                       2052 ___str_0:
+      0023FA 2D 2D 2D 2D 2D 2D 2D  2053 	.ascii "-------------------------------"
              2D 2D 2D 2D 2D 2D 2D
              2D 2D 2D 2D 2D 2D 2D
              2D 2D 2D 2D 2D 2D 2D
              2D 2D 2D
-      0022CE 0D                    2027 	.db 0x0d
-      0022CF 0A                    2028 	.db 0x0a
-      0022D0 00                    2029 	.db 0x00
-                                   2030 	.area CSEG    (CODE)
-                                   2031 	.area CONST   (CODE)
-      0022D1                       2032 ___str_1:
-      0022D1 56 65 72 20 3A 20 25  2033 	.ascii "Ver : %d"
+      002419 0D                    2054 	.db 0x0d
+      00241A 0A                    2055 	.db 0x0a
+      00241B 00                    2056 	.db 0x00
+                                   2057 	.area CSEG    (CODE)
+                                   2058 	.area CONST   (CODE)
+      00241C                       2059 ___str_1:
+      00241C 56 65 72 20 3A 20 25  2060 	.ascii "Ver : %d"
              64
-      0022D9 0D                    2034 	.db 0x0d
-      0022DA 0A                    2035 	.db 0x0a
-      0022DB 00                    2036 	.db 0x00
-                                   2037 	.area CSEG    (CODE)
-                                   2038 	.area CONST   (CODE)
-      0022DC                       2039 ___str_2:
-      0022DC 54 79 70 65 3A 20 25  2040 	.ascii "Type: %d(%s)"
+      002424 0D                    2061 	.db 0x0d
+      002425 0A                    2062 	.db 0x0a
+      002426 00                    2063 	.db 0x00
+                                   2064 	.area CSEG    (CODE)
+                                   2065 	.area CONST   (CODE)
+      002427                       2066 ___str_2:
+      002427 54 79 70 65 3A 20 25  2067 	.ascii "Type: %d(%s)"
              64 28 25 73 29
-      0022E8 0D                    2041 	.db 0x0d
-      0022E9 0A                    2042 	.db 0x0a
-      0022EA 00                    2043 	.db 0x00
-                                   2044 	.area CSEG    (CODE)
-                                   2045 	.area CONST   (CODE)
-      0022EB                       2046 ___str_3:
-      0022EB 41 64 64 72 3A 20 25  2047 	.ascii "Addr: %d"
+      002433 0D                    2068 	.db 0x0d
+      002434 0A                    2069 	.db 0x0a
+      002435 00                    2070 	.db 0x00
+                                   2071 	.area CSEG    (CODE)
+                                   2072 	.area CONST   (CODE)
+      002436                       2073 ___str_3:
+      002436 41 64 64 72 3A 20 25  2074 	.ascii "Addr: %d"
              64
-      0022F3 0D                    2048 	.db 0x0d
-      0022F4 0A                    2049 	.db 0x0a
-      0022F5 00                    2050 	.db 0x00
-                                   2051 	.area CSEG    (CODE)
-                                   2052 	.area CONST   (CODE)
-      0022F6                       2053 ___str_4:
-      0022F6 53 69 7A 65 3A 20 25  2054 	.ascii "Size: %d"
+      00243E 0D                    2075 	.db 0x0d
+      00243F 0A                    2076 	.db 0x0a
+      002440 00                    2077 	.db 0x00
+                                   2078 	.area CSEG    (CODE)
+                                   2079 	.area CONST   (CODE)
+      002441                       2080 ___str_4:
+      002441 53 69 7A 65 3A 20 25  2081 	.ascii "Size: %d"
              64
-      0022FE 0D                    2055 	.db 0x0d
-      0022FF 0A                    2056 	.db 0x0a
-      002300 00                    2057 	.db 0x00
-                                   2058 	.area CSEG    (CODE)
-                                   2059 	.area CONST   (CODE)
-      002301                       2060 ___str_5:
-      002301 43 52 43 20 63 6F 6D  2061 	.ascii "CRC comp : %d %d"
+      002449 0D                    2082 	.db 0x0d
+      00244A 0A                    2083 	.db 0x0a
+      00244B 00                    2084 	.db 0x00
+                                   2085 	.area CSEG    (CODE)
+                                   2086 	.area CONST   (CODE)
+      00244C                       2087 ___str_5:
+      00244C 43 52 43 20 63 6F 6D  2088 	.ascii "CRC comp : %d %d"
              70 20 3A 20 25 64 20
              25 64
-      002311 0D                    2062 	.db 0x0d
-      002312 0A                    2063 	.db 0x0a
-      002313 00                    2064 	.db 0x00
-                                   2065 	.area CSEG    (CODE)
-                                   2066 	.area CONST   (CODE)
-      002314                       2067 ___str_6:
-      002314 44 41 54 41 3A 20     2068 	.ascii "DATA: "
-      00231A 00                    2069 	.db 0x00
-                                   2070 	.area CSEG    (CODE)
-                                   2071 	.area CONST   (CODE)
-      00231B                       2072 ___str_7:
-      00231B 30 78 25 78 20        2073 	.ascii "0x%x "
-      002320 00                    2074 	.db 0x00
-                                   2075 	.area CSEG    (CODE)
-                                   2076 	.area CONST   (CODE)
-      002321                       2077 ___str_8:
-      002321 0D                    2078 	.db 0x0d
-      002322 0A                    2079 	.db 0x0a
-      002323 00                    2080 	.db 0x00
-                                   2081 	.area CSEG    (CODE)
-      001855                       2082 _sht75_crc_table:
-      001855 00                    2083 	.db #0x00	; 0
-      001856 31                    2084 	.db #0x31	; 49	'1'
-      001857 62                    2085 	.db #0x62	; 98	'b'
-      001858 53                    2086 	.db #0x53	; 83	'S'
-      001859 C4                    2087 	.db #0xc4	; 196
-      00185A F5                    2088 	.db #0xf5	; 245
-      00185B A6                    2089 	.db #0xa6	; 166
-      00185C 97                    2090 	.db #0x97	; 151
-      00185D B9                    2091 	.db #0xb9	; 185
-      00185E 88                    2092 	.db #0x88	; 136
-      00185F DB                    2093 	.db #0xdb	; 219
-      001860 EA                    2094 	.db #0xea	; 234
-      001861 7D                    2095 	.db #0x7d	; 125
-      001862 4C                    2096 	.db #0x4c	; 76	'L'
-      001863 1F                    2097 	.db #0x1f	; 31
-      001864 2E                    2098 	.db #0x2e	; 46
-      001865 43                    2099 	.db #0x43	; 67	'C'
-      001866 72                    2100 	.db #0x72	; 114	'r'
-      001867 21                    2101 	.db #0x21	; 33
-      001868 10                    2102 	.db #0x10	; 16
-      001869 87                    2103 	.db #0x87	; 135
-      00186A B6                    2104 	.db #0xb6	; 182
-      00186B E5                    2105 	.db #0xe5	; 229
-      00186C D4                    2106 	.db #0xd4	; 212
-      00186D FA                    2107 	.db #0xfa	; 250
-      00186E CB                    2108 	.db #0xcb	; 203
-      00186F 98                    2109 	.db #0x98	; 152
-      001870 A9                    2110 	.db #0xa9	; 169
-      001871 3E                    2111 	.db #0x3e	; 62
-      001872 0F                    2112 	.db #0x0f	; 15
-      001873 5C                    2113 	.db #0x5c	; 92
-      001874 6D                    2114 	.db #0x6d	; 109	'm'
-      001875 86                    2115 	.db #0x86	; 134
-      001876 B7                    2116 	.db #0xb7	; 183
-      001877 E4                    2117 	.db #0xe4	; 228
-      001878 D5                    2118 	.db #0xd5	; 213
-      001879 42                    2119 	.db #0x42	; 66	'B'
-      00187A 73                    2120 	.db #0x73	; 115	's'
-      00187B 20                    2121 	.db #0x20	; 32
-      00187C 11                    2122 	.db #0x11	; 17
-      00187D 3F                    2123 	.db #0x3f	; 63
-      00187E 0E                    2124 	.db #0x0e	; 14
-      00187F 5D                    2125 	.db #0x5d	; 93
-      001880 6C                    2126 	.db #0x6c	; 108	'l'
-      001881 FB                    2127 	.db #0xfb	; 251
-      001882 CA                    2128 	.db #0xca	; 202
-      001883 99                    2129 	.db #0x99	; 153
-      001884 A8                    2130 	.db #0xa8	; 168
-      001885 C5                    2131 	.db #0xc5	; 197
-      001886 F4                    2132 	.db #0xf4	; 244
-      001887 A7                    2133 	.db #0xa7	; 167
-      001888 96                    2134 	.db #0x96	; 150
-      001889 01                    2135 	.db #0x01	; 1
-      00188A 30                    2136 	.db #0x30	; 48	'0'
-      00188B 63                    2137 	.db #0x63	; 99	'c'
-      00188C 52                    2138 	.db #0x52	; 82	'R'
-      00188D 7C                    2139 	.db #0x7c	; 124
-      00188E 4D                    2140 	.db #0x4d	; 77	'M'
-      00188F 1E                    2141 	.db #0x1e	; 30
-      001890 2F                    2142 	.db #0x2f	; 47
-      001891 B8                    2143 	.db #0xb8	; 184
-      001892 89                    2144 	.db #0x89	; 137
-      001893 DA                    2145 	.db #0xda	; 218
-      001894 EB                    2146 	.db #0xeb	; 235
-      001895 3D                    2147 	.db #0x3d	; 61
-      001896 0C                    2148 	.db #0x0c	; 12
-      001897 5F                    2149 	.db #0x5f	; 95
-      001898 6E                    2150 	.db #0x6e	; 110	'n'
-      001899 F9                    2151 	.db #0xf9	; 249
-      00189A C8                    2152 	.db #0xc8	; 200
-      00189B 9B                    2153 	.db #0x9b	; 155
-      00189C AA                    2154 	.db #0xaa	; 170
-      00189D 84                    2155 	.db #0x84	; 132
-      00189E B5                    2156 	.db #0xb5	; 181
-      00189F E6                    2157 	.db #0xe6	; 230
-      0018A0 D7                    2158 	.db #0xd7	; 215
-      0018A1 40                    2159 	.db #0x40	; 64
-      0018A2 71                    2160 	.db #0x71	; 113	'q'
-      0018A3 22                    2161 	.db #0x22	; 34
-      0018A4 13                    2162 	.db #0x13	; 19
-      0018A5 7E                    2163 	.db #0x7e	; 126
-      0018A6 4F                    2164 	.db #0x4f	; 79	'O'
-      0018A7 1C                    2165 	.db #0x1c	; 28
-      0018A8 2D                    2166 	.db #0x2d	; 45
-      0018A9 BA                    2167 	.db #0xba	; 186
-      0018AA 8B                    2168 	.db #0x8b	; 139
-      0018AB D8                    2169 	.db #0xd8	; 216
-      0018AC E9                    2170 	.db #0xe9	; 233
-      0018AD C7                    2171 	.db #0xc7	; 199
-      0018AE F6                    2172 	.db #0xf6	; 246
-      0018AF A5                    2173 	.db #0xa5	; 165
-      0018B0 94                    2174 	.db #0x94	; 148
-      0018B1 03                    2175 	.db #0x03	; 3
-      0018B2 32                    2176 	.db #0x32	; 50	'2'
-      0018B3 61                    2177 	.db #0x61	; 97	'a'
-      0018B4 50                    2178 	.db #0x50	; 80	'P'
-      0018B5 BB                    2179 	.db #0xbb	; 187
-      0018B6 8A                    2180 	.db #0x8a	; 138
-      0018B7 D9                    2181 	.db #0xd9	; 217
-      0018B8 E8                    2182 	.db #0xe8	; 232
-      0018B9 7F                    2183 	.db #0x7f	; 127
-      0018BA 4E                    2184 	.db #0x4e	; 78	'N'
-      0018BB 1D                    2185 	.db #0x1d	; 29
-      0018BC 2C                    2186 	.db #0x2c	; 44
-      0018BD 02                    2187 	.db #0x02	; 2
-      0018BE 33                    2188 	.db #0x33	; 51	'3'
-      0018BF 60                    2189 	.db #0x60	; 96
-      0018C0 51                    2190 	.db #0x51	; 81	'Q'
-      0018C1 C6                    2191 	.db #0xc6	; 198
-      0018C2 F7                    2192 	.db #0xf7	; 247
-      0018C3 A4                    2193 	.db #0xa4	; 164
-      0018C4 95                    2194 	.db #0x95	; 149
-      0018C5 F8                    2195 	.db #0xf8	; 248
-      0018C6 C9                    2196 	.db #0xc9	; 201
-      0018C7 9A                    2197 	.db #0x9a	; 154
-      0018C8 AB                    2198 	.db #0xab	; 171
-      0018C9 3C                    2199 	.db #0x3c	; 60
-      0018CA 0D                    2200 	.db #0x0d	; 13
-      0018CB 5E                    2201 	.db #0x5e	; 94
-      0018CC 6F                    2202 	.db #0x6f	; 111	'o'
-      0018CD 41                    2203 	.db #0x41	; 65	'A'
-      0018CE 70                    2204 	.db #0x70	; 112	'p'
-      0018CF 23                    2205 	.db #0x23	; 35
-      0018D0 12                    2206 	.db #0x12	; 18
-      0018D1 85                    2207 	.db #0x85	; 133
-      0018D2 B4                    2208 	.db #0xb4	; 180
-      0018D3 E7                    2209 	.db #0xe7	; 231
-      0018D4 D6                    2210 	.db #0xd6	; 214
-      0018D5 7A                    2211 	.db #0x7a	; 122	'z'
-      0018D6 4B                    2212 	.db #0x4b	; 75	'K'
-      0018D7 18                    2213 	.db #0x18	; 24
-      0018D8 29                    2214 	.db #0x29	; 41
-      0018D9 BE                    2215 	.db #0xbe	; 190
-      0018DA 8F                    2216 	.db #0x8f	; 143
-      0018DB DC                    2217 	.db #0xdc	; 220
-      0018DC ED                    2218 	.db #0xed	; 237
-      0018DD C3                    2219 	.db #0xc3	; 195
-      0018DE F2                    2220 	.db #0xf2	; 242
-      0018DF A1                    2221 	.db #0xa1	; 161
-      0018E0 90                    2222 	.db #0x90	; 144
-      0018E1 07                    2223 	.db #0x07	; 7
-      0018E2 36                    2224 	.db #0x36	; 54	'6'
-      0018E3 65                    2225 	.db #0x65	; 101	'e'
-      0018E4 54                    2226 	.db #0x54	; 84	'T'
-      0018E5 39                    2227 	.db #0x39	; 57	'9'
-      0018E6 08                    2228 	.db #0x08	; 8
-      0018E7 5B                    2229 	.db #0x5b	; 91
-      0018E8 6A                    2230 	.db #0x6a	; 106	'j'
-      0018E9 FD                    2231 	.db #0xfd	; 253
-      0018EA CC                    2232 	.db #0xcc	; 204
-      0018EB 9F                    2233 	.db #0x9f	; 159
-      0018EC AE                    2234 	.db #0xae	; 174
-      0018ED 80                    2235 	.db #0x80	; 128
-      0018EE B1                    2236 	.db #0xb1	; 177
-      0018EF E2                    2237 	.db #0xe2	; 226
-      0018F0 D3                    2238 	.db #0xd3	; 211
-      0018F1 44                    2239 	.db #0x44	; 68	'D'
-      0018F2 75                    2240 	.db #0x75	; 117	'u'
-      0018F3 26                    2241 	.db #0x26	; 38
-      0018F4 17                    2242 	.db #0x17	; 23
-      0018F5 FC                    2243 	.db #0xfc	; 252
-      0018F6 CD                    2244 	.db #0xcd	; 205
-      0018F7 9E                    2245 	.db #0x9e	; 158
-      0018F8 AF                    2246 	.db #0xaf	; 175
-      0018F9 38                    2247 	.db #0x38	; 56	'8'
-      0018FA 09                    2248 	.db #0x09	; 9
-      0018FB 5A                    2249 	.db #0x5a	; 90	'Z'
-      0018FC 6B                    2250 	.db #0x6b	; 107	'k'
-      0018FD 45                    2251 	.db #0x45	; 69	'E'
-      0018FE 74                    2252 	.db #0x74	; 116	't'
-      0018FF 27                    2253 	.db #0x27	; 39
-      001900 16                    2254 	.db #0x16	; 22
-      001901 81                    2255 	.db #0x81	; 129
-      001902 B0                    2256 	.db #0xb0	; 176
-      001903 E3                    2257 	.db #0xe3	; 227
-      001904 D2                    2258 	.db #0xd2	; 210
-      001905 BF                    2259 	.db #0xbf	; 191
-      001906 8E                    2260 	.db #0x8e	; 142
-      001907 DD                    2261 	.db #0xdd	; 221
-      001908 EC                    2262 	.db #0xec	; 236
-      001909 7B                    2263 	.db #0x7b	; 123
-      00190A 4A                    2264 	.db #0x4a	; 74	'J'
-      00190B 19                    2265 	.db #0x19	; 25
-      00190C 28                    2266 	.db #0x28	; 40
-      00190D 06                    2267 	.db #0x06	; 6
-      00190E 37                    2268 	.db #0x37	; 55	'7'
-      00190F 64                    2269 	.db #0x64	; 100	'd'
-      001910 55                    2270 	.db #0x55	; 85	'U'
-      001911 C2                    2271 	.db #0xc2	; 194
-      001912 F3                    2272 	.db #0xf3	; 243
-      001913 A0                    2273 	.db #0xa0	; 160
-      001914 91                    2274 	.db #0x91	; 145
-      001915 47                    2275 	.db #0x47	; 71	'G'
-      001916 76                    2276 	.db #0x76	; 118	'v'
-      001917 25                    2277 	.db #0x25	; 37
-      001918 14                    2278 	.db #0x14	; 20
-      001919 83                    2279 	.db #0x83	; 131
-      00191A B2                    2280 	.db #0xb2	; 178
-      00191B E1                    2281 	.db #0xe1	; 225
-      00191C D0                    2282 	.db #0xd0	; 208
-      00191D FE                    2283 	.db #0xfe	; 254
-      00191E CF                    2284 	.db #0xcf	; 207
-      00191F 9C                    2285 	.db #0x9c	; 156
-      001920 AD                    2286 	.db #0xad	; 173
-      001921 3A                    2287 	.db #0x3a	; 58
-      001922 0B                    2288 	.db #0x0b	; 11
-      001923 58                    2289 	.db #0x58	; 88	'X'
-      001924 69                    2290 	.db #0x69	; 105	'i'
-      001925 04                    2291 	.db #0x04	; 4
-      001926 35                    2292 	.db #0x35	; 53	'5'
-      001927 66                    2293 	.db #0x66	; 102	'f'
-      001928 57                    2294 	.db #0x57	; 87	'W'
-      001929 C0                    2295 	.db #0xc0	; 192
-      00192A F1                    2296 	.db #0xf1	; 241
-      00192B A2                    2297 	.db #0xa2	; 162
-      00192C 93                    2298 	.db #0x93	; 147
-      00192D BD                    2299 	.db #0xbd	; 189
-      00192E 8C                    2300 	.db #0x8c	; 140
-      00192F DF                    2301 	.db #0xdf	; 223
-      001930 EE                    2302 	.db #0xee	; 238
-      001931 79                    2303 	.db #0x79	; 121	'y'
-      001932 48                    2304 	.db #0x48	; 72	'H'
-      001933 1B                    2305 	.db #0x1b	; 27
-      001934 2A                    2306 	.db #0x2a	; 42
-      001935 C1                    2307 	.db #0xc1	; 193
-      001936 F0                    2308 	.db #0xf0	; 240
-      001937 A3                    2309 	.db #0xa3	; 163
-      001938 92                    2310 	.db #0x92	; 146
-      001939 05                    2311 	.db #0x05	; 5
-      00193A 34                    2312 	.db #0x34	; 52	'4'
-      00193B 67                    2313 	.db #0x67	; 103	'g'
-      00193C 56                    2314 	.db #0x56	; 86	'V'
-      00193D 78                    2315 	.db #0x78	; 120	'x'
-      00193E 49                    2316 	.db #0x49	; 73	'I'
-      00193F 1A                    2317 	.db #0x1a	; 26
-      001940 2B                    2318 	.db #0x2b	; 43
-      001941 BC                    2319 	.db #0xbc	; 188
-      001942 8D                    2320 	.db #0x8d	; 141
-      001943 DE                    2321 	.db #0xde	; 222
-      001944 EF                    2322 	.db #0xef	; 239
-      001945 82                    2323 	.db #0x82	; 130
-      001946 B3                    2324 	.db #0xb3	; 179
-      001947 E0                    2325 	.db #0xe0	; 224
-      001948 D1                    2326 	.db #0xd1	; 209
-      001949 46                    2327 	.db #0x46	; 70	'F'
-      00194A 77                    2328 	.db #0x77	; 119	'w'
-      00194B 24                    2329 	.db #0x24	; 36
-      00194C 15                    2330 	.db #0x15	; 21
-      00194D 3B                    2331 	.db #0x3b	; 59
-      00194E 0A                    2332 	.db #0x0a	; 10
-      00194F 59                    2333 	.db #0x59	; 89	'Y'
-      001950 68                    2334 	.db #0x68	; 104	'h'
-      001951 FF                    2335 	.db #0xff	; 255
-      001952 CE                    2336 	.db #0xce	; 206
-      001953 9D                    2337 	.db #0x9d	; 157
-      001954 AC                    2338 	.db #0xac	; 172
-                                   2339 	.area CONST   (CODE)
-      002324                       2340 ___str_9:
-      002324 23 25 64              2341 	.ascii "#%d"
-      002327 0D                    2342 	.db 0x0d
-      002328 0A                    2343 	.db 0x0a
-      002329 00                    2344 	.db 0x00
-                                   2345 	.area CSEG    (CODE)
-                                   2346 	.area CONST   (CODE)
-      00232A                       2347 ___str_10:
-      00232A 72 61 77 20 3A 20 20  2348 	.ascii "raw :  "
-      002331 00                    2349 	.db 0x00
-                                   2350 	.area CSEG    (CODE)
-                                   2351 	.area CONST   (CODE)
-      002332                       2352 ___str_11:
-      002332 25 32 64 20 20 20     2353 	.ascii "%2d   "
-      002338 00                    2354 	.db 0x00
-                                   2355 	.area CSEG    (CODE)
-                                   2356 	.area CONST   (CODE)
-      002339                       2357 ___str_12:
-      002339 64 61 74 61 3A        2358 	.ascii "data:"
-      00233E 00                    2359 	.db 0x00
-                                   2360 	.area CSEG    (CODE)
-                                   2361 	.area CONST   (CODE)
-      00233F                       2362 ___str_13:
-      00233F 30 78 30 25 78 20     2363 	.ascii "0x0%x "
-      002345 00                    2364 	.db 0x00
-                                   2365 	.area CSEG    (CODE)
+      00245C 0D                    2089 	.db 0x0d
+      00245D 0A                    2090 	.db 0x0a
+      00245E 00                    2091 	.db 0x00
+                                   2092 	.area CSEG    (CODE)
+                                   2093 	.area CONST   (CODE)
+      00245F                       2094 ___str_6:
+      00245F 44 41 54 41 3A 20     2095 	.ascii "DATA: "
+      002465 00                    2096 	.db 0x00
+                                   2097 	.area CSEG    (CODE)
+                                   2098 	.area CONST   (CODE)
+      002466                       2099 ___str_7:
+      002466 30 78 25 78 20        2100 	.ascii "0x%x "
+      00246B 00                    2101 	.db 0x00
+                                   2102 	.area CSEG    (CODE)
+                                   2103 	.area CONST   (CODE)
+      00246C                       2104 ___str_8:
+      00246C 0D                    2105 	.db 0x0d
+      00246D 0A                    2106 	.db 0x0a
+      00246E 00                    2107 	.db 0x00
+                                   2108 	.area CSEG    (CODE)
+      00195C                       2109 _sht75_crc_table:
+      00195C 00                    2110 	.db #0x00	; 0
+      00195D 31                    2111 	.db #0x31	; 49	'1'
+      00195E 62                    2112 	.db #0x62	; 98	'b'
+      00195F 53                    2113 	.db #0x53	; 83	'S'
+      001960 C4                    2114 	.db #0xc4	; 196
+      001961 F5                    2115 	.db #0xf5	; 245
+      001962 A6                    2116 	.db #0xa6	; 166
+      001963 97                    2117 	.db #0x97	; 151
+      001964 B9                    2118 	.db #0xb9	; 185
+      001965 88                    2119 	.db #0x88	; 136
+      001966 DB                    2120 	.db #0xdb	; 219
+      001967 EA                    2121 	.db #0xea	; 234
+      001968 7D                    2122 	.db #0x7d	; 125
+      001969 4C                    2123 	.db #0x4c	; 76	'L'
+      00196A 1F                    2124 	.db #0x1f	; 31
+      00196B 2E                    2125 	.db #0x2e	; 46
+      00196C 43                    2126 	.db #0x43	; 67	'C'
+      00196D 72                    2127 	.db #0x72	; 114	'r'
+      00196E 21                    2128 	.db #0x21	; 33
+      00196F 10                    2129 	.db #0x10	; 16
+      001970 87                    2130 	.db #0x87	; 135
+      001971 B6                    2131 	.db #0xb6	; 182
+      001972 E5                    2132 	.db #0xe5	; 229
+      001973 D4                    2133 	.db #0xd4	; 212
+      001974 FA                    2134 	.db #0xfa	; 250
+      001975 CB                    2135 	.db #0xcb	; 203
+      001976 98                    2136 	.db #0x98	; 152
+      001977 A9                    2137 	.db #0xa9	; 169
+      001978 3E                    2138 	.db #0x3e	; 62
+      001979 0F                    2139 	.db #0x0f	; 15
+      00197A 5C                    2140 	.db #0x5c	; 92
+      00197B 6D                    2141 	.db #0x6d	; 109	'm'
+      00197C 86                    2142 	.db #0x86	; 134
+      00197D B7                    2143 	.db #0xb7	; 183
+      00197E E4                    2144 	.db #0xe4	; 228
+      00197F D5                    2145 	.db #0xd5	; 213
+      001980 42                    2146 	.db #0x42	; 66	'B'
+      001981 73                    2147 	.db #0x73	; 115	's'
+      001982 20                    2148 	.db #0x20	; 32
+      001983 11                    2149 	.db #0x11	; 17
+      001984 3F                    2150 	.db #0x3f	; 63
+      001985 0E                    2151 	.db #0x0e	; 14
+      001986 5D                    2152 	.db #0x5d	; 93
+      001987 6C                    2153 	.db #0x6c	; 108	'l'
+      001988 FB                    2154 	.db #0xfb	; 251
+      001989 CA                    2155 	.db #0xca	; 202
+      00198A 99                    2156 	.db #0x99	; 153
+      00198B A8                    2157 	.db #0xa8	; 168
+      00198C C5                    2158 	.db #0xc5	; 197
+      00198D F4                    2159 	.db #0xf4	; 244
+      00198E A7                    2160 	.db #0xa7	; 167
+      00198F 96                    2161 	.db #0x96	; 150
+      001990 01                    2162 	.db #0x01	; 1
+      001991 30                    2163 	.db #0x30	; 48	'0'
+      001992 63                    2164 	.db #0x63	; 99	'c'
+      001993 52                    2165 	.db #0x52	; 82	'R'
+      001994 7C                    2166 	.db #0x7c	; 124
+      001995 4D                    2167 	.db #0x4d	; 77	'M'
+      001996 1E                    2168 	.db #0x1e	; 30
+      001997 2F                    2169 	.db #0x2f	; 47
+      001998 B8                    2170 	.db #0xb8	; 184
+      001999 89                    2171 	.db #0x89	; 137
+      00199A DA                    2172 	.db #0xda	; 218
+      00199B EB                    2173 	.db #0xeb	; 235
+      00199C 3D                    2174 	.db #0x3d	; 61
+      00199D 0C                    2175 	.db #0x0c	; 12
+      00199E 5F                    2176 	.db #0x5f	; 95
+      00199F 6E                    2177 	.db #0x6e	; 110	'n'
+      0019A0 F9                    2178 	.db #0xf9	; 249
+      0019A1 C8                    2179 	.db #0xc8	; 200
+      0019A2 9B                    2180 	.db #0x9b	; 155
+      0019A3 AA                    2181 	.db #0xaa	; 170
+      0019A4 84                    2182 	.db #0x84	; 132
+      0019A5 B5                    2183 	.db #0xb5	; 181
+      0019A6 E6                    2184 	.db #0xe6	; 230
+      0019A7 D7                    2185 	.db #0xd7	; 215
+      0019A8 40                    2186 	.db #0x40	; 64
+      0019A9 71                    2187 	.db #0x71	; 113	'q'
+      0019AA 22                    2188 	.db #0x22	; 34
+      0019AB 13                    2189 	.db #0x13	; 19
+      0019AC 7E                    2190 	.db #0x7e	; 126
+      0019AD 4F                    2191 	.db #0x4f	; 79	'O'
+      0019AE 1C                    2192 	.db #0x1c	; 28
+      0019AF 2D                    2193 	.db #0x2d	; 45
+      0019B0 BA                    2194 	.db #0xba	; 186
+      0019B1 8B                    2195 	.db #0x8b	; 139
+      0019B2 D8                    2196 	.db #0xd8	; 216
+      0019B3 E9                    2197 	.db #0xe9	; 233
+      0019B4 C7                    2198 	.db #0xc7	; 199
+      0019B5 F6                    2199 	.db #0xf6	; 246
+      0019B6 A5                    2200 	.db #0xa5	; 165
+      0019B7 94                    2201 	.db #0x94	; 148
+      0019B8 03                    2202 	.db #0x03	; 3
+      0019B9 32                    2203 	.db #0x32	; 50	'2'
+      0019BA 61                    2204 	.db #0x61	; 97	'a'
+      0019BB 50                    2205 	.db #0x50	; 80	'P'
+      0019BC BB                    2206 	.db #0xbb	; 187
+      0019BD 8A                    2207 	.db #0x8a	; 138
+      0019BE D9                    2208 	.db #0xd9	; 217
+      0019BF E8                    2209 	.db #0xe8	; 232
+      0019C0 7F                    2210 	.db #0x7f	; 127
+      0019C1 4E                    2211 	.db #0x4e	; 78	'N'
+      0019C2 1D                    2212 	.db #0x1d	; 29
+      0019C3 2C                    2213 	.db #0x2c	; 44
+      0019C4 02                    2214 	.db #0x02	; 2
+      0019C5 33                    2215 	.db #0x33	; 51	'3'
+      0019C6 60                    2216 	.db #0x60	; 96
+      0019C7 51                    2217 	.db #0x51	; 81	'Q'
+      0019C8 C6                    2218 	.db #0xc6	; 198
+      0019C9 F7                    2219 	.db #0xf7	; 247
+      0019CA A4                    2220 	.db #0xa4	; 164
+      0019CB 95                    2221 	.db #0x95	; 149
+      0019CC F8                    2222 	.db #0xf8	; 248
+      0019CD C9                    2223 	.db #0xc9	; 201
+      0019CE 9A                    2224 	.db #0x9a	; 154
+      0019CF AB                    2225 	.db #0xab	; 171
+      0019D0 3C                    2226 	.db #0x3c	; 60
+      0019D1 0D                    2227 	.db #0x0d	; 13
+      0019D2 5E                    2228 	.db #0x5e	; 94
+      0019D3 6F                    2229 	.db #0x6f	; 111	'o'
+      0019D4 41                    2230 	.db #0x41	; 65	'A'
+      0019D5 70                    2231 	.db #0x70	; 112	'p'
+      0019D6 23                    2232 	.db #0x23	; 35
+      0019D7 12                    2233 	.db #0x12	; 18
+      0019D8 85                    2234 	.db #0x85	; 133
+      0019D9 B4                    2235 	.db #0xb4	; 180
+      0019DA E7                    2236 	.db #0xe7	; 231
+      0019DB D6                    2237 	.db #0xd6	; 214
+      0019DC 7A                    2238 	.db #0x7a	; 122	'z'
+      0019DD 4B                    2239 	.db #0x4b	; 75	'K'
+      0019DE 18                    2240 	.db #0x18	; 24
+      0019DF 29                    2241 	.db #0x29	; 41
+      0019E0 BE                    2242 	.db #0xbe	; 190
+      0019E1 8F                    2243 	.db #0x8f	; 143
+      0019E2 DC                    2244 	.db #0xdc	; 220
+      0019E3 ED                    2245 	.db #0xed	; 237
+      0019E4 C3                    2246 	.db #0xc3	; 195
+      0019E5 F2                    2247 	.db #0xf2	; 242
+      0019E6 A1                    2248 	.db #0xa1	; 161
+      0019E7 90                    2249 	.db #0x90	; 144
+      0019E8 07                    2250 	.db #0x07	; 7
+      0019E9 36                    2251 	.db #0x36	; 54	'6'
+      0019EA 65                    2252 	.db #0x65	; 101	'e'
+      0019EB 54                    2253 	.db #0x54	; 84	'T'
+      0019EC 39                    2254 	.db #0x39	; 57	'9'
+      0019ED 08                    2255 	.db #0x08	; 8
+      0019EE 5B                    2256 	.db #0x5b	; 91
+      0019EF 6A                    2257 	.db #0x6a	; 106	'j'
+      0019F0 FD                    2258 	.db #0xfd	; 253
+      0019F1 CC                    2259 	.db #0xcc	; 204
+      0019F2 9F                    2260 	.db #0x9f	; 159
+      0019F3 AE                    2261 	.db #0xae	; 174
+      0019F4 80                    2262 	.db #0x80	; 128
+      0019F5 B1                    2263 	.db #0xb1	; 177
+      0019F6 E2                    2264 	.db #0xe2	; 226
+      0019F7 D3                    2265 	.db #0xd3	; 211
+      0019F8 44                    2266 	.db #0x44	; 68	'D'
+      0019F9 75                    2267 	.db #0x75	; 117	'u'
+      0019FA 26                    2268 	.db #0x26	; 38
+      0019FB 17                    2269 	.db #0x17	; 23
+      0019FC FC                    2270 	.db #0xfc	; 252
+      0019FD CD                    2271 	.db #0xcd	; 205
+      0019FE 9E                    2272 	.db #0x9e	; 158
+      0019FF AF                    2273 	.db #0xaf	; 175
+      001A00 38                    2274 	.db #0x38	; 56	'8'
+      001A01 09                    2275 	.db #0x09	; 9
+      001A02 5A                    2276 	.db #0x5a	; 90	'Z'
+      001A03 6B                    2277 	.db #0x6b	; 107	'k'
+      001A04 45                    2278 	.db #0x45	; 69	'E'
+      001A05 74                    2279 	.db #0x74	; 116	't'
+      001A06 27                    2280 	.db #0x27	; 39
+      001A07 16                    2281 	.db #0x16	; 22
+      001A08 81                    2282 	.db #0x81	; 129
+      001A09 B0                    2283 	.db #0xb0	; 176
+      001A0A E3                    2284 	.db #0xe3	; 227
+      001A0B D2                    2285 	.db #0xd2	; 210
+      001A0C BF                    2286 	.db #0xbf	; 191
+      001A0D 8E                    2287 	.db #0x8e	; 142
+      001A0E DD                    2288 	.db #0xdd	; 221
+      001A0F EC                    2289 	.db #0xec	; 236
+      001A10 7B                    2290 	.db #0x7b	; 123
+      001A11 4A                    2291 	.db #0x4a	; 74	'J'
+      001A12 19                    2292 	.db #0x19	; 25
+      001A13 28                    2293 	.db #0x28	; 40
+      001A14 06                    2294 	.db #0x06	; 6
+      001A15 37                    2295 	.db #0x37	; 55	'7'
+      001A16 64                    2296 	.db #0x64	; 100	'd'
+      001A17 55                    2297 	.db #0x55	; 85	'U'
+      001A18 C2                    2298 	.db #0xc2	; 194
+      001A19 F3                    2299 	.db #0xf3	; 243
+      001A1A A0                    2300 	.db #0xa0	; 160
+      001A1B 91                    2301 	.db #0x91	; 145
+      001A1C 47                    2302 	.db #0x47	; 71	'G'
+      001A1D 76                    2303 	.db #0x76	; 118	'v'
+      001A1E 25                    2304 	.db #0x25	; 37
+      001A1F 14                    2305 	.db #0x14	; 20
+      001A20 83                    2306 	.db #0x83	; 131
+      001A21 B2                    2307 	.db #0xb2	; 178
+      001A22 E1                    2308 	.db #0xe1	; 225
+      001A23 D0                    2309 	.db #0xd0	; 208
+      001A24 FE                    2310 	.db #0xfe	; 254
+      001A25 CF                    2311 	.db #0xcf	; 207
+      001A26 9C                    2312 	.db #0x9c	; 156
+      001A27 AD                    2313 	.db #0xad	; 173
+      001A28 3A                    2314 	.db #0x3a	; 58
+      001A29 0B                    2315 	.db #0x0b	; 11
+      001A2A 58                    2316 	.db #0x58	; 88	'X'
+      001A2B 69                    2317 	.db #0x69	; 105	'i'
+      001A2C 04                    2318 	.db #0x04	; 4
+      001A2D 35                    2319 	.db #0x35	; 53	'5'
+      001A2E 66                    2320 	.db #0x66	; 102	'f'
+      001A2F 57                    2321 	.db #0x57	; 87	'W'
+      001A30 C0                    2322 	.db #0xc0	; 192
+      001A31 F1                    2323 	.db #0xf1	; 241
+      001A32 A2                    2324 	.db #0xa2	; 162
+      001A33 93                    2325 	.db #0x93	; 147
+      001A34 BD                    2326 	.db #0xbd	; 189
+      001A35 8C                    2327 	.db #0x8c	; 140
+      001A36 DF                    2328 	.db #0xdf	; 223
+      001A37 EE                    2329 	.db #0xee	; 238
+      001A38 79                    2330 	.db #0x79	; 121	'y'
+      001A39 48                    2331 	.db #0x48	; 72	'H'
+      001A3A 1B                    2332 	.db #0x1b	; 27
+      001A3B 2A                    2333 	.db #0x2a	; 42
+      001A3C C1                    2334 	.db #0xc1	; 193
+      001A3D F0                    2335 	.db #0xf0	; 240
+      001A3E A3                    2336 	.db #0xa3	; 163
+      001A3F 92                    2337 	.db #0x92	; 146
+      001A40 05                    2338 	.db #0x05	; 5
+      001A41 34                    2339 	.db #0x34	; 52	'4'
+      001A42 67                    2340 	.db #0x67	; 103	'g'
+      001A43 56                    2341 	.db #0x56	; 86	'V'
+      001A44 78                    2342 	.db #0x78	; 120	'x'
+      001A45 49                    2343 	.db #0x49	; 73	'I'
+      001A46 1A                    2344 	.db #0x1a	; 26
+      001A47 2B                    2345 	.db #0x2b	; 43
+      001A48 BC                    2346 	.db #0xbc	; 188
+      001A49 8D                    2347 	.db #0x8d	; 141
+      001A4A DE                    2348 	.db #0xde	; 222
+      001A4B EF                    2349 	.db #0xef	; 239
+      001A4C 82                    2350 	.db #0x82	; 130
+      001A4D B3                    2351 	.db #0xb3	; 179
+      001A4E E0                    2352 	.db #0xe0	; 224
+      001A4F D1                    2353 	.db #0xd1	; 209
+      001A50 46                    2354 	.db #0x46	; 70	'F'
+      001A51 77                    2355 	.db #0x77	; 119	'w'
+      001A52 24                    2356 	.db #0x24	; 36
+      001A53 15                    2357 	.db #0x15	; 21
+      001A54 3B                    2358 	.db #0x3b	; 59
+      001A55 0A                    2359 	.db #0x0a	; 10
+      001A56 59                    2360 	.db #0x59	; 89	'Y'
+      001A57 68                    2361 	.db #0x68	; 104	'h'
+      001A58 FF                    2362 	.db #0xff	; 255
+      001A59 CE                    2363 	.db #0xce	; 206
+      001A5A 9D                    2364 	.db #0x9d	; 157
+      001A5B AC                    2365 	.db #0xac	; 172
                                    2366 	.area CONST   (CODE)
-      002346                       2367 ___str_14:
-      002346 54 79 70 65 5F 42 63  2368 	.ascii "Type_Bcast"
+      00246F                       2367 ___str_9:
+      00246F 23 25 64              2368 	.ascii "#%d"
+      002472 0D                    2369 	.db 0x0d
+      002473 0A                    2370 	.db 0x0a
+      002474 00                    2371 	.db 0x00
+                                   2372 	.area CSEG    (CODE)
+                                   2373 	.area CONST   (CODE)
+      002475                       2374 ___str_10:
+      002475 72 61 77 20 3A 20 20  2375 	.ascii "raw :  "
+      00247C 00                    2376 	.db 0x00
+                                   2377 	.area CSEG    (CODE)
+                                   2378 	.area CONST   (CODE)
+      00247D                       2379 ___str_11:
+      00247D 25 32 64 20 20 20     2380 	.ascii "%2d   "
+      002483 00                    2381 	.db 0x00
+                                   2382 	.area CSEG    (CODE)
+                                   2383 	.area CONST   (CODE)
+      002484                       2384 ___str_12:
+      002484 64 61 74 61 3A        2385 	.ascii "data:"
+      002489 00                    2386 	.db 0x00
+                                   2387 	.area CSEG    (CODE)
+                                   2388 	.area CONST   (CODE)
+      00248A                       2389 ___str_13:
+      00248A 30 78 30 25 78 20     2390 	.ascii "0x0%x "
+      002490 00                    2391 	.db 0x00
+                                   2392 	.area CSEG    (CODE)
+                                   2393 	.area CONST   (CODE)
+      002491                       2394 ___str_14:
+      002491 54 79 70 65 5F 42 63  2395 	.ascii "Type_Bcast"
              61 73 74
-      002350 00                    2369 	.db 0x00
-                                   2370 	.area CSEG    (CODE)
-                                   2371 	.area CONST   (CODE)
-      002351                       2372 ___str_15:
-      002351 54 79 70 65 5F 55 63  2373 	.ascii "Type_Ucast"
+      00249B 00                    2396 	.db 0x00
+                                   2397 	.area CSEG    (CODE)
+                                   2398 	.area CONST   (CODE)
+      00249C                       2399 ___str_15:
+      00249C 54 79 70 65 5F 55 63  2400 	.ascii "Type_Ucast"
              61 73 74
-      00235B 00                    2374 	.db 0x00
-                                   2375 	.area CSEG    (CODE)
-                                   2376 	.area CONST   (CODE)
-      00235C                       2377 ___str_16:
-      00235C 54 79 70 65 5F 4D 63  2378 	.ascii "Type_Mcast"
+      0024A6 00                    2401 	.db 0x00
+                                   2402 	.area CSEG    (CODE)
+                                   2403 	.area CONST   (CODE)
+      0024A7                       2404 ___str_16:
+      0024A7 54 79 70 65 5F 4D 63  2405 	.ascii "Type_Mcast"
              61 73 74
-      002366 00                    2379 	.db 0x00
-                                   2380 	.area CSEG    (CODE)
-                                   2381 	.area CONST   (CODE)
-      002367                       2382 ___str_17:
-      002367 54 79 70 65 5F 53 65  2383 	.ascii "Type_SetAddr"
+      0024B1 00                    2406 	.db 0x00
+                                   2407 	.area CSEG    (CODE)
+                                   2408 	.area CONST   (CODE)
+      0024B2                       2409 ___str_17:
+      0024B2 54 79 70 65 5F 53 65  2410 	.ascii "Type_SetAddr"
              74 41 64 64 72
-      002373 00                    2384 	.db 0x00
-                                   2385 	.area CSEG    (CODE)
-                                   2386 	.area CONST   (CODE)
-      002374                       2387 ___str_18:
-      002374 54 79 70 65 5F 53 65  2388 	.ascii "Type_SetLED"
+      0024BE 00                    2411 	.db 0x00
+                                   2412 	.area CSEG    (CODE)
+                                   2413 	.area CONST   (CODE)
+      0024BF                       2414 ___str_18:
+      0024BF 54 79 70 65 5F 53 65  2415 	.ascii "Type_SetLED"
              74 4C 45 44
-      00237F 00                    2389 	.db 0x00
-                                   2390 	.area CSEG    (CODE)
-                                   2391 	.area CONST   (CODE)
-      002380                       2392 ___str_19:
-      002380 54 79 70 65 5F 43 74  2393 	.ascii "Type_CtrlMotor"
+      0024CA 00                    2416 	.db 0x00
+                                   2417 	.area CSEG    (CODE)
+                                   2418 	.area CONST   (CODE)
+      0024CB                       2419 ___str_19:
+      0024CB 54 79 70 65 5F 43 74  2420 	.ascii "Type_CtrlMotor"
              72 6C 4D 6F 74 6F 72
-      00238E 00                    2394 	.db 0x00
-                                   2395 	.area CSEG    (CODE)
-                                   2396 	.area CONST   (CODE)
-      00238F                       2397 ___str_20:
-      00238F 54 79 70 65 5F 52 65  2398 	.ascii "Type_ReadAddr"
+      0024D9 00                    2421 	.db 0x00
+                                   2422 	.area CSEG    (CODE)
+                                   2423 	.area CONST   (CODE)
+      0024DA                       2424 ___str_20:
+      0024DA 54 79 70 65 5F 52 65  2425 	.ascii "Type_ReadAddr"
              61 64 41 64 64 72
-      00239C 00                    2399 	.db 0x00
-                                   2400 	.area CSEG    (CODE)
-                                   2401 	.area CONST   (CODE)
-      00239D                       2402 ___str_21:
-      00239D 54 79 70 65 5F 4E 6F  2403 	.ascii "Type_None"
+      0024E7 00                    2426 	.db 0x00
+                                   2427 	.area CSEG    (CODE)
+                                   2428 	.area CONST   (CODE)
+      0024E8                       2429 ___str_21:
+      0024E8 54 79 70 65 5F 4E 6F  2430 	.ascii "Type_None"
              6E 65
-      0023A6 00                    2404 	.db 0x00
-                                   2405 	.area CSEG    (CODE)
-                                   2406 	.area CABS    (ABS,CODE)
+      0024F1 00                    2431 	.db 0x00
+                                   2432 	.area CSEG    (CODE)
+                                   2433 	.area CABS    (ABS,CODE)
