@@ -546,7 +546,7 @@ _state_machine_PARM_3:
 	.ds 1
 _state_machine_PARM_4:
 	.ds 1
-_state_switches_su8PrevSW_65536_83:
+_state_switches_su8PrevSW_65536_89:
 	.ds 1
 _printoutbuf_PARM_2:
 	.ds 3
@@ -556,21 +556,21 @@ _act_by_one_key_PARM_3:
 	.ds 3
 _act_by_one_key_sloc0_1_0:
 	.ds 3
-_periodic_func_su8Cnt_65536_110:
+_periodic_func_su8Cnt_65536_116:
 	.ds 1
-_main_u8RxUART_65536_112:
+_main_u8RxUART_65536_120:
 	.ds 1
-_main_u8LineFiAddr_65536_112:
+_main_u8LineFiAddr_65536_120:
 	.ds 1
-_main_u8LineFiCmd_65536_112:
+_main_u8LineFiCmd_65536_120:
 	.ds 1
-_main_u8SwNum_65536_112:
+_main_u8SwNum_65536_120:
 	.ds 1
-_main_u8StatePeriodicSend_65536_112:
+_main_u8StatePeriodicSend_65536_120:
 	.ds 1
-_main_u8PSCmd_65536_112:
+_main_u8PSCmd_65536_120:
 	.ds 1
-_main_stLineFiPkt_65536_112:
+_main_stLineFiPkt_65536_120:
 	.ds 8
 ;--------------------------------------------------------
 ; overlayable items in internal ram 
@@ -584,11 +584,11 @@ _main_stLineFiPkt_65536_112:
 _state_switches_PARM_2:
 	.ds 3
 	.area	OSEG    (OVR,DATA)
-_struct_to_uint8_apcPkt_65536_104:
+_struct_to_uint8_apcPkt_65536_110:
 	.ds 3
-_struct_to_uint8_cntIdx_65536_105:
+_struct_to_uint8_cntIdx_65536_111:
 	.ds 1
-_struct_to_uint8_i_65537_106:
+_struct_to_uint8_i_65537_112:
 	.ds 1
 ;--------------------------------------------------------
 ; Stack segment in internal ram 
@@ -634,19 +634,19 @@ _gu16TimeCntMilliSec::
 	.ds 2
 _gpu32UartSpeed::
 	.ds 56
-_act_by_one_key_u8Data_65536_96:
+_act_by_one_key_u8Data_65536_102:
 	.ds 1
-_main_pcBuf_65536_112:
+_main_pcBuf_65536_120:
 	.ds 100
-_main_pu8Data_65536_112:
+_main_pu8Data_65536_120:
 	.ds 10
-_main_u8DataIdx_65536_112:
+_main_u8DataIdx_65536_120:
 	.ds 1
-_main_ucBufIdx_65536_112:
+_main_ucBufIdx_65536_120:
 	.ds 1
-_main_pstLineFiPkt_65536_112:
+_main_pstLineFiPkt_65536_120:
 	.ds 40
-_main_stLineFiPkt_test_65536_112:
+_main_stLineFiPkt_test_65536_120:
 	.ds 8
 ;--------------------------------------------------------
 ; absolute external ram data
@@ -700,14 +700,14 @@ __interrupt_vect:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'state_switches'
 ;------------------------------------------------------------
-;su8PrevSW                 Allocated with name '_state_switches_su8PrevSW_65536_83'
+;su8PrevSW                 Allocated with name '_state_switches_su8PrevSW_65536_89'
 ;apu8SwNum                 Allocated with name '_state_switches_PARM_2'
 ;au8SW                     Allocated to registers r7 
 ;i                         Allocated to registers r2 
 ;u8Result                  Allocated to registers r6 
 ;------------------------------------------------------------
-;	src/main.c:449: static UINT8 su8PrevSW = 0;
-	mov	_state_switches_su8PrevSW_65536_83,#0x00
+;	src/main.c:452: static UINT8 su8PrevSW = 0;
+	mov	_state_switches_su8PrevSW_65536_89,#0x00
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'act_by_one_key'
 ;------------------------------------------------------------
@@ -715,34 +715,25 @@ __interrupt_vect:
 ;apu8LineFiAddr            Allocated with name '_act_by_one_key_PARM_3'
 ;au8RxUART                 Allocated to registers r7 
 ;sloc0                     Allocated with name '_act_by_one_key_sloc0_1_0'
-;u8Data                    Allocated with name '_act_by_one_key_u8Data_65536_96'
+;u8Data                    Allocated with name '_act_by_one_key_u8Data_65536_102'
 ;------------------------------------------------------------
-;	src/main.c:618: static UINT8 __xdata u8Data = 0;
-	mov	dptr,#_act_by_one_key_u8Data_65536_96
+;	src/main.c:621: static UINT8 __xdata u8Data = 0;
+	mov	dptr,#_act_by_one_key_u8Data_65536_102
 	clr	a
 	movx	@dptr,a
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'periodic_func'
 ;------------------------------------------------------------
-;su8Cnt                    Allocated with name '_periodic_func_su8Cnt_65536_110'
+;su8Cnt                    Allocated with name '_periodic_func_su8Cnt_65536_116'
 ;apcStr                    Allocated to registers r5 r6 r7 
 ;total_size                Allocated to registers r4 
 ;------------------------------------------------------------
-;	src/main.c:783: static UINT8 su8Cnt = 0;
-	mov	_periodic_func_su8Cnt_65536_110,#0x00
-;	src/main.c:142: UINT8 gu8UART = 0;
+;	src/main.c:789: static UINT8 su8Cnt = 0;
+	mov	_periodic_func_su8Cnt_65536_116,#0x00
+;	src/main.c:145: UINT8 gu8UART = 0;
 	mov	_gu8UART,#0x00
-;	src/main.c:79: const char * __xdata  gcUartInputMode[MAX_STATE_UART0_INPUT] = {
+;	src/main.c:82: const char * __xdata  gcUartInputMode[MAX_STATE_UART0_INPUT] = {
 	mov	dptr,#_gcUartInputMode
-	mov	a,#___str_65
-	movx	@dptr,a
-	mov	a,#(___str_65 >> 8)
-	inc	dptr
-	movx	@dptr,a
-	mov	a,#0x80
-	inc	dptr
-	movx	@dptr,a
-	mov	dptr,#(_gcUartInputMode + 0x0003)
 	mov	a,#___str_66
 	movx	@dptr,a
 	mov	a,#(___str_66 >> 8)
@@ -751,7 +742,7 @@ __interrupt_vect:
 	mov	a,#0x80
 	inc	dptr
 	movx	@dptr,a
-	mov	dptr,#(_gcUartInputMode + 0x0006)
+	mov	dptr,#(_gcUartInputMode + 0x0003)
 	mov	a,#___str_67
 	movx	@dptr,a
 	mov	a,#(___str_67 >> 8)
@@ -760,7 +751,7 @@ __interrupt_vect:
 	mov	a,#0x80
 	inc	dptr
 	movx	@dptr,a
-	mov	dptr,#(_gcUartInputMode + 0x0009)
+	mov	dptr,#(_gcUartInputMode + 0x0006)
 	mov	a,#___str_68
 	movx	@dptr,a
 	mov	a,#(___str_68 >> 8)
@@ -769,7 +760,7 @@ __interrupt_vect:
 	mov	a,#0x80
 	inc	dptr
 	movx	@dptr,a
-	mov	dptr,#(_gcUartInputMode + 0x000c)
+	mov	dptr,#(_gcUartInputMode + 0x0009)
 	mov	a,#___str_69
 	movx	@dptr,a
 	mov	a,#(___str_69 >> 8)
@@ -778,7 +769,16 @@ __interrupt_vect:
 	mov	a,#0x80
 	inc	dptr
 	movx	@dptr,a
-;	src/main.c:96: UINT8 __xdata gpu8Data[20] = {
+	mov	dptr,#(_gcUartInputMode + 0x000c)
+	mov	a,#___str_70
+	movx	@dptr,a
+	mov	a,#(___str_70 >> 8)
+	inc	dptr
+	movx	@dptr,a
+	mov	a,#0x80
+	inc	dptr
+	movx	@dptr,a
+;	src/main.c:99: UINT8 __xdata gpu8Data[20] = {
 	mov	dptr,#_gpu8Data
 	rl	a
 	movx	@dptr,a
@@ -824,7 +824,7 @@ __interrupt_vect:
 	movx	@dptr,a
 	mov	dptr,#(_gpu8Data + 0x0013)
 	movx	@dptr,a
-;	src/main.c:104: UINT8 __xdata gpu8Data2[20] = {
+;	src/main.c:107: UINT8 __xdata gpu8Data2[20] = {
 	mov	dptr,#_gpu8Data2
 	mov	a,#0x02
 	movx	@dptr,a
@@ -870,15 +870,17 @@ __interrupt_vect:
 	movx	@dptr,a
 	mov	dptr,#(_gpu8Data2 + 0x0013)
 	movx	@dptr,a
-;	src/main.c:111: UINT8 __xdata gpu8Data3[28] = {
+;	src/main.c:114: UINT8 __xdata gpu8Data3[28] = {
 	mov	dptr,#_gpu8Data3
 	mov	a,#0x02
 	movx	@dptr,a
 	mov	dptr,#(_gpu8Data3 + 0x0001)
+	mov	a,#0xff
 	movx	@dptr,a
 	mov	dptr,#(_gpu8Data3 + 0x0002)
 	movx	@dptr,a
 	mov	dptr,#(_gpu8Data3 + 0x0003)
+	mov	a,#0x02
 	movx	@dptr,a
 	mov	dptr,#(_gpu8Data3 + 0x0004)
 	dec	a
@@ -932,7 +934,7 @@ __interrupt_vect:
 	movx	@dptr,a
 	mov	dptr,#(_gpu8Data3 + 0x001b)
 	movx	@dptr,a
-;	src/main.c:125: UINT32 __xdata gpu32UartSpeed[] = {
+;	src/main.c:128: UINT32 __xdata gpu32UartSpeed[] = {
 	mov	dptr,#_gpu32UartSpeed
 	mov	a,#0x60
 	movx	@dptr,a
@@ -1109,7 +1111,7 @@ __sdcc_program_startup:
 ;------------------------------------------------------------
 ;c                         Allocated to registers r6 r7 
 ;------------------------------------------------------------
-;	src/main.c:145: int putchar (int c) 
+;	src/main.c:148: int putchar (int c) 
 ;	-----------------------------------------
 ;	 function putchar
 ;	-----------------------------------------
@@ -1123,44 +1125,44 @@ _putchar:
 	ar1 = 0x01
 	ar0 = 0x00
 	mov	r6,dpl
-;	src/main.c:147: if (gu8UART == 0)  {
+;	src/main.c:150: if (gu8UART == 0)  {
 	mov	a,_gu8UART
 	jnz	00108$
-;	src/main.c:148: TI = 0;
+;	src/main.c:151: TI = 0;
 ;	assignBit
 	clr	_TI
-;	src/main.c:149: SBUF = c;
+;	src/main.c:152: SBUF = c;
 	mov	_SBUF,r6
-;	src/main.c:150: while(TI==0);
+;	src/main.c:153: while(TI==0);
 00101$:
 	jb	_TI,00109$
 	sjmp	00101$
 00108$:
-;	src/main.c:153: TI_1 = 0;
+;	src/main.c:156: TI_1 = 0;
 ;	assignBit
 	clr	_TI_1
-;	src/main.c:154: SBUF_1 = c;
+;	src/main.c:157: SBUF_1 = c;
 	mov	_SBUF_1,r6
-;	src/main.c:155: while(TI_1==0);
+;	src/main.c:158: while(TI_1==0);
 00104$:
 	jnb	_TI_1,00104$
 00109$:
-;	src/main.c:157: return 0;
+;	src/main.c:160: return 0;
 	mov	dptr,#0x0000
-;	src/main.c:158: }
+;	src/main.c:161: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'print_esc'
 ;------------------------------------------------------------
 ;au8State                  Allocated to registers r7 
 ;------------------------------------------------------------
-;	src/main.c:175: void print_esc(UINT8 au8State)
+;	src/main.c:178: void print_esc(UINT8 au8State)
 ;	-----------------------------------------
 ;	 function print_esc
 ;	-----------------------------------------
 _print_esc:
 	mov	r7,dpl
-;	src/main.c:177: printf_fast_f("\n\r");
+;	src/main.c:180: printf_fast_f("\n\r");
 	push	ar7
 	mov	a,#___str_0
 	push	acc
@@ -1170,18 +1172,18 @@ _print_esc:
 	dec	sp
 	dec	sp
 	pop	ar7
-;	src/main.c:178: switch(au8State) {
+;	src/main.c:181: switch(au8State) {
 	cjne	r7,#0x00,00119$
 	sjmp	00101$
 00119$:
 	cjne	r7,#0x01,00120$
 	sjmp	00102$
 00120$:
-;	src/main.c:179: case STATE_SELF :
+;	src/main.c:182: case STATE_SELF :
 	cjne	r7,#0x02,00104$
 	sjmp	00103$
 00101$:
-;	src/main.c:180: printf_fast_f("self ");
+;	src/main.c:183: printf_fast_f("self ");
 	mov	a,#___str_1
 	push	acc
 	mov	a,#(___str_1 >> 8)
@@ -1189,11 +1191,11 @@ _print_esc:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:181: break;
-;	src/main.c:182: case STATE_CROSS :
+;	src/main.c:184: break;
+;	src/main.c:185: case STATE_CROSS :
 	sjmp	00104$
 00102$:
-;	src/main.c:183: printf_fast_f("cross");
+;	src/main.c:186: printf_fast_f("cross");
 	mov	a,#___str_2
 	push	acc
 	mov	a,#(___str_2 >> 8)
@@ -1201,11 +1203,11 @@ _print_esc:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:184: break;
-;	src/main.c:185: case STATE_BOTH :
+;	src/main.c:187: break;
+;	src/main.c:188: case STATE_BOTH :
 	sjmp	00104$
 00103$:
-;	src/main.c:186: printf_fast_f("both ");
+;	src/main.c:189: printf_fast_f("both ");
 	mov	a,#___str_3
 	push	acc
 	mov	a,#(___str_3 >> 8)
@@ -1213,9 +1215,9 @@ _print_esc:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:188: }
+;	src/main.c:191: }
 00104$:
-;	src/main.c:189: printf_fast_f(" output:This is UART%d\n\r", gu8UART);
+;	src/main.c:192: printf_fast_f(" output:This is UART%d\n\r", gu8UART);
 	mov	r6,_gu8UART
 	mov	r7,#0x00
 	push	ar6
@@ -1228,29 +1230,29 @@ _print_esc:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	src/main.c:190: }
+;	src/main.c:193: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'print_char'
 ;------------------------------------------------------------
 ;au8Data                   Allocated to registers r7 
 ;------------------------------------------------------------
-;	src/main.c:192: void print_char(char au8Data)
+;	src/main.c:195: void print_char(char au8Data)
 ;	-----------------------------------------
 ;	 function print_char
 ;	-----------------------------------------
 _print_char:
 	mov	r7,dpl
-;	src/main.c:194: switch(au8Data) {
+;	src/main.c:197: switch(au8Data) {
 	cjne	r7,#0x0d,00115$
 	sjmp	00102$
 00115$:
 	cjne	r7,#0x1b,00103$
-;	src/main.c:196: break;
-;	src/main.c:197: case '\r' :
+;	src/main.c:199: break;
+;	src/main.c:200: case '\r' :
 	ret
 00102$:
-;	src/main.c:198: printf_fast_f("\r\n");
+;	src/main.c:201: printf_fast_f("\r\n");
 	mov	a,#___str_5
 	push	acc
 	mov	a,#(___str_5 >> 8)
@@ -1258,11 +1260,11 @@ _print_char:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:199: break;
-;	src/main.c:200: default :
+;	src/main.c:202: break;
+;	src/main.c:203: default :
 	ret
 00103$:
-;	src/main.c:201: printf_fast_f("%c",au8Data);
+;	src/main.c:204: printf_fast_f("%c",au8Data);
 	mov	r6,#0x00
 	push	ar7
 	push	ar6
@@ -1274,8 +1276,8 @@ _print_char:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	src/main.c:202: }
-;	src/main.c:203: }
+;	src/main.c:205: }
+;	src/main.c:206: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'state_machine'
@@ -1285,23 +1287,23 @@ _print_char:
 ;au8OtherID                Allocated with name '_state_machine_PARM_4'
 ;au8State                  Allocated to registers r7 
 ;------------------------------------------------------------
-;	src/main.c:205: UINT8 state_machine(UINT8 au8State, UINT8 au8RxUART, UINT8 au8SelfID, UINT8 au8OtherID)
+;	src/main.c:208: UINT8 state_machine(UINT8 au8State, UINT8 au8RxUART, UINT8 au8SelfID, UINT8 au8OtherID)
 ;	-----------------------------------------
 ;	 function state_machine
 ;	-----------------------------------------
 _state_machine:
 	mov	r7,dpl
-;	src/main.c:207: if(au8RxUART == KEY_ESC) {
+;	src/main.c:210: if(au8RxUART == KEY_ESC) {
 	mov	a,#0x1b
 	cjne	a,_state_machine_PARM_2,00142$
 	sjmp	00143$
 00142$:
 	sjmp	00110$
 00143$:
-;	src/main.c:208: gu8UART = au8SelfID;
+;	src/main.c:211: gu8UART = au8SelfID;
 	mov	r6,_state_machine_PARM_3
 	mov	_gu8UART,r6
-;	src/main.c:209: printf_fast_f("\r\ninput:This is UART%d", gu8UART);
+;	src/main.c:212: printf_fast_f("\r\ninput:This is UART%d", gu8UART);
 	mov	r4,_gu8UART
 	mov	r5,#0x00
 	push	ar7
@@ -1318,7 +1320,7 @@ _state_machine:
 	mov	sp,a
 	pop	ar6
 	pop	ar7
-;	src/main.c:210: switch(au8State) {
+;	src/main.c:213: switch(au8State) {
 	cjne	r7,#0x00,00144$
 	sjmp	00101$
 00144$:
@@ -1329,111 +1331,111 @@ _state_machine:
 	sjmp	00103$
 00146$:
 	ljmp	00111$
-;	src/main.c:211: case STATE_SELF :
+;	src/main.c:214: case STATE_SELF :
 00101$:
-;	src/main.c:212: au8State = STATE_CROSS;
+;	src/main.c:215: au8State = STATE_CROSS;
 	mov	r7,#0x01
-;	src/main.c:213: gu8UART = au8SelfID;
+;	src/main.c:216: gu8UART = au8SelfID;
 	mov	_gu8UART,r6
-;	src/main.c:214: print_esc(au8State);
+;	src/main.c:217: print_esc(au8State);
 	mov	dpl,#0x01
 	push	ar7
 	lcall	_print_esc
-;	src/main.c:215: gu8UART = au8OtherID;
+;	src/main.c:218: gu8UART = au8OtherID;
 	mov	_gu8UART,_state_machine_PARM_4
-;	src/main.c:216: print_esc(au8State);
+;	src/main.c:219: print_esc(au8State);
 	mov	dpl,#0x01
 	lcall	_print_esc
 	pop	ar7
-;	src/main.c:217: break;
-;	src/main.c:218: case STATE_CROSS :
+;	src/main.c:220: break;
+;	src/main.c:221: case STATE_CROSS :
 	sjmp	00111$
 00102$:
-;	src/main.c:219: au8State = STATE_BOTH;
+;	src/main.c:222: au8State = STATE_BOTH;
 	mov	r7,#0x02
-;	src/main.c:220: gu8UART = au8SelfID;
+;	src/main.c:223: gu8UART = au8SelfID;
 	mov	_gu8UART,r6
-;	src/main.c:221: print_esc(au8State);
+;	src/main.c:224: print_esc(au8State);
 	mov	dpl,#0x02
 	push	ar7
 	lcall	_print_esc
-;	src/main.c:222: gu8UART = au8OtherID;
+;	src/main.c:225: gu8UART = au8OtherID;
 	mov	_gu8UART,_state_machine_PARM_4
-;	src/main.c:223: print_esc(au8State);
+;	src/main.c:226: print_esc(au8State);
 	mov	dpl,#0x02
 	lcall	_print_esc
 	pop	ar7
-;	src/main.c:224: break;
-;	src/main.c:225: case STATE_BOTH :
+;	src/main.c:227: break;
+;	src/main.c:228: case STATE_BOTH :
 	sjmp	00111$
 00103$:
-;	src/main.c:226: au8State = STATE_SELF;
+;	src/main.c:229: au8State = STATE_SELF;
 	mov	r7,#0x00
-;	src/main.c:227: gu8UART = au8SelfID;
+;	src/main.c:230: gu8UART = au8SelfID;
 	mov	_gu8UART,r6
-;	src/main.c:228: print_esc(au8State);
+;	src/main.c:231: print_esc(au8State);
 	mov	dpl,#0x00
 	push	ar7
 	lcall	_print_esc
 	pop	ar7
-;	src/main.c:230: }
+;	src/main.c:233: }
 	sjmp	00111$
 00110$:
-;	src/main.c:233: switch(au8State) {
+;	src/main.c:236: switch(au8State) {
 	cjne	r7,#0x00,00147$
 	sjmp	00105$
 00147$:
 	cjne	r7,#0x01,00148$
 	sjmp	00106$
 00148$:
-;	src/main.c:234: case STATE_SELF :
+;	src/main.c:237: case STATE_SELF :
 	cjne	r7,#0x02,00111$
 	sjmp	00107$
 00105$:
-;	src/main.c:235: gu8UART = au8SelfID;
+;	src/main.c:238: gu8UART = au8SelfID;
 	mov	_gu8UART,_state_machine_PARM_3
-;	src/main.c:236: print_char(au8RxUART);
+;	src/main.c:239: print_char(au8RxUART);
 	mov	dpl,_state_machine_PARM_2
 	push	ar7
 	lcall	_print_char
 	pop	ar7
-;	src/main.c:237: break;
-;	src/main.c:238: case STATE_CROSS :
+;	src/main.c:240: break;
+;	src/main.c:241: case STATE_CROSS :
 	sjmp	00111$
 00106$:
-;	src/main.c:239: gu8UART = au8OtherID;
+;	src/main.c:242: gu8UART = au8OtherID;
 	mov	_gu8UART,_state_machine_PARM_4
-;	src/main.c:240: print_char(au8RxUART);
+;	src/main.c:243: print_char(au8RxUART);
 	mov	dpl,_state_machine_PARM_2
 	push	ar7
 	lcall	_print_char
 	pop	ar7
-;	src/main.c:241: break;
-;	src/main.c:242: case STATE_BOTH :
+;	src/main.c:244: break;
+;	src/main.c:245: case STATE_BOTH :
 	sjmp	00111$
 00107$:
-;	src/main.c:243: gu8UART = au8SelfID;
+;	src/main.c:246: gu8UART = au8SelfID;
 	mov	_gu8UART,_state_machine_PARM_3
-;	src/main.c:244: print_char(au8RxUART);
+;	src/main.c:247: print_char(au8RxUART);
 	mov	dpl,_state_machine_PARM_2
 	push	ar7
 	lcall	_print_char
-;	src/main.c:245: gu8UART = au8OtherID;
+;	src/main.c:248: gu8UART = au8OtherID;
 	mov	_gu8UART,_state_machine_PARM_4
-;	src/main.c:246: print_char(au8RxUART);
+;	src/main.c:249: print_char(au8RxUART);
 	mov	dpl,_state_machine_PARM_2
 	lcall	_print_char
 	pop	ar7
-;	src/main.c:248: }
-00111$:
-;	src/main.c:250: return au8State;
-	mov	dpl,r7
 ;	src/main.c:251: }
+00111$:
+;	src/main.c:253: return au8State;
+	mov	dpl,r7
+;	src/main.c:254: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'Timer0_ISR'
 ;------------------------------------------------------------
-;	src/main.c:253: void Timer0_ISR (void) interrupt(1)  //interrupt address is 0x000B
+;	src/main.c:256: void Timer0_ISR (void) interrupt(1)  //interrupt address is 0x000B
 ;	-----------------------------------------
 ;	 function Timer0_ISR
 ;	-----------------------------------------
@@ -1450,11 +1452,11 @@ _Timer0_ISR:
 	push	dpl
 	push	dph
 	push	psw
-;	src/main.c:255: TH0 = TH0_INIT;
+;	src/main.c:258: TH0 = TH0_INIT;
 	mov	_TH0,#0xd4
-;	src/main.c:256: TL0 = TL0_INIT;
+;	src/main.c:259: TL0 = TL0_INIT;
 	mov	_TL0,#0x13
-;	src/main.c:257: gu16TimeCnt++;
+;	src/main.c:260: gu16TimeCnt++;
 	mov	dptr,#_gu16TimeCnt
 	movx	a,@dptr
 	add	a,#0x01
@@ -1463,7 +1465,7 @@ _Timer0_ISR:
 	movx	a,@dptr
 	addc	a,#0x00
 	movx	@dptr,a
-;	src/main.c:258: gu16TimeCntMilliSec++; // For periodic function
+;	src/main.c:261: gu16TimeCntMilliSec++; // For periodic function
 	mov	dptr,#_gu16TimeCntMilliSec
 	movx	a,@dptr
 	add	a,#0x01
@@ -1472,7 +1474,7 @@ _Timer0_ISR:
 	movx	a,@dptr
 	addc	a,#0x00
 	movx	@dptr,a
-;	src/main.c:267: } //void Timer0_ISR (void) __interrupt 1  //interrupt address is 0x000B
+;	src/main.c:270: } //void Timer0_ISR (void) __interrupt 1  //interrupt address is 0x000B
 	pop	psw
 	pop	dph
 	pop	dpl
@@ -1483,17 +1485,17 @@ _Timer0_ISR:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'pin_interrupt_isr'
 ;------------------------------------------------------------
-;	src/main.c:269: void pin_interrupt_isr(void) interrupt(7)
+;	src/main.c:272: void pin_interrupt_isr(void) interrupt(7)
 ;	-----------------------------------------
 ;	 function pin_interrupt_isr
 ;	-----------------------------------------
 _pin_interrupt_isr:
 	push	acc
-;	src/main.c:271: if (PIF == 0x10) {
+;	src/main.c:274: if (PIF == 0x10) {
 	mov	a,_PIF
-;	src/main.c:273: PIF = 0;
+;	src/main.c:276: PIF = 0;
 	mov	_PIF,#0x00
-;	src/main.c:274: }// void pin_interrupt_isr (void) interrupt(7)
+;	src/main.c:277: }// void pin_interrupt_isr (void) interrupt(7)
 	pop	acc
 	reti
 ;	eliminated unneeded mov psw,# (no regs used in bank)
@@ -1507,7 +1509,7 @@ _pin_interrupt_isr:
 ;c                         Allocated to registers r7 
 ;i                         Allocated to registers r6 
 ;------------------------------------------------------------
-;	src/main.c:276: UINT8 chk_manchester(UINT8 c)
+;	src/main.c:279: UINT8 chk_manchester(UINT8 c)
 ;	-----------------------------------------
 ;	 function chk_manchester
 ;	-----------------------------------------
@@ -1521,10 +1523,10 @@ _chk_manchester:
 	ar1 = 0x01
 	ar0 = 0x00
 	mov	r7,dpl
-;	src/main.c:279: for (i=0;i<4;i++) {
+;	src/main.c:282: for (i=0;i<4;i++) {
 	mov	r6,#0x00
 00104$:
-;	src/main.c:280: if (((c>>(2*i)) & 1) == ((c>>((2*i+1)))&1)) {
+;	src/main.c:283: if (((c>>(2*i)) & 1) == ((c>>((2*i+1)))&1)) {
 	mov	a,r6
 	add	a,r6
 	mov	r5,a
@@ -1558,18 +1560,18 @@ _chk_manchester:
 	cjne	a,ar5,00105$
 	mov	a,r3
 	cjne	a,ar2,00105$
-;	src/main.c:282: return 0;
+;	src/main.c:285: return 0;
 	mov	dpl,#0x00
 	ret
 00105$:
-;	src/main.c:279: for (i=0;i<4;i++) {
+;	src/main.c:282: for (i=0;i<4;i++) {
 	inc	r6
 	cjne	r6,#0x04,00126$
 00126$:
 	jc	00104$
-;	src/main.c:285: return 1;
+;	src/main.c:288: return 1;
 	mov	dpl,#0x01
-;	src/main.c:286: }
+;	src/main.c:289: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'conv_manchester2nibble'
@@ -1578,42 +1580,42 @@ _chk_manchester:
 ;i                         Allocated to registers r5 
 ;u8Nibble                  Allocated to registers r6 
 ;------------------------------------------------------------
-;	src/main.c:288: UINT8 conv_manchester2nibble(UINT8 c)
+;	src/main.c:291: UINT8 conv_manchester2nibble(UINT8 c)
 ;	-----------------------------------------
 ;	 function conv_manchester2nibble
 ;	-----------------------------------------
 _conv_manchester2nibble:
 	mov	r7,dpl
-;	src/main.c:291: UINT8 u8Nibble = 0;
+;	src/main.c:294: UINT8 u8Nibble = 0;
 	mov	r6,#0x00
-;	src/main.c:292: for (i=0;i<4;i++) {
+;	src/main.c:295: for (i=0;i<4;i++) {
 	mov	r5,#0x04
 00106$:
-;	src/main.c:293: if (c & 1) {
+;	src/main.c:296: if (c & 1) {
 	mov	a,r7
 	jnb	acc.0,00102$
-;	src/main.c:294: u8Nibble |= 0x80;
+;	src/main.c:297: u8Nibble |= 0x80;
 	orl	ar6,#0x80
 00102$:
-;	src/main.c:296: c >>= 2;
+;	src/main.c:299: c >>= 2;
 	mov	a,r7
 	rr	a
 	rr	a
 	anl	a,#0x3f
 	mov	r7,a
-;	src/main.c:297: u8Nibble >>= 1;
+;	src/main.c:300: u8Nibble >>= 1;
 	mov	a,r6
 	clr	c
 	rrc	a
 	mov	r6,a
 	mov	a,r5
 	dec	a
-;	src/main.c:292: for (i=0;i<4;i++) {
+;	src/main.c:295: for (i=0;i<4;i++) {
 	mov	r5,a
 	jnz	00106$
-;	src/main.c:299: return u8Nibble;
+;	src/main.c:302: return u8Nibble;
 	mov	dpl,r6
-;	src/main.c:300: }
+;	src/main.c:303: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'conv_manchester2highnibble'
@@ -1622,29 +1624,29 @@ _conv_manchester2nibble:
 ;i                         Allocated to registers r5 
 ;u8Nibble                  Allocated to registers r6 
 ;------------------------------------------------------------
-;	src/main.c:302: UINT8 conv_manchester2highnibble(UINT8 c)
+;	src/main.c:305: UINT8 conv_manchester2highnibble(UINT8 c)
 ;	-----------------------------------------
 ;	 function conv_manchester2highnibble
 ;	-----------------------------------------
 _conv_manchester2highnibble:
 	mov	r7,dpl
-;	src/main.c:305: UINT8 u8Nibble = 0;
+;	src/main.c:308: UINT8 u8Nibble = 0;
 	mov	r6,#0x00
-;	src/main.c:306: for (i=0;i<4;i++) {
+;	src/main.c:309: for (i=0;i<4;i++) {
 	mov	r5,#0x04
 00106$:
-;	src/main.c:307: u8Nibble >>= 1;
+;	src/main.c:310: u8Nibble >>= 1;
 	mov	a,r6
 	clr	c
 	rrc	a
 	mov	r6,a
-;	src/main.c:308: if (c & 1) {
+;	src/main.c:311: if (c & 1) {
 	mov	a,r7
 	jnb	acc.0,00102$
-;	src/main.c:309: u8Nibble |= 0x80;
+;	src/main.c:312: u8Nibble |= 0x80;
 	orl	ar6,#0x80
 00102$:
-;	src/main.c:311: c >>= 2;
+;	src/main.c:314: c >>= 2;
 	mov	a,r7
 	rr	a
 	rr	a
@@ -1652,12 +1654,12 @@ _conv_manchester2highnibble:
 	mov	r7,a
 	mov	a,r5
 	dec	a
-;	src/main.c:306: for (i=0;i<4;i++) {
+;	src/main.c:309: for (i=0;i<4;i++) {
 	mov	r5,a
 	jnz	00106$
-;	src/main.c:313: return u8Nibble;
+;	src/main.c:316: return u8Nibble;
 	mov	dpl,r6
-;	src/main.c:314: }
+;	src/main.c:317: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'MODIFY_HIRC_166'
@@ -1666,22 +1668,22 @@ _conv_manchester2highnibble:
 ;hircmap1                  Allocated to registers r6 
 ;trimvalue16bit            Allocated to registers r7 r5 
 ;------------------------------------------------------------
-;	src/main.c:316: void MODIFY_HIRC_166(void)
+;	src/main.c:319: void MODIFY_HIRC_166(void)
 ;	-----------------------------------------
 ;	 function MODIFY_HIRC_166
 ;	-----------------------------------------
 _MODIFY_HIRC_166:
-;	src/main.c:321: if ((PCON&SET_BIT4)==SET_BIT4) {
+;	src/main.c:324: if ((PCON&SET_BIT4)==SET_BIT4) {
 	mov	r6,_PCON
 	anl	ar6,#0x10
 	mov	r7,#0x00
 	cjne	r6,#0x10,00103$
 	cjne	r7,#0x00,00103$
-;	src/main.c:322: hircmap0 = RCTRIM0;
+;	src/main.c:325: hircmap0 = RCTRIM0;
 	mov	r7,_RCTRIM0
-;	src/main.c:323: hircmap1 = RCTRIM1;
+;	src/main.c:326: hircmap1 = RCTRIM1;
 	mov	r6,_RCTRIM1
-;	src/main.c:324: trimvalue16bit = ((hircmap0<<1)+(hircmap1&0x01));
+;	src/main.c:327: trimvalue16bit = ((hircmap0<<1)+(hircmap1&0x01));
 	mov	r5,#0x00
 	mov	a,r7
 	add	a,r7
@@ -1697,17 +1699,17 @@ _MODIFY_HIRC_166:
 	mov	a,r4
 	addc	a,r5
 	mov	r5,a
-;	src/main.c:325: trimvalue16bit = trimvalue16bit - 15;
+;	src/main.c:328: trimvalue16bit = trimvalue16bit - 15;
 	mov	a,r7
 	add	a,#0xf1
 	mov	r7,a
 	mov	a,r5
 	addc	a,#0xff
 	mov	r5,a
-;	src/main.c:326: hircmap1 = trimvalue16bit&0x01;
+;	src/main.c:329: hircmap1 = trimvalue16bit&0x01;
 	mov	ar6,r7
 	anl	ar6,#0x01
-;	src/main.c:327: hircmap0 = trimvalue16bit>>1;
+;	src/main.c:330: hircmap0 = trimvalue16bit>>1;
 	mov	a,r5
 	clr	c
 	rrc	a
@@ -1715,37 +1717,37 @@ _MODIFY_HIRC_166:
 	rrc	a
 	xch	a,r7
 	mov	r5,a
-;	src/main.c:328: TA=0XAA;
-	mov	_TA,#0xaa
-;	src/main.c:329: TA=0X55;
-	mov	_TA,#0x55
-;	src/main.c:330: RCTRIM0 = hircmap0;
-	mov	_RCTRIM0,r7
 ;	src/main.c:331: TA=0XAA;
 	mov	_TA,#0xaa
 ;	src/main.c:332: TA=0X55;
 	mov	_TA,#0x55
-;	src/main.c:333: RCTRIM1 = hircmap1;
+;	src/main.c:333: RCTRIM0 = hircmap0;
+	mov	_RCTRIM0,r7
+;	src/main.c:334: TA=0XAA;
+	mov	_TA,#0xaa
+;	src/main.c:335: TA=0X55;
+	mov	_TA,#0x55
+;	src/main.c:336: RCTRIM1 = hircmap1;
 	mov	_RCTRIM1,r6
-;	src/main.c:335: PCON &= CLR_BIT4;
+;	src/main.c:338: PCON &= CLR_BIT4;
 	anl	_PCON,#0xef
 00103$:
-;	src/main.c:337: }
+;	src/main.c:340: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'disp_help'
 ;------------------------------------------------------------
 ;au8Code                   Allocated to registers r7 
 ;------------------------------------------------------------
-;	src/main.c:338: void disp_help(UINT8 au8Code)
+;	src/main.c:341: void disp_help(UINT8 au8Code)
 ;	-----------------------------------------
 ;	 function disp_help
 ;	-----------------------------------------
 _disp_help:
 	mov	r7,dpl
-;	src/main.c:340: gu8UART = 1;
+;	src/main.c:343: gu8UART = 1;
 	mov	_gu8UART,#0x01
-;	src/main.c:341: switch(au8Code) {
+;	src/main.c:344: switch(au8Code) {
 	cjne	r7,#0x31,00165$
 	ret
 00165$:
@@ -1783,9 +1785,9 @@ _disp_help:
 	ljmp	00112$
 00176$:
 	ljmp	00113$
-;	src/main.c:346: case '3' :
+;	src/main.c:349: case '3' :
 00103$:
-;	src/main.c:347: printf_fast_f("Idle preamble on/off\r\n");
+;	src/main.c:350: printf_fast_f("Idle preamble on/off\r\n");
 	mov	a,#___str_8
 	push	acc
 	mov	a,#(___str_8 >> 8)
@@ -1793,11 +1795,11 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:348: break;
+;	src/main.c:351: break;
 	ret
-;	src/main.c:351: case 'p' :
+;	src/main.c:354: case 'p' :
 00105$:
-;	src/main.c:352: printf_fast_f("LineFi Power Off\r\n");
+;	src/main.c:355: printf_fast_f("LineFi Power Off\r\n");
 	mov	a,#___str_9
 	push	acc
 	mov	a,#(___str_9 >> 8)
@@ -1805,11 +1807,11 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:353: break;
+;	src/main.c:356: break;
 	ret
-;	src/main.c:354: case 'P' :
+;	src/main.c:357: case 'P' :
 00106$:
-;	src/main.c:355: printf_fast_f("LineFi Power On\r\n");
+;	src/main.c:358: printf_fast_f("LineFi Power On\r\n");
 	mov	a,#___str_10
 	push	acc
 	mov	a,#(___str_10 >> 8)
@@ -1817,11 +1819,11 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:356: break;
+;	src/main.c:359: break;
 	ret
-;	src/main.c:357: case 't' :
+;	src/main.c:360: case 't' :
 00107$:
-;	src/main.c:358: printf_fast_f("LineFi Uart Tx Low\r\n");
+;	src/main.c:361: printf_fast_f("LineFi Uart Tx Low\r\n");
 	mov	a,#___str_11
 	push	acc
 	mov	a,#(___str_11 >> 8)
@@ -1829,11 +1831,11 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:359: break;
+;	src/main.c:362: break;
 	ret
-;	src/main.c:360: case 'T' :
+;	src/main.c:363: case 'T' :
 00108$:
-;	src/main.c:361: printf_fast_f("LineFi Uart Tx High\r\n");
+;	src/main.c:364: printf_fast_f("LineFi Uart Tx High\r\n");
 	mov	a,#___str_12
 	push	acc
 	mov	a,#(___str_12 >> 8)
@@ -1841,11 +1843,11 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:362: break;
+;	src/main.c:365: break;
 	ret
-;	src/main.c:363: case 's' :
+;	src/main.c:366: case 's' :
 00109$:
-;	src/main.c:364: printf_fast_f("LineFi CSC rx FSM Off\r\n");
+;	src/main.c:367: printf_fast_f("LineFi CSC rx FSM Off\r\n");
 	mov	a,#___str_13
 	push	acc
 	mov	a,#(___str_13 >> 8)
@@ -1853,11 +1855,11 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:365: break;
+;	src/main.c:368: break;
 	ret
-;	src/main.c:366: case 'S' :
+;	src/main.c:369: case 'S' :
 00110$:
-;	src/main.c:367: printf_fast_f("LineFi CSC rx FSM ON\r\n");
+;	src/main.c:370: printf_fast_f("LineFi CSC rx FSM ON\r\n");
 	mov	a,#___str_14
 	push	acc
 	mov	a,#(___str_14 >> 8)
@@ -1865,11 +1867,11 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:368: break;
-;	src/main.c:369: case 'v' : case 'V' :
+;	src/main.c:371: break;
+;	src/main.c:372: case 'v' : case 'V' :
 	ret
 00112$:
-;	src/main.c:370: printf_fast_f(__VERSION__);
+;	src/main.c:373: printf_fast_f(__VERSION__);
 	mov	a,#___str_15
 	push	acc
 	mov	a,#(___str_15 >> 8)
@@ -1877,11 +1879,11 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:371: break;
-;	src/main.c:372: default :
+;	src/main.c:374: break;
+;	src/main.c:375: default :
 	ret
 00113$:
-;	src/main.c:373: printf_fast_f("1: downlink packet 1\r\n");
+;	src/main.c:376: printf_fast_f("1: downlink packet 1\r\n");
 	mov	a,#___str_16
 	push	acc
 	mov	a,#(___str_16 >> 8)
@@ -1889,7 +1891,7 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:374: printf_fast_f("2: downlink packet 2\r\n");
+;	src/main.c:377: printf_fast_f("2: downlink packet 2\r\n");
 	mov	a,#___str_17
 	push	acc
 	mov	a,#(___str_17 >> 8)
@@ -1897,7 +1899,7 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:375: printf_fast_f("3: uplink idle preamble on/off\r\n");
+;	src/main.c:378: printf_fast_f("3: uplink idle preamble on/off\r\n");
 	mov	a,#___str_18
 	push	acc
 	mov	a,#(___str_18 >> 8)
@@ -1905,7 +1907,7 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:376: printf_fast_f("p/P: LineFi Power off/on\r\n");
+;	src/main.c:379: printf_fast_f("p/P: LineFi Power off/on\r\n");
 	mov	a,#___str_19
 	push	acc
 	mov	a,#(___str_19 >> 8)
@@ -1913,7 +1915,7 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:377: printf_fast_f("t/T: LineFi Uart Tx Low/High\r\n");
+;	src/main.c:380: printf_fast_f("t/T: LineFi Uart Tx Low/High\r\n");
 	mov	a,#___str_20
 	push	acc
 	mov	a,#(___str_20 >> 8)
@@ -1921,7 +1923,7 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:378: printf_fast_f("s/S: LineFie CSC Rx FSM off/on\r\n");
+;	src/main.c:381: printf_fast_f("s/S: LineFie CSC Rx FSM off/on\r\n");
 	mov	a,#___str_21
 	push	acc
 	mov	a,#(___str_21 >> 8)
@@ -1929,7 +1931,7 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:379: printf_fast_f("test procedure: p -> P -> T -> S -> 1 or 2\r\n");
+;	src/main.c:382: printf_fast_f("test procedure: p -> P -> T -> S -> 1 or 2\r\n");
 	mov	a,#___str_22
 	push	acc
 	mov	a,#(___str_22 >> 8)
@@ -1937,86 +1939,86 @@ _disp_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:381: }
-;	src/main.c:382: }
+;	src/main.c:384: }
+;	src/main.c:385: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'gpio_setup'
 ;------------------------------------------------------------
-;	src/main.c:384: void gpio_setup()
+;	src/main.c:387: void gpio_setup()
 ;	-----------------------------------------
 ;	 function gpio_setup
 ;	-----------------------------------------
 _gpio_setup:
-;	src/main.c:412: Set_All_GPIO_Quasi_Mode;
+;	src/main.c:415: Set_All_GPIO_Quasi_Mode;
 	mov	_P0M1,#0x00
 	mov	_P0M2,#0x00
 	mov	_P1M1,#0x00
 	mov	_P1M2,#0x00
 	mov	_P3M1,#0x00
 	mov	_P3M2,#0x00
-;	src/main.c:414: P13_Input_Mode;
+;	src/main.c:417: P13_Input_Mode;
 	orl	_P1M1,#0x08
 	anl	_P1M2,#0xf7
-;	src/main.c:415: P30_Input_Mode;
+;	src/main.c:418: P30_Input_Mode;
 	orl	_P3M1,#0x01
 	anl	_P3M2,#0xfe
-;	src/main.c:416: P17_Input_Mode;
+;	src/main.c:419: P17_Input_Mode;
 	orl	_P1M1,#0x80
 	anl	_P1M2,#0x7f
-;	src/main.c:417: P00_Input_Mode;
+;	src/main.c:420: P00_Input_Mode;
 	orl	_P0M1,#0x01
 	anl	_P0M2,#0xfe
-;	src/main.c:418: P15_Input_Mode;
+;	src/main.c:421: P15_Input_Mode;
 	orl	_P1M1,#0x20
 	anl	_P1M2,#0xdf
-;	src/main.c:420: P05_Input_Mode; // rx_level1
+;	src/main.c:423: P05_Input_Mode; // rx_level1
 	orl	_P0M1,#0x20
 	anl	_P0M2,#0xdf
-;	src/main.c:421: P04_Input_Mode; // rx_level2
+;	src/main.c:424: P04_Input_Mode; // rx_level2
 	orl	_P0M1,#0x10
 	anl	_P0M2,#0xef
-;	src/main.c:423: P10_PushPull_Mode; // line fi enable
+;	src/main.c:426: P10_PushPull_Mode; // line fi enable
 	anl	_P1M1,#0xfe
 	orl	_P1M2,#0x01
-;	src/main.c:424: P11_PushPull_Mode; // line fi enable1
+;	src/main.c:427: P11_PushPull_Mode; // line fi enable1
 	anl	_P1M1,#0xfd
 	orl	_P1M2,#0x02
-;	src/main.c:425: P12_PushPull_Mode; // line fi enable2
+;	src/main.c:428: P12_PushPull_Mode; // line fi enable2
 	anl	_P1M1,#0xfb
 	orl	_P1M2,#0x04
-;	src/main.c:426: LINEFI_EN0 = 0;
+;	src/main.c:429: LINEFI_EN0 = 0;
 ;	assignBit
 	clr	_P10
-;	src/main.c:427: LINEFI_EN1 = 0;
+;	src/main.c:430: LINEFI_EN1 = 0;
 ;	assignBit
 	clr	_P11
-;	src/main.c:428: LINEFI_EN2 = 0;
+;	src/main.c:431: LINEFI_EN2 = 0;
 ;	assignBit
 	clr	_P12
-;	src/main.c:429: }
+;	src/main.c:432: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'state_switches'
 ;------------------------------------------------------------
-;su8PrevSW                 Allocated with name '_state_switches_su8PrevSW_65536_83'
+;su8PrevSW                 Allocated with name '_state_switches_su8PrevSW_65536_89'
 ;apu8SwNum                 Allocated with name '_state_switches_PARM_2'
 ;au8SW                     Allocated to registers r7 
 ;i                         Allocated to registers r2 
 ;u8Result                  Allocated to registers r6 
 ;------------------------------------------------------------
-;	src/main.c:447: UINT8 state_switches(UINT8 au8SW, UINT8 *apu8SwNum)
+;	src/main.c:450: UINT8 state_switches(UINT8 au8SW, UINT8 *apu8SwNum)
 ;	-----------------------------------------
 ;	 function state_switches
 ;	-----------------------------------------
 _state_switches:
 	mov	r7,dpl
-;	src/main.c:452: UINT8 u8Result = SW_NONE;
+;	src/main.c:455: UINT8 u8Result = SW_NONE;
 	mov	r6,#0x04
-;	src/main.c:453: if (su8PrevSW == au8SW) {
+;	src/main.c:456: if (su8PrevSW == au8SW) {
 	mov	a,r7
-	cjne	a,_state_switches_su8PrevSW_65536_83,00102$
-;	src/main.c:454: *apu8SwNum = 0;
+	cjne	a,_state_switches_su8PrevSW_65536_89,00102$
+;	src/main.c:457: *apu8SwNum = 0;
 	mov	r3,_state_switches_PARM_2
 	mov	r4,(_state_switches_PARM_2 + 1)
 	mov	r5,(_state_switches_PARM_2 + 2)
@@ -2025,11 +2027,11 @@ _state_switches:
 	mov	b,r5
 	clr	a
 	lcall	__gptrput
-;	src/main.c:455: return SW_NONE;
+;	src/main.c:458: return SW_NONE;
 	mov	dpl,#0x04
 	ret
 00102$:
-;	src/main.c:463: *apu8SwNum = 0;
+;	src/main.c:466: *apu8SwNum = 0;
 	mov	r3,_state_switches_PARM_2
 	mov	r4,(_state_switches_PARM_2 + 1)
 	mov	r5,(_state_switches_PARM_2 + 2)
@@ -2038,13 +2040,13 @@ _state_switches:
 	mov	b,r5
 	clr	a
 	lcall	__gptrput
-;	src/main.c:465: for (i=0;i<5;i++) {
+;	src/main.c:468: for (i=0;i<5;i++) {
 	mov	r2,#0x00
 00113$:
-;	src/main.c:466: switch((su8PrevSW>>i)&1) {
+;	src/main.c:469: switch((su8PrevSW>>i)&1) {
 	mov	b,r2
 	inc	b
-	mov	a,_state_switches_su8PrevSW_65536_83
+	mov	a,_state_switches_su8PrevSW_65536_89
 	sjmp	00153$
 00152$:
 	clr	c
@@ -2064,7 +2066,7 @@ _state_switches:
 00155$:
 	ljmp	00114$
 00156$:
-;	src/main.c:468: switch((au8SW>>i)&1) {
+;	src/main.c:471: switch((au8SW>>i)&1) {
 	mov	b,r2
 	inc	b
 	mov	a,r7
@@ -2083,9 +2085,9 @@ _state_switches:
 00159$:
 	ljmp	00114$
 00160$:
-;	src/main.c:472: su8PrevSW = au8SW;
-	mov	_state_switches_su8PrevSW_65536_83,r7
-;	src/main.c:473: *apu8SwNum |= 1<<i;
+;	src/main.c:475: su8PrevSW = au8SW;
+	mov	_state_switches_su8PrevSW_65536_89,r7
+;	src/main.c:476: *apu8SwNum |= 1<<i;
 	mov	dpl,r3
 	mov	dph,r4
 	mov	b,r5
@@ -2108,13 +2110,13 @@ _state_switches:
 	mov	b,r5
 	mov	a,r0
 	lcall	__gptrput
-;	src/main.c:474: u8Result = SW_OFF;
+;	src/main.c:477: u8Result = SW_OFF;
 	mov	r6,#0x00
-;	src/main.c:478: break;
-;	src/main.c:479: case SW_OFF :
+;	src/main.c:481: break;
+;	src/main.c:482: case SW_OFF :
 	sjmp	00114$
 00107$:
-;	src/main.c:480: switch((au8SW>>i)&1) {
+;	src/main.c:483: switch((au8SW>>i)&1) {
 	mov	b,r2
 	inc	b
 	mov	a,r7
@@ -2133,9 +2135,9 @@ _state_switches:
 00166$:
 	cjne	r0,#0x01,00114$
 	cjne	r1,#0x00,00114$
-;	src/main.c:482: su8PrevSW = au8SW;
-	mov	_state_switches_su8PrevSW_65536_83,r7
-;	src/main.c:483: *apu8SwNum |= 1<<i;
+;	src/main.c:485: su8PrevSW = au8SW;
+	mov	_state_switches_su8PrevSW_65536_89,r7
+;	src/main.c:486: *apu8SwNum |= 1<<i;
 	mov	dpl,r3
 	mov	dph,r4
 	mov	b,r5
@@ -2158,35 +2160,35 @@ _state_switches:
 	mov	b,r5
 	mov	a,r0
 	lcall	__gptrput
-;	src/main.c:484: u8Result = SW_ON;
+;	src/main.c:487: u8Result = SW_ON;
 	mov	r6,#0x01
-;	src/main.c:492: }
+;	src/main.c:495: }
 00114$:
-;	src/main.c:465: for (i=0;i<5;i++) {
+;	src/main.c:468: for (i=0;i<5;i++) {
 	inc	r2
 	cjne	r2,#0x05,00172$
 00172$:
 	jnc	00173$
 	ljmp	00113$
 00173$:
-;	src/main.c:496: return u8Result;
+;	src/main.c:499: return u8Result;
 	mov	dpl,r6
-;	src/main.c:584: }
+;	src/main.c:587: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'printoutbuf'
 ;------------------------------------------------------------
 ;apcBuf                    Allocated with name '_printoutbuf_PARM_2'
 ;aucBufIdx                 Allocated to registers r7 
-;i                         Allocated with name '_printoutbuf_i_65536_91'
+;i                         Allocated with name '_printoutbuf_i_65536_97'
 ;------------------------------------------------------------
-;	src/main.c:588: void printoutbuf(uint8 aucBufIdx, char * apcBuf)
+;	src/main.c:591: void printoutbuf(uint8 aucBufIdx, char * apcBuf)
 ;	-----------------------------------------
 ;	 function printoutbuf
 ;	-----------------------------------------
 _printoutbuf:
 	mov	r7,dpl
-;	src/main.c:591: for (i=0;i<aucBufIdx;i++) {
+;	src/main.c:594: for (i=0;i<aucBufIdx;i++) {
 	mov	r4,_printoutbuf_PARM_2
 	mov	r5,(_printoutbuf_PARM_2 + 1)
 	mov	r6,(_printoutbuf_PARM_2 + 2)
@@ -2196,7 +2198,7 @@ _printoutbuf:
 	mov	a,r3
 	subb	a,r7
 	jnc	00101$
-;	src/main.c:592: printf_fast_f("%c", *apcBuf++);
+;	src/main.c:595: printf_fast_f("%c", *apcBuf++);
 	mov	dpl,r4
 	mov	dph,r5
 	mov	b,r6
@@ -2227,11 +2229,11 @@ _printoutbuf:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	src/main.c:591: for (i=0;i<aucBufIdx;i++) {
+;	src/main.c:594: for (i=0;i<aucBufIdx;i++) {
 	inc	r3
 	sjmp	00103$
 00101$:
-;	src/main.c:594: printf_fast_f("\r\n");
+;	src/main.c:597: printf_fast_f("\r\n");
 	mov	a,#___str_5
 	push	acc
 	mov	a,#(___str_5 >> 8)
@@ -2239,17 +2241,17 @@ _printoutbuf:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:595: }
+;	src/main.c:598: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'print_help'
 ;------------------------------------------------------------
-;	src/main.c:598: void print_help()
+;	src/main.c:601: void print_help()
 ;	-----------------------------------------
 ;	 function print_help
 ;	-----------------------------------------
 _print_help:
-;	src/main.c:600: printf_fast_f("t: timer\r\n");
+;	src/main.c:603: printf_fast_f("t: timer\r\n");
 	mov	a,#___str_23
 	push	acc
 	mov	a,#(___str_23 >> 8)
@@ -2257,7 +2259,7 @@ _print_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:601: printf_fast_f("0: LineFi EN0,1,2 off\r\n");
+;	src/main.c:604: printf_fast_f("0: LineFi EN0,1,2 off\r\n");
 	mov	a,#___str_24
 	push	acc
 	mov	a,#(___str_24 >> 8)
@@ -2265,7 +2267,7 @@ _print_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:602: printf_fast_f("1: LineFi EN0 = 1\r\n");
+;	src/main.c:605: printf_fast_f("1: LineFi EN0 = 1\r\n");
 	mov	a,#___str_25
 	push	acc
 	mov	a,#(___str_25 >> 8)
@@ -2273,7 +2275,7 @@ _print_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:603: printf_fast_f("2:\r\n");
+;	src/main.c:606: printf_fast_f("2:\r\n");
 	mov	a,#___str_26
 	push	acc
 	mov	a,#(___str_26 >> 8)
@@ -2281,7 +2283,7 @@ _print_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:604: printf_fast_f("3:\r\n");
+;	src/main.c:607: printf_fast_f("3:\r\n");
 	mov	a,#___str_27
 	push	acc
 	mov	a,#(___str_27 >> 8)
@@ -2289,7 +2291,7 @@ _print_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:605: printf_fast_f("4:\r\n");
+;	src/main.c:608: printf_fast_f("4:\r\n");
 	mov	a,#___str_28
 	push	acc
 	mov	a,#(___str_28 >> 8)
@@ -2297,7 +2299,7 @@ _print_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:606: printf_fast_f("5:\r\n");
+;	src/main.c:609: printf_fast_f("5:\r\n");
 	mov	a,#___str_29
 	push	acc
 	mov	a,#(___str_29 >> 8)
@@ -2305,7 +2307,7 @@ _print_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:607: printf_fast_f("6:\r\n");
+;	src/main.c:610: printf_fast_f("6:\r\n");
 	mov	a,#___str_30
 	push	acc
 	mov	a,#(___str_30 >> 8)
@@ -2313,7 +2315,7 @@ _print_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:608: printf_fast_f("7:\r\n");
+;	src/main.c:611: printf_fast_f("7:\r\n");
 	mov	a,#___str_31
 	push	acc
 	mov	a,#(___str_31 >> 8)
@@ -2321,7 +2323,7 @@ _print_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:609: printf_fast_f("h: Addr--\r\n");
+;	src/main.c:612: printf_fast_f("h: Addr--\r\n");
 	mov	a,#___str_32
 	push	acc
 	mov	a,#(___str_32 >> 8)
@@ -2329,7 +2331,7 @@ _print_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:610: printf_fast_f("j: Cmd--\r\n");
+;	src/main.c:613: printf_fast_f("j: Cmd--\r\n");
 	mov	a,#___str_33
 	push	acc
 	mov	a,#(___str_33 >> 8)
@@ -2337,7 +2339,7 @@ _print_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:611: printf_fast_f("k: Cmd++\r\n");
+;	src/main.c:614: printf_fast_f("k: Cmd++\r\n");
 	mov	a,#___str_34
 	push	acc
 	mov	a,#(___str_34 >> 8)
@@ -2345,7 +2347,7 @@ _print_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:612: printf_fast_f("l: Addr++\r\n");
+;	src/main.c:615: printf_fast_f("l: Addr++\r\n");
 	mov	a,#___str_35
 	push	acc
 	mov	a,#(___str_35 >> 8)
@@ -2353,7 +2355,7 @@ _print_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:613: printf_fast_f("s: sending\r\n");
+;	src/main.c:616: printf_fast_f("s: sending\r\n");
 	mov	a,#___str_36
 	push	acc
 	mov	a,#(___str_36 >> 8)
@@ -2361,7 +2363,7 @@ _print_help:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:614: }
+;	src/main.c:617: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'act_by_one_key'
@@ -2370,15 +2372,15 @@ _print_help:
 ;apu8LineFiAddr            Allocated with name '_act_by_one_key_PARM_3'
 ;au8RxUART                 Allocated to registers r7 
 ;sloc0                     Allocated with name '_act_by_one_key_sloc0_1_0'
-;u8Data                    Allocated with name '_act_by_one_key_u8Data_65536_96'
+;u8Data                    Allocated with name '_act_by_one_key_u8Data_65536_102'
 ;------------------------------------------------------------
-;	src/main.c:616: void act_by_one_key(uint8 au8RxUART, uint8 * apu8LineFiCmd, uint8 * apu8LineFiAddr)
+;	src/main.c:619: void act_by_one_key(uint8 au8RxUART, uint8 * apu8LineFiCmd, uint8 * apu8LineFiAddr)
 ;	-----------------------------------------
 ;	 function act_by_one_key
 ;	-----------------------------------------
 _act_by_one_key:
 	mov	r7,dpl
-;	src/main.c:619: switch(au8RxUART) {
+;	src/main.c:622: switch(au8RxUART) {
 	cjne	r7,#0x2b,00246$
 	ljmp	00129$
 00246$:
@@ -2446,9 +2448,9 @@ _act_by_one_key:
 	ljmp	00127$
 00267$:
 	ret
-;	src/main.c:620: case 't' : // 1msec 카운터 확인, 5초에 40,000
+;	src/main.c:623: case 't' : // 1msec 카운터 확인, 5초에 40,000
 00101$:
-;	src/main.c:621: printf_fast_f("%u\n\r", gu16TimeCnt);
+;	src/main.c:624: printf_fast_f("%u\n\r", gu16TimeCnt);
 	mov	dptr,#_gu16TimeCnt
 	movx	a,@dptr
 	push	acc
@@ -2463,28 +2465,28 @@ _act_by_one_key:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	src/main.c:622: gu16TimeCnt = 0;
+;	src/main.c:625: gu16TimeCnt = 0;
 	mov	dptr,#_gu16TimeCnt
 	clr	a
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-;	src/main.c:623: break;
+;	src/main.c:626: break;
 	ret
-;	src/main.c:624: case '0' :
+;	src/main.c:627: case '0' :
 00102$:
-;	src/main.c:625: gu8UART = 0;
+;	src/main.c:628: gu8UART = 0;
 	mov	_gu8UART,#0x00
-;	src/main.c:626: LINEFI_EN0 = 0;
+;	src/main.c:629: LINEFI_EN0 = 0;
 ;	assignBit
 	clr	_P10
-;	src/main.c:627: LINEFI_EN1 = 0;
+;	src/main.c:630: LINEFI_EN1 = 0;
 ;	assignBit
 	clr	_P11
-;	src/main.c:628: LINEFI_EN2 = 0;
+;	src/main.c:631: LINEFI_EN2 = 0;
 ;	assignBit
 	clr	_P12
-;	src/main.c:629: printf_fast_f("LINEFI_EN0=0\n\r");
+;	src/main.c:632: printf_fast_f("LINEFI_EN0=0\n\r");
 	mov	a,#___str_38
 	push	acc
 	mov	a,#(___str_38 >> 8)
@@ -2492,16 +2494,16 @@ _act_by_one_key:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:630: break;
+;	src/main.c:633: break;
 	ret
-;	src/main.c:631: case '1' :
+;	src/main.c:634: case '1' :
 00103$:
-;	src/main.c:632: gu8UART = 0;
+;	src/main.c:635: gu8UART = 0;
 	mov	_gu8UART,#0x00
-;	src/main.c:633: LINEFI_EN0 = 1;
+;	src/main.c:636: LINEFI_EN0 = 1;
 ;	assignBit
 	setb	_P10
-;	src/main.c:634: printf_fast_f("LINEFI_EN0=1\n\r");
+;	src/main.c:637: printf_fast_f("LINEFI_EN0=1\n\r");
 	mov	a,#___str_39
 	push	acc
 	mov	a,#(___str_39 >> 8)
@@ -2509,16 +2511,16 @@ _act_by_one_key:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:635: break;
+;	src/main.c:638: break;
 	ret
-;	src/main.c:636: case '2' :
+;	src/main.c:639: case '2' :
 00104$:
-;	src/main.c:637: gu8UART = 0;
+;	src/main.c:640: gu8UART = 0;
 	mov	_gu8UART,#0x00
-;	src/main.c:638: LINEFI_TX = 0;
+;	src/main.c:641: LINEFI_TX = 0;
 ;	assignBit
 	clr	_P16
-;	src/main.c:639: printf_fast_f("LINEFI_TX=0\n\r");
+;	src/main.c:642: printf_fast_f("LINEFI_TX=0\n\r");
 	mov	a,#___str_40
 	push	acc
 	mov	a,#(___str_40 >> 8)
@@ -2526,16 +2528,16 @@ _act_by_one_key:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:640: break;
+;	src/main.c:643: break;
 	ret
-;	src/main.c:641: case '3' :
+;	src/main.c:644: case '3' :
 00105$:
-;	src/main.c:642: gu8UART = 0;
+;	src/main.c:645: gu8UART = 0;
 	mov	_gu8UART,#0x00
-;	src/main.c:643: LINEFI_TX = 1;
+;	src/main.c:646: LINEFI_TX = 1;
 ;	assignBit
 	setb	_P16
-;	src/main.c:644: printf_fast_f("LINEFI_TX=1\n\r");
+;	src/main.c:647: printf_fast_f("LINEFI_TX=1\n\r");
 	mov	a,#___str_41
 	push	acc
 	mov	a,#(___str_41 >> 8)
@@ -2543,15 +2545,15 @@ _act_by_one_key:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:645: break;
+;	src/main.c:648: break;
 	ret
-;	src/main.c:646: case '4' :
+;	src/main.c:649: case '4' :
 00106$:
-;	src/main.c:647: gu8UART = 0;
+;	src/main.c:650: gu8UART = 0;
 	mov	_gu8UART,#0x00
-;	src/main.c:648: TOGGLE(LINEFI_TX);
+;	src/main.c:651: TOGGLE(LINEFI_TX);
 	cpl	_P16
-;	src/main.c:649: printf_fast_f("LINEFI_TX=%d\n\r", LINEFI_TX);
+;	src/main.c:652: printf_fast_f("LINEFI_TX=%d\n\r", LINEFI_TX);
 	mov	c,_P16
 	clr	a
 	rlc	a
@@ -2567,21 +2569,21 @@ _act_by_one_key:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	src/main.c:650: break;
+;	src/main.c:653: break;
 	ret
-;	src/main.c:651: case '5' :
+;	src/main.c:654: case '5' :
 00107$:
-;	src/main.c:652: gu8UART = 0;
+;	src/main.c:655: gu8UART = 0;
 	mov	_gu8UART,#0x00
-;	src/main.c:653: if (LINEFI_EN0 == 0) {
+;	src/main.c:656: if (LINEFI_EN0 == 0) {
 	jb	_P10,00109$
-;	src/main.c:654: LINEFI_TX = 1;
+;	src/main.c:657: LINEFI_TX = 1;
 ;	assignBit
 	setb	_P16
 00109$:
-;	src/main.c:656: TOGGLE(LINEFI_EN0);
+;	src/main.c:659: TOGGLE(LINEFI_EN0);
 	cpl	_P10
-;	src/main.c:657: printf_fast_f("LINEFI_EN0=");
+;	src/main.c:660: printf_fast_f("LINEFI_EN0=");
 	mov	a,#___str_43
 	push	acc
 	mov	a,#(___str_43 >> 8)
@@ -2589,7 +2591,7 @@ _act_by_one_key:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:658: printf_fast_f("%d\n\r", LINEFI_EN0);
+;	src/main.c:661: printf_fast_f("%d\n\r", LINEFI_EN0);
 	mov	c,_P10
 	clr	a
 	rlc	a
@@ -2605,13 +2607,13 @@ _act_by_one_key:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	src/main.c:659: break;
+;	src/main.c:662: break;
 	ret
-;	src/main.c:660: case '6' :
+;	src/main.c:663: case '6' :
 00110$:
-;	src/main.c:661: TOGGLE(LINEFI_EN1);
+;	src/main.c:664: TOGGLE(LINEFI_EN1);
 	cpl	_P11
-;	src/main.c:662: printf_fast_f("LINEFI_EN1=");
+;	src/main.c:665: printf_fast_f("LINEFI_EN1=");
 	mov	a,#___str_45
 	push	acc
 	mov	a,#(___str_45 >> 8)
@@ -2619,7 +2621,7 @@ _act_by_one_key:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:663: printf_fast_f("%d\n\r", LINEFI_EN1);
+;	src/main.c:666: printf_fast_f("%d\n\r", LINEFI_EN1);
 	mov	c,_P11
 	clr	a
 	rlc	a
@@ -2635,13 +2637,13 @@ _act_by_one_key:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	src/main.c:664: break;
+;	src/main.c:667: break;
 	ret
-;	src/main.c:665: case '7' :
+;	src/main.c:668: case '7' :
 00111$:
-;	src/main.c:666: TOGGLE(LINEFI_EN2);
+;	src/main.c:669: TOGGLE(LINEFI_EN2);
 	cpl	_P12
-;	src/main.c:667: printf_fast_f("LINEFI_EN2=");
+;	src/main.c:670: printf_fast_f("LINEFI_EN2=");
 	mov	a,#___str_46
 	push	acc
 	mov	a,#(___str_46 >> 8)
@@ -2649,7 +2651,7 @@ _act_by_one_key:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:668: printf_fast_f("%d\n\r", LINEFI_EN2);
+;	src/main.c:671: printf_fast_f("%d\n\r", LINEFI_EN2);
 	mov	c,_P12
 	clr	a
 	rlc	a
@@ -2665,11 +2667,11 @@ _act_by_one_key:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	src/main.c:669: break;
+;	src/main.c:672: break;
 	ret
-;	src/main.c:673: case 'h' : // <<
+;	src/main.c:676: case 'h' : // <<
 00112$:
-;	src/main.c:674: (*apu8LineFiAddr)--;
+;	src/main.c:677: (*apu8LineFiAddr)--;
 	mov	r5,_act_by_one_key_PARM_3
 	mov	r6,(_act_by_one_key_PARM_3 + 1)
 	mov	r7,(_act_by_one_key_PARM_3 + 2)
@@ -2684,7 +2686,7 @@ _act_by_one_key:
 	mov	b,r7
 	mov	a,r4
 	lcall	__gptrput
-;	src/main.c:675: if (*apu8LineFiCmd == 1) {
+;	src/main.c:678: if (*apu8LineFiCmd == 1) {
 	mov	r2,_act_by_one_key_PARM_2
 	mov	r3,(_act_by_one_key_PARM_2 + 1)
 	mov	r4,(_act_by_one_key_PARM_2 + 2)
@@ -2694,7 +2696,7 @@ _act_by_one_key:
 	lcall	__gptrget
 	mov	r2,a
 	cjne	r2,#0x01,00114$
-;	src/main.c:676: printf_fast_f("uart speed: %lu:\n\r", gpu32UartSpeed[*apu8LineFiAddr]);
+;	src/main.c:679: printf_fast_f("uart speed: %lu:\n\r", gpu32UartSpeed[*apu8LineFiAddr]);
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
@@ -2731,7 +2733,7 @@ _act_by_one_key:
 	mov	sp,a
 	ret
 00114$:
-;	src/main.c:679: printf_fast_f("address: %d\n\r", *apu8LineFiAddr);
+;	src/main.c:682: printf_fast_f("address: %d\n\r", *apu8LineFiAddr);
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
@@ -2748,11 +2750,11 @@ _act_by_one_key:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	src/main.c:681: break;
+;	src/main.c:684: break;
 	ret
-;	src/main.c:682: case 'j' : //  down
+;	src/main.c:685: case 'j' : //  down
 00116$:
-;	src/main.c:683: (*apu8LineFiCmd)--;
+;	src/main.c:686: (*apu8LineFiCmd)--;
 	mov	r5,_act_by_one_key_PARM_2
 	mov	r6,(_act_by_one_key_PARM_2 + 1)
 	mov	r7,(_act_by_one_key_PARM_2 + 2)
@@ -2767,7 +2769,7 @@ _act_by_one_key:
 	mov	b,r7
 	mov	a,r4
 	lcall	__gptrput
-;	src/main.c:684: printf_fast_f("command: %d\n\r", *apu8LineFiCmd);
+;	src/main.c:687: printf_fast_f("command: %d\n\r", *apu8LineFiCmd);
 	mov	r7,#0x00
 	push	ar4
 	push	ar7
@@ -2779,11 +2781,11 @@ _act_by_one_key:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	src/main.c:685: break;
+;	src/main.c:688: break;
 	ret
-;	src/main.c:686: case 'k' : // up
+;	src/main.c:689: case 'k' : // up
 00117$:
-;	src/main.c:687: (*apu8LineFiCmd)++;
+;	src/main.c:690: (*apu8LineFiCmd)++;
 	mov	r5,_act_by_one_key_PARM_2
 	mov	r6,(_act_by_one_key_PARM_2 + 1)
 	mov	r7,(_act_by_one_key_PARM_2 + 2)
@@ -2798,7 +2800,7 @@ _act_by_one_key:
 	mov	b,r7
 	mov	a,r4
 	lcall	__gptrput
-;	src/main.c:688: printf_fast_f("command: %d\n\r", *apu8LineFiCmd);
+;	src/main.c:691: printf_fast_f("command: %d\n\r", *apu8LineFiCmd);
 	mov	r7,#0x00
 	push	ar4
 	push	ar7
@@ -2810,11 +2812,11 @@ _act_by_one_key:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	src/main.c:689: break;
+;	src/main.c:692: break;
 	ret
-;	src/main.c:690: case 'l' : // >>
+;	src/main.c:693: case 'l' : // >>
 00118$:
-;	src/main.c:691: (*apu8LineFiAddr)++;
+;	src/main.c:694: (*apu8LineFiAddr)++;
 	mov	r5,_act_by_one_key_PARM_3
 	mov	r6,(_act_by_one_key_PARM_3 + 1)
 	mov	r7,(_act_by_one_key_PARM_3 + 2)
@@ -2829,7 +2831,7 @@ _act_by_one_key:
 	mov	b,r7
 	mov	a,r4
 	lcall	__gptrput
-;	src/main.c:692: if (*apu8LineFiCmd == 1) {
+;	src/main.c:695: if (*apu8LineFiCmd == 1) {
 	mov	r2,_act_by_one_key_PARM_2
 	mov	r3,(_act_by_one_key_PARM_2 + 1)
 	mov	r4,(_act_by_one_key_PARM_2 + 2)
@@ -2839,7 +2841,7 @@ _act_by_one_key:
 	lcall	__gptrget
 	mov	r2,a
 	cjne	r2,#0x01,00120$
-;	src/main.c:693: printf_fast_f("uart speed: %lu:\n\r", gpu32UartSpeed[*apu8LineFiAddr]);
+;	src/main.c:696: printf_fast_f("uart speed: %lu:\n\r", gpu32UartSpeed[*apu8LineFiAddr]);
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
@@ -2876,7 +2878,7 @@ _act_by_one_key:
 	mov	sp,a
 	ret
 00120$:
-;	src/main.c:696: printf_fast_f("address: %d\n\r", *apu8LineFiAddr);
+;	src/main.c:699: printf_fast_f("address: %d\n\r", *apu8LineFiAddr);
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
@@ -2893,11 +2895,11 @@ _act_by_one_key:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	src/main.c:698: break;
+;	src/main.c:701: break;
 	ret
-;	src/main.c:699: case 's' :
+;	src/main.c:702: case 's' :
 00122$:
-;	src/main.c:700: switch (*apu8LineFiCmd) {
+;	src/main.c:703: switch (*apu8LineFiCmd) {
 	mov	r5,_act_by_one_key_PARM_2
 	mov	r6,(_act_by_one_key_PARM_2 + 1)
 	mov	r7,(_act_by_one_key_PARM_2 + 2)
@@ -2911,9 +2913,9 @@ _act_by_one_key:
 	ljmp	00124$
 00274$:
 	ljmp	00125$
-;	src/main.c:701: case 0 : // address setting
+;	src/main.c:704: case 0 : // address setting
 00123$:
-;	src/main.c:702: send_octet_to_linefi((((*apu8LineFiAddr)<<4)&0xF0) | (*apu8LineFiCmd)&0x0F);
+;	src/main.c:705: send_octet_to_linefi((((*apu8LineFiAddr)<<4)&0xF0) | (*apu8LineFiCmd)&0x0F);
 	mov	_act_by_one_key_sloc0_1_0,_act_by_one_key_PARM_3
 	mov	(_act_by_one_key_sloc0_1_0 + 1),(_act_by_one_key_PARM_3 + 1)
 	mov	(_act_by_one_key_sloc0_1_0 + 2),(_act_by_one_key_PARM_3 + 2)
@@ -2936,7 +2938,7 @@ _act_by_one_key:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	src/main.c:703: printf_fast_f("LineFi Sending: 0x%x:\n\r", ((*apu8LineFiAddr)<<4) | *apu8LineFiCmd);
+;	src/main.c:706: printf_fast_f("LineFi Sending: 0x%x:\n\r", ((*apu8LineFiAddr)<<4) | *apu8LineFiCmd);
 	mov	dpl,_act_by_one_key_sloc0_1_0
 	mov	dph,(_act_by_one_key_sloc0_1_0 + 1)
 	mov	b,(_act_by_one_key_sloc0_1_0 + 2)
@@ -2970,7 +2972,7 @@ _act_by_one_key:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	src/main.c:704: printf_fast_f("address: 0x%d:\n\r", *apu8LineFiAddr);
+;	src/main.c:707: printf_fast_f("address: 0x%d:\n\r", *apu8LineFiAddr);
 	mov	dpl,_act_by_one_key_sloc0_1_0
 	mov	dph,(_act_by_one_key_sloc0_1_0 + 1)
 	mov	b,(_act_by_one_key_sloc0_1_0 + 2)
@@ -2987,11 +2989,11 @@ _act_by_one_key:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	src/main.c:705: break;
+;	src/main.c:708: break;
 	ret
-;	src/main.c:706: case 1 : // uart speed setting
+;	src/main.c:709: case 1 : // uart speed setting
 00124$:
-;	src/main.c:707: send_octet_to_linefi((((*apu8LineFiAddr)<<4)&0xF0) | (*apu8LineFiCmd)&0x0F);
+;	src/main.c:710: send_octet_to_linefi((((*apu8LineFiAddr)<<4)&0xF0) | (*apu8LineFiCmd)&0x0F);
 	mov	_act_by_one_key_sloc0_1_0,_act_by_one_key_PARM_3
 	mov	(_act_by_one_key_sloc0_1_0 + 1),(_act_by_one_key_PARM_3 + 1)
 	mov	(_act_by_one_key_sloc0_1_0 + 2),(_act_by_one_key_PARM_3 + 2)
@@ -3014,7 +3016,7 @@ _act_by_one_key:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	src/main.c:708: printf_fast_f("LineFi Sending: 0x%x:\n\r", ((*apu8LineFiAddr)<<4) | *apu8LineFiCmd);
+;	src/main.c:711: printf_fast_f("LineFi Sending: 0x%x:\n\r", ((*apu8LineFiAddr)<<4) | *apu8LineFiCmd);
 	mov	dpl,_act_by_one_key_sloc0_1_0
 	mov	dph,(_act_by_one_key_sloc0_1_0 + 1)
 	mov	b,(_act_by_one_key_sloc0_1_0 + 2)
@@ -3048,7 +3050,7 @@ _act_by_one_key:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	src/main.c:709: printf_fast_f("uart speed: %lu:\n\r", gpu32UartSpeed[*apu8LineFiAddr]);
+;	src/main.c:712: printf_fast_f("uart speed: %lu:\n\r", gpu32UartSpeed[*apu8LineFiAddr]);
 	mov	dpl,_act_by_one_key_sloc0_1_0
 	mov	dph,(_act_by_one_key_sloc0_1_0 + 1)
 	mov	b,(_act_by_one_key_sloc0_1_0 + 2)
@@ -3083,11 +3085,11 @@ _act_by_one_key:
 	mov	a,sp
 	add	a,#0xfa
 	mov	sp,a
-;	src/main.c:710: break;
+;	src/main.c:713: break;
 	ret
-;	src/main.c:711: default :
+;	src/main.c:714: default :
 00125$:
-;	src/main.c:712: send_octet_to_linefi((((*apu8LineFiAddr)<<4)&0xF0) | (*apu8LineFiCmd)&0x0F);
+;	src/main.c:715: send_octet_to_linefi((((*apu8LineFiAddr)<<4)&0xF0) | (*apu8LineFiCmd)&0x0F);
 	mov	r1,_act_by_one_key_PARM_3
 	mov	r2,(_act_by_one_key_PARM_3 + 1)
 	mov	r3,(_act_by_one_key_PARM_3 + 2)
@@ -3116,7 +3118,7 @@ _act_by_one_key:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	src/main.c:713: printf_fast_f("LineFi Sending: 0x%x:\n\r", ((*apu8LineFiAddr)<<4) | *apu8LineFiCmd);
+;	src/main.c:716: printf_fast_f("LineFi Sending: 0x%x:\n\r", ((*apu8LineFiAddr)<<4) | *apu8LineFiCmd);
 	mov	dpl,r1
 	mov	dph,r2
 	mov	b,r3
@@ -3150,11 +3152,11 @@ _act_by_one_key:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	src/main.c:716: break;
+;	src/main.c:719: break;
 	ret
-;	src/main.c:717: case 'u' :
+;	src/main.c:720: case 'u' :
 00127$:
-;	src/main.c:718: printf_fast_f("uart speed: %lu:\n\r", gpu32UartSpeed[*apu8LineFiAddr]);
+;	src/main.c:721: printf_fast_f("uart speed: %lu:\n\r", gpu32UartSpeed[*apu8LineFiAddr]);
 	mov	r5,_act_by_one_key_PARM_3
 	mov	r6,(_act_by_one_key_PARM_3 + 1)
 	mov	r7,(_act_by_one_key_PARM_3 + 2)
@@ -3198,7 +3200,7 @@ _act_by_one_key:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	src/main.c:719: InitialUART1_Timer3(gpu32UartSpeed[*apu8LineFiAddr]);
+;	src/main.c:722: InitialUART1_Timer3(gpu32UartSpeed[*apu8LineFiAddr]);
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
@@ -3230,7 +3232,7 @@ _act_by_one_key:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	src/main.c:720: printf_fast_f("Setting uart speed as: %lu:\n\r", gpu32UartSpeed[*apu8LineFiAddr]);
+;	src/main.c:723: printf_fast_f("Setting uart speed as: %lu:\n\r", gpu32UartSpeed[*apu8LineFiAddr]);
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
@@ -3265,17 +3267,17 @@ _act_by_one_key:
 	mov	a,sp
 	add	a,#0xfa
 	mov	sp,a
-;	src/main.c:721: break;
+;	src/main.c:724: break;
 	ret
-;	src/main.c:723: case 'S' :
+;	src/main.c:726: case 'S' :
 00128$:
-;	src/main.c:724: send_octet_to_linefi(u8Data);
-	mov	dptr,#_act_by_one_key_u8Data_65536_96
+;	src/main.c:727: send_octet_to_linefi(u8Data);
+	mov	dptr,#_act_by_one_key_u8Data_65536_102
 	movx	a,@dptr
 	mov	dpl,a
 	lcall	_send_octet_to_linefi
-;	src/main.c:725: printf_fast_f("LineFi Sending: %d(0x%x)\n\r", u8Data, u8Data);
-	mov	dptr,#_act_by_one_key_u8Data_65536_96
+;	src/main.c:728: printf_fast_f("LineFi Sending: %d(0x%x)\n\r", u8Data, u8Data);
+	mov	dptr,#_act_by_one_key_u8Data_65536_102
 	movx	a,@dptr
 	mov	r7,a
 	mov	r6,#0x00
@@ -3291,16 +3293,16 @@ _act_by_one_key:
 	mov	a,sp
 	add	a,#0xfa
 	mov	sp,a
-;	src/main.c:726: break;
-;	src/main.c:727: case '+' :
+;	src/main.c:729: break;
+;	src/main.c:730: case '+' :
 	ret
 00129$:
-;	src/main.c:728: u8Data++;
-	mov	dptr,#_act_by_one_key_u8Data_65536_96
+;	src/main.c:731: u8Data++;
+	mov	dptr,#_act_by_one_key_u8Data_65536_102
 	movx	a,@dptr
 	add	a,#0x01
 	movx	@dptr,a
-;	src/main.c:729: printf_fast_f("send data %d(0x%x)\n\r", u8Data, u8Data);
+;	src/main.c:732: printf_fast_f("send data %d(0x%x)\n\r", u8Data, u8Data);
 	movx	a,@dptr
 	mov	r7,a
 	mov	r6,#0x00
@@ -3316,16 +3318,16 @@ _act_by_one_key:
 	mov	a,sp
 	add	a,#0xfa
 	mov	sp,a
-;	src/main.c:730: break;
-;	src/main.c:731: case '-' :
+;	src/main.c:733: break;
+;	src/main.c:734: case '-' :
 	ret
 00130$:
-;	src/main.c:732: u8Data--;
-	mov	dptr,#_act_by_one_key_u8Data_65536_96
+;	src/main.c:735: u8Data--;
+	mov	dptr,#_act_by_one_key_u8Data_65536_102
 	movx	a,@dptr
 	dec	a
 	movx	@dptr,a
-;	src/main.c:733: printf_fast_f("send data %d(0x%x)\n\r", u8Data, u8Data);
+;	src/main.c:736: printf_fast_f("send data %d(0x%x)\n\r", u8Data, u8Data);
 	movx	a,@dptr
 	mov	r7,a
 	mov	r6,#0x00
@@ -3341,99 +3343,99 @@ _act_by_one_key:
 	mov	a,sp
 	add	a,#0xfa
 	mov	sp,a
-;	src/main.c:734: break;
-;	src/main.c:736: case 'a' :
+;	src/main.c:737: break;
+;	src/main.c:739: case 'a' :
 	ret
 00131$:
-;	src/main.c:737: send_octet_to_linefi(0x11);
+;	src/main.c:740: send_octet_to_linefi(0x11);
 	mov	dpl,#0x11
-;	src/main.c:738: break;
-;	src/main.c:739: case 'b' :
+;	src/main.c:741: break;
+;	src/main.c:742: case 'b' :
 	ljmp	_send_octet_to_linefi
 00132$:
-;	src/main.c:740: send_octet_to_linefi(0x12);
+;	src/main.c:743: send_octet_to_linefi(0x12);
 	mov	dpl,#0x12
-;	src/main.c:741: break;
-;	src/main.c:742: case 'c' :
+;	src/main.c:744: break;
+;	src/main.c:745: case 'c' :
 	ljmp	_send_octet_to_linefi
 00133$:
-;	src/main.c:743: send_octet_to_linefi(0x13);
+;	src/main.c:746: send_octet_to_linefi(0x13);
 	mov	dpl,#0x13
-;	src/main.c:744: break;
-;	src/main.c:745: case 'H' :
-;	src/main.c:746: print_help();
-;	src/main.c:748: } //switch(au8RxUART)
-;	src/main.c:749: }
+;	src/main.c:747: break;
+;	src/main.c:748: case 'H' :
+;	src/main.c:749: print_help();
+;	src/main.c:751: } //switch(au8RxUART)
+;	src/main.c:752: }
 	ljmp	_send_octet_to_linefi
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'struct_to_uint8'
 ;------------------------------------------------------------
-;apcPkt                    Allocated with name '_struct_to_uint8_apcPkt_65536_104'
-;cntIdx                    Allocated with name '_struct_to_uint8_cntIdx_65536_105'
-;i                         Allocated with name '_struct_to_uint8_i_65537_106'
+;apcPkt                    Allocated with name '_struct_to_uint8_apcPkt_65536_110'
+;cntIdx                    Allocated with name '_struct_to_uint8_cntIdx_65536_111'
+;i                         Allocated with name '_struct_to_uint8_i_65537_112'
 ;------------------------------------------------------------
-;	src/main.c:761: void struct_to_uint8(linefi_packet_t * apcPkt)
+;	src/main.c:764: void struct_to_uint8(linefi_packet_t * apcPkt)
 ;	-----------------------------------------
 ;	 function struct_to_uint8
 ;	-----------------------------------------
 _struct_to_uint8:
-;	src/main.c:764: pu8buff[cntIdx++] = apcPkt->u8Ver;
-	mov	_struct_to_uint8_apcPkt_65536_104,dpl
-	mov	(_struct_to_uint8_apcPkt_65536_104 + 1),dph
-	mov	(_struct_to_uint8_apcPkt_65536_104 + 2),b
+;	src/main.c:767: pu8buff[cntIdx++] = apcPkt->u8Ver;
+	mov	_struct_to_uint8_apcPkt_65536_110,dpl
+	mov	(_struct_to_uint8_apcPkt_65536_110 + 1),dph
+	mov	(_struct_to_uint8_apcPkt_65536_110 + 2),b
 	lcall	__gptrget
 	mov	dptr,#_pu8buff
 	movx	@dptr,a
-;	src/main.c:765: pu8buff[cntIdx++] = apcPkt->u8Type;
+;	src/main.c:768: pu8buff[cntIdx++] = apcPkt->u8Type;
 	mov	a,#0x01
-	add	a,_struct_to_uint8_apcPkt_65536_104
+	add	a,_struct_to_uint8_apcPkt_65536_110
 	mov	r2,a
 	clr	a
-	addc	a,(_struct_to_uint8_apcPkt_65536_104 + 1)
+	addc	a,(_struct_to_uint8_apcPkt_65536_110 + 1)
 	mov	r3,a
-	mov	r4,(_struct_to_uint8_apcPkt_65536_104 + 2)
+	mov	r4,(_struct_to_uint8_apcPkt_65536_110 + 2)
 	mov	dpl,r2
 	mov	dph,r3
 	mov	b,r4
 	lcall	__gptrget
 	mov	dptr,#(_pu8buff + 0x0001)
 	movx	@dptr,a
-;	src/main.c:766: pu8buff[cntIdx++] = apcPkt->u8Addr;
+;	src/main.c:769: pu8buff[cntIdx++] = apcPkt->u8Addr;
 	mov	a,#0x02
-	add	a,_struct_to_uint8_apcPkt_65536_104
+	add	a,_struct_to_uint8_apcPkt_65536_110
 	mov	r2,a
 	clr	a
-	addc	a,(_struct_to_uint8_apcPkt_65536_104 + 1)
+	addc	a,(_struct_to_uint8_apcPkt_65536_110 + 1)
 	mov	r3,a
-	mov	r4,(_struct_to_uint8_apcPkt_65536_104 + 2)
+	mov	r4,(_struct_to_uint8_apcPkt_65536_110 + 2)
 	mov	dpl,r2
 	mov	dph,r3
 	mov	b,r4
 	lcall	__gptrget
 	mov	dptr,#(_pu8buff + 0x0002)
 	movx	@dptr,a
-;	src/main.c:767: pu8buff[cntIdx++] = apcPkt->u8Size;
+;	src/main.c:770: pu8buff[cntIdx++] = apcPkt->u8Size;
 	mov	a,#0x03
-	add	a,_struct_to_uint8_apcPkt_65536_104
+	add	a,_struct_to_uint8_apcPkt_65536_110
 	mov	r2,a
 	clr	a
-	addc	a,(_struct_to_uint8_apcPkt_65536_104 + 1)
+	addc	a,(_struct_to_uint8_apcPkt_65536_110 + 1)
 	mov	r3,a
-	mov	r4,(_struct_to_uint8_apcPkt_65536_104 + 2)
+	mov	r4,(_struct_to_uint8_apcPkt_65536_110 + 2)
 	mov	dpl,r2
 	mov	dph,r3
 	mov	b,r4
 	lcall	__gptrget
 	mov	dptr,#(_pu8buff + 0x0003)
 	movx	@dptr,a
-;	src/main.c:768: pu8buff[cntIdx++] = apcPkt->u8CRC;
+;	src/main.c:771: pu8buff[cntIdx++] = apcPkt->u8CRC;
 	mov	a,#0x04
-	add	a,_struct_to_uint8_apcPkt_65536_104
+	add	a,_struct_to_uint8_apcPkt_65536_110
 	mov	r0,a
 	clr	a
-	addc	a,(_struct_to_uint8_apcPkt_65536_104 + 1)
+	addc	a,(_struct_to_uint8_apcPkt_65536_110 + 1)
 	mov	r1,a
-	mov	r7,(_struct_to_uint8_apcPkt_65536_104 + 2)
+	mov	r7,(_struct_to_uint8_apcPkt_65536_110 + 2)
 	mov	dpl,r0
 	mov	dph,r1
 	mov	b,r7
@@ -3441,16 +3443,16 @@ _struct_to_uint8:
 	mov	r0,a
 	mov	dptr,#(_pu8buff + 0x0004)
 	movx	@dptr,a
-;	src/main.c:770: for (i=0; i<apcPkt->u8Size; i++) {
+;	src/main.c:773: for (i=0; i<apcPkt->u8Size; i++) {
 	mov	a,#0x05
-	add	a,_struct_to_uint8_apcPkt_65536_104
+	add	a,_struct_to_uint8_apcPkt_65536_110
 	mov	r5,a
 	clr	a
-	addc	a,(_struct_to_uint8_apcPkt_65536_104 + 1)
+	addc	a,(_struct_to_uint8_apcPkt_65536_110 + 1)
 	mov	r6,a
-	mov	r7,(_struct_to_uint8_apcPkt_65536_104 + 2)
-	mov	_struct_to_uint8_cntIdx_65536_105,#0x05
-	mov	_struct_to_uint8_i_65537_106,#0x00
+	mov	r7,(_struct_to_uint8_apcPkt_65536_110 + 2)
+	mov	_struct_to_uint8_cntIdx_65536_111,#0x05
+	mov	_struct_to_uint8_i_65537_112,#0x00
 00103$:
 	mov	dpl,r2
 	mov	dph,r3
@@ -3458,20 +3460,20 @@ _struct_to_uint8:
 	lcall	__gptrget
 	mov	r1,a
 	clr	c
-	mov	a,_struct_to_uint8_i_65537_106
+	mov	a,_struct_to_uint8_i_65537_112
 	subb	a,r1
 	jnc	00105$
-;	src/main.c:771: pu8buff[cntIdx++] = apcPkt->pu8Data[i];
+;	src/main.c:774: pu8buff[cntIdx++] = apcPkt->pu8Data[i];
 	push	ar2
 	push	ar3
 	push	ar4
-	mov	a,_struct_to_uint8_cntIdx_65536_105
+	mov	a,_struct_to_uint8_cntIdx_65536_111
 	add	a,#_pu8buff
 	mov	r0,a
 	clr	a
 	addc	a,#(_pu8buff >> 8)
 	mov	r1,a
-	inc	_struct_to_uint8_cntIdx_65536_105
+	inc	_struct_to_uint8_cntIdx_65536_111
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
@@ -3483,7 +3485,7 @@ _struct_to_uint8:
 	inc	dptr
 	lcall	__gptrget
 	mov	r4,a
-	mov	a,_struct_to_uint8_i_65537_106
+	mov	a,_struct_to_uint8_i_65537_112
 	add	a,r2
 	mov	r2,a
 	clr	a
@@ -3496,28 +3498,28 @@ _struct_to_uint8:
 	mov	dpl,r0
 	mov	dph,r1
 	movx	@dptr,a
-;	src/main.c:770: for (i=0; i<apcPkt->u8Size; i++) {
-	inc	_struct_to_uint8_i_65537_106
+;	src/main.c:773: for (i=0; i<apcPkt->u8Size; i++) {
+	inc	_struct_to_uint8_i_65537_112
 	pop	ar4
 	pop	ar3
 	pop	ar2
 	sjmp	00103$
 00105$:
-;	src/main.c:774: }
+;	src/main.c:777: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'periodic_func'
 ;------------------------------------------------------------
-;su8Cnt                    Allocated with name '_periodic_func_su8Cnt_65536_110'
+;su8Cnt                    Allocated with name '_periodic_func_su8Cnt_65536_116'
 ;apcStr                    Allocated to registers r5 r6 r7 
 ;total_size                Allocated to registers r4 
 ;------------------------------------------------------------
-;	src/main.c:781: void periodic_func(linefi_packet_t * apcStr)
+;	src/main.c:787: void periodic_func(linefi_packet_t * apcStr)
 ;	-----------------------------------------
 ;	 function periodic_func
 ;	-----------------------------------------
 _periodic_func:
-;	src/main.c:784: uint8 total_size = size_linefi_packet(apcStr);
+;	src/main.c:790: uint8 total_size = size_linefi_packet(apcStr);
 	mov	r5,dpl
 	mov	r6,dph
 	mov	r7,b
@@ -3526,18 +3528,56 @@ _periodic_func:
 	push	ar5
 	lcall	_size_linefi_packet
 	mov	r4,dpl
+;	src/main.c:792: if (su8Cnt * 17 % 15 < 4) {
+	mov	__mulint_PARM_2,_periodic_func_su8Cnt_65536_116
+	mov	(__mulint_PARM_2 + 1),#0x00
+	mov	dptr,#0x0011
+	push	ar4
+	lcall	__mulint
+	mov	__modsint_PARM_2,#0x0f
+	mov	(__modsint_PARM_2 + 1),#0x00
+	lcall	__modsint
+	mov	r2,dpl
+	mov	r3,dph
+	pop	ar4
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	src/main.c:787: apcStr->u8Ver = su8Cnt++; // For index increment
-	mov	r3,_periodic_func_su8Cnt_65536_110
-	inc	_periodic_func_su8Cnt_65536_110
+	clr	c
+	mov	a,r2
+	subb	a,#0x04
+	mov	a,r3
+	xrl	a,#0x80
+	subb	a,#0x80
+	jnc	00102$
+;	src/main.c:793: printf_fast_f("%d\r\n",(int)(su8Cnt * 17 % 15));
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar4
+	push	ar2
+	push	ar3
+	mov	a,#___str_55
+	push	acc
+	mov	a,#(___str_55 >> 8)
+	push	acc
+	lcall	_printf_fast_f
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
+	pop	ar4
+	pop	ar5
+	pop	ar6
+	pop	ar7
+;	src/main.c:794: apcStr->u8Ver = su8Cnt++;
+	mov	r3,_periodic_func_su8Cnt_65536_116
+	inc	_periodic_func_su8Cnt_65536_116
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
 	mov	a,r3
 	lcall	__gptrput
-;	src/main.c:789: send_linefi_packet(apcStr);
+;	src/main.c:795: send_linefi_packet(apcStr);	
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
@@ -3550,112 +3590,121 @@ _periodic_func:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	src/main.c:791: struct_to_uint8(apcStr); // packet struct to array type
+;	src/main.c:796: struct_to_uint8(apcStr);	
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
 	push	ar4
 	lcall	_struct_to_uint8
 	pop	ar4
-;	src/main.c:792: print_raw_packet(total_size, pu8buff); 
+;	src/main.c:797: print_raw_packet(total_size, pu8buff); 
 	mov	_print_raw_packet_PARM_2,#_pu8buff
 	mov	(_print_raw_packet_PARM_2 + 1),#(_pu8buff >> 8)
 	mov	(_print_raw_packet_PARM_2 + 2),#0x00
 	mov	dpl,r4
-;	src/main.c:796: }
 	ljmp	_print_raw_packet
+00102$:
+;	src/main.c:800: apcStr->u8Ver = su8Cnt++;
+	mov	r4,_periodic_func_su8Cnt_65536_116
+	inc	_periodic_func_su8Cnt_65536_116
+	mov	dpl,r5
+	mov	dph,r6
+	mov	b,r7
+	mov	a,r4
+;	src/main.c:811: }
+	ljmp	__gptrput
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
 ;su8SW                     Allocated to registers 
 ;u8EnCnt                   Allocated to registers 
-;u8RxUART                  Allocated with name '_main_u8RxUART_65536_112'
+;u8RxUART                  Allocated with name '_main_u8RxUART_65536_120'
 ;u16Cnt                    Allocated to registers r2 r3 
 ;u8OutputState             Allocated to registers 
 ;u8StateRxCSC              Allocated to registers 
-;u8LineFiAddr              Allocated with name '_main_u8LineFiAddr_65536_112'
+;u8LineFiAddr              Allocated with name '_main_u8LineFiAddr_65536_120'
 ;u8LineFiSpeed             Allocated to registers 
-;u8LineFiCmd               Allocated with name '_main_u8LineFiCmd_65536_112'
+;u8LineFiCmd               Allocated with name '_main_u8LineFiCmd_65536_120'
 ;u8PwrOnFirstFlag          Allocated to registers r7 
-;u8SwNum                   Allocated with name '_main_u8SwNum_65536_112'
-;u8StatePeriodicSend       Allocated with name '_main_u8StatePeriodicSend_65536_112'
-;u8PSCmd                   Allocated with name '_main_u8PSCmd_65536_112'
+;u8SwNum                   Allocated with name '_main_u8SwNum_65536_120'
+;u8StatePeriodicSend       Allocated with name '_main_u8StatePeriodicSend_65536_120'
+;u8PSCmd                   Allocated with name '_main_u8PSCmd_65536_120'
 ;u8StateUart0InputMode     Allocated to registers r4 
-;stLineFiPkt               Allocated with name '_main_stLineFiPkt_65536_112'
+;stLineFiPkt               Allocated with name '_main_stLineFiPkt_65536_120'
 ;u8RxBufIdx                Allocated to registers 
 ;u8Count2                  Allocated to registers 
 ;u8RxPktCnt                Allocated to registers 
 ;u8PreambleCnt             Allocated to registers 
 ;i                         Allocated to registers r6 
-;pcBuf                     Allocated with name '_main_pcBuf_65536_112'
-;pu8Data                   Allocated with name '_main_pu8Data_65536_112'
-;u8DataIdx                 Allocated with name '_main_u8DataIdx_65536_112'
-;ucBufIdx                  Allocated with name '_main_ucBufIdx_65536_112'
-;pstLineFiPkt              Allocated with name '_main_pstLineFiPkt_65536_112'
-;stLineFiPkt_test          Allocated with name '_main_stLineFiPkt_test_65536_112'
+;pcBuf                     Allocated with name '_main_pcBuf_65536_120'
+;pu8Data                   Allocated with name '_main_pu8Data_65536_120'
+;u8DataIdx                 Allocated with name '_main_u8DataIdx_65536_120'
+;ucBufIdx                  Allocated with name '_main_ucBufIdx_65536_120'
+;pstLineFiPkt              Allocated with name '_main_pstLineFiPkt_65536_120'
+;stLineFiPkt_test          Allocated with name '_main_stLineFiPkt_test_65536_120'
 ;------------------------------------------------------------
-;	src/main.c:804: void main (void)
+;	src/main.c:819: void main (void)
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
-;	src/main.c:812: UINT8 u8LineFiAddr = 1;
-	mov	_main_u8LineFiAddr_65536_112,#0x01
-;	src/main.c:814: UINT8 u8LineFiCmd = 1;
-	mov	_main_u8LineFiCmd_65536_112,#0x01
-;	src/main.c:815: UINT8 u8PwrOnFirstFlag = 1;
+;	src/main.c:827: UINT8 u8LineFiAddr = 1;
+	mov	_main_u8LineFiAddr_65536_120,#0x01
+;	src/main.c:829: UINT8 u8LineFiCmd = 1;
+	mov	_main_u8LineFiCmd_65536_120,#0x01
+;	src/main.c:830: UINT8 u8PwrOnFirstFlag = 1;
 	mov	r7,#0x01
-;	src/main.c:818: UINT8 u8StatePeriodicSend = STATE_PS_INIT;
-	mov	_main_u8StatePeriodicSend_65536_112,#0x00
-;	src/main.c:819: UINT8 u8PSCmd = STATE_PS_INIT;
-	mov	_main_u8PSCmd_65536_112,#0x00
-;	src/main.c:821: uint8 u8StateUart0InputMode = UART0_INPUT_MODE0;
+;	src/main.c:833: UINT8 u8StatePeriodicSend = STATE_PS_INIT;
+	mov	_main_u8StatePeriodicSend_65536_120,#0x00
+;	src/main.c:834: UINT8 u8PSCmd = STATE_PS_INIT;
+	mov	_main_u8PSCmd_65536_120,#0x00
+;	src/main.c:836: uint8 u8StateUart0InputMode = UART0_INPUT_MODE0;
 	mov	r4,#0x00
-;	src/main.c:825: unsigned char __xdata pu8Data[MAX_DATA] = {0,0,0,0,0,0,0,0,0,0};
-	mov	dptr,#_main_pu8Data_65536_112
+;	src/main.c:840: unsigned char __xdata pu8Data[MAX_DATA] = {0,0,0,0,0,0,0,0,0,0};
+	mov	dptr,#_main_pu8Data_65536_120
 	clr	a
 	movx	@dptr,a
-	mov	dptr,#(_main_pu8Data_65536_112 + 0x0001)
+	mov	dptr,#(_main_pu8Data_65536_120 + 0x0001)
 	movx	@dptr,a
-	mov	dptr,#(_main_pu8Data_65536_112 + 0x0002)
+	mov	dptr,#(_main_pu8Data_65536_120 + 0x0002)
 	movx	@dptr,a
-	mov	dptr,#(_main_pu8Data_65536_112 + 0x0003)
+	mov	dptr,#(_main_pu8Data_65536_120 + 0x0003)
 	movx	@dptr,a
-	mov	dptr,#(_main_pu8Data_65536_112 + 0x0004)
+	mov	dptr,#(_main_pu8Data_65536_120 + 0x0004)
 	movx	@dptr,a
-	mov	dptr,#(_main_pu8Data_65536_112 + 0x0005)
+	mov	dptr,#(_main_pu8Data_65536_120 + 0x0005)
 	movx	@dptr,a
-	mov	dptr,#(_main_pu8Data_65536_112 + 0x0006)
+	mov	dptr,#(_main_pu8Data_65536_120 + 0x0006)
 	movx	@dptr,a
-	mov	dptr,#(_main_pu8Data_65536_112 + 0x0007)
+	mov	dptr,#(_main_pu8Data_65536_120 + 0x0007)
 	movx	@dptr,a
-	mov	dptr,#(_main_pu8Data_65536_112 + 0x0008)
+	mov	dptr,#(_main_pu8Data_65536_120 + 0x0008)
 	movx	@dptr,a
-	mov	dptr,#(_main_pu8Data_65536_112 + 0x0009)
+	mov	dptr,#(_main_pu8Data_65536_120 + 0x0009)
 	movx	@dptr,a
-;	src/main.c:826: unsigned char __xdata u8DataIdx = 0;
-	mov	dptr,#_main_u8DataIdx_65536_112
+;	src/main.c:841: unsigned char __xdata u8DataIdx = 0;
+	mov	dptr,#_main_u8DataIdx_65536_120
 	movx	@dptr,a
-;	src/main.c:827: uint8  __xdata ucBufIdx = 0;
-	mov	dptr,#_main_ucBufIdx_65536_112
+;	src/main.c:842: uint8  __xdata ucBufIdx = 0;
+	mov	dptr,#_main_ucBufIdx_65536_120
 	movx	@dptr,a
-;	src/main.c:829: linefi_packet_t __xdata pstLineFiPkt[] = {
-	mov	dptr,#_main_pstLineFiPkt_65536_112
+;	src/main.c:844: linefi_packet_t __xdata pstLineFiPkt[] = {
+	mov	dptr,#_main_pstLineFiPkt_65536_120
 	inc	a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0001)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0001)
 	inc	a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0002)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0002)
 	dec	a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0003)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0003)
 	mov	a,#0x0a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0004)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0004)
 	rr	a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0005)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0005)
 	mov	a,#_gpu8Data
 	movx	@dptr,a
 	mov	a,#(_gpu8Data >> 8)
@@ -3664,21 +3713,21 @@ _main:
 	clr	a
 	inc	dptr
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0008)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0008)
 	inc	a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0009)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0009)
 	inc	a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x000a)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x000a)
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x000b)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x000b)
 	mov	a,#0x0a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x000c)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x000c)
 	rr	a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x000d)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x000d)
 	mov	a,#_gpu8Data
 	movx	@dptr,a
 	mov	a,#(_gpu8Data >> 8)
@@ -3687,22 +3736,22 @@ _main:
 	clr	a
 	inc	dptr
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0010)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0010)
 	inc	a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0011)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0011)
 	inc	a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0012)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0012)
 	inc	a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0013)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0013)
 	mov	a,#0x0a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0014)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0014)
 	rr	a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0015)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0015)
 	mov	a,#_gpu8Data
 	movx	@dptr,a
 	mov	a,#(_gpu8Data >> 8)
@@ -3711,22 +3760,22 @@ _main:
 	clr	a
 	inc	dptr
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0018)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0018)
 	inc	a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0019)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0019)
 	inc	a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x001a)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x001a)
 	rl	a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x001b)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x001b)
 	mov	a,#0x0a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x001c)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x001c)
 	rr	a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x001d)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x001d)
 	mov	a,#_gpu8Data
 	movx	@dptr,a
 	mov	a,#(_gpu8Data >> 8)
@@ -3735,22 +3784,22 @@ _main:
 	clr	a
 	inc	dptr
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0020)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0020)
 	inc	a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0021)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0021)
 	inc	a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0022)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0022)
 	mov	a,#0x05
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0023)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0023)
 	rl	a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0024)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0024)
 	rr	a
 	movx	@dptr,a
-	mov	dptr,#(_main_pstLineFiPkt_65536_112 + 0x0025)
+	mov	dptr,#(_main_pstLineFiPkt_65536_120 + 0x0025)
 	mov	a,#_gpu8Data
 	movx	@dptr,a
 	mov	a,#(_gpu8Data >> 8)
@@ -3759,34 +3808,34 @@ _main:
 	clr	a
 	inc	dptr
 	movx	@dptr,a
-;	src/main.c:837: linefi_packet_t stLineFiPkt = {
-;	1-genFromRTrack replaced	mov	_main_stLineFiPkt_65536_112,#0x01
-	mov	_main_stLineFiPkt_65536_112,r7
-	mov	(_main_stLineFiPkt_65536_112 + 0x0001),#0x02
-	mov	(_main_stLineFiPkt_65536_112 + 0x0002),#0x03
-	mov	(_main_stLineFiPkt_65536_112 + 0x0003),#0x0a
-	mov	(_main_stLineFiPkt_65536_112 + 0x0004),#0x05
-	mov	((_main_stLineFiPkt_65536_112 + 0x0005) + 0),#_gpu8Data
-	mov	((_main_stLineFiPkt_65536_112 + 0x0005) + 1),#(_gpu8Data >> 8)
-;	1-genFromRTrack replaced	mov	((_main_stLineFiPkt_65536_112 + 0x0005) + 2),#0x00
-	mov	((_main_stLineFiPkt_65536_112 + 0x0005) + 2),a
-;	src/main.c:846: linefi_packet_t __xdata stLineFiPkt_test = { // For sending periodic packet
-	mov	dptr,#_main_stLineFiPkt_test_65536_112
+;	src/main.c:852: linefi_packet_t stLineFiPkt = {
+;	1-genFromRTrack replaced	mov	_main_stLineFiPkt_65536_120,#0x01
+	mov	_main_stLineFiPkt_65536_120,r7
+	mov	(_main_stLineFiPkt_65536_120 + 0x0001),#0x02
+	mov	(_main_stLineFiPkt_65536_120 + 0x0002),#0x03
+	mov	(_main_stLineFiPkt_65536_120 + 0x0003),#0x0a
+	mov	(_main_stLineFiPkt_65536_120 + 0x0004),#0x05
+	mov	((_main_stLineFiPkt_65536_120 + 0x0005) + 0),#_gpu8Data
+	mov	((_main_stLineFiPkt_65536_120 + 0x0005) + 1),#(_gpu8Data >> 8)
+;	1-genFromRTrack replaced	mov	((_main_stLineFiPkt_65536_120 + 0x0005) + 2),#0x00
+	mov	((_main_stLineFiPkt_65536_120 + 0x0005) + 2),a
+;	src/main.c:861: linefi_packet_t __xdata stLineFiPkt_test = { // For sending periodic packet
+	mov	dptr,#_main_stLineFiPkt_test_65536_120
 	inc	a
 	movx	@dptr,a
-	mov	dptr,#(_main_stLineFiPkt_test_65536_112 + 0x0001)
+	mov	dptr,#(_main_stLineFiPkt_test_65536_120 + 0x0001)
 	inc	a
 	movx	@dptr,a
-	mov	dptr,#(_main_stLineFiPkt_test_65536_112 + 0x0002)
+	mov	dptr,#(_main_stLineFiPkt_test_65536_120 + 0x0002)
 	dec	a
 	movx	@dptr,a
-	mov	dptr,#(_main_stLineFiPkt_test_65536_112 + 0x0003)
-	mov	a,#0x14
+	mov	dptr,#(_main_stLineFiPkt_test_65536_120 + 0x0003)
+	mov	a,#0x03
 	movx	@dptr,a
-	mov	dptr,#(_main_stLineFiPkt_test_65536_112 + 0x0004)
+	mov	dptr,#(_main_stLineFiPkt_test_65536_120 + 0x0004)
 	mov	a,#0x05
 	movx	@dptr,a
-	mov	dptr,#(_main_stLineFiPkt_test_65536_112 + 0x0005)
+	mov	dptr,#(_main_stLineFiPkt_test_65536_120 + 0x0005)
 	mov	a,#_gpu8Data3
 	movx	@dptr,a
 	mov	a,#(_gpu8Data3 >> 8)
@@ -3795,33 +3844,25 @@ _main:
 	clr	a
 	inc	dptr
 	movx	@dptr,a
-;	src/main.c:855: gpio_setup();
+;	src/main.c:870: gpio_setup();
 	push	ar7
 	push	ar4
 	lcall	_gpio_setup
-;	src/main.c:856: uart_setup();
+;	src/main.c:871: uart_setup();
 	lcall	_uart_setup
-;	src/main.c:858: MODIFY_HIRC_166();
+;	src/main.c:873: MODIFY_HIRC_166();
 	lcall	_MODIFY_HIRC_166
-;	src/main.c:860: clr_T0M;// 16/12 MHz
+;	src/main.c:875: clr_T0M;// 16/12 MHz
 	anl	_CKCON,#0xf7
-;	src/main.c:863: set_ET0;                                    //enable Timer0 interrupt
+;	src/main.c:878: set_ET0;                                    //enable Timer0 interrupt
 ;	assignBit
 	setb	_ET0
-;	src/main.c:864: set_TR0;                                    //Timer0 run
+;	src/main.c:879: set_TR0;                                    //Timer0 run
 ;	assignBit
 	setb	_TR0
-;	src/main.c:866: gu8UART = 0;
+;	src/main.c:881: gu8UART = 0;
 	mov	_gu8UART,#0x00
-;	src/main.c:867: printf_fast_f("This is UART0\n\r");
-	mov	a,#___str_55
-	push	acc
-	mov	a,#(___str_55 >> 8)
-	push	acc
-	lcall	_printf_fast_f
-	dec	sp
-	dec	sp
-;	src/main.c:868: printf_fast_f("LineFi Master\n\r");
+;	src/main.c:882: printf_fast_f("This is UART0\n\r");
 	mov	a,#___str_56
 	push	acc
 	mov	a,#(___str_56 >> 8)
@@ -3829,9 +3870,7 @@ _main:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
-;	src/main.c:869: gu8UART = 1;
-	mov	_gu8UART,#0x01
-;	src/main.c:870: printf_fast_f("This is UART1\n\r");
+;	src/main.c:883: printf_fast_f("LineFi Master\n\r");
 	mov	a,#___str_57
 	push	acc
 	mov	a,#(___str_57 >> 8)
@@ -3839,13 +3878,23 @@ _main:
 	lcall	_printf_fast_f
 	dec	sp
 	dec	sp
+;	src/main.c:884: gu8UART = 1;
+	mov	_gu8UART,#0x01
+;	src/main.c:885: printf_fast_f("This is UART1\n\r");
+	mov	a,#___str_58
+	push	acc
+	mov	a,#(___str_58 >> 8)
+	push	acc
+	lcall	_printf_fast_f
+	dec	sp
+	dec	sp
 	pop	ar4
 	pop	ar7
-;	src/main.c:877: for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
+;	src/main.c:892: for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
 	mov	r2,#0x30
 	mov	r3,#0x75
 00209$:
-;	src/main.c:878: nop; nop; nop; nop; nop;
+;	src/main.c:893: nop; nop; nop; nop; nop;
 	NOP
 	NOP
 	NOP
@@ -3855,19 +3904,19 @@ _main:
 	cjne	r2,#0xff,00461$
 	dec	r3
 00461$:
-;	src/main.c:877: for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
+;	src/main.c:892: for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
 	mov	a,r2
 	orl	a,r3
 	jnz	00209$
-;	src/main.c:880: LINEFI_TX = 1;
+;	src/main.c:895: LINEFI_TX = 1;
 ;	assignBit
 	setb	_P16
-;	src/main.c:881: LINEFI_EN0 = 0;
+;	src/main.c:896: LINEFI_EN0 = 0;
 ;	assignBit
 	clr	_P10
-;	src/main.c:882: gu8UART = 0;
+;	src/main.c:897: gu8UART = 0;
 	mov	_gu8UART,#0x00
-;	src/main.c:886: InitialUART1_Timer3(gpu32UartSpeed[0]);
+;	src/main.c:901: InitialUART1_Timer3(gpu32UartSpeed[0]);
 	mov	dptr,#_gpu32UartSpeed
 	movx	a,@dptr
 	mov	r2,a
@@ -3885,16 +3934,16 @@ _main:
 	push	ar7
 	push	ar4
 	lcall	_InitialUART1_Timer3
-;	src/main.c:887: send_octet_to_linefi(((LINEFI_DEFAULT_RATE<<4)&0xF0) | (1)&0x0F);
-	mov	dpl,#0x41
+;	src/main.c:902: send_octet_to_linefi(((LINEFI_DEFAULT_RATE<<4)&0xF0) | (1)&0x0F);
+	mov	dpl,#0x51
 	lcall	_send_octet_to_linefi
 	pop	ar4
 	pop	ar7
-;	src/main.c:889: for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
+;	src/main.c:904: for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
 	mov	r5,#0x30
 	mov	r6,#0x75
 00212$:
-;	src/main.c:890: nop; nop; nop; nop; nop;
+;	src/main.c:905: nop; nop; nop; nop; nop;
 	NOP
 	NOP
 	NOP
@@ -3904,12 +3953,12 @@ _main:
 	cjne	r5,#0xff,00463$
 	dec	r6
 00463$:
-;	src/main.c:889: for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
+;	src/main.c:904: for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
 	mov	a,r5
 	orl	a,r6
 	jnz	00212$
-;	src/main.c:893: InitialUART1_Timer3(gpu32UartSpeed[LINEFI_DEFAULT_RATE]);
-	mov	dptr,#(_gpu32UartSpeed + 0x0010)
+;	src/main.c:908: InitialUART1_Timer3(gpu32UartSpeed[LINEFI_DEFAULT_RATE]);
+	mov	dptr,#(_gpu32UartSpeed + 0x0014)
 	movx	a,@dptr
 	mov	r2,a
 	inc	dptr
@@ -3928,11 +3977,11 @@ _main:
 	lcall	_InitialUART1_Timer3
 	pop	ar4
 	pop	ar7
-;	src/main.c:895: for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
+;	src/main.c:910: for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
 	mov	r5,#0x30
 	mov	r6,#0x75
 00215$:
-;	src/main.c:896: nop; nop; nop; nop; nop;
+;	src/main.c:911: nop; nop; nop; nop; nop;
 	NOP
 	NOP
 	NOP
@@ -3942,23 +3991,23 @@ _main:
 	cjne	r5,#0xff,00465$
 	dec	r6
 00465$:
-;	src/main.c:895: for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
+;	src/main.c:910: for (u16Cnt = 0 ; u16Cnt < 30000; u16Cnt++) {
 	mov	a,r5
 	orl	a,r6
 	jnz	00215$
-;	src/main.c:898: LINEFI_TX = 1;
+;	src/main.c:913: LINEFI_TX = 1;
 ;	assignBit
 	setb	_P16
-;	src/main.c:900: LINEFI_EN0 = 0;
+;	src/main.c:915: LINEFI_EN0 = 0;
 ;	assignBit
 	clr	_P10
-;	src/main.c:901: LINEFI_EN1 = 1;
+;	src/main.c:916: LINEFI_EN1 = 1;
 ;	assignBit
 	setb	_P11
-;	src/main.c:902: LINEFI_EN2 = 0;
+;	src/main.c:917: LINEFI_EN2 = 0;
 ;	assignBit
 	clr	_P12
-;	src/main.c:903: printf("%s\r\n", gcUartInputMode[u8StateUart0InputMode]);
+;	src/main.c:918: printf("%s\r\n", gcUartInputMode[u8StateUart0InputMode]);
 	mov	dptr,#_gcUartInputMode
 	movx	a,@dptr
 	mov	r3,a
@@ -3973,9 +4022,9 @@ _main:
 	push	ar3
 	push	ar5
 	push	ar6
-	mov	a,#___str_58
+	mov	a,#___str_59
 	push	acc
-	mov	a,#(___str_58 >> 8)
+	mov	a,#(___str_59 >> 8)
 	push	acc
 	mov	a,#0x80
 	push	acc
@@ -3985,10 +4034,10 @@ _main:
 	mov	sp,a
 	pop	ar4
 	pop	ar7
-;	src/main.c:905: while(1) {
+;	src/main.c:920: while(1) {
 00205$:
-;	src/main.c:908: if (Receive_Data_From_UART0_nb(&u8RxUART)) { // 유아트 입력이 있을 때
-	mov	dptr,#_main_u8RxUART_65536_112
+;	src/main.c:923: if (Receive_Data_From_UART0_nb(&u8RxUART)) { // 유아트 입력이 있을 때
+	mov	dptr,#_main_u8RxUART_65536_120
 	mov	b,#0x40
 	push	ar7
 	push	ar4
@@ -3999,17 +4048,17 @@ _main:
 	jnz	00467$
 	ljmp	00163$
 00467$:
-;	src/main.c:909: switch(u8RxUART) {
+;	src/main.c:924: switch(u8RxUART) {
 	mov	a,#0x1b
-	cjne	a,_main_u8RxUART_65536_112,00107$
-;	src/main.c:911: u8StateUart0InputMode++;
+	cjne	a,_main_u8RxUART_65536_120,00107$
+;	src/main.c:926: u8StateUart0InputMode++;
 	inc	r4
-;	src/main.c:912: if (u8StateUart0InputMode == MAX_STATE_UART0_INPUT) {
+;	src/main.c:927: if (u8StateUart0InputMode == MAX_STATE_UART0_INPUT) {
 	cjne	r4,#0x05,00106$
-;	src/main.c:913: u8StateUart0InputMode = 0;
+;	src/main.c:928: u8StateUart0InputMode = 0;
 	mov	r4,#0x00
 00106$:
-;	src/main.c:915: printf("%s\r\n", gcUartInputMode[u8StateUart0InputMode]);
+;	src/main.c:930: printf("%s\r\n", gcUartInputMode[u8StateUart0InputMode]);
 	mov	a,r4
 	mov	b,#0x03
 	mul	ab
@@ -4031,9 +4080,9 @@ _main:
 	push	ar3
 	push	ar5
 	push	ar6
-	mov	a,#___str_58
+	mov	a,#___str_59
 	push	acc
-	mov	a,#(___str_58 >> 8)
+	mov	a,#(___str_59 >> 8)
 	push	acc
 	mov	a,#0x80
 	push	acc
@@ -4043,11 +4092,11 @@ _main:
 	mov	sp,a
 	pop	ar4
 	pop	ar7
-;	src/main.c:916: break;
+;	src/main.c:931: break;
 	ljmp	00164$
-;	src/main.c:917: default :
+;	src/main.c:932: default :
 00107$:
-;	src/main.c:918: switch(u8StateUart0InputMode) {
+;	src/main.c:933: switch(u8StateUart0InputMode) {
 	mov	a,r4
 	add	a,#0xff - 0x04
 	jnc	00472$
@@ -4064,121 +4113,121 @@ _main:
 	ljmp	00110$
 	ljmp	00131$
 	ljmp	00147$
-;	src/main.c:919: case UART0_INPUT_MODE0 :
+;	src/main.c:934: case UART0_INPUT_MODE0 :
 00108$:
-;	src/main.c:920: act_by_one_key(u8RxUART, &u8LineFiCmd, &u8LineFiAddr);
-	mov	_act_by_one_key_PARM_2,#_main_u8LineFiCmd_65536_112
+;	src/main.c:935: act_by_one_key(u8RxUART, &u8LineFiCmd, &u8LineFiAddr);
+	mov	_act_by_one_key_PARM_2,#_main_u8LineFiCmd_65536_120
 	mov	(_act_by_one_key_PARM_2 + 1),#0x00
 	mov	(_act_by_one_key_PARM_2 + 2),#0x40
-	mov	_act_by_one_key_PARM_3,#_main_u8LineFiAddr_65536_112
+	mov	_act_by_one_key_PARM_3,#_main_u8LineFiAddr_65536_120
 	mov	(_act_by_one_key_PARM_3 + 1),#0x00
 	mov	(_act_by_one_key_PARM_3 + 2),#0x40
-	mov	dpl,_main_u8RxUART_65536_112
+	mov	dpl,_main_u8RxUART_65536_120
 	push	ar7
 	push	ar4
 	lcall	_act_by_one_key
 	pop	ar4
 	pop	ar7
-;	src/main.c:921: break;
+;	src/main.c:936: break;
 	ljmp	00164$
-;	src/main.c:922: case UART0_INPUT_MODE1 :
+;	src/main.c:937: case UART0_INPUT_MODE1 :
 00109$:
-;	src/main.c:923: gu16TimeCnt = 0;
+;	src/main.c:938: gu16TimeCnt = 0;
 	mov	dptr,#_gu16TimeCnt
 	clr	a
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-;	src/main.c:924: pcBuf[ucBufIdx++] = u8RxUART;
-	mov	dptr,#_main_ucBufIdx_65536_112
+;	src/main.c:939: pcBuf[ucBufIdx++] = u8RxUART;
+	mov	dptr,#_main_ucBufIdx_65536_120
 	movx	a,@dptr
 	mov	r6,a
 	inc	a
 	movx	@dptr,a
 	mov	a,r6
-	add	a,#_main_pcBuf_65536_112
+	add	a,#_main_pcBuf_65536_120
 	mov	dpl,a
 	clr	a
-	addc	a,#(_main_pcBuf_65536_112 >> 8)
+	addc	a,#(_main_pcBuf_65536_120 >> 8)
 	mov	dph,a
-	mov	a,_main_u8RxUART_65536_112
+	mov	a,_main_u8RxUART_65536_120
 	movx	@dptr,a
-;	src/main.c:926: break;
+;	src/main.c:941: break;
 	ljmp	00164$
-;	src/main.c:927: case UART0_INPUT_MODE2 : // mimic 5keys on board
+;	src/main.c:942: case UART0_INPUT_MODE2 : // mimic 5keys on board
 00110$:
-;	src/main.c:928: switch(u8RxUART) {
+;	src/main.c:943: switch(u8RxUART) {
 	mov	a,#0x66
-	cjne	a,_main_u8RxUART_65536_112,00474$
+	cjne	a,_main_u8RxUART_65536_120,00474$
 	sjmp	00111$
 00474$:
 	mov	a,#0x67
-	cjne	a,_main_u8RxUART_65536_112,00475$
+	cjne	a,_main_u8RxUART_65536_120,00475$
 	sjmp	00114$
 00475$:
 	mov	a,#0x68
-	cjne	a,_main_u8RxUART_65536_112,00476$
+	cjne	a,_main_u8RxUART_65536_120,00476$
 	sjmp	00117$
 00476$:
 	mov	a,#0x6a
-	cjne	a,_main_u8RxUART_65536_112,00477$
+	cjne	a,_main_u8RxUART_65536_120,00477$
 	sjmp	00118$
 00477$:
 	mov	a,#0x6b
-	cjne	a,_main_u8RxUART_65536_112,00478$
+	cjne	a,_main_u8RxUART_65536_120,00478$
 	sjmp	00121$
 00478$:
 	ljmp	00124$
-;	src/main.c:929: case 'f' : // down SW1
+;	src/main.c:944: case 'f' : // down SW1
 00111$:
-;	src/main.c:930: u8LineFiAddr--;
-	dec	_main_u8LineFiAddr_65536_112
-;	src/main.c:931: if (u8LineFiAddr == 0) {
-	mov	a,_main_u8LineFiAddr_65536_112
+;	src/main.c:945: u8LineFiAddr--;
+	dec	_main_u8LineFiAddr_65536_120
+;	src/main.c:946: if (u8LineFiAddr == 0) {
+	mov	a,_main_u8LineFiAddr_65536_120
 	jz	00479$
 	ljmp	00124$
 00479$:
-;	src/main.c:932: u8LineFiAddr = 1;
-	mov	_main_u8LineFiAddr_65536_112,#0x01
-;	src/main.c:934: break;
-;	src/main.c:935: case 'g' : // right SW2
+;	src/main.c:947: u8LineFiAddr = 1;
+	mov	_main_u8LineFiAddr_65536_120,#0x01
+;	src/main.c:949: break;
+;	src/main.c:950: case 'g' : // right SW2
 	sjmp	00124$
 00114$:
-;	src/main.c:936: u8LineFiCmd--;
-;	src/main.c:937: if (u8LineFiCmd == 0) {
-	djnz	_main_u8LineFiCmd_65536_112,00124$
-;	src/main.c:938: u8LineFiCmd = 1;
-	mov	_main_u8LineFiCmd_65536_112,#0x01
-;	src/main.c:940: break;
-;	src/main.c:941: case 'h' : // center SW3
+;	src/main.c:951: u8LineFiCmd--;
+;	src/main.c:952: if (u8LineFiCmd == 0) {
+	djnz	_main_u8LineFiCmd_65536_120,00124$
+;	src/main.c:953: u8LineFiCmd = 1;
+	mov	_main_u8LineFiCmd_65536_120,#0x01
+;	src/main.c:955: break;
+;	src/main.c:956: case 'h' : // center SW3
 	sjmp	00124$
 00117$:
-;	src/main.c:942: stLineFiPkt.pu8Data = pu8Data;
-	mov	((_main_stLineFiPkt_65536_112 + 0x0005) + 0),#_main_pu8Data_65536_112
-	mov	((_main_stLineFiPkt_65536_112 + 0x0005) + 1),#(_main_pu8Data_65536_112 >> 8)
-	mov	((_main_stLineFiPkt_65536_112 + 0x0005) + 2),#0x00
-;	src/main.c:943: send_linefi_packet(&stLineFiPkt);
-	mov	dptr,#_main_stLineFiPkt_65536_112
+;	src/main.c:957: stLineFiPkt.pu8Data = pu8Data;
+	mov	((_main_stLineFiPkt_65536_120 + 0x0005) + 0),#_main_pu8Data_65536_120
+	mov	((_main_stLineFiPkt_65536_120 + 0x0005) + 1),#(_main_pu8Data_65536_120 >> 8)
+	mov	((_main_stLineFiPkt_65536_120 + 0x0005) + 2),#0x00
+;	src/main.c:958: send_linefi_packet(&stLineFiPkt);
+	mov	dptr,#_main_stLineFiPkt_65536_120
 	mov	b,#0x40
 	push	ar7
 	push	ar4
 	lcall	_send_linefi_packet
 	pop	ar4
 	pop	ar7
-;	src/main.c:944: break;
-;	src/main.c:946: case 'j' : //  left SW4
+;	src/main.c:959: break;
+;	src/main.c:961: case 'j' : //  left SW4
 	sjmp	00124$
 00118$:
-;	src/main.c:947: u8LineFiCmd++;
-	inc	_main_u8LineFiCmd_65536_112
-;	src/main.c:948: if (u8LineFiCmd == 101) {
+;	src/main.c:962: u8LineFiCmd++;
+	inc	_main_u8LineFiCmd_65536_120
+;	src/main.c:963: if (u8LineFiCmd == 101) {
 	mov	a,#0x65
-	cjne	a,_main_u8LineFiCmd_65536_112,00120$
-;	src/main.c:949: u8LineFiCmd = 100;
-	mov	_main_u8LineFiCmd_65536_112,#0x64
+	cjne	a,_main_u8LineFiCmd_65536_120,00120$
+;	src/main.c:964: u8LineFiCmd = 100;
+	mov	_main_u8LineFiCmd_65536_120,#0x64
 00120$:
-;	src/main.c:951: printf_fast_f("command: %d\n\r", u8LineFiCmd);
-	mov	r5,_main_u8LineFiCmd_65536_112
+;	src/main.c:966: printf_fast_f("command: %d\n\r", u8LineFiCmd);
+	mov	r5,_main_u8LineFiCmd_65536_120
 	mov	r6,#0x00
 	push	ar7
 	push	ar4
@@ -4194,20 +4243,20 @@ _main:
 	mov	sp,a
 	pop	ar4
 	pop	ar7
-;	src/main.c:952: break;
-;	src/main.c:953: case 'k' : // up SW5
+;	src/main.c:967: break;
+;	src/main.c:968: case 'k' : // up SW5
 	sjmp	00124$
 00121$:
-;	src/main.c:954: u8LineFiAddr++;
-	inc	_main_u8LineFiAddr_65536_112
-;	src/main.c:955: if (u8LineFiAddr == 16) {
+;	src/main.c:969: u8LineFiAddr++;
+	inc	_main_u8LineFiAddr_65536_120
+;	src/main.c:970: if (u8LineFiAddr == 16) {
 	mov	a,#0x10
-	cjne	a,_main_u8LineFiAddr_65536_112,00123$
-;	src/main.c:956: u8LineFiAddr = 15;
-	mov	_main_u8LineFiAddr_65536_112,#0x0f
+	cjne	a,_main_u8LineFiAddr_65536_120,00123$
+;	src/main.c:971: u8LineFiAddr = 15;
+	mov	_main_u8LineFiAddr_65536_120,#0x0f
 00123$:
-;	src/main.c:958: printf_fast_f("address: %d\n\r", u8LineFiAddr);
-	mov	r5,_main_u8LineFiAddr_65536_112
+;	src/main.c:973: printf_fast_f("address: %d\n\r", u8LineFiAddr);
+	mov	r5,_main_u8LineFiAddr_65536_120
 	mov	r6,#0x00
 	push	ar7
 	push	ar4
@@ -4223,91 +4272,91 @@ _main:
 	mov	sp,a
 	pop	ar4
 	pop	ar7
-;	src/main.c:960: }
+;	src/main.c:975: }
 00124$:
-;	src/main.c:962: switch(u8RxUART) {
+;	src/main.c:977: switch(u8RxUART) {
 	mov	a,#0x66
-	cjne	a,_main_u8RxUART_65536_112,00485$
+	cjne	a,_main_u8RxUART_65536_120,00485$
 	sjmp	00128$
 00485$:
 	mov	a,#0x67
-	cjne	a,_main_u8RxUART_65536_112,00486$
+	cjne	a,_main_u8RxUART_65536_120,00486$
 	sjmp	00128$
 00486$:
 	mov	a,#0x68
-	cjne	a,_main_u8RxUART_65536_112,00487$
+	cjne	a,_main_u8RxUART_65536_120,00487$
 	ljmp	00164$
 00487$:
 	mov	a,#0x6a
-	cjne	a,_main_u8RxUART_65536_112,00488$
+	cjne	a,_main_u8RxUART_65536_120,00488$
 	sjmp	00128$
 00488$:
 	mov	a,#0x6b
-	cjne	a,_main_u8RxUART_65536_112,00489$
+	cjne	a,_main_u8RxUART_65536_120,00489$
 	sjmp	00490$
 00489$:
 	ljmp	00164$
 00490$:
-;	src/main.c:966: case 'k' : // up SW5
+;	src/main.c:981: case 'k' : // up SW5
 00128$:
-;	src/main.c:967: stLineFiPkt.u8Addr = u8LineFiAddr;
-	mov	(_main_stLineFiPkt_65536_112 + 0x0002),_main_u8LineFiAddr_65536_112
-;	src/main.c:968: stLineFiPkt.u8Type = u8LineFiCmd;
-	mov	(_main_stLineFiPkt_65536_112 + 0x0001),_main_u8LineFiCmd_65536_112
-;	src/main.c:969: print_linefipacket(&stLineFiPkt);
-	mov	dptr,#_main_stLineFiPkt_65536_112
+;	src/main.c:982: stLineFiPkt.u8Addr = u8LineFiAddr;
+	mov	(_main_stLineFiPkt_65536_120 + 0x0002),_main_u8LineFiAddr_65536_120
+;	src/main.c:983: stLineFiPkt.u8Type = u8LineFiCmd;
+	mov	(_main_stLineFiPkt_65536_120 + 0x0001),_main_u8LineFiCmd_65536_120
+;	src/main.c:984: print_linefipacket(&stLineFiPkt);
+	mov	dptr,#_main_stLineFiPkt_65536_120
 	mov	b,#0x40
 	push	ar7
 	push	ar4
 	lcall	_print_linefipacket
 	pop	ar4
 	pop	ar7
-;	src/main.c:970: break;
+;	src/main.c:985: break;
 	ljmp	00164$
-;	src/main.c:977: case UART0_INPUT_MODE3 : // slave gpio pin setting
+;	src/main.c:992: case UART0_INPUT_MODE3 : // slave gpio pin setting
 00131$:
-;	src/main.c:978: switch(u8RxUART) {
+;	src/main.c:993: switch(u8RxUART) {
 	mov	a,#0x68
-	cjne	a,_main_u8RxUART_65536_112,00491$
+	cjne	a,_main_u8RxUART_65536_120,00491$
 	sjmp	00132$
 00491$:
 	mov	a,#0x6a
-	cjne	a,_main_u8RxUART_65536_112,00492$
+	cjne	a,_main_u8RxUART_65536_120,00492$
 	sjmp	00135$
 00492$:
 	mov	a,#0x6b
-	cjne	a,_main_u8RxUART_65536_112,00493$
+	cjne	a,_main_u8RxUART_65536_120,00493$
 	sjmp	00136$
 00493$:
 	mov	a,#0x6c
-;	src/main.c:979: case 'h' : // left
-	cjne	a,_main_u8RxUART_65536_112,00140$
+;	src/main.c:994: case 'h' : // left
+	cjne	a,_main_u8RxUART_65536_120,00140$
 	sjmp	00137$
 00132$:
-;	src/main.c:980: u8DataIdx--;
-	mov	dptr,#_main_u8DataIdx_65536_112
+;	src/main.c:995: u8DataIdx--;
+	mov	dptr,#_main_u8DataIdx_65536_120
 	movx	a,@dptr
 	dec	a
 	movx	@dptr,a
-;	src/main.c:981: if (u8DataIdx == 255) {
+;	src/main.c:996: if (u8DataIdx == 255) {
 	movx	a,@dptr
 	mov	r6,a
 	cjne	r6,#0xff,00140$
-;	src/main.c:982: u8DataIdx = 0;
-	mov	dptr,#_main_u8DataIdx_65536_112
+;	src/main.c:997: u8DataIdx = 0;
+	mov	dptr,#_main_u8DataIdx_65536_120
 	clr	a
 	movx	@dptr,a
-;	src/main.c:984: break;
-;	src/main.c:985: case 'j' : // down 
+;	src/main.c:999: break;
+;	src/main.c:1000: case 'j' : // down 
 	sjmp	00140$
 00135$:
-;	src/main.c:986: pu8Data[u8DataIdx]--;
-	mov	dptr,#_main_u8DataIdx_65536_112
+;	src/main.c:1001: pu8Data[u8DataIdx]--;
+	mov	dptr,#_main_u8DataIdx_65536_120
 	movx	a,@dptr
-	add	a,#_main_pu8Data_65536_112
+	add	a,#_main_pu8Data_65536_120
 	mov	r6,a
 	clr	a
-	addc	a,#(_main_pu8Data_65536_112 >> 8)
+	addc	a,#(_main_pu8Data_65536_120 >> 8)
 	mov	r5,a
 	mov	dpl,r6
 	mov	dph,r5
@@ -4318,17 +4367,17 @@ _main:
 	mov	dph,r5
 	mov	a,r3
 	movx	@dptr,a
-;	src/main.c:987: break;
-;	src/main.c:988: case 'k' : // up 
+;	src/main.c:1002: break;
+;	src/main.c:1003: case 'k' : // up 
 	sjmp	00140$
 00136$:
-;	src/main.c:989: pu8Data[u8DataIdx]++;
-	mov	dptr,#_main_u8DataIdx_65536_112
+;	src/main.c:1004: pu8Data[u8DataIdx]++;
+	mov	dptr,#_main_u8DataIdx_65536_120
 	movx	a,@dptr
-	add	a,#_main_pu8Data_65536_112
+	add	a,#_main_pu8Data_65536_120
 	mov	r6,a
 	clr	a
-	addc	a,#(_main_pu8Data_65536_112 >> 8)
+	addc	a,#(_main_pu8Data_65536_120 >> 8)
 	mov	r5,a
 	mov	dpl,r6
 	mov	dph,r5
@@ -4339,45 +4388,45 @@ _main:
 	mov	dph,r5
 	mov	a,r3
 	movx	@dptr,a
-;	src/main.c:990: break;
-;	src/main.c:991: case 'l' : // right 
+;	src/main.c:1005: break;
+;	src/main.c:1006: case 'l' : // right 
 	sjmp	00140$
 00137$:
-;	src/main.c:992: u8DataIdx++;
-	mov	dptr,#_main_u8DataIdx_65536_112
+;	src/main.c:1007: u8DataIdx++;
+	mov	dptr,#_main_u8DataIdx_65536_120
 	movx	a,@dptr
 	add	a,#0x01
 	movx	@dptr,a
-;	src/main.c:993: if (u8DataIdx == MAX_DATA) {
+;	src/main.c:1008: if (u8DataIdx == MAX_DATA) {
 	movx	a,@dptr
 	mov	r6,a
 	cjne	r6,#0x0a,00140$
-;	src/main.c:994: u8DataIdx--;;
+;	src/main.c:1009: u8DataIdx--;;
 	mov	a,r6
 	dec	a
-	mov	dptr,#_main_u8DataIdx_65536_112
+	mov	dptr,#_main_u8DataIdx_65536_120
 	movx	@dptr,a
-;	src/main.c:997: }
+;	src/main.c:1012: }
 00140$:
-;	src/main.c:998: switch(u8RxUART) {
+;	src/main.c:1013: switch(u8RxUART) {
 	mov	a,#0x68
-	cjne	a,_main_u8RxUART_65536_112,00499$
+	cjne	a,_main_u8RxUART_65536_120,00499$
 	sjmp	00142$
 00499$:
 	mov	a,#0x6a
-	cjne	a,_main_u8RxUART_65536_112,00500$
+	cjne	a,_main_u8RxUART_65536_120,00500$
 	sjmp	00252$
 00500$:
 	mov	a,#0x6b
-	cjne	a,_main_u8RxUART_65536_112,00501$
+	cjne	a,_main_u8RxUART_65536_120,00501$
 	sjmp	00252$
 00501$:
 	mov	a,#0x6c
-	cjne	a,_main_u8RxUART_65536_112,00147$
-;	src/main.c:1000: case 'l' : // right
+	cjne	a,_main_u8RxUART_65536_120,00147$
+;	src/main.c:1015: case 'l' : // right
 00142$:
-;	src/main.c:1001: printf_fast_f("DataIdx:%d\r\n", u8DataIdx);
-	mov	dptr,#_main_u8DataIdx_65536_112
+;	src/main.c:1016: printf_fast_f("DataIdx:%d\r\n", u8DataIdx);
+	mov	dptr,#_main_u8DataIdx_65536_120
 	movx	a,@dptr
 	mov	r6,a
 	mov	r5,#0x00
@@ -4385,9 +4434,9 @@ _main:
 	push	ar4
 	push	ar6
 	push	ar5
-	mov	a,#___str_59
+	mov	a,#___str_60
 	push	acc
-	mov	a,#(___str_59 >> 8)
+	mov	a,#(___str_60 >> 8)
 	push	acc
 	lcall	_printf_fast_f
 	mov	a,sp
@@ -4395,18 +4444,18 @@ _main:
 	mov	sp,a
 	pop	ar4
 	pop	ar7
-;	src/main.c:1002: break;
-;	src/main.c:1007: for (i=0;i<MAX_DATA;i++) {
+;	src/main.c:1017: break;
+;	src/main.c:1022: for (i=0;i<MAX_DATA;i++) {
 	sjmp	00147$
 00252$:
 	mov	r6,#0x00
 00216$:
-;	src/main.c:1008: printf("0x%x ", pu8Data[i]);
+;	src/main.c:1023: printf("0x%x ", pu8Data[i]);
 	mov	a,r6
-	add	a,#_main_pu8Data_65536_112
+	add	a,#_main_pu8Data_65536_120
 	mov	dpl,a
 	clr	a
-	addc	a,#(_main_pu8Data_65536_112 >> 8)
+	addc	a,#(_main_pu8Data_65536_120 >> 8)
 	mov	dph,a
 	movx	a,@dptr
 	mov	r5,a
@@ -4416,9 +4465,9 @@ _main:
 	push	ar4
 	push	ar5
 	push	ar3
-	mov	a,#___str_60
+	mov	a,#___str_61
 	push	acc
-	mov	a,#(___str_60 >> 8)
+	mov	a,#(___str_61 >> 8)
 	push	acc
 	mov	a,#0x80
 	push	acc
@@ -4429,12 +4478,12 @@ _main:
 	pop	ar4
 	pop	ar6
 	pop	ar7
-;	src/main.c:1007: for (i=0;i<MAX_DATA;i++) {
+;	src/main.c:1022: for (i=0;i<MAX_DATA;i++) {
 	inc	r6
 	cjne	r6,#0x0a,00504$
 00504$:
 	jc	00216$
-;	src/main.c:1010: printf_fast_f("\r\n");
+;	src/main.c:1025: printf_fast_f("\r\n");
 	push	ar7
 	push	ar4
 	mov	a,#___str_5
@@ -4446,38 +4495,20 @@ _main:
 	dec	sp
 	pop	ar4
 	pop	ar7
-;	src/main.c:1014: case UART0_INPUT_MODE4 : // 주기적으로 하향 패킷 생성 스테이트머신 제어용 CLI
+;	src/main.c:1029: case UART0_INPUT_MODE4 : // 주기적으로 하향 패킷 생성 스테이트머신 제어용 CLI
 00147$:
-;	src/main.c:1015: switch(u8RxUART) {
+;	src/main.c:1030: switch(u8RxUART) {
 	mov	a,#0x65
-	cjne	a,_main_u8RxUART_65536_112,00506$
+	cjne	a,_main_u8RxUART_65536_120,00506$
 	sjmp	00149$
 00506$:
 	mov	a,#0x73
-	cjne	a,_main_u8RxUART_65536_112,00507$
+	cjne	a,_main_u8RxUART_65536_120,00507$
 	sjmp	00508$
 00507$:
 	ljmp	00164$
 00508$:
-;	src/main.c:1017: printf_fast_f("START periodic packet generating..\r\n");
-	push	ar7
-	push	ar4
-	mov	a,#___str_61
-	push	acc
-	mov	a,#(___str_61 >> 8)
-	push	acc
-	lcall	_printf_fast_f
-	dec	sp
-	dec	sp
-	pop	ar4
-	pop	ar7
-;	src/main.c:1018: u8PSCmd = CMD_PS_START;
-	mov	_main_u8PSCmd_65536_112,#0x03
-;	src/main.c:1019: break;
-;	src/main.c:1020: case 'e' : // 종료
-	sjmp	00164$
-00149$:
-;	src/main.c:1021: printf_fast_f("STOP  periodic packet generating..\r\n");
+;	src/main.c:1032: printf_fast_f("START periodic packet generating..\r\n");
 	push	ar7
 	push	ar4
 	mov	a,#___str_62
@@ -4489,18 +4520,36 @@ _main:
 	dec	sp
 	pop	ar4
 	pop	ar7
-;	src/main.c:1022: u8PSCmd = CMD_PS_END;
-	mov	_main_u8PSCmd_65536_112,#0x04
-;	src/main.c:1031: } //switch(u8RxUART)
+;	src/main.c:1033: u8PSCmd = CMD_PS_START;
+	mov	_main_u8PSCmd_65536_120,#0x03
+;	src/main.c:1034: break;
+;	src/main.c:1035: case 'e' : // 종료
+	sjmp	00164$
+00149$:
+;	src/main.c:1036: printf_fast_f("STOP  periodic packet generating..\r\n");
+	push	ar7
+	push	ar4
+	mov	a,#___str_63
+	push	acc
+	mov	a,#(___str_63 >> 8)
+	push	acc
+	lcall	_printf_fast_f
+	dec	sp
+	dec	sp
+	pop	ar4
+	pop	ar7
+;	src/main.c:1037: u8PSCmd = CMD_PS_END;
+	mov	_main_u8PSCmd_65536_120,#0x04
+;	src/main.c:1046: } //switch(u8RxUART)
 	sjmp	00164$
 00163$:
-;	src/main.c:1034: switch(u8StateUart0InputMode) {
+;	src/main.c:1049: switch(u8StateUart0InputMode) {
 	mov	a,r4
 	add	a,#0xff - 0x04
 	jc	00164$
 	mov	a,r4
 	add	a,r4
-;	src/main.c:1037: case UART0_INPUT_MODE1 :
+;	src/main.c:1052: case UART0_INPUT_MODE1 :
 	mov	dptr,#00510$
 	jmp	@a+dptr
 00510$:
@@ -4510,7 +4559,7 @@ _main:
 	sjmp	00164$
 	sjmp	00164$
 00154$:
-;	src/main.c:1038: if (gu16TimeCnt > 10 && ucBufIdx != 0) {
+;	src/main.c:1053: if (gu16TimeCnt > 10 && ucBufIdx != 0) {
 	mov	dptr,#_gu16TimeCnt
 	movx	a,@dptr
 	mov	r5,a
@@ -4523,14 +4572,14 @@ _main:
 	clr	a
 	subb	a,r6
 	jnc	00164$
-	mov	dptr,#_main_ucBufIdx_65536_112
+	mov	dptr,#_main_ucBufIdx_65536_120
 	movx	a,@dptr
 	mov	r6,a
 	movx	a,@dptr
 	jz	00164$
-;	src/main.c:1039: printoutbuf(ucBufIdx, pcBuf);
-	mov	_printoutbuf_PARM_2,#_main_pcBuf_65536_112
-	mov	(_printoutbuf_PARM_2 + 1),#(_main_pcBuf_65536_112 >> 8)
+;	src/main.c:1054: printoutbuf(ucBufIdx, pcBuf);
+	mov	_printoutbuf_PARM_2,#_main_pcBuf_65536_120
+	mov	(_printoutbuf_PARM_2 + 1),#(_main_pcBuf_65536_120 >> 8)
 	mov	(_printoutbuf_PARM_2 + 2),#0x00
 	mov	dpl,r6
 	push	ar7
@@ -4538,18 +4587,18 @@ _main:
 	lcall	_printoutbuf
 	pop	ar4
 	pop	ar7
-;	src/main.c:1040: ucBufIdx = 0;
-	mov	dptr,#_main_ucBufIdx_65536_112
+;	src/main.c:1055: ucBufIdx = 0;
+	mov	dptr,#_main_ucBufIdx_65536_120
 	clr	a
 	movx	@dptr,a
-;	src/main.c:1049: } //switch(u8StateUart0InputMode)
+;	src/main.c:1064: } //switch(u8StateUart0InputMode)
 00164$:
-;	src/main.c:1057: if (u8PwrOnFirstFlag) { // 전원 켜진 후, 한 번만 동작
+;	src/main.c:1072: if (u8PwrOnFirstFlag) { // 전원 켜진 후, 한 번만 동작
 	mov	a,r7
 	jnz	00513$
 	ljmp	00193$
 00513$:
-;	src/main.c:1058: switch (state_switches((SW_U<<0)| (SW_R<<1)| (SW_L<<2)| (SW_D<<3) | (SW_C<<4), &u8SwNum)) {
+;	src/main.c:1073: switch (state_switches((SW_U<<0)| (SW_R<<1)| (SW_L<<2)| (SW_D<<3) | (SW_C<<4), &u8SwNum)) {
 	mov	c,_P15
 	clr	a
 	rlc	a
@@ -4579,7 +4628,7 @@ _main:
 	anl	a,#0xf0
 	orl	a,r6
 	mov	dpl,a
-	mov	_state_switches_PARM_2,#_main_u8SwNum_65536_112
+	mov	_state_switches_PARM_2,#_main_u8SwNum_65536_120
 	mov	(_state_switches_PARM_2 + 1),#0x00
 	mov	(_state_switches_PARM_2 + 2),#0x40
 	push	ar7
@@ -4593,7 +4642,7 @@ _main:
 00514$:
 	ljmp	00194$
 00515$:
-;	src/main.c:1060: switch(u8PwrOnFirstFlag) {
+;	src/main.c:1075: switch(u8PwrOnFirstFlag) {
 	mov	a,r7
 	add	a,#0xff - 0x05
 	jnc	00516$
@@ -4611,21 +4660,21 @@ _main:
 	ljmp	00168$
 	ljmp	00169$
 	ljmp	00170$
-;	src/main.c:1061: case 1 :
+;	src/main.c:1076: case 1 :
 00166$:
-;	src/main.c:1062: LINEFI_TX = 1;
+;	src/main.c:1077: LINEFI_TX = 1;
 ;	assignBit
 	setb	_P16
-;	src/main.c:1063: LINEFI_EN0 = 1;
+;	src/main.c:1078: LINEFI_EN0 = 1;
 ;	assignBit
 	setb	_P10
-;	src/main.c:1064: u8PwrOnFirstFlag++;
+;	src/main.c:1079: u8PwrOnFirstFlag++;
 	inc	r7
-;	src/main.c:1065: break;
+;	src/main.c:1080: break;
 	ljmp	00194$
-;	src/main.c:1066: case 2 :
+;	src/main.c:1081: case 2 :
 00167$:
-;	src/main.c:1067: InitialUART1_Timer3(gpu32UartSpeed[0]);
+;	src/main.c:1082: InitialUART1_Timer3(gpu32UartSpeed[0]);
 	mov	dptr,#_gpu32UartSpeed
 	movx	a,@dptr
 	mov	r2,a
@@ -4642,11 +4691,11 @@ _main:
 	mov	b,r5
 	push	ar4
 	lcall	_InitialUART1_Timer3
-;	src/main.c:1068: send_octet_to_linefi(((LINEFI_DEFAULT_RATE<<4)&0xF0) | (1)&0x0F);
-	mov	dpl,#0x41
+;	src/main.c:1083: send_octet_to_linefi(((LINEFI_DEFAULT_RATE<<4)&0xF0) | (1)&0x0F);
+	mov	dpl,#0x51
 	lcall	_send_octet_to_linefi
-;	src/main.c:1069: printf_fast_f("uart speed: %lu:\n\r", gpu32UartSpeed[LINEFI_DEFAULT_RATE]);
-	mov	dptr,#(_gpu32UartSpeed + 0x0010)
+;	src/main.c:1084: printf_fast_f("uart speed: %lu:\n\r", gpu32UartSpeed[LINEFI_DEFAULT_RATE]);
+	mov	dptr,#(_gpu32UartSpeed + 0x0014)
 	movx	a,@dptr
 	mov	r2,a
 	inc	dptr
@@ -4670,8 +4719,8 @@ _main:
 	mov	a,sp
 	add	a,#0xfa
 	mov	sp,a
-;	src/main.c:1070: InitialUART1_Timer3(gpu32UartSpeed[LINEFI_DEFAULT_RATE]);
-	mov	dptr,#(_gpu32UartSpeed + 0x0010)
+;	src/main.c:1085: InitialUART1_Timer3(gpu32UartSpeed[LINEFI_DEFAULT_RATE]);
+	mov	dptr,#(_gpu32UartSpeed + 0x0014)
 	movx	a,@dptr
 	mov	r2,a
 	inc	dptr
@@ -4687,34 +4736,34 @@ _main:
 	mov	b,r5
 	lcall	_InitialUART1_Timer3
 	pop	ar4
-;	src/main.c:1072: u8LineFiCmd = 2;
-	mov	_main_u8LineFiCmd_65536_112,#0x02
-;	src/main.c:1073: u8LineFiAddr = 1;
-	mov	_main_u8LineFiAddr_65536_112,#0x01
-;	src/main.c:1074: u8PwrOnFirstFlag = 0;
+;	src/main.c:1087: u8LineFiCmd = 2;
+	mov	_main_u8LineFiCmd_65536_120,#0x02
+;	src/main.c:1088: u8LineFiAddr = 1;
+	mov	_main_u8LineFiAddr_65536_120,#0x01
+;	src/main.c:1089: u8PwrOnFirstFlag = 0;
 	mov	r7,#0x00
-;	src/main.c:1075: break;
+;	src/main.c:1090: break;
 	ljmp	00194$
-;	src/main.c:1076: case 3 :
+;	src/main.c:1091: case 3 :
 00168$:
-;	src/main.c:1077: u8PwrOnFirstFlag++;
+;	src/main.c:1092: u8PwrOnFirstFlag++;
 	inc	r7
-;	src/main.c:1078: break;
+;	src/main.c:1093: break;
 	ljmp	00194$
-;	src/main.c:1079: case 4 :
+;	src/main.c:1094: case 4 :
 00169$:
-;	src/main.c:1080: u8PwrOnFirstFlag++;
+;	src/main.c:1095: u8PwrOnFirstFlag++;
 	inc	r7
-;	src/main.c:1081: break;
+;	src/main.c:1096: break;
 	ljmp	00194$
-;	src/main.c:1082: case 5 :
+;	src/main.c:1097: case 5 :
 00170$:
-;	src/main.c:1083: u8PwrOnFirstFlag++;
+;	src/main.c:1098: u8PwrOnFirstFlag++;
 	inc	r7
-;	src/main.c:1115: } //switch (state_switches((SW1<<0)| (SW2<<1)| (SW3<<2)| (SW4<<3) | (SW5<<4), &u8SwNum))
+;	src/main.c:1130: } //switch (state_switches((SW1<<0)| (SW2<<1)| (SW3<<2)| (SW4<<3) | (SW5<<4), &u8SwNum))
 	ljmp	00194$
 00193$:
-;	src/main.c:1118: switch (state_switches((SW_U<<0)| (SW_R<<1)| (SW_L<<2)| (SW_D<<3) | (SW_C<<4), &u8SwNum)) {
+;	src/main.c:1133: switch (state_switches((SW_U<<0)| (SW_R<<1)| (SW_L<<2)| (SW_D<<3) | (SW_C<<4), &u8SwNum)) {
 	mov	c,_P15
 	clr	a
 	rlc	a
@@ -4744,7 +4793,7 @@ _main:
 	anl	a,#0xf0
 	orl	a,r6
 	mov	dpl,a
-	mov	_state_switches_PARM_2,#_main_u8SwNum_65536_112
+	mov	_state_switches_PARM_2,#_main_u8SwNum_65536_120
 	mov	(_state_switches_PARM_2 + 1),#0x00
 	mov	(_state_switches_PARM_2 + 2),#0x40
 	push	ar7
@@ -4758,38 +4807,38 @@ _main:
 00518$:
 	ljmp	00194$
 00519$:
-;	src/main.c:1201: switch(u8SwNum) {
-	mov	r6,_main_u8SwNum_65536_112
+;	src/main.c:1216: switch(u8SwNum) {
+	mov	r6,_main_u8SwNum_65536_120
 	cjne	r6,#0x01,00520$
 	ljmp	00187$
 00520$:
 	mov	a,#0x02
-	cjne	a,_main_u8SwNum_65536_112,00521$
+	cjne	a,_main_u8SwNum_65536_120,00521$
 	sjmp	00177$
 00521$:
 	mov	a,#0x04
-	cjne	a,_main_u8SwNum_65536_112,00522$
+	cjne	a,_main_u8SwNum_65536_120,00522$
 	ljmp	00184$
 00522$:
 	mov	a,#0x08
-	cjne	a,_main_u8SwNum_65536_112,00523$
+	cjne	a,_main_u8SwNum_65536_120,00523$
 	sjmp	00174$
 00523$:
 	mov	a,#0x10
-	cjne	a,_main_u8SwNum_65536_112,00524$
+	cjne	a,_main_u8SwNum_65536_120,00524$
 	sjmp	00180$
 00524$:
 	ljmp	00194$
-;	src/main.c:1202: case (1<<3) : // down SW1
+;	src/main.c:1217: case (1<<3) : // down SW1
 00174$:
-;	src/main.c:1203: u8LineFiAddr--;
-;	src/main.c:1204: if (u8LineFiAddr == 0) {
-	djnz	_main_u8LineFiAddr_65536_112,00176$
-;	src/main.c:1205: u8LineFiAddr = 1;
-	mov	_main_u8LineFiAddr_65536_112,#0x01
+;	src/main.c:1218: u8LineFiAddr--;
+;	src/main.c:1219: if (u8LineFiAddr == 0) {
+	djnz	_main_u8LineFiAddr_65536_120,00176$
+;	src/main.c:1220: u8LineFiAddr = 1;
+	mov	_main_u8LineFiAddr_65536_120,#0x01
 00176$:
-;	src/main.c:1208: printf_fast_f("address: %d\n\r", u8LineFiAddr);
-	mov	r5,_main_u8LineFiAddr_65536_112
+;	src/main.c:1223: printf_fast_f("address: %d\n\r", u8LineFiAddr);
+	mov	r5,_main_u8LineFiAddr_65536_120
 	mov	r6,#0x00
 	push	ar7
 	push	ar4
@@ -4805,18 +4854,18 @@ _main:
 	mov	sp,a
 	pop	ar4
 	pop	ar7
-;	src/main.c:1209: break;
+;	src/main.c:1224: break;
 	ljmp	00194$
-;	src/main.c:1210: case (1<<1) : // right SW2
+;	src/main.c:1225: case (1<<1) : // right SW2
 00177$:
-;	src/main.c:1211: u8LineFiCmd--;
-;	src/main.c:1212: if (u8LineFiCmd == 0) {
-	djnz	_main_u8LineFiCmd_65536_112,00179$
-;	src/main.c:1213: u8LineFiCmd = 1;
-	mov	_main_u8LineFiCmd_65536_112,#0x01
+;	src/main.c:1226: u8LineFiCmd--;
+;	src/main.c:1227: if (u8LineFiCmd == 0) {
+	djnz	_main_u8LineFiCmd_65536_120,00179$
+;	src/main.c:1228: u8LineFiCmd = 1;
+	mov	_main_u8LineFiCmd_65536_120,#0x01
 00179$:
-;	src/main.c:1217: printf_fast_f("command: %d\n\r", u8LineFiCmd);
-	mov	r5,_main_u8LineFiCmd_65536_112
+;	src/main.c:1232: printf_fast_f("command: %d\n\r", u8LineFiCmd);
+	mov	r5,_main_u8LineFiCmd_65536_120
 	mov	r6,#0x00
 	push	ar7
 	push	ar4
@@ -4832,50 +4881,50 @@ _main:
 	mov	sp,a
 	pop	ar4
 	pop	ar7
-;	src/main.c:1218: break;
+;	src/main.c:1233: break;
 	ljmp	00194$
-;	src/main.c:1220: case (1<<4) : // center SW3
+;	src/main.c:1235: case (1<<4) : // center SW3
 00180$:
-;	src/main.c:1221: stLineFiPkt.u8Addr = u8LineFiAddr;
-	mov	(_main_stLineFiPkt_65536_112 + 0x0002),_main_u8LineFiAddr_65536_112
-;	src/main.c:1222: stLineFiPkt.u8Type = u8LineFiCmd;
-	mov	(_main_stLineFiPkt_65536_112 + 0x0001),_main_u8LineFiCmd_65536_112
-;	src/main.c:1223: if (u8LineFiAddr&1) {
-	mov	a,_main_u8LineFiAddr_65536_112
+;	src/main.c:1236: stLineFiPkt.u8Addr = u8LineFiAddr;
+	mov	(_main_stLineFiPkt_65536_120 + 0x0002),_main_u8LineFiAddr_65536_120
+;	src/main.c:1237: stLineFiPkt.u8Type = u8LineFiCmd;
+	mov	(_main_stLineFiPkt_65536_120 + 0x0001),_main_u8LineFiCmd_65536_120
+;	src/main.c:1238: if (u8LineFiAddr&1) {
+	mov	a,_main_u8LineFiAddr_65536_120
 	jnb	acc.0,00182$
-;	src/main.c:1224: stLineFiPkt.pu8Data = gpu8Data;
-	mov	((_main_stLineFiPkt_65536_112 + 0x0005) + 0),#_gpu8Data
-	mov	((_main_stLineFiPkt_65536_112 + 0x0005) + 1),#(_gpu8Data >> 8)
-	mov	((_main_stLineFiPkt_65536_112 + 0x0005) + 2),#0x00
+;	src/main.c:1239: stLineFiPkt.pu8Data = gpu8Data;
+	mov	((_main_stLineFiPkt_65536_120 + 0x0005) + 0),#_gpu8Data
+	mov	((_main_stLineFiPkt_65536_120 + 0x0005) + 1),#(_gpu8Data >> 8)
+	mov	((_main_stLineFiPkt_65536_120 + 0x0005) + 2),#0x00
 	sjmp	00183$
 00182$:
-;	src/main.c:1227: stLineFiPkt.pu8Data = gpu8Data2;
-	mov	((_main_stLineFiPkt_65536_112 + 0x0005) + 0),#_gpu8Data2
-	mov	((_main_stLineFiPkt_65536_112 + 0x0005) + 1),#(_gpu8Data2 >> 8)
-	mov	((_main_stLineFiPkt_65536_112 + 0x0005) + 2),#0x00
+;	src/main.c:1242: stLineFiPkt.pu8Data = gpu8Data2;
+	mov	((_main_stLineFiPkt_65536_120 + 0x0005) + 0),#_gpu8Data2
+	mov	((_main_stLineFiPkt_65536_120 + 0x0005) + 1),#(_gpu8Data2 >> 8)
+	mov	((_main_stLineFiPkt_65536_120 + 0x0005) + 2),#0x00
 00183$:
-;	src/main.c:1229: send_linefi_packet(&stLineFiPkt);
-	mov	dptr,#_main_stLineFiPkt_65536_112
+;	src/main.c:1244: send_linefi_packet(&stLineFiPkt);
+	mov	dptr,#_main_stLineFiPkt_65536_120
 	mov	b,#0x40
 	push	ar7
 	push	ar4
 	lcall	_send_linefi_packet
 	pop	ar4
 	pop	ar7
-;	src/main.c:1230: break;
-;	src/main.c:1232: case (1<<2) : //  left SW4
+;	src/main.c:1245: break;
+;	src/main.c:1247: case (1<<2) : //  left SW4
 	sjmp	00194$
 00184$:
-;	src/main.c:1233: u8LineFiCmd++;
-	inc	_main_u8LineFiCmd_65536_112
-;	src/main.c:1234: if (u8LineFiCmd == 101) {
+;	src/main.c:1248: u8LineFiCmd++;
+	inc	_main_u8LineFiCmd_65536_120
+;	src/main.c:1249: if (u8LineFiCmd == 101) {
 	mov	a,#0x65
-	cjne	a,_main_u8LineFiCmd_65536_112,00186$
-;	src/main.c:1235: u8LineFiCmd = 100;
-	mov	_main_u8LineFiCmd_65536_112,#0x64
+	cjne	a,_main_u8LineFiCmd_65536_120,00186$
+;	src/main.c:1250: u8LineFiCmd = 100;
+	mov	_main_u8LineFiCmd_65536_120,#0x64
 00186$:
-;	src/main.c:1237: printf_fast_f("command: %d\n\r", u8LineFiCmd);
-	mov	r5,_main_u8LineFiCmd_65536_112
+;	src/main.c:1252: printf_fast_f("command: %d\n\r", u8LineFiCmd);
+	mov	r5,_main_u8LineFiCmd_65536_120
 	mov	r6,#0x00
 	push	ar7
 	push	ar4
@@ -4891,20 +4940,20 @@ _main:
 	mov	sp,a
 	pop	ar4
 	pop	ar7
-;	src/main.c:1240: break;
-;	src/main.c:1241: case (1<<0) : // up SW5
+;	src/main.c:1255: break;
+;	src/main.c:1256: case (1<<0) : // up SW5
 	sjmp	00194$
 00187$:
-;	src/main.c:1242: u8LineFiAddr++;
-	inc	_main_u8LineFiAddr_65536_112
-;	src/main.c:1243: if (u8LineFiAddr == 16) {
+;	src/main.c:1257: u8LineFiAddr++;
+	inc	_main_u8LineFiAddr_65536_120
+;	src/main.c:1258: if (u8LineFiAddr == 16) {
 	mov	a,#0x10
-	cjne	a,_main_u8LineFiAddr_65536_112,00189$
-;	src/main.c:1244: u8LineFiAddr = 15;
-	mov	_main_u8LineFiAddr_65536_112,#0x0f
+	cjne	a,_main_u8LineFiAddr_65536_120,00189$
+;	src/main.c:1259: u8LineFiAddr = 15;
+	mov	_main_u8LineFiAddr_65536_120,#0x0f
 00189$:
-;	src/main.c:1246: printf_fast_f("address: %d\n\r", u8LineFiAddr);
-	mov	r5,_main_u8LineFiAddr_65536_112
+;	src/main.c:1261: printf_fast_f("address: %d\n\r", u8LineFiAddr);
+	mov	r5,_main_u8LineFiAddr_65536_120
 	mov	r6,#0x00
 	push	ar7
 	push	ar4
@@ -4920,89 +4969,36 @@ _main:
 	mov	sp,a
 	pop	ar4
 	pop	ar7
-;	src/main.c:1250: } //switch (state_switches((SW_U<<0)| (SW_R<<1)| (SW_L<<2)| (SW_D<<3) | (SW_C<<4), &u8SwNum))
+;	src/main.c:1265: } //switch (state_switches((SW_U<<0)| (SW_R<<1)| (SW_L<<2)| (SW_D<<3) | (SW_C<<4), &u8SwNum))
 00194$:
-;	src/main.c:1275: switch(u8StatePeriodicSend) {
+;	src/main.c:1290: switch(u8StatePeriodicSend) {
 	clr	a
-	cjne	a,_main_u8StatePeriodicSend_65536_112,00532$
+	cjne	a,_main_u8StatePeriodicSend_65536_120,00532$
 	sjmp	00195$
 00532$:
 	mov	a,#0x01
-	cjne	a,_main_u8StatePeriodicSend_65536_112,00533$
+	cjne	a,_main_u8StatePeriodicSend_65536_120,00533$
 	sjmp	00198$
 00533$:
 	ljmp	00205$
-;	src/main.c:1276: case STATE_PS_INIT :
+;	src/main.c:1291: case STATE_PS_INIT :
 00195$:
-;	src/main.c:1277: if (u8PSCmd == CMD_PS_START) {
+;	src/main.c:1292: if (u8PSCmd == CMD_PS_START) {
 	mov	a,#0x03
-	cjne	a,_main_u8PSCmd_65536_112,00534$
+	cjne	a,_main_u8PSCmd_65536_120,00534$
 	sjmp	00535$
 00534$:
 	ljmp	00205$
 00535$:
-;	src/main.c:1278: u8StatePeriodicSend = STATE_PS_SENDING;
-	mov	_main_u8StatePeriodicSend_65536_112,#0x01
-;	src/main.c:1279: gu16TimeCntMilliSec = 0;
+;	src/main.c:1293: u8StatePeriodicSend = STATE_PS_SENDING;
+	mov	_main_u8StatePeriodicSend_65536_120,#0x01
+;	src/main.c:1294: gu16TimeCntMilliSec = 0;
 	mov	dptr,#_gu16TimeCntMilliSec
 	clr	a
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-;	src/main.c:1280: printf_fast_f("starting...\r\n");
-	push	ar7
-	push	ar4
-	mov	a,#___str_63
-	push	acc
-	mov	a,#(___str_63 >> 8)
-	push	acc
-	lcall	_printf_fast_f
-	dec	sp
-	dec	sp
-	pop	ar4
-	pop	ar7
-;	src/main.c:1282: break;
-	ljmp	00205$
-;	src/main.c:1283: case STATE_PS_SENDING :
-00198$:
-;	src/main.c:1284: if (gu16TimeCntMilliSec > 100) { // 1sec 넘으면
-	mov	dptr,#_gu16TimeCntMilliSec
-	movx	a,@dptr
-	mov	r5,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r6,a
-	clr	c
-	mov	a,#0x64
-	subb	a,r5
-	clr	a
-	subb	a,r6
-	jnc	00200$
-;	src/main.c:1285: gu16TimeCntMilliSec = 0;
-	mov	dptr,#_gu16TimeCntMilliSec
-	clr	a
-	movx	@dptr,a
-	inc	dptr
-	movx	@dptr,a
-;	src/main.c:1286: periodic_func(&stLineFiPkt_test);
-	mov	dptr,#_main_stLineFiPkt_test_65536_112
-	mov	b,#0x00
-	push	ar7
-	push	ar4
-	lcall	_periodic_func
-	pop	ar4
-	pop	ar7
-00200$:
-;	src/main.c:1303: if (u8PSCmd == CMD_PS_END) {
-	mov	a,#0x04
-	cjne	a,_main_u8PSCmd_65536_112,00537$
-	sjmp	00538$
-00537$:
-	ljmp	00205$
-00538$:
-;	src/main.c:1304: u8StatePeriodicSend = STATE_PS_INIT;
-	mov	_main_u8StatePeriodicSend_65536_112,#0x00
-;	src/main.c:1305: printf_fast_f("stopping...");
+;	src/main.c:1295: printf_fast_f("starting...\r\n");
 	push	ar7
 	push	ar4
 	mov	a,#___str_64
@@ -5014,8 +5010,61 @@ _main:
 	dec	sp
 	pop	ar4
 	pop	ar7
-;	src/main.c:1308: }
-;	src/main.c:1313: }
+;	src/main.c:1297: break;
+	ljmp	00205$
+;	src/main.c:1298: case STATE_PS_SENDING :
+00198$:
+;	src/main.c:1299: if (gu16TimeCntMilliSec > 3000) { // 1sec 넘으면
+	mov	dptr,#_gu16TimeCntMilliSec
+	movx	a,@dptr
+	mov	r5,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r6,a
+	clr	c
+	mov	a,#0xb8
+	subb	a,r5
+	mov	a,#0x0b
+	subb	a,r6
+	jnc	00200$
+;	src/main.c:1300: gu16TimeCntMilliSec = 0;
+	mov	dptr,#_gu16TimeCntMilliSec
+	clr	a
+	movx	@dptr,a
+	inc	dptr
+	movx	@dptr,a
+;	src/main.c:1301: periodic_func(&stLineFiPkt_test);
+	mov	dptr,#_main_stLineFiPkt_test_65536_120
+	mov	b,#0x00
+	push	ar7
+	push	ar4
+	lcall	_periodic_func
+	pop	ar4
+	pop	ar7
+00200$:
+;	src/main.c:1318: if (u8PSCmd == CMD_PS_END) {
+	mov	a,#0x04
+	cjne	a,_main_u8PSCmd_65536_120,00537$
+	sjmp	00538$
+00537$:
+	ljmp	00205$
+00538$:
+;	src/main.c:1319: u8StatePeriodicSend = STATE_PS_INIT;
+	mov	_main_u8StatePeriodicSend_65536_120,#0x00
+;	src/main.c:1320: printf_fast_f("stopping...");
+	push	ar7
+	push	ar4
+	mov	a,#___str_65
+	push	acc
+	mov	a,#(___str_65 >> 8)
+	push	acc
+	lcall	_printf_fast_f
+	dec	sp
+	dec	sp
+	pop	ar4
+	pop	ar7
+;	src/main.c:1323: }
+;	src/main.c:1328: }
 	ljmp	00205$
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
@@ -5390,92 +5439,99 @@ ___str_54:
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_55:
+	.ascii "%d"
+	.db 0x0d
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_56:
 	.ascii "This is UART0"
 	.db 0x0a
 	.db 0x0d
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_56:
+___str_57:
 	.ascii "LineFi Master"
 	.db 0x0a
 	.db 0x0d
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_57:
+___str_58:
 	.ascii "This is UART1"
 	.db 0x0a
 	.db 0x0d
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_58:
+___str_59:
 	.ascii "%s"
 	.db 0x0d
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_59:
+___str_60:
 	.ascii "DataIdx:%d"
 	.db 0x0d
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_60:
+___str_61:
 	.ascii "0x%x "
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_61:
+___str_62:
 	.ascii "START periodic packet generating.."
 	.db 0x0d
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_62:
+___str_63:
 	.ascii "STOP  periodic packet generating.."
 	.db 0x0d
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_63:
+___str_64:
 	.ascii "starting..."
 	.db 0x0d
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_64:
+___str_65:
 	.ascii "stopping..."
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_65:
+___str_66:
 	.ascii "UART0_INPUT_MODE0:one key control"
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_66:
+___str_67:
 	.ascii "UART0_INPUT_MODE1:string input"
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_67:
+___str_68:
 	.ascii "UART0_INPUT_MODE2:mimic 5keys on board"
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_68:
+___str_69:
 	.ascii "UART0_INPUT_MODE3:data setting"
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_69:
+___str_70:
 	.ascii "UART0_INPUT_MODE4:periodic function"
 	.db 0x00
 	.area CSEG    (CODE)

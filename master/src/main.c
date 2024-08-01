@@ -21,6 +21,9 @@
 #include "Function_define.h"
 #include "uart.h"
 #include "linefi_packet.h"
+#include <time.h> // 랜덤난수생성
+#include <stdio.h>
+// #include <stdlib.h>
 
 #define KEY_ESC (27)
 #define TIMER0_VAL        (133*80+605) // 1msec 1kHz 20초에 19,964
@@ -109,7 +112,7 @@ UINT8 __xdata gpu8Data2[20] = {
 	5,5,5,5,
 };
 UINT8 __xdata gpu8Data3[28] = {
-	2,2,2,2,
+	2,255,255,2,
 	1,1,1,1,
 	4,4,4,4,
 	3,3,3,3,
@@ -118,7 +121,7 @@ UINT8 __xdata gpu8Data3[28] = {
 	5,5,5,5,
 };
 
-#define LINEFI_DEFAULT_RATE	4
+#define LINEFI_DEFAULT_RATE 5
 // uint8 __xdata u8buff[];
 uint16 __xdata gu16TimeCnt;
 uint16 __xdata gu16TimeCntMilliSec;
@@ -777,22 +780,34 @@ void struct_to_uint8(linefi_packet_t * apcPkt)
 /*
 	주기적으로 패킷 보내는 코드
 */
+// #if PLC
+	
+// #endif
 #if PLC
 void periodic_func(linefi_packet_t * apcStr)
 {
 	static UINT8 su8Cnt = 0;
 	uint8 total_size = size_linefi_packet(apcStr);
-	// uint8 *packet_data = (uint8*)apcStr;
-	
-	apcStr->u8Ver = su8Cnt++; // For index increment
-	// add_crc_linefi_packet_packet(apcStr);
-	send_linefi_packet(apcStr);
-	// display on master
-	struct_to_uint8(apcStr); // packet struct to array type
-	print_raw_packet(total_size, pu8buff); 
-	// print_linefipacket(apcStr); 
-	// printf_fast_f("%d\r\n", su8Cnt++);
-	// printf_fast_f("%s\r\n", apcStr);
+
+	if (su8Cnt * 17 % 15 < 4) {
+		printf_fast_f("%d\r\n",(int)(su8Cnt * 17 % 15));
+		apcStr->u8Ver = su8Cnt++;
+		send_linefi_packet(apcStr);	
+		struct_to_uint8(apcStr);	
+		print_raw_packet(total_size, pu8buff); 
+	}
+	else {
+		apcStr->u8Ver = su8Cnt++;
+	}
+	// apcStr->u8Ver = su8Cnt++; // For index increment
+	// // add_crc_linefi_packet_packet(apcStr);
+	// send_linefi_packet(apcStr);
+	// // display on master
+	// struct_to_uint8(apcStr); // packet struct to array type
+	// print_raw_packet(total_size, pu8buff); 
+	// // print_linefipacket(apcStr); 
+	// // printf_fast_f("%d\r\n", su8Cnt++);
+	// // printf_fast_f("%s\r\n", apcStr);
 }
 #endif
 
@@ -847,7 +862,7 @@ void main (void)
 		1, //UINT8 u8Ver;
 		2, //UINT8 u8Type;
 		1, //UINT8 u8Addr;
-		20, //UINT8 u8Size;
+		3, //UINT8 u8Size;
 		5, //UINT8 u8CRC;
 		gpu8Data3 //UINT8 * pu8Data;
 	};
@@ -1281,7 +1296,7 @@ void main (void)
 				}
 				break;
 			case STATE_PS_SENDING :
-				if (gu16TimeCntMilliSec > 100) { // 1sec 넘으면
+				if (gu16TimeCntMilliSec > 3000) { // 1sec 넘으면
 					gu16TimeCntMilliSec = 0;
 					periodic_func(&stLineFiPkt_test);
 					// print packet size

@@ -484,26 +484,26 @@ Hexadecimal [24-Bits]
 Symbol Table
 
  16 _chk_crc_linefi_packet_packet                                  0000A5 GR
- 16 _cp_buf2linefipacket                                           00023D GR
-  5 _cp_buf2linefipacket_PARM_2                                    000003 GR
-  5 _cp_buf2linefipacket_PARM_3                                    000006 GR
-  5 _cp_buf2linefipacket_i_65538_62                                000009 R
-  5 _cp_buf2linefipacket_sloc0_1_0                                 00000A R
- 16 _crc8                                                          0005C3 GR
+ 16 _cp_buf2linefipacket                                           0001EB GR
+  6 _cp_buf2linefipacket_PARM_2                                    000000 GR
+  6 _cp_buf2linefipacket_PARM_3                                    000003 GR
+  6 _cp_buf2linefipacket_i_65538_61                                000006 R
+  6 _cp_buf2linefipacket_sloc0_1_0                                 000007 R
+ 16 _crc8                                                          000560 GR
   6 _crc8_PARM_2                                                   000000 GR
   6 _crc8_PARM_3                                                   000001 GR
- 16 _get_octet_from_linefi                                         0000D7 GR
+ 16 _get_octet_from_linefi                                         0000A9 GR
   B _gpcTypeStr                                                    000000 GR
   5 _gu16Cnt                                                       000000 GR
- 16 _print_linefipacket                                            0003AD GR
-  5 _print_linefipacket_i_65537_68                                 00000D R
- 16 _print_raw_packet                                              0005F3 GR
-  5 _print_raw_packet_PARM_2                                       00000E GR
+ 16 _print_linefipacket                                            00034A GR
+  5 _print_linefipacket_i_65537_66                                 000003 R
+ 16 _print_raw_packet                                              000590 GR
+  5 _print_raw_packet_PARM_2                                       000004 GR
     _printf_fast_f                                                 ****** GX
- 16 _send_linefi_packet                                            0000DD GR
-  5 _send_linefi_packet_i_65538_55                                 000002 R
- 16 _send_octet_to_linefi                                          0000DA GR
- 16 _sht75_crc_table                                               0006FF GR
+ 16 _send_linefi_packet                                            0000AF GR
+  5 _send_linefi_packet_i_65537_54                                 000002 R
+ 16 _send_octet_to_linefi                                          0000AC GR
+ 16 _sht75_crc_table                                               0006A2 GR
  16 _size_linefi_packet                                            000000 GR
     a                                                           =  0000E0 L
     a.0                                                         =  0000E0 L
@@ -716,8 +716,8 @@ Area Table
    2 RSEG0                                      size      0   flags    8
    3 RSEG1                                      size      0   flags    8
    4 REG_BANK_0                                 size      8   flags    4
-   5 DSEG                                       size     11   flags    0
-   6 OSEG                                       size      2   flags    4
+   5 DSEG                                       size      7   flags    0
+   6 OSEG                                       size      A   flags    4
    7 ISEG                                       size      0   flags    0
    8 IABS                                       size      0   flags    8
    9 BSEG                                       size      0   flags   80
@@ -733,7 +733,7 @@ Area Table
   13 GSINIT5                                    size      0   flags   20
   14 GSINIT                                     size    18D   flags   20
   15 GSFINAL                                    size      0   flags   20
-  16 CSEG                                       size    7FF   flags   20
+  16 CSEG                                       size    7A2   flags   20
   17 CONST                                      size     F8   flags   20
   18 CABS                                       size      0   flags   28
 

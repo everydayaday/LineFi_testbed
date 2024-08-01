@@ -556,7 +556,7 @@
                                     556 ;	-----------------------------------------
                                     557 ;	 function _sdcc_external_startup
                                     558 ;	-----------------------------------------
-      001A2D                        559 __sdcc_external_startup:
+      001A8D                        559 __sdcc_external_startup:
                            000007   560 	ar7 = 0x07
                            000006   561 	ar6 = 0x06
                            000005   562 	ar5 = 0x05
@@ -566,16 +566,16 @@
                            000001   566 	ar1 = 0x01
                            000000   567 	ar0 = 0x00
                                     568 ;	../lib/Common.c:39: __endasm;
-      001A2D 75 C7 AA         [24]  569 	mov	0xC7, #0xAA
-      001A30 75 C7 55         [24]  570 	mov	0xC7, #0x55
-      001A33 75 FD 5A         [24]  571 	mov	0xFD, #0x5A
-      001A36 75 C7 AA         [24]  572 	mov	0xC7, #0xAA
-      001A39 75 C7 55         [24]  573 	mov	0xC7, #0x55
-      001A3C 75 FD A5         [24]  574 	mov	0xFD, #0xA5
+      001A8D 75 C7 AA         [24]  569 	mov	0xC7, #0xAA
+      001A90 75 C7 55         [24]  570 	mov	0xC7, #0x55
+      001A93 75 FD 5A         [24]  571 	mov	0xFD, #0x5A
+      001A96 75 C7 AA         [24]  572 	mov	0xC7, #0xAA
+      001A99 75 C7 55         [24]  573 	mov	0xC7, #0x55
+      001A9C 75 FD A5         [24]  574 	mov	0xFD, #0xA5
                                     575 ;	../lib/Common.c:40: return 0;
-      001A3F 75 82 00         [24]  576 	mov	dpl,#0x00
+      001A9F 75 82 00         [24]  576 	mov	dpl,#0x00
                                     577 ;	../lib/Common.c:41: }
-      001A42 22               [24]  578 	ret
+      001AA2 22               [24]  578 	ret
                                     579 	.area CSEG    (CODE)
                                     580 	.area CONST   (CODE)
                                     581 	.area CABS    (ABS,CODE)

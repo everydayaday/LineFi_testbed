@@ -38,7 +38,6 @@ C:   00000001  s_PSEG
 C:   00000001  s_XSEG                          
 C:   00000003  l_GSFINAL                       
 C:   00000003  l_GSINIT0                       
-C:   00000005  l_OSEG                          
 C:   00000006  l_GSINIT4                       
 C:   00000006  l_ISEG                          
 C:   00000008  l_BSEG                          
@@ -46,10 +45,10 @@ C:   00000008  l_REG_BANK_0
 C:   00000008  l_REG_BANK_1                    
 C:   00000008  s_REG_BANK_1                    
 C:   0000000A  l_GSINIT2                       
+C:   0000000A  l_OSEG                          
 C:   00000010  s_REG_BANK_2                    
 C:   00000018  s_BIT_BANK                      
 C:   00000018  s_REG_BANK_3                    
-C:   00000019  s_OSEG                          
 C:   00000020  s_BSEG_BYTES                    
 C:   00000020  s__CODE                         
 C:   00000041  l_HOME                          
@@ -57,6 +56,7 @@ C:   00000041  s_GSINIT0
 C:   00000044  s_GSINIT1                       
 C:   00000044  s_GSINIT2                       
 C:   0000004E  s_GSINIT3                       
+C:   0000004E  s_GSINIT4                       
 ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
 Hexadecimal  [32-Bits]
 
@@ -66,23 +66,23 @@ CABS                                00000000    00000000 =           0. bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   0000004E  s_GSINIT4                       
 C:   00000054  s_GSINIT                        
 C:   00000054  s_GSINIT5                       
-C:   0000007B  l_SSEG                          
-C:   0000007E  l_DSEG                          
-C:   0000007F  s_ISEG                          
-C:   00000085  s_SSEG                          
+C:   0000006E  s_OSEG                          
+C:   00000078  s_ISEG                          
+C:   0000007E  s_SSEG                          
+C:   00000080  l_DSEG                          
+C:   00000082  l_SSEG                          
 C:   00000100  l_IRAM                          
 C:   000001A2  l_XSEG                          
 C:   000001A3  s_XISEG                         
-C:   000003DD  l_GSINIT                        
-C:   00000431  s_GSFINAL                       
-C:   00000434  s_CSEG                          
-C:   000007B3  l_CONST                         
-C:   00003038  l_CSEG                          
-C:   0000346C  s_CONST                         
-C:   00003C1F  s_XINIT                         
+C:   000003E1  l_GSINIT                        
+C:   00000435  s_GSFINAL                       
+C:   00000438  s_CSEG                          
+C:   000007B8  l_CONST                         
+C:   000030BA  l_CSEG                          
+C:   000034F2  s_CONST                         
+C:   00003CAA  s_XINIT                         
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
 Hexadecimal  [32-Bits]
@@ -93,7 +93,7 @@ Area                                    Addr        Size        Decimal Bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00000000  .__.ABS.                           _gptrget
+     00000000  .__.ABS.                           _modsint
      00000080  _MOSI                              uart
      00000080  _P0                                uart
      00000080  _P00                               uart
@@ -398,13 +398,15 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-DSEG                                00000000    0000007E =         126. bytes (REL,CON)
+DSEG                                00000000    00000080 =         128. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
      00000010  _Write_APROM_BYTE_PARM_2           eeprom_iap
-     00000017  _bp                                _bp
-     00000018  _vprintf_PARM_2                    vprintf
+     00000011  _gu16Cnt                           linefi_packet
+     00000015  _print_raw_packet_PARM_2           linefi_packet
+     0000001E  _bp                                _bp
+     0000001F  _vprintf_PARM_2                    vprintf
      00000021  _gu8UART                           main
      00000022  _state_machine_PARM_2              main
      00000023  _state_machine_PARM_3              main
@@ -412,41 +414,39 @@ DSEG                                00000000    0000007E =         126. bytes (R
      00000026  _printoutbuf_PARM_2                main
      00000029  _act_by_one_key_PARM_2             main
      0000002C  _act_by_one_key_PARM_3             main
-     00000041  _gu16Cnt                           linefi_packet
-     00000044  _cp_buf2linefipacket_PARM_2        linefi_packet
-     00000047  _cp_buf2linefipacket_PARM_3        linefi_packet
-     0000004F  _print_raw_packet_PARM_2           linefi_packet
-     0000005F  __print_format_PARM_2              printf_large
-     00000062  __print_format_PARM_3              printf_large
-     00000065  __print_format_PARM_4              printf_large
-
+     0000004E  __print_format_PARM_2              printf_large
+     00000051  __print_format_PARM_3              printf_large
+     00000054  __print_format_PARM_4              printf_large
 ASxxxx Linker V03.00 + NoICE + sdld,  page 12.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-OSEG                                00000019    00000005 =           5. bytes (REL,OVR)
+OSEG                                0000006E    0000000A =          10. bytes (REL,OVR)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00000019  __divslong_PARM_2                  _divulong
-     00000019  __divulong_PARM_2                  _divulong
-     00000019  __gptrput_PARM_2                   _gptrput
-     00000019  __mulint_PARM_2                    _mulint
-     00000019  _crc8_PARM_2                       linefi_packet
-     00000019  _iap_cmd_PARM_2                    eeprom_iap
-     00000019  _state_switches_PARM_2             main
-     0000001A  _crc8_PARM_3                       linefi_packet
-     0000001A  _iap_cmd_PARM_3                    eeprom_iap
-     0000001B  _iap_cmd_PARM_4                    eeprom_iap
-     0000001C  _iap_cmd_PARM_5                    eeprom_iap
-
+     0000006E  __divslong_PARM_2                  _divulong
+     0000006E  __divulong_PARM_2                  _divulong
+     0000006E  __gptrput_PARM_2                   _gptrput
+     0000006E  __modsint_PARM_2                   _moduint
+     0000006E  __moduint_PARM_2                   _moduint
+     0000006E  __mulint_PARM_2                    _mulint
+     0000006E  _cp_buf2linefipacket_PARM_2        linefi_packet
+     0000006E  _crc8_PARM_2                       linefi_packet
+     0000006E  _iap_cmd_PARM_2                    eeprom_iap
+     0000006E  _state_switches_PARM_2             main
+     0000006F  _crc8_PARM_3                       linefi_packet
+     0000006F  _iap_cmd_PARM_3                    eeprom_iap
+     00000070  _iap_cmd_PARM_4                    eeprom_iap
+     00000071  _cp_buf2linefipacket_PARM_3        linefi_packet
+     00000071  _iap_cmd_PARM_5                    eeprom_iap
 ASxxxx Linker V03.00 + NoICE + sdld,  page 13.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-ISEG                                0000007F    00000006 =           6. bytes (REL,CON)
+ISEG                                00000078    00000006 =           6. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -455,11 +455,11 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-SSEG                                00000085    0000007B =         123. bytes (REL,OVR)
+SSEG                                0000007E    00000082 =         130. bytes (REL,OVR)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00000085  __start__stack                     main
+     0000007E  __start__stack                     main
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 15.
 Hexadecimal  [32-Bits]
@@ -526,7 +526,7 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-GSINIT                              00000054    000003DD =         989. bytes (REL,CON,CODE)
+GSINIT                              00000054    000003E1 =         993. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -535,7 +535,7 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-GSFINAL                             00000431    00000003 =           3. bytes (REL,CON,CODE)
+GSFINAL                             00000435    00000003 =           3. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -544,90 +544,91 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000434    00003038 =       12344. bytes (REL,CON,CODE)
+CSEG                                00000438    000030BA =       12474. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000434  _putchar                           main
-C:   0000044E  _print_esc                         main
-C:   000004BD  _print_char                        main
-C:   000004F0  _state_machine                     main
-C:   000005BA  _Timer0_ISR                        main
-C:   000005E9  _pin_interrupt_isr                 main
-C:   000005F3  _chk_manchester                    main
-C:   00000636  _conv_manchester2nibble            main
-C:   00000655  _conv_manchester2highnibble        main
-C:   00000674  _MODIFY_HIRC_166                   main
-C:   000006C0  _disp_help                         main
-C:   000007EE  _gpio_setup                        main
-C:   00000843  _state_switches                    main
-C:   00000938  _printoutbuf                       main
-C:   00000996  _print_help                        main
-C:   00000A69  _act_by_one_key                    main
-C:   000010AD  _struct_to_uint8                   main
-C:   00001184  _periodic_func                     main
-C:   000011DD  _main                              main
-C:   00001A2D  __sdcc_external_startup            Common
-C:   00001A43  _Timer0_Delay100us                 Delay
-C:   00001A75  _Timer0_Delay1ms                   Delay
-C:   00001AA7  _Timer1_Delay10ms                  Delay
-C:   00001AD9  _Timer2_Delay500us                 Delay
-C:   00001B0E  _Timer3_Delay100ms                 Delay
-C:   00001B4A  _Timer3_Delay10us                  Delay
-C:   00001B86  _iap_cmd                           eeprom_iap
-C:   00001BFB  _Erase_APROM_Page                  eeprom_iap
-C:   00001C0F  _Write_APROM_BYTE                  eeprom_iap
-C:   00001C23  _read_bandgap_value                eeprom_iap
-C:   00001C7E  _read_uid                          eeprom_iap
-C:   00001CA7  _size_linefi_packet                linefi_packet
-C:   00001CC2  _calc_crc_linefi_packet_packet     linefi_packet
-C:   00001D24  _add_crc_linefi_packet_packet      linefi_packet
-C:   00001D4C  _chk_crc_linefi_packet_packet      linefi_packet
-C:   00001D7E  _get_octet_from_linefi             linefi_packet
-C:   00001D81  _send_octet_to_linefi              linefi_packet
-C:   00001D84  _send_linefi_packet                linefi_packet
-C:   00001EE4  _cp_buf2linefipacket               linefi_packet
-C:   00002054  _print_linefipacket                linefi_packet
-C:   0000226A  _crc8                              linefi_packet
-C:   0000229A  _print_raw_packet                  linefi_packet
-C:   000023A6  _sht75_crc_table                   linefi_packet
-C:   000024A6  _InitialUART0_Timer1               uart
-C:   000024E6  _InitialUART0_Timer3               uart
-C:   00002537  _Receive_Data_From_UART0           uart
-C:   00002540  _Receive_Data_From_UART0_nb        uart
-C:   0000255E  _Send_Data_To_UART0                uart
-C:   00002568  _InitialUART1_Timer3               uart
-C:   000025B4  _Receive_Data_From_UART1           uart
+C:   00000438  _putchar                           main
+C:   00000452  _print_esc                         main
+C:   000004C1  _print_char                        main
+C:   000004F4  _state_machine                     main
+C:   000005BE  _Timer0_ISR                        main
+C:   000005ED  _pin_interrupt_isr                 main
+C:   000005F7  _chk_manchester                    main
+C:   0000063A  _conv_manchester2nibble            main
+C:   00000659  _conv_manchester2highnibble        main
+C:   00000678  _MODIFY_HIRC_166                   main
+C:   000006C4  _disp_help                         main
+C:   000007F2  _gpio_setup                        main
+C:   00000847  _state_switches                    main
+C:   0000093C  _printoutbuf                       main
+C:   0000099A  _print_help                        main
+C:   00000A6D  _act_by_one_key                    main
+C:   000010B1  _struct_to_uint8                   main
+C:   00001188  _periodic_func                     main
+C:   0000123C  _main                              main
+C:   00001A8D  __sdcc_external_startup            Common
+C:   00001AA3  _Timer0_Delay100us                 Delay
+C:   00001AD5  _Timer0_Delay1ms                   Delay
+C:   00001B07  _Timer1_Delay10ms                  Delay
+C:   00001B39  _Timer2_Delay500us                 Delay
+C:   00001B6E  _Timer3_Delay100ms                 Delay
+C:   00001BAA  _Timer3_Delay10us                  Delay
+C:   00001BE6  _iap_cmd                           eeprom_iap
+C:   00001C5B  _Erase_APROM_Page                  eeprom_iap
+C:   00001C6F  _Write_APROM_BYTE                  eeprom_iap
+C:   00001C83  _read_bandgap_value                eeprom_iap
+C:   00001CDE  _read_uid                          eeprom_iap
+C:   00001D07  _size_linefi_packet                linefi_packet
+C:   00001D22  _calc_crc_linefi_packet_packet     linefi_packet
+C:   00001D84  _add_crc_linefi_packet_packet      linefi_packet
+C:   00001DAC  _chk_crc_linefi_packet_packet      linefi_packet
+C:   00001DB0  _get_octet_from_linefi             linefi_packet
+C:   00001DB3  _send_octet_to_linefi              linefi_packet
+C:   00001DB6  _send_linefi_packet                linefi_packet
+C:   00001EF2  _cp_buf2linefipacket               linefi_packet
+C:   00002051  _print_linefipacket                linefi_packet
+C:   00002267  _crc8                              linefi_packet
+C:   00002297  _print_raw_packet                  linefi_packet
+C:   000023A9  _sht75_crc_table                   linefi_packet
+C:   000024A9  _InitialUART0_Timer1               uart
+C:   000024E9  _InitialUART0_Timer3               uart
+C:   0000253A  _Receive_Data_From_UART0           uart
+C:   00002543  _Receive_Data_From_UART0_nb        uart
+C:   00002561  _Send_Data_To_UART0                uart
+C:   0000256B  _InitialUART1_Timer3               uart
+C:   000025B7  _Receive_Data_From_UART1           uart
 ASxxxx Linker V03.00 + NoICE + sdld,  page 23.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000434    00003038 =       12344. bytes (REL,CON,CODE)
+CSEG                                00000438    000030BA =       12474. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   000025BD  _Receive_Data_From_UART1_nb        uart
-C:   000025DB  _Send_Data_To_UART1                uart
-C:   000025E5  _uart_setup                        uart
-C:   00002601  _printf_fast_f                     printf_fast_f
-C:   00002A82  __divulong                         _divulong
-C:   00002AE7  fs_rshift_a                        _fsrshift
-C:   00002B2A  __gptrput                          _gptrput
-C:   00002B54  _vprintf                           vprintf
-C:   00002B6D  _printf                            vprintf
-C:   00002C33  __print_format                     printf_large
-C:   0000341B  _strlen                            _strlen
-C:   00003433  __mulint                           _mulint
-C:   00003433  __mulint_dummy                     _mulint
-C:   00003450  __gptrget                          _gptrget
-
+C:   000025C0  _Receive_Data_From_UART1_nb        uart
+C:   000025DE  _Send_Data_To_UART1                uart
+C:   000025E8  _uart_setup                        uart
+C:   00002604  _printf_fast_f                     printf_fast_f
+C:   00002A85  __divulong                         _divulong
+C:   00002AEA  fs_rshift_a                        _fsrshift
+C:   00002B2D  __gptrput                          _gptrput
+C:   00002B48  __mulint                           _mulint
+C:   00002B48  __mulint_dummy                     _mulint
+C:   00002B65  __moduint                          _moduint
+C:   00002BC1  _vprintf                           vprintf
+C:   00002BDA  _printf                            vprintf
+C:   00002CA0  __print_format                     printf_large
+C:   00003488  _strlen                            _strlen
+C:   000034A0  __gptrget                          _gptrget
+C:   000034BC  __modsint                          _modsint
 ASxxxx Linker V03.00 + NoICE + sdld,  page 24.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CONST                               0000346C    000007B3 =        1971. bytes (REL,CON,CODE)
+CONST                               000034F2    000007B8 =        1976. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -655,6 +656,10 @@ Libraries Linked                          [ object file ]
                                           [ _fsrshift.rel ]
 /usr/bin/../share/sdcc/lib/small/libsdcc.lib
                                           [ _gptrput.rel ]
+/usr/bin/../share/sdcc/lib/small/libint.lib
+                                          [ _mulint.rel ]
+/usr/bin/../share/sdcc/lib/small/libint.lib
+                                          [ _moduint.rel ]
 /usr/bin/../share/sdcc/lib/small/libsdcc.lib
                                           [ _bp.rel ]
 /usr/bin/../share/sdcc/lib/small/libsdcc.lib
@@ -663,12 +668,12 @@ Libraries Linked                          [ object file ]
                                           [ printf_large.rel ]
 /usr/bin/../share/sdcc/lib/small/libsdcc.lib
                                           [ _strlen.rel ]
-/usr/bin/../share/sdcc/lib/small/libint.lib
-                                          [ _mulint.rel ]
 /usr/bin/../share/sdcc/lib/small/mcs51.lib
                                           [ crtstart.rel ]
 /usr/bin/../share/sdcc/lib/small/libsdcc.lib
                                           [ _gptrget.rel ]
+/usr/bin/../share/sdcc/lib/small/libint.lib
+                                          [ _modsint.rel ]
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 26.
 
